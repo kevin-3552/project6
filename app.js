@@ -191,7 +191,7 @@ function init() {
     const groundTexture = textureLoader.load('textures/zemin.png');
     groundTexture.wrapS = THREE.RepeatWrapping;
     groundTexture.wrapT = THREE.RepeatWrapping;
-    groundTexture.repeat.set(50, 50);  // Zemin dokusunun tekrarlanmasını sağlar
+    groundTexture.repeat.set(10, 10);  // Zemin dokusunun tekrarlanmasını sağlar
     // Doku y ekseninde aşağı kaydırılıyor
     groundTexture.offset.y = -1; // Y ekseninde dokuyu aşağı taşır (negatif değerle)
 
