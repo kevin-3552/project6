@@ -1,4 +1,10 @@
 
+// #region DEĞİŞKENLER import
+import { kolonMaterial1, MAKASMALZEME } from './malzemeler.js'; // Malzeme dosyasını import edin
+
+// #endregion
+
+//#region HEA300
 export function HEA300(H) {
   const FE = 0.3;  // Flanş eni
   const FK = 0.01; // Flanş kalınlığı
@@ -36,7 +42,57 @@ export function HEA300(H) {
 
   return kolonGroup;  // Grup olarak geri döndürülüyor
 }
+//#endregion
 
+//#region Kolon Box 1
+export function KOLON_BOX1(KOLONUZUNLUK, malzeme = kolonMaterial1) {
+  let KOLONEBAT;
+
+  // KOLONUZUNLUK değerine göre KOLONEBAT belirleniyor
+  if (KOLONUZUNLUK > 0 && KOLONUZUNLUK <= 6) {
+    KOLONEBAT = 0.23;
+  } else if (KOLONUZUNLUK > 6 && KOLONUZUNLUK <= 7) {
+    KOLONEBAT = 0.3;
+  } else if (KOLONUZUNLUK > 7 && KOLONUZUNLUK < 8) {
+    KOLONEBAT = 0.35;
+  } else if (KOLONUZUNLUK >= 8 && KOLONUZUNLUK < 12) {
+    KOLONEBAT = 0.4;
+  } else if (KOLONUZUNLUK >= 12) {
+    KOLONEBAT = 0.5;
+  } else {
+    console.error("Geçersiz KOLONUZUNLUK değeri:", KOLONUZUNLUK);
+    return null; // Hata durumunda fonksiyonu sonlandır
+  }
+
+  // Kolon için BoxGeometry oluşturuluyor
+  const geometry = new THREE.BoxGeometry(KOLONEBAT, KOLONUZUNLUK, KOLONEBAT);
+
+  // Texture ekleniyor
+  const textureLoader = new THREE.TextureLoader();
+  const texture = textureLoader.load('textures/çelik7.png');
+  const kolon = new THREE.Mesh(geometry, malzeme);
+
+  // Kolonun başlangıç pozisyonu merkezde ayarlanıyor
+  kolon.position.set(0, KOLONUZUNLUK / 2, 0); // Kolonun y ekseninde merkezlenmesi için
+
+  // Siyah köşe çizgileri için EdgesGeometry ve LineBasicMaterial kullanılıyor
+  const edges = new THREE.EdgesGeometry(geometry);
+  const lineMaterial = new THREE.LineBasicMaterial({ color: 0x000000 }); // Siyah çizgiler
+  const outline = new THREE.LineSegments(edges, lineMaterial);
+
+  // Kolon ve çizgiler aynı pozisyona yerleştiriliyor
+  outline.position.copy(kolon.position);
+
+  // Kolon ve çizgileri bir grup olarak döndürüyoruz
+  const kolonGroup = new THREE.Group();
+  kolonGroup.add(kolon);
+  kolonGroup.add(outline);
+
+  return kolonGroup;
+}
+//#endregion
+
+//#region Kolon1
 export function KOLON1(H) {
   const FK = 0.01; // Flanş kalınlığı
   const GK = 0.01; // Gövde kalınlığı
@@ -112,4 +168,73 @@ export function KOLON1(H) {
 
   return kolonGroup;  // Grup olarak geri döndürülüyor
 }
+//#endregion
 
+//#region Yatay_MK_Geo_1
+export function YATAY_MK_GEO_1(YATAYHOLGENİŞLİĞİ, MK_UZUNLUK) {
+  let MK_EN, MK_YÜKS;
+
+  // YATAYHOLGENİŞLİĞİ değerine göre MK_EN ve MK_YÜKS belirleniyor
+  if (YATAYHOLGENİŞLİĞİ > 0 && YATAYHOLGENİŞLİĞİ <= 6) {
+    MK_EN = 0.20;
+    MK_YÜKS = 0.17;
+  } else if (YATAYHOLGENİŞLİĞİ > 6 && YATAYHOLGENİŞLİĞİ <= 10) {
+    MK_EN = 0.22;
+    MK_YÜKS = 0.20;
+  } else if (YATAYHOLGENİŞLİĞİ > 10 && YATAYHOLGENİŞLİĞİ <= 15) {
+    MK_EN = 0.25;
+    MK_YÜKS = 0.22;
+  } else if (YATAYHOLGENİŞLİĞİ > 15 && YATAYHOLGENİŞLİĞİ <= 20) {
+    MK_EN = 0.28;
+    MK_YÜKS = 0.26;
+  } else if (YATAYHOLGENİŞLİĞİ > 20 && YATAYHOLGENİŞLİĞİ <= 25) {
+    MK_EN = 0.31;
+    MK_YÜKS = 0.29;
+  } else if (YATAYHOLGENİŞLİĞİ > 25) {
+    MK_EN = 0.33;
+    MK_YÜKS = 0.33;
+  } else {
+    console.error("Geçersiz YATAYHOLGENİŞLİĞİ değeri:", YATAYHOLGENİŞLİĞİ);
+    return null;
+  }
+
+  // Geometri ve mesh oluşturuluyor
+  const geometry = new THREE.BoxGeometry(MK_EN, MK_UZUNLUK, MK_YÜKS);
+  const mesh = new THREE.Mesh(geometry, MAKASMALZEME);
+
+  // Siyah dış köşe çizgileri için EdgesGeometry ve LineBasicMaterial kullanılıyor
+  const edges = new THREE.EdgesGeometry(geometry);
+  const edgeMaterial = new THREE.LineBasicMaterial({ color: 0x000000 });
+  const edgeLines = new THREE.LineSegments(edges, edgeMaterial);
+
+  // Grup olarak döndürülüyor
+  const group = new THREE.Group();
+  group.add(mesh);
+  group.add(edgeLines);
+
+  return group;
+}
+//#endregion
+export function Yatay_Kiriş_Profil_1(yatayboy_1) {
+
+  const geometry = new THREE.BoxGeometry(0.25, yatayboy_1, 0.25);
+  const textureLoader = new THREE.TextureLoader();
+  const texture = textureLoader.load('textures/darkbl1.png');
+  const kolon = new THREE.Mesh(geometry, malzeme);
+  kolon.position.set(0, 0, 0);
+
+  // Siyah köşe çizgileri 
+  const edges = new THREE.EdgesGeometry(geometry);
+  const lineMaterial = new THREE.LineBasicMaterial({ color: 0x000000 }); // Siyah çizgiler
+  const outline = new THREE.LineSegments(edges, lineMaterial);
+  // Kolon ve çizgiler aynı pozisyona yerleştiriliyor
+  outline.position.copy(kolon.position);
+
+  // Kolon ve çizgileri bir grup olarak döndürüyoruz
+  const kolonGroup = new THREE.Group();
+  kolonGroup.add(kolon);
+  kolonGroup.add(outline);
+
+  return kolonGroup;
+}
+//#endregion
