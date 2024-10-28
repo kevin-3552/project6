@@ -25,36 +25,90 @@ let ÇAPRAZ_Y_ARTIŞ
 export let DÜŞEYHOLSAYISI
 export let ALTMAKASYÜKS2; // Global değişken
 let MAKASBÜYKATSAYISI = 1.02 // MAKAS BÜYÜTME KATSAYISI
+let YANBAĞKİRİŞİMAKS = 3
+let YanBağKirişAraAdet 
+export let YanKirişArası
+export let YanBağKirişAdet
+
+
 //#endregion 
 
-//#region EXPORTLAR
+//#region Makas Yüksekliği Hespalama
+export function MAKAS_YÜKSEKL_HESAPLA(YATAYHOLGENİŞLİĞİ, H) {
+  
+    if (YATAYHOLGENİŞLİĞİ > 0 && YATAYHOLGENİŞLİĞİ <= 10) {
+      if (H <= 6) {
+        MYÜKS = 0.5;
+      } else if (H > 6 && H <= 10) {
+        MYÜKS = 0.8;
+      } else if (H > 10 && H <= 15) {
+        MYÜKS = 1;
+      } else {
+        MYÜKS = 1.2;
+      }
+    } else if (YATAYHOLGENİŞLİĞİ > 10 && YATAYHOLGENİŞLİĞİ <= 20) {
+      if (H < 6) {
+        MYÜKS = 0.5;
+      } else if (H >= 6 && H <= 10) {
+        MYÜKS = 0.9;
+      } else if (H > 10 && H <= 15) {
+        MYÜKS = 1.1;
+      } else {
+        MYÜKS = 1.2;
+      }
+    } else if (YATAYHOLGENİŞLİĞİ > 20 && YATAYHOLGENİŞLİĞİ <= 28) {
+      if (H < 6) {
+        MYÜKS = 0.5;
+      } else if (H >= 6 && H <= 10) {
+        MYÜKS = 0.9;
+      } else if (H > 10 && H <= 15) {
+        MYÜKS = 1.1;
+      } else {
+        MYÜKS = 1.2;
+      }
+    } else if (YATAYHOLGENİŞLİĞİ > 28) {
+      if (H < 6) {
+        MYÜKS = 0.6;
+      } else if (H >= 6 && H <= 10) {
+        MYÜKS = 1;
+      } else if (H > 10 && H <= 15) {
+        MYÜKS = 1.5;
+      } else {
+        MYÜKS = 1.8;
+      }
+    } else {
+      console.error("Geçersiz YATAYHOLGENİŞLİĞİ veya H değeri.");
+      MYÜKS = null;
+    }
+  
+    return MYÜKS;
+  }
+  //#endregion 
+
+//#region DİKMEHESAP
 export function DİKMEHESAPLA() {
     if (YATAYHOLGENİŞLİĞİ > 0 && YATAYHOLGENİŞLİĞİ <= 10) 
       { MALTBÇAP = 0.1;
          MÜÜSTBÇAP = 0.1; 
          MDDİYGÇAP = 0.06; 
-         MYÜKS = 0.8;
          DİKMEYAKLAŞIKARA = 1.5
     } 
     else if   (YATAYHOLGENİŞLİĞİ > 10 && YATAYHOLGENİŞLİĞİ <= 20){ 
       MALTBÇAP = 0.135;   
       MÜÜSTBÇAP = 0.135;   
       MDDİYGÇAP = 0.08; 
-      MYÜKS = 1 
       DİKMEYAKLAŞIKARA = 1.5
     }
-   else if   (YATAYHOLGENİŞLİĞİ > 10 && YATAYHOLGENİŞLİĞİ <= 28){ 
+   else if   (YATAYHOLGENİŞLİĞİ > 20 && YATAYHOLGENİŞLİĞİ <= 28){ 
     MALTBÇAP = 0.18; 
       MÜÜSTBÇAP = 0.18; 
       MDDİYGÇAP = 0.1; 
-      MYÜKS = 1.3
       DİKMEYAKLAŞIKARA = 1.8
       } 
     else if (YATAYHOLGENİŞLİĞİ > 28) {  
       MALTBÇAP = 0.20; 
       MÜÜSTBÇAP = 0.18; 
       MDDİYGÇAP = 0.12; 
-      MYÜKS = 2
       DİKMEYAKLAŞIKARA = 2.8
     } 
       else { }
@@ -69,7 +123,7 @@ export function DİKMEHESAPLA() {
     }
 //#endregion
 
-// YATAY KOLON HESAP
+//#region YATAY KOLON HESAP
 export function hesaplaYatayKolon(A) {
     if (A < MKSHG) {
       YATAYHOLGENİŞLİĞİ = A;
@@ -81,33 +135,41 @@ export function hesaplaYatayKolon(A) {
       YATAYAKSSAYISI = YATAYHOLSAYISI + 1;
     }
   }
-  
+//#endregion
+
+//#region Çatı Eğim Etkisi Hesap
   export function ÇATIEĞİMHETKİSİHESAP(H) {
     ÇATIEĞİMHETKİSİ = ((YATAYHOLGENİŞLİĞİ * Math.tan(Math.PI / 180 * MKAÇI)) / 4);
     ALTMAKASYÜKS2 = H + ÇATIEĞİMHETKİSİ;
-    console.log("ALTMAKASYÜKS2 - çatıeğimetkisi içindeki:", ALTMAKASYÜKS2);
-    console.log("ÇATIEĞİMHETKİSİ:", ÇATIEĞİMHETKİSİ);
-    console.log("YATAYHOLGENİŞLİĞİ:", YATAYHOLGENİŞLİĞİ);
-    console.log("MKAÇI:", MKAÇI);
-
 }
+//#endregion
 
-// MAKAS BOYU HESAP
+//#region Makas Boyu Hesap
 export function MAKASBOYUHESAP() {
     MAKASBOYU = (YATAYHOLGENİŞLİĞİ/2)*MAKASBÜYKATSAYISI
   }
+//#endregion
   
-// Düşey aks hesaplama fonksiyonu
+//#region Düşey aks hesaplama fonksiyonu
 export function hesaplaDüşeyAks(B, K) {
     DÜŞEYHOLSAYISI = Math.floor(B / K);  // Düşey aks ara sayısı (alta yuvarlanır)
     DÜŞEYHOLGENİŞLİĞİ = B / DÜŞEYHOLSAYISI;  // Düşey aks hol genişliği
     DÜŞEYAKSSAYISI = DÜŞEYHOLSAYISI + 1;  // Düşey aks sayısı
 
   }
+//#endregion
   
-//ZEMİN ESAS EBAT HESAP
+//#region ZEMİN ESAS EBAT HESAP
 export function ZEMİNESASEBATHESAP(A, B) {
     esaszeminA = A+10
     esaszeminB = B+10
     }
-      
+//#endregion
+
+//#region yan bağ kirişi geometriler hesaap
+export function YanBağKirişHesap(H) {
+YanBağKirişAraAdet = Math.floor(H/YANBAĞKİRİŞİMAKS)
+YanKirişArası = H/YanBağKirişAraAdet
+YanBağKirişAdet=YanBağKirişAraAdet-1
+console.log("YanKirişArası hesapla içi", YanKirişArası)
+}
