@@ -1,13 +1,11 @@
 //#region DEĞİŞKENLER ATAMA
 let scene, camera, renderer, controls;
 let kolonGrubu;
-let altbaşlıkgrubuSOL; // 
-let altbaşlıkgrubuSAĞ; // 
-let üstbaşlıkgrubuSOL; // 
-let üstbaşlıkgrubuSAĞ; //
 let soldiyagonelGrup //
 let sağdiyagonelGrup
 let zeminesasfonk; //
+let makasçoğal
+let yankirişcons
 let currentGroundMesh = null;
 window.MKSHG=35 // MAKSİMUM HOL GENİŞLİĞİ
 
@@ -17,25 +15,18 @@ window.YATAYHOLGENİŞLİĞİ;
 window.YATAYHOLSAYISI;
 window.YATAYAKSSAYISI; 
 
-// Yeni eklenen makas değişkenleri
-let dikmeGrubu = null;  
-let dikmeGrubu2 = null;  
-
 let createButton; 
 //#endregion
 
 //#region IMPORT'lar
-// İMPORTLAR FONKSİYON
-import { DİKMEHESAPLA, hesaplaDüşeyAks, hesaplaYatayKolon, ÇATIEĞİMHETKİSİHESAP, MAKASBOYUHESAP, ZEMİNESASEBATHESAP
-    } from './hesapla.js'; 
+// Hesap Import
+import { DİKMEHESAPLA, hesaplaDüşeyAks, hesaplaYatayKolon, ÇATIEĞİMHETKİSİHESAP, MAKASBOYUHESAP, ZEMİNESASEBATHESAP, YanBağKirişHesap   } from './hesapla.js'; 
 
 // DEĞİŞKENLER İMPORT FONKSİYON
-    import { MYÜKS, MKAÇI, YATAYHOLGENİŞLİĞİ, 
-  MALTBÇAP, DİKMESAYISI, İKİDİKMEARASI, DİKME_Y_ARTIŞ, MDDİYGÇAP, YATAYHOLSAYISI, esaszeminA, esaszeminB} from './hesapla.js';
+  import { MKAÇI, YATAYHOLGENİŞLİĞİ,   esaszeminA, esaszeminB, MAKAS_YÜKSEKL_HESAPLA} from './hesapla.js';
 
 // NESNELER İMPORT FONKSİYON
-import { MAKASALTBAŞLIKGRUBUSOL, MAKASÜSTBAŞLIKGRUBUSOL, MAKASALTBAŞLIKGRUBUSAĞ, MAKASÜSTBAŞLIKGRUBUSAĞ, YATAYKOLONGRUBU 
-  , DİKME1_GRUP_SOL, DİKME1_GRUP_SAĞ, SOLDİYAGONELGRUBU, SAĞDİYAGONELGRUBU} from './nesneler.js';  // 
+import { YATAYKOLONGRUBU, SOLDİYAGONELGRUBU, SAĞDİYAGONELGRUBU, MakasGrupÇoğalt, YanKiriş_1 } from './nesneler.js';  // 
 //#endregion 
 
 // #region FORM - HTML vs İŞLEMLERİ...
@@ -105,7 +96,7 @@ function createFormAndButton() {
   }
 
   // Tabloya satırları ekleme
-  table.appendChild(createRow('En (A):', 'A', '20'));
+  table.appendChild(createRow('En (A):', 'A', '60'));
   table.appendChild(createRow('Boy (B):', 'B', '50'));
   table.appendChild(createRow('Yükseklik (H):', 'H', '6'));
   table.appendChild(createRow('Aks Arası:', 'K', '6'));
@@ -184,14 +175,14 @@ function init() {
     addDirectionalLight();
     addAmbientLight();
 
-  // Zemin ekleme
+  // Çim Zemin ekleme
   function createGround(scene) {
     // Texture yükleyici
     const textureLoader = new THREE.TextureLoader();
     const groundTexture = textureLoader.load('textures/zemin.png');
     groundTexture.wrapS = THREE.RepeatWrapping;
     groundTexture.wrapT = THREE.RepeatWrapping;
-    groundTexture.repeat.set(10, 10);  // Zemin dokusunun tekrarlanmasını sağlar
+    groundTexture.repeat.set(5, 5);  // Zemin dokusunun tekrarlanmasını sağlar
     // Doku y ekseninde aşağı kaydırılıyor
     groundTexture.offset.y = -1; // Y ekseninde dokuyu aşağı taşır (negatif değerle)
 
@@ -271,55 +262,46 @@ document.addEventListener('keydown', function(event) {
   document.getElementById('createCube').addEventListener('click', () => {
     // Önceki kolon grubunu temizleyelim
     if (kolonGrubu) {scene.remove(kolonGrubu);}
-    if (altbaşlıkgrubuSOL) {scene.remove(altbaşlıkgrubuSOL);}
-    if (altbaşlıkgrubuSAĞ) { scene.remove(altbaşlıkgrubuSAĞ); }
-    if (üstbaşlıkgrubuSOL) {scene.remove(üstbaşlıkgrubuSOL);}
-    if (üstbaşlıkgrubuSAĞ) {scene.remove(üstbaşlıkgrubuSAĞ);}
     if (soldiyagonelGrup) {scene.remove(soldiyagonelGrup);}
     if (sağdiyagonelGrup) {scene.remove(sağdiyagonelGrup);}
     if (zeminesasfonk) { scene.remove(zeminesasfonk); }
     if (currentGroundMesh) {scene.remove(currentGroundMesh);}  // Önceki zemini sahneden kaldırıyoruz
-    if (dikmeGrubu) { scene.remove(dikmeGrubu);}
-    if (dikmeGrubu2) { scene.remove(dikmeGrubu2);}
+    if (makasçoğal) { scene.remove(makasçoğal);}
+    if (yankirişcons) { scene.remove(yankirişcons);}
 
-         
+ 
+        
     // A, B, H değerlerini inputlardan alalım  - BUTON HESAP !!!!!!!!!!!!!!!!!!!!!
     A = parseFloat(document.getElementById('A').value);   // En (A)
-    hesaplaYatayKolon(A); // Yatay kolon hesaplaması
     B = parseFloat(document.getElementById('B').value);   // Boy (B)
     H = parseFloat(document.getElementById('H').value);   // Yükseklik (H)
     K = parseFloat(document.getElementById('K').value);   // Aks Arası (K)
 
-    hesaplaDüşeyAks(B, K);  // Düşey aks hesaplaması
-    hesaplaYatayKolon(A); // Yatay kolon hesaplaması
-    ÇATIEĞİMHETKİSİHESAP(H, YATAYHOLGENİŞLİĞİ, MKAÇI); // Bu fonksiyon çalışmalı
+    hesaplaDüşeyAks(B, K); 
+    hesaplaYatayKolon(A); 
+    MAKAS_YÜKSEKL_HESAPLA(YATAYHOLGENİŞLİĞİ, H)
+    ÇATIEĞİMHETKİSİHESAP(H, YATAYHOLGENİŞLİĞİ, MKAÇI);
     MAKASBOYUHESAP()
-    ZEMİNESASEBATHESAP(A,B) // zemin ebatı hesaplıyor
+    ZEMİNESASEBATHESAP(A,B)
     DİKMEHESAPLA(MKAÇI)
-
+    YanBağKirişHesap(H)
+    
     kolonGrubu = YATAYKOLONGRUBU(H);  // Kolon grubu oluşturuluyor
-    altbaşlıkgrubuSOL = MAKASALTBAŞLIKGRUBUSOL(H);  // 
-    altbaşlıkgrubuSAĞ = MAKASALTBAŞLIKGRUBUSAĞ(H);
-    üstbaşlıkgrubuSOL = MAKASÜSTBAŞLIKGRUBUSOL(H);  // 
-    üstbaşlıkgrubuSAĞ = MAKASÜSTBAŞLIKGRUBUSAĞ(H);  // 
     soldiyagonelGrup = SOLDİYAGONELGRUBU(H);
     sağdiyagonelGrup = SAĞDİYAGONELGRUBU(H);
-    dikmeGrubu = DİKME1_GRUP_SOL(H);
-    dikmeGrubu2 = DİKME1_GRUP_SAĞ(H);
+    makasçoğal = MakasGrupÇoğalt(H);
     zeminesasfonk =ZEMİNESAS();
+    yankirişcons = YanKiriş_1(H,A);
     
     scene.add(kolonGrubu);  // KOLON1 ile oluşturulan kolonları sahneye ekle
-    scene.add(altbaşlıkgrubuSOL);  // makas alt başlık grubusahneye ekle
-    scene.add(altbaşlıkgrubuSAĞ);
-    scene.add(üstbaşlıkgrubuSOL);
-    scene.add(üstbaşlıkgrubuSAĞ);
     scene.add(soldiyagonelGrup);  // Sahneye ekle
     scene.add(sağdiyagonelGrup);  // Sahneye ekle
     const zemin = ZEMİNESAS();  // ZEMİNESAS fonksiyonunu çağırıyoruz
     scene.add(zemin);  // Zemin sahneye ekleniyor
     currentGroundMesh = zemin;
-    scene.add(dikmeGrubu);
-    scene.add(dikmeGrubu2);
+    scene.add(makasçoğal);
+    scene.add(yankirişcons);
+
     //#endregion
 
     // Kamera pozisyonu
@@ -334,12 +316,15 @@ document.addEventListener('keydown', function(event) {
 }
 // #endregion🔥
 
+//#region animate
 function animate() {
   requestAnimationFrame(animate);
   controls.update();  // Kontrolleri güncelle
   renderer.render(scene, camera);  // Sahneyi render et 
 }
+//#endregion
 
+//#region init
 init();
 // Resize olduğunda ekranın boyutlarını güncelle
 window.addEventListener('resize', () => {
@@ -353,3 +338,20 @@ window.addEventListener('resize', () => {
     // Renderer boyutlarını güncelle
     renderer.setSize(width, height);
   });
+  //#endregion
+
+//#region İLK SAYFA AÇILIŞ MODEL GÖSTER
+
+  window.addEventListener('DOMContentLoaded', () => {
+    // Varsayılan değerleri inputlardan alarak A, B, H ve K'ya atıyoruz
+    const A = parseFloat(document.getElementById('A').value);
+    const B = parseFloat(document.getElementById('B').value);
+    const H = parseFloat(document.getElementById('H').value);
+    const K = parseFloat(document.getElementById('K').value);
+
+    // Varsayılan değerlere göre modeli oluştur
+    if (document.getElementById('createCube')) {
+        document.getElementById('createCube').click(); // Modelleme butonuna tıklayarak modeli otomatik oluşturuyoruz
+    }
+});
+//#endregion
