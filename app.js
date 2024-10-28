@@ -23,7 +23,8 @@ let createButton;
 import { DİKMEHESAPLA, hesaplaDüşeyAks, hesaplaYatayKolon, ÇATIEĞİMHETKİSİHESAP, MAKASBOYUHESAP, ZEMİNESASEBATHESAP, YanBağKirişHesap   } from './hesapla.js'; 
 
 // DEĞİŞKENLER İMPORT FONKSİYON
-  import { MKAÇI, YATAYHOLGENİŞLİĞİ,   esaszeminA, esaszeminB, MAKAS_YÜKSEKL_HESAPLA} from './hesapla.js';
+  import { MKAÇI, YanKirişArası, YanBağKirişAdet, YATAYHOLGENİŞLİĞİ, DÜŞEYHOLSAYISI, DÜŞEYHOLGENİŞLİĞİ ,
+  esaszeminA, esaszeminB, MAKAS_YÜKSEKL_HESAPLA} from './hesapla.js';
 
 // NESNELER İMPORT FONKSİYON
 import { YATAYKOLONGRUBU, SOLDİYAGONELGRUBU, SAĞDİYAGONELGRUBU, MakasGrupÇoğalt, YanKiriş_1 } from './nesneler.js';  // 
@@ -291,7 +292,7 @@ document.addEventListener('keydown', function(event) {
     sağdiyagonelGrup = SAĞDİYAGONELGRUBU(H);
     makasçoğal = MakasGrupÇoğalt(H);
     zeminesasfonk =ZEMİNESAS();
-    yankirişcons = YanKiriş_1(H,A);
+    yankirişcons = YanKiriş_1(H, A, YanKirişArası, YanBağKirişAdet, DÜŞEYHOLSAYISI, DÜŞEYHOLGENİŞLİĞİ);
     
     scene.add(kolonGrubu);  // KOLON1 ile oluşturulan kolonları sahneye ekle
     scene.add(soldiyagonelGrup);  // Sahneye ekle
