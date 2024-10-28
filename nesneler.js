@@ -6,7 +6,7 @@ MYÜKS, MKAÇI, İKİDİKMEARASI, DİKME_Y_ARTIŞ, MDDİYGÇAP, DİKMESAYISI, MA
 // Geometriler Import
 import { KOLON1, HEA300, KOLON_BOX1, YATAY_MK_GEO_1, Yatay_Kiriş_Profil_1 } from './geometriler.js';
 //malzemeler import
-import { kolonMaterial2, DİKMEMALZEME, MAKASMALZEME, DİYAGONELMALZEME } from './malzemeler.js';
+import { kolonMaterial2, DİKMEMALZEME, MAKASMALZEME, DİYAGONELMALZEME, BağKirişiMalzeme } from './malzemeler.js';
 
 // #endregion// 
 
@@ -213,8 +213,7 @@ export function MakasTamGrup (H) {
   const makasaltsağ = MakasAltSağ(H)
   const soldiyagonel = SOLDİYAGONELGRUBU(H)
   const sağdiyagonel = SAĞDİYAGONELGRUBU(H)
-  
-
+ 
 
   // Grupları birleştiriyoruz
   TamMakasGrup.add(dikmeGrupSol);
@@ -256,39 +255,39 @@ export function MakasGrupÇoğalt(H) {
 //#region Yan Kirişler - oluştur ve çoğalt
 export function YanKiriş_1(H, A, YanKirişArası, YanBağKirişAdet, DÜŞEYHOLSAYISI, DÜŞEYHOLGENİŞLİĞİ) {
     const yanKirişGrubu = new THREE.Group();
-    const yatayboy_1 = DÜŞEYHOLGENİŞLİĞİ - 0.2; // Yatay kirişin boyunu belirledik
-
+    const yatayboy_1 = DÜŞEYHOLGENİŞLİĞİ - 0.2;
     if (H < 6) {
-        // H < 6 olduğunda, tek bir profil ekleyin ve y ekseninde H/2 yüksekliğinde konumlandırın
         for (let z = 0; z < DÜŞEYHOLSAYISI; z++) {
-            for (let x = 0; x < 2; x++) {
-                const yatayProfil = Yatay_Kiriş_Profil_1(yatayboy_1); // Yatay profilin boyunu geçiyoruz
-                yatayProfil.position.set(
-                    x * A,                  // x ekseninde A aralıkla 2 adet
-                    H / 2,                  // y ekseninde H/2 yüksekliği
-                    -z * DÜŞEYHOLGENİŞLİĞİ  // z ekseninde DÜŞEYHOLGENİŞLİĞİ aralıkla
-                );
-                yanKirişGrubu.add(yatayProfil);
-            }
+          for (let x = 0; x < 2; x++) {
+          const yatayProfil = Yatay_Kiriş_Profil_1(yatayboy_1, BağKirişiMalzeme, H);
+          yatayProfil.position.set( x * A, (-z * DÜŞEYHOLGENİŞLİĞİ) );
+          yatayProfil.rotation.x= (Math.PI / 2)
+          yanKirişGrubu.add(yatayProfil);
+            } 
         }
     } else {
-        // H > 6 olduğunda, y ekseninde YanKirişArası aralıkla çoğaltma yap
-        for (let y = 0; y < YanBağKirişAdet; y++) {
-            for (let z = 0; z < DÜŞEYHOLSAYISI; z++) {
-                for (let x = 0; x < 2; x++) {
-                    const yatayProfil = Yatay_Kiriş_Profil_1(yatayboy_1); // Yatay profilin boyunu geçiyoruz
-                    yatayProfil.position.set(
-                        x * A,                 // x ekseninde A aralıkla 2 adet
-                        y * YanKirişArası,     // y ekseninde YanKirişArası aralıkla YanBağKirişAdet adet
-                        -z * DÜŞEYHOLGENİŞLİĞİ // z ekseninde DÜŞEYHOLGENİŞLİĞİ aralıkla DÜŞEYHOLSAYISI adet
-                    );
-                    yanKirişGrubu.add(yatayProfil);
-                }
+        for (let y = 0; y < YanBağKirişAdet+1; y++) {
+        for (let z = 0; z < DÜŞEYHOLSAYISI; z++) {
+        for (let x = 0; x < 2; x++) {
+            const yatayProfil = Yatay_Kiriş_Profil_1(yatayboy_1, BağKirişiMalzeme, H); // Yatay profilin boyunu geçiyoruz
+            yatayProfil.position.set(  x * A, YanKirişArası+ y * YanKirişArası, - DÜŞEYHOLGENİŞLİĞİ/2+ (-z * DÜŞEYHOLGENİŞLİĞİ));
+            yatayProfil.rotation.x= (Math.PI / 2)
+            yanKirişGrubu.add(yatayProfil);}
             }
         }
     }
 
+    for (let x = 0; x < 2; x++) {
+    for (let z = 0; z < DÜŞEYHOLSAYISI; z++) {
+      const yatayProfilEkstra = Yatay_Kiriş_Profil_1(yatayboy_1, BağKirişiMalzeme, H );
+      yatayProfilEkstra.position.set(x * A, H + MYÜKS,  - DÜŞEYHOLGENİŞLİĞİ/2+ (-z * DÜŞEYHOLGENİŞLİĞİ)); // Z ekseninde merkezde
+      yatayProfilEkstra.rotation.x = Math.PI / 2;
+      yanKirişGrubu.add(yatayProfilEkstra);
+  }
+}
+
     return yanKirişGrubu;
 }
+//#endregion
 
 
