@@ -170,7 +170,7 @@ export function KOLON1(H) {
 }
 //#endregion
 
-//#region Yatay_MK_Geo_1
+//#region Yatay_Makas Geometri 1
 export function YATAY_MK_GEO_1(YATAYHOLGENİŞLİĞİ, MK_UZUNLUK) {
   let MK_EN, MK_YÜKS;
 
@@ -215,9 +215,23 @@ export function YATAY_MK_GEO_1(YATAYHOLGENİŞLİĞİ, MK_UZUNLUK) {
   return group;
 }
 //#endregion
-export function Yatay_Kiriş_Profil_1(yatayboy_1) {
 
-  const geometry = new THREE.BoxGeometry(0.25, yatayboy_1, 0.25);
+//#region Yatay Kiriş profili
+export function Yatay_Kiriş_Profil_1(yatayboy_1, malzeme, H) {
+  let YK_EN;
+
+  if (H < 6) {
+      YK_EN = 0.17;
+  } else if (H >= 6 && H < 12) {
+      YK_EN = 0.2;
+  } else if (H >= 12 && H < 18) {
+      YK_EN = 0.23;
+  } else if (H >= 18 && H < 25) {
+      YK_EN = 0.25;
+  } else if (H >= 25) {
+      YK_EN = 0.3;
+  }
+  const geometry = new THREE.BoxGeometry(YK_EN, yatayboy_1, YK_EN);
   const textureLoader = new THREE.TextureLoader();
   const texture = textureLoader.load('textures/darkbl1.png');
   const kolon = new THREE.Mesh(geometry, malzeme);
