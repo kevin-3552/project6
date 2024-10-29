@@ -162,7 +162,7 @@ export function hesaplaDüşeyAks(B, K) {
     DÜŞEYHOLSAYISI = Math.floor(B / K);  // Düşey aks ara sayısı (alta yuvarlanır)
     DÜŞEYHOLGENİŞLİĞİ = B / DÜŞEYHOLSAYISI;  // Düşey aks hol genişliği
     DÜŞEYAKSSAYISI = DÜŞEYHOLSAYISI + 1;  // Düşey aks sayısı
-
+    
   }
 //#endregion
   
@@ -198,12 +198,18 @@ console.log("ÇatıBağKirişSayısı", ÇatıBağKirişSayısı)
 //#endregion
 
 //#region Çapraz Yan Hesap
+
 export function ÇaprazYanHesap() {
-YanÇaprazAksadet = Math.ceil(DÜŞEYAKSSAYISI/2)
+YanÇaprazAksadet = Math.ceil(DÜŞEYHOLSAYISI/2)
 YanÇaprazAra =2*DÜŞEYHOLGENİŞLİĞİ
 ÇaprazYükseklik = YanKirişArası
 YanÇaprazDüşeyAdet=YanBağKirişAraAdet+1
 console.log("YanKirişArası",YanKirişArası)
+console.log("YanÇaprazDüşeyAdet",YanÇaprazDüşeyAdet)
+console.log("YanÇaprazAksadet",YanÇaprazAksadet)
+
+
 }
+
 
 //#endregion
