@@ -3,7 +3,7 @@
 // IMPORT DEĞİŞKENLER
 import { MALTBÇAP, DÜŞEYAKSSAYISI, YATAYAKSSAYISI, YATAYHOLGENİŞLİĞİ, MAKASBOYU, DÜŞEYHOLGENİŞLİĞİ, YATAYHOLSAYISI, ALTMAKASYÜKS2, 
 MYÜKS, MKAÇI, İKİDİKMEARASI, DİKME_Y_ARTIŞ, MDDİYGÇAP, DİKMESAYISI, MAKAS_YÜKSEKL_HESAPLA, YanKirişArası, YanBağKirişAdet, 
-DÜŞEYHOLSAYISI, ÇatıBağKirişSayısı, ÇatıBağKirişAra_Yatay, ÇatıBağKirişAra_Yekseni, ÇaprazYanHesap, 
+DÜŞEYHOLSAYISI, ÇatıBağKirişSayısı, ÇatıBağKirişAra_Yatay, ÇatıBağKirişAra_Yekseni, 
 ÇaprazYükseklik, YanÇaprazAksadet, YanÇaprazDüşeyAdet  } from './hesapla.js';
 
 // Geometriler Import
@@ -482,7 +482,7 @@ export function ÇaprazYan1Aks(H) {
 export function ÇaprazYan1AksBütün(H) {
     const çaprazAksBütünGrup = new THREE.Group();
 
-    for (let i = 0; i < YanÇaprazAksadet-1; i++) {
+    for (let i = 0; i < YanÇaprazAksadet; i++) {
         const çaprazAks = ÇaprazYan1Aks(H);
 
         // Z ekseninde 2 * DÜŞEYHOLGENİŞLİĞİ aralıkla yerleştiriliyor
