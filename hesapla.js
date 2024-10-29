@@ -25,11 +25,18 @@ let ÇAPRAZ_Y_ARTIŞ
 export let DÜŞEYHOLSAYISI
 export let ALTMAKASYÜKS2; // Global değişken
 let MAKASBÜYKATSAYISI = 1.02 // MAKAS BÜYÜTME KATSAYISI
-let YANBAĞKİRİŞİMAKS = 3
-let YanBağKirişAraAdet 
+export let YANBAĞKİRİŞİMAKS = 4
+export let YanBağKirişAraAdet 
 export let YanKirişArası
 export let YanBağKirişAdet
-
+export let ÇatıBağKirişAra_Yekseni
+export let ÇatıBağKirişSayısı
+export let ÇatıBağKirişAra_Yatay
+export let ÇatıBağKirişMaks = 6
+export let YanÇaprazAra
+export let YanÇaprazAksadet
+export let ÇaprazYükseklik
+export let YanÇaprazDüşeyAdet
 
 //#endregion 
 
@@ -168,8 +175,35 @@ export function ZEMİNESASEBATHESAP(A, B) {
 
 //#region yan bağ kirişi geometriler hesaap
 export function YanBağKirişHesap(H) {
-YanBağKirişAraAdet = Math.floor(H/YANBAĞKİRİŞİMAKS)
+
+    // H değerine göre YanBağKirişAraAdet değerini belirleyin
+    if (H > 0 && H <= 12) {
+      YanBağKirişAraAdet = 2;
+  } else if (H > 12 && H <= 18) {
+      YanBağKirişAraAdet = 3;
+  } else if (H > 18) {
+      YanBağKirişAraAdet = Math.floor(H / YANBAĞKİRİŞİMAKS);
+  }
+
 YanKirişArası = H/YanBağKirişAraAdet
 YanBağKirişAdet=YanBağKirişAraAdet-1
 console.log("YanKirişArası hesapla içi", YanKirişArası)
+
+ÇatıBağKirişSayısı = Math.ceil((YATAYHOLGENİŞLİĞİ/2)/ÇatıBağKirişMaks)
+console.log("ÇatıBağKirişSayısı", ÇatıBağKirişSayısı)
+ÇatıBağKirişAra_Yatay = (YATAYHOLGENİŞLİĞİ/2)/ÇatıBağKirişSayısı
+ÇatıBağKirişAra_Yekseni = Math.tan(MKAÇI * (Math.PI / 180))*ÇatıBağKirişAra_Yatay
+
 }
+//#endregion
+
+//#region Çapraz Yan Hesap
+export function ÇaprazYanHesap() {
+YanÇaprazAksadet = Math.ceil(DÜŞEYAKSSAYISI/2)
+YanÇaprazAra =2*DÜŞEYHOLGENİŞLİĞİ
+ÇaprazYükseklik = YanKirişArası
+YanÇaprazDüşeyAdet=YanBağKirişAraAdet+1
+console.log("YanKirişArası",YanKirişArası)
+}
+
+//#endregion
