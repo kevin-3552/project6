@@ -6,6 +6,10 @@ let sağdiyagonelGrup
 let zeminesasfonk; //
 let makasçoğal
 let yankirişcons
+let makasiçbracingAltCons
+let makasiçibracingTamCons
+let ÇaprazYanCons
+
 let currentGroundMesh = null;
 window.MKSHG=35 // MAKSİMUM HOL GENİŞLİĞİ
 
@@ -19,15 +23,21 @@ let createButton;
 //#endregion
 
 //#region IMPORT'lar
-// Hesap Import
-import { DİKMEHESAPLA, hesaplaDüşeyAks, hesaplaYatayKolon, ÇATIEĞİMHETKİSİHESAP, MAKASBOYUHESAP, ZEMİNESASEBATHESAP, YanBağKirişHesap   } from './hesapla.js'; 
+// Hesap Import - HESAPLA'DAN
+import { DİKMEHESAPLA, hesaplaDüşeyAks, hesaplaYatayKolon, ÇATIEĞİMHETKİSİHESAP, MAKASBOYUHESAP, 
+  ZEMİNESASEBATHESAP, YanBağKirişHesap   } from './hesapla.js'; 
 
-// DEĞİŞKENLER İMPORT FONKSİYON
+// DEĞİŞKENLER İMPORT FONKSİYON  - HESAPLA'DAN
   import { MKAÇI, YanKirişArası, YanBağKirişAdet, YATAYHOLGENİŞLİĞİ, DÜŞEYHOLSAYISI, DÜŞEYHOLGENİŞLİĞİ ,
-  esaszeminA, esaszeminB, MAKAS_YÜKSEKL_HESAPLA} from './hesapla.js';
+  esaszeminA, esaszeminB, MAKAS_YÜKSEKL_HESAPLA, ÇaprazYanHesap, ÇaprazYükseklik} from './hesapla.js';
 
 // NESNELER İMPORT FONKSİYON
-import { YATAYKOLONGRUBU, SOLDİYAGONELGRUBU, SAĞDİYAGONELGRUBU, MakasGrupÇoğalt, YanKiriş_1 } from './nesneler.js';  // 
+import { YATAYKOLONGRUBU, SOLDİYAGONELGRUBU, SAĞDİYAGONELGRUBU, MakasGrupÇoğalt, YanKiriş_1, MakasİçiAltTamBracing, 
+  Bracing_MakasİçiTam, ÇaprazYanKomple, ÇaprazYan1Aks, ÇaprazYan1AksBütün  } from './nesneler.js';  // 
+
+// Geometriler den Export
+import { YatayÇaprazÇap  } from './geometriler.js';  // 
+  
 //#endregion 
 
 // #region FORM - HTML vs İŞLEMLERİ...
@@ -197,7 +207,7 @@ function init() {
     // Mesh oluşturma ve ayarlama
     const groundMesh = new THREE.Mesh(groundGeometry, groundMaterial);
     groundMesh.rotation.x = -Math.PI / 2; // Yatay hale getiriyoruz
-    groundMesh.position.set(50, 0, -50);  // X, Y, Z koordinatları
+    groundMesh.position.set(50, -0.2, -50);  // X, Y, Z koordinatları
 
     // Zemini bir grup içinde organize ediyoruz
     const groundGroup = new THREE.Group();
@@ -247,7 +257,7 @@ function ZEMİNESAS() {
 
   const groundMesh = new THREE.Mesh(groundGeometry, groundMaterial);
   groundMesh.rotation.x = -Math.PI / 2;  // Yatay hale getiriyoruz
-  groundMesh.position.set(A/2, 0.5,-B/2);  // Pozisyon x=-5, z=5 olacak şekilde ayarlanıyor
+  groundMesh.position.set(A/2, -0.1,-B/2);  // Pozisyon x=-5, z=5 olacak şekilde ayarlanıyor
   return groundMesh;
 
 }
@@ -269,9 +279,10 @@ document.addEventListener('keydown', function(event) {
     if (currentGroundMesh) {scene.remove(currentGroundMesh);}  // Önceki zemini sahneden kaldırıyoruz
     if (makasçoğal) { scene.remove(makasçoğal);}
     if (yankirişcons) { scene.remove(yankirişcons);}
+    if (makasiçibracingTamCons) { scene.remove(makasiçibracingTamCons);}
+    if (ÇaprazYanCons) { scene.remove(ÇaprazYanCons);}
 
- 
-        
+       
     // A, B, H değerlerini inputlardan alalım  - BUTON HESAP !!!!!!!!!!!!!!!!!!!!!
     A = parseFloat(document.getElementById('A').value);   // En (A)
     B = parseFloat(document.getElementById('B').value);   // Boy (B)
@@ -286,13 +297,18 @@ document.addEventListener('keydown', function(event) {
     ZEMİNESASEBATHESAP(A,B)
     DİKMEHESAPLA(MKAÇI)
     YanBağKirişHesap(H)
+    ÇaprazYanHesap ()
+
     
     kolonGrubu = YATAYKOLONGRUBU(H);  // Kolon grubu oluşturuluyor
     soldiyagonelGrup = SOLDİYAGONELGRUBU(H);
     sağdiyagonelGrup = SAĞDİYAGONELGRUBU(H);
     makasçoğal = MakasGrupÇoğalt(H);
     zeminesasfonk =ZEMİNESAS();
-    yankirişcons = YanKiriş_1(H, A, YanKirişArası, YanBağKirişAdet, DÜŞEYHOLSAYISI, DÜŞEYHOLGENİŞLİĞİ);
+    yankirişcons = YanKiriş_1(H, A);
+    makasiçibracingTamCons =  Bracing_MakasİçiTam(H)
+    ÇaprazYanCons = ÇaprazYanKomple(H)
+    
     
     scene.add(kolonGrubu);  // KOLON1 ile oluşturulan kolonları sahneye ekle
     scene.add(soldiyagonelGrup);  // Sahneye ekle
@@ -302,6 +318,10 @@ document.addEventListener('keydown', function(event) {
     currentGroundMesh = zemin;
     scene.add(makasçoğal);
     scene.add(yankirişcons);
+    scene.add(makasiçibracingTamCons);
+    scene.add(ÇaprazYanCons);
+
+
 
     //#endregion
 
