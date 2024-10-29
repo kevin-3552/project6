@@ -1,6 +1,9 @@
 
+export let YatayÇaprazÇap
+
+
 // #region DEĞİŞKENLER import
-import { kolonMaterial1, MAKASMALZEME } from './malzemeler.js'; // Malzeme dosyasını import edin
+import { kolonMaterial1, MAKASMALZEME, ÇatıÇaprazMalzemesi } from './malzemeler.js'; // Malzeme dosyasını import edin
 
 // #endregion
 
@@ -232,8 +235,31 @@ export function Yatay_Kiriş_Profil_1(yatayboy_1, malzeme, H) {
       YK_EN = 0.3;
   }
   const geometry = new THREE.BoxGeometry(YK_EN, yatayboy_1, YK_EN);
-  const textureLoader = new THREE.TextureLoader();
-  const texture = textureLoader.load('textures/darkbl1.png');
+  const kolon = new THREE.Mesh(geometry, malzeme);
+  kolon.position.set(0, 0, 0);
+
+
+  // Siyah köşe çizgileri 
+  const edges = new THREE.EdgesGeometry(geometry);
+  const lineMaterial = new THREE.LineBasicMaterial({ color: 0x000000 }); // Siyah çizgiler
+  const outline = new THREE.LineSegments(edges, lineMaterial);
+  // Kolon ve çizgiler aynı pozisyona yerleştiriliyor
+  outline.position.copy(kolon.position);
+
+  // Kolon ve çizgileri bir grup olarak döndürüyoruz
+  const kolonGroup = new THREE.Group();
+  kolonGroup.add(kolon);
+  kolonGroup.add(outline);
+
+  return kolonGroup;
+}
+//#endregion
+
+//#region Yatay Kiriş profili2
+export function Yatay_Kiriş_Profil_2(yatayboy_1, malzeme, H) {
+  let YK_EN =0.16
+ 
+  const geometry = new THREE.BoxGeometry(YK_EN, yatayboy_1, YK_EN);
   const kolon = new THREE.Mesh(geometry, malzeme);
   kolon.position.set(0, 0, 0);
 
@@ -252,3 +278,32 @@ export function Yatay_Kiriş_Profil_1(yatayboy_1, malzeme, H) {
   return kolonGroup;
 }
 //#endregion
+
+export function YatayÇaprazProfil(H, yatayçaprazuzunluk) {
+    if (H > 0 && H <= 6) {
+      YatayÇaprazÇap = 0.09;
+  } else if (H >6 && H < 12) {
+      YatayÇaprazÇap = 0.11;
+  } else if (H >= 12 && H < 18) {
+      YatayÇaprazÇap = 0.13;
+  } else if (H >= 18) {
+      YatayÇaprazÇap = 0.16;
+  } else {
+      console.error("Geçersiz H değeri:", H);
+      YatayÇaprazÇap = null;
+  }
+
+  // Açık pembe renkte standard material tanımı
+  const malzeme = new THREE.MeshStandardMaterial({ color: 0xffc0cb }); // Açık pembe renk (Hex kodu: 0xffc0cb)
+
+  // Silindir geometrisi tanımı
+  const geometry = new THREE.CylinderGeometry(YatayÇaprazÇap, YatayÇaprazÇap, yatayçaprazuzunluk, 32); // Silindir
+
+  // Silindirin malzemesi atanıyor
+  const yatayÇaprazSilindir = new THREE.Mesh(geometry, malzeme);
+  yatayÇaprazSilindir.rotation.z = Math.PI / 2; // Silindiri yatay pozisyona getiriyoruz
+  console.log("YatayÇaprazÇap",YatayÇaprazÇap)
+
+  return { mesh: yatayÇaprazSilindir, YatayÇaprazÇap }; // Geometri (mesh) ve çap değerini döndürür
+
+}
