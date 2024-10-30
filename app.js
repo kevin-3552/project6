@@ -448,7 +448,9 @@ function moveSlider(event) {
 
     sliderHandle.style.left = `${newLeft}px`;
 
-    const opacityValue = 0.4 + ((newLeft - minLeft) / (maxLeft - minLeft)) * (1 - 0.4);
+    /*const opacityValue = 0.4 + ((newLeft - minLeft) / (maxLeft - minLeft)) * (1 - 0.2); */
+    const opacityValue = 1 - ((newLeft - minLeft) / (maxLeft - minLeft)) * (1 - 0.1);
+
 
     if (typeof CepheKaplamaCons !== "undefined") {
       CepheKaplamaCons.children.forEach(mesh => {
