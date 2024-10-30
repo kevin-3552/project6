@@ -374,7 +374,7 @@ window.addEventListener('resize', () => {
 
 
 // #region Üçgen ve kaydırma çubuğu için HTML elemanlarını oluşturma
-// Üçgen için ana wrapper oluşturma
+// Üçgen ve kaydırma çubuğu için ana wrapper oluşturma
 const triangleWrapper = document.createElement("div");
 triangleWrapper.style.position = "absolute";
 triangleWrapper.style.top = "20px"; // Formun sağ tarafına hizalayın
@@ -391,61 +391,65 @@ opacityLabel.style.color = "black";
 opacityLabel.style.marginBottom = "5px";
 triangleWrapper.appendChild(opacityLabel);
 
-// Üçgen şekli oluşturma
+// Üçgen şekli oluşturma (sabit kalacak)
 const opacityTriangle = document.createElement("div");
 opacityTriangle.style.width = "0";
 opacityTriangle.style.height = "0";
-opacityTriangle.style.borderTop = "10px solid transparent"; // Şeffaf üst kenar
-opacityTriangle.style.borderBottom = "10px solid transparent"; // Şeffaf alt kenar
-opacityTriangle.style.borderLeft = "50px solid rgba(0, 0, 0, 0.5)"; // Üçgenin sağa bakan kısmı
-opacityTriangle.style.opacity = "1"; // Başlangıç şeffaflığı
+opacityTriangle.style.borderTop = "7px solid transparent";
+opacityTriangle.style.borderBottom = "7px solid transparent";
+opacityTriangle.style.borderLeft = "50px solid rgba(0, 0, 0, 0.5)";
 triangleWrapper.appendChild(opacityTriangle);
 
-
-
-// Üçgen üzerinde hareket edecek dikdörtgen işaretçi
+// İşaretçi olarak hareket edecek dikdörtgen oluşturma
 const sliderHandle = document.createElement("div");
 sliderHandle.style.position = "absolute";
-sliderHandle.style.width = "10px";
-sliderHandle.style.height = "15px";
-sliderHandle.style.backgroundColor = "black";
+sliderHandle.style.width = "15px";
+sliderHandle.style.height = "20px";
+sliderHandle.style.backgroundColor = "rgba(0, 0, 0, 0.5)"; // Yarı saydam siyah
 sliderHandle.style.cursor = "pointer";
-sliderHandle.style.top = "30px"; // Üçgenin üzerine hizalamak için
+sliderHandle.style.top = "18px"; // Üçgenin üzerine hizalamak için
 sliderHandle.style.left = "10px"; // Başlangıç konumu
 triangleWrapper.appendChild(sliderHandle);
 
 // Elemanları DOM'a ekleme
 document.body.appendChild(triangleWrapper);
 
-// İşaretçiyi sürüklemek için olaylar ekleyin
 let isDragging = false;
 
+// Masaüstü için sürükleme başlatma
 sliderHandle.addEventListener("mousedown", function() {
   isDragging = true;
 });
 
+// Mobil için sürükleme başlatma
+sliderHandle.addEventListener("touchstart", function() {
+  isDragging = true;
+});
+
+// Sürükleme bitirme olayları
 document.addEventListener("mouseup", function() {
   isDragging = false;
 });
 
-document.addEventListener("mousemove", function(event) {
+document.addEventListener("touchend", function() {
+  isDragging = false;
+});
+
+// Sürükleme esnasında işaretçiyi hareket ettirme (Masaüstü ve Mobil)
+function moveSlider(event) {
   if (isDragging) {
-    // İşaretçinin sol sınırını ve sağ sınırını belirleyin
     const minLeft = 10;
     const maxLeft = 50;
 
-    // Fare x konumunu alıp sınırlara göre ayarlayın
-    let newLeft = event.clientX - triangleWrapper.offsetLeft;
+    // Mouse veya touch konumunu alın
+    const clientX = event.touches ? event.touches[0].clientX : event.clientX;
+    let newLeft = clientX - triangleWrapper.offsetLeft;
     newLeft = Math.max(minLeft, Math.min(maxLeft, newLeft));
-    
-    // İşaretçinin yeni pozisyonunu ayarlayın
+
     sliderHandle.style.left = `${newLeft}px`;
 
-    // Üçgenin opacity değerini işaretçinin pozisyonuna göre hesaplayın
     const opacityValue = 0.4 + ((newLeft - minLeft) / (maxLeft - minLeft)) * (1 - 0.4);
-    opacityTriangle.style.borderBottomColor = `rgba(0, 0, 0, ${opacityValue})`;
-    
-    // Cephe kaplama material'inin opacity değerini dinamik olarak güncelleyin
+
     if (typeof CepheKaplamaCons !== "undefined") {
       CepheKaplamaCons.children.forEach(mesh => {
         if (mesh.material) {
@@ -455,5 +459,12 @@ document.addEventListener("mousemove", function(event) {
       });
     }
   }
-});
+}
+
+// Masaüstü için sürükleme hareketini algıla
+document.addEventListener("mousemove", moveSlider);
+
+// Mobil için sürükleme hareketini algıla
+document.addEventListener("touchmove", moveSlider);
+
 // #endregion
