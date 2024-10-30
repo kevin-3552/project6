@@ -1,9 +1,10 @@
 
 export let YatayÇaprazÇap
+export let KOLONEBAT
 
 
 // #region DEĞİŞKENLER import
-import { kolonMaterial1, MAKASMALZEME, ÇatıÇaprazMalzemesi } from './malzemeler.js'; // Malzeme dosyasını import edin
+import { kolonMaterial1, MAKASMALZEME } from './malzemeler.js'; // Malzeme dosyasını import edin
 
 // #endregion
 
@@ -49,7 +50,6 @@ export function HEA300(H) {
 
 //#region Kolon Box 1
 export function KOLON_BOX1(KOLONUZUNLUK, malzeme = kolonMaterial1) {
-  let KOLONEBAT;
 
   // KOLONUZUNLUK değerine göre KOLONEBAT belirleniyor
   if (KOLONUZUNLUK > 0 && KOLONUZUNLUK <= 6) {
@@ -219,20 +219,20 @@ export function YATAY_MK_GEO_1(YATAYHOLGENİŞLİĞİ, MK_UZUNLUK) {
 }
 //#endregion
 
-//#region Yatay Kiriş profili
+//#region Yatay Kiriş profil 1
 export function Yatay_Kiriş_Profil_1(yatayboy_1, malzeme, H) {
   let YK_EN;
 
   if (H < 6) {
-      YK_EN = 0.17;
+      YK_EN = 0.1;
   } else if (H >= 6 && H < 12) {
-      YK_EN = 0.2;
+      YK_EN = 0.12;
   } else if (H >= 12 && H < 18) {
-      YK_EN = 0.23;
+      YK_EN = 0.14;
   } else if (H >= 18 && H < 25) {
-      YK_EN = 0.25;
+      YK_EN = 0.16;
   } else if (H >= 25) {
-      YK_EN = 0.3;
+      YK_EN = 0.25;
   }
   const geometry = new THREE.BoxGeometry(YK_EN, yatayboy_1, YK_EN);
   const kolon = new THREE.Mesh(geometry, malzeme);
@@ -279,6 +279,7 @@ export function Yatay_Kiriş_Profil_2(yatayboy_1, malzeme, H) {
 }
 //#endregion
 
+//#region Yatay Çapraz Profili
 export function YatayÇaprazProfil(H, yatayçaprazuzunluk) {
     if (H > 0 && H <= 6) {
       YatayÇaprazÇap = 0.09;
@@ -302,8 +303,42 @@ export function YatayÇaprazProfil(H, yatayçaprazuzunluk) {
   // Silindirin malzemesi atanıyor
   const yatayÇaprazSilindir = new THREE.Mesh(geometry, malzeme);
   yatayÇaprazSilindir.rotation.z = Math.PI / 2; // Silindiri yatay pozisyona getiriyoruz
-  console.log("YatayÇaprazÇap",YatayÇaprazÇap)
 
   return { mesh: yatayÇaprazSilindir, YatayÇaprazÇap }; // Geometri (mesh) ve çap değerini döndürür
 
 }
+//#endregion Yatay Çapraz Profili
+
+//#region Çatı Çapraz Profili
+export function ÇatıÇaprazProfil(H, yatayçaprazuzunluk) {
+  if (H > 0 && H <= 6) {
+    YatayÇaprazÇap = 0.09;
+} else if (H >6 && H < 12) {
+    YatayÇaprazÇap = 0.11;
+} else if (H >= 12 && H < 18) {
+    YatayÇaprazÇap = 0.13;
+} else if (H >= 18) {
+    YatayÇaprazÇap = 0.16;
+} else {
+    console.error("Geçersiz H değeri:", H);
+    YatayÇaprazÇap = null;
+}
+
+// Açık pembe renkte standard material tanımı
+const malzeme = new THREE.MeshStandardMaterial({ color: 0x18c915 });
+// Silindir geometrisi tanımı
+const geometry = new THREE.CylinderGeometry(YatayÇaprazÇap, YatayÇaprazÇap, yatayçaprazuzunluk, 32);
+
+// Silindirin malzemesi atanıyor
+const yatayÇaprazSilindir = new THREE.Mesh(geometry, malzeme);
+yatayÇaprazSilindir.rotation.z = 0 
+yatayÇaprazSilindir.rotation.y = 0
+yatayÇaprazSilindir.rotation.x = 0
+
+
+return { mesh: yatayÇaprazSilindir, YatayÇaprazÇap }; // Geometri (mesh) ve çap değerini döndürür
+
+}
+//#endregion
+
+
