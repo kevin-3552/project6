@@ -9,6 +9,9 @@ let yankirişcons
 let makasiçbracingAltCons
 let makasiçibracingTamCons
 let ÇaprazYanCons
+let ÇatıÇAprazCons 
+let totemcons
+let CepheKaplamaCons
 
 let currentGroundMesh = null;
 window.MKSHG=35 // MAKSİMUM HOL GENİŞLİĞİ
@@ -23,21 +26,25 @@ let createButton;
 //#endregion
 
 //#region IMPORT'lar
-// Hesap Import - HESAPLA'DAN
-import { DİKMEHESAPLA, hesaplaDüşeyAks, hesaplaYatayKolon, ÇATIEĞİMHETKİSİHESAP, MAKASBOYUHESAP, 
-  ZEMİNESASEBATHESAP, YanBağKirişHesap   } from './hesapla.js'; 
 
-// DEĞİŞKENLER İMPORT FONKSİYON  - HESAPLA'DAN
-  import { MKAÇI, YanKirişArası, YanBağKirişAdet, YATAYHOLGENİŞLİĞİ, DÜŞEYHOLSAYISI, DÜŞEYHOLGENİŞLİĞİ ,
-  esaszeminA, esaszeminB, MAKAS_YÜKSEKL_HESAPLA, ÇaprazYanHesap, ÇaprazYükseklik} from './hesapla.js';
-
-// NESNELER İMPORT FONKSİYON
+// Nesneler
 import { YATAYKOLONGRUBU, SOLDİYAGONELGRUBU, SAĞDİYAGONELGRUBU, MakasGrupÇoğalt, YanKiriş_1, MakasİçiAltTamBracing, 
-  Bracing_MakasİçiTam, ÇaprazYanKomple, ÇaprazYan1Aks, ÇaprazYan1AksBütün  } from './nesneler.js';  // 
+  Bracing_MakasİçiTam, ÇaprazYanKomple, ÇatıÇapraz1MakasGrup, ÇatıÇaprazTam, Totem1,CepheKaplamaSağSol  } from './nesneler.js';  // 
 
-// Geometriler den Export
-import { YatayÇaprazÇap  } from './geometriler.js';  // 
-  
+// Hesaplar
+import { DİKMEHESAPLA, hesaplaDüşeyAks, hesaplaYatayKolon, ÇATIEĞİMHETKİSİHESAP, MAKASBOYUHESAP, 
+  ZEMİNESASEBATHESAP, YanBağKirişHesap , ÇaprazYanHesap  } from './hesapla.js'; 
+
+// Hesapla Const
+  import { MKAÇI, YanKirişArası, YanBağKirişAdet, YATAYHOLGENİŞLİĞİ, DÜŞEYHOLSAYISI, DÜŞEYHOLGENİŞLİĞİ ,
+  esaszeminA, esaszeminB, MAKAS_YÜKSEKL_HESAPLA, ÇaprazYükseklik} from './hesapla.js';
+
+// Geometriler
+import { YatayÇaprazÇap, KOLONEBAT, KOLON_BOX1  } from './geometriler.js';  // 
+
+// Malzemeler
+import { ÇimZeminMalzeme1  } from './malzemeler.js';  // 
+
 //#endregion 
 
 // #region FORM - HTML vs İŞLEMLERİ...
@@ -149,7 +156,7 @@ createButton.addEventListener('click', () => {
 const ZEMİNESAS_TEXTURE = new THREE.TextureLoader().load('textures/zemin9.png');
 // #endregion 
 
-// #region: Işık Ayarları
+//#region Işık - Kamera Ayarları
 // Yönlü ışık ekleme fonksiyonu
 function addDirectionalLight() {
   const light = new THREE.DirectionalLight(0xffffff, 1);
@@ -163,14 +170,13 @@ function addAmbientLight() {
 }
 //#endregion
 
-// #region🔥 INIT fonksiyonu & BUTON🔥
-// #region BUTON ÖNCESİ  
+//#region🔥 INIT fonksiyonu & BUTON🔥
 function init() {
   // Sahne oluşturma
   scene = new THREE.Scene();
 
   // Kamera ayarları
-  camera = new THREE.PerspectiveCamera(20, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera = new THREE.PerspectiveCamera(25, window.innerWidth / window.innerHeight, 0.1, 1000);
 
   // Renderer
   renderer = new THREE.WebGLRenderer();
@@ -185,41 +191,22 @@ function init() {
     // Işıkları ekleme
     addDirectionalLight();
     addAmbientLight();
-
+//#endregion
+  //#region Çim - Gökyüzü & Zemin Ekleme
   // Çim Zemin ekleme
-  function createGround(scene) {
-    // Texture yükleyici
-    const textureLoader = new THREE.TextureLoader();
-    const groundTexture = textureLoader.load('textures/zemin.png');
-    groundTexture.wrapS = THREE.RepeatWrapping;
-    groundTexture.wrapT = THREE.RepeatWrapping;
-    groundTexture.repeat.set(5, 5);  // Zemin dokusunun tekrarlanmasını sağlar
-    // Doku y ekseninde aşağı kaydırılıyor
-    groundTexture.offset.y = -1; // Y ekseninde dokuyu aşağı taşır (negatif değerle)
-
-    // Geometri ve malzeme oluşturma
+  function createGround() {
+    // Geometri oluşturma
     const groundGeometry = new THREE.PlaneGeometry(300, 200);  // Büyük bir zemin düzlemi
-    const groundMaterial = new THREE.MeshBasicMaterial({
-        map: groundTexture,
-        side: THREE.DoubleSide  // Zeminin iki yüzüne de doku ekler
-    });
-
-    // Mesh oluşturma ve ayarlama
-    const groundMesh = new THREE.Mesh(groundGeometry, groundMaterial);
+      // Mesh oluşturma ve ayarlama
+    const groundMesh = new THREE.Mesh(groundGeometry, ÇimZeminMalzeme1);
     groundMesh.rotation.x = -Math.PI / 2; // Yatay hale getiriyoruz
     groundMesh.position.set(50, -0.2, -50);  // X, Y, Z koordinatları
-
-    // Zemini bir grup içinde organize ediyoruz
-    const groundGroup = new THREE.Group();
+    const groundGroup = new THREE.Group();  // Zemini bir grup içinde organize ediyoruz
     groundGroup.add(groundMesh);
-
-    // Zemini sahneye ekliyoruz
     scene.add(groundGroup);
-
     return groundGroup;  // İleride kontrol için zemini geri döndürüyoruz
-}
-// Fonksiyonu çağırarak zemini sahneye ekleyin
-const ground = createGround(scene);
+  }
+  const ZeminEkleConst = createGround();
 
 // Gökyüzü küresi ekleme
 function createSky(scene) {
@@ -233,13 +220,13 @@ function createSky(scene) {
   });
   
   const skyMesh = new THREE.Mesh(skyGeometry, skyMaterial);
-  skyMesh.position.y = 500; // Gökyüzü küresi yukarıda yerleştirildi
-  
+  skyMesh.position.y = 500; 
+  skyMesh.position.x = 500; 
+  skyMesh.position.z = 500; 
+
   // Gökyüzü küresini sahneye ekleme
   scene.add(skyMesh);
 }
-
-// Fonksiyonu çağırarak gökyüzünü sahneye ekleyin
 createSky(scene);
 
 // ZEMİNESAS fonksiyonu
@@ -268,8 +255,8 @@ document.addEventListener('keydown', function(event) {
       document.getElementById('createCube').click();
   }
 });
-// #endregion 
-//#region🔥🔥🔥🔥🔥🔥 BUTONA BASINCA OLACAKLAR   🔥🔥🔥🔥🔥🔥🔥🔥
+//#endregion
+  //#region🔥🔥🔥🔥🔥🔥 BUTONA BASINCA OLACAKLAR   🔥🔥🔥🔥🔥🔥🔥🔥
   document.getElementById('createCube').addEventListener('click', () => {
     // Önceki kolon grubunu temizleyelim
     if (kolonGrubu) {scene.remove(kolonGrubu);}
@@ -281,6 +268,10 @@ document.addEventListener('keydown', function(event) {
     if (yankirişcons) { scene.remove(yankirişcons);}
     if (makasiçibracingTamCons) { scene.remove(makasiçibracingTamCons);}
     if (ÇaprazYanCons) { scene.remove(ÇaprazYanCons);}
+    if (ÇatıÇAprazCons) { scene.remove(ÇatıÇAprazCons);}
+    if (totemcons) { scene.remove(totemcons);}
+    if (CepheKaplamaCons) { scene.remove(CepheKaplamaCons);}
+
 
        
     // A, B, H değerlerini inputlardan alalım  - BUTON HESAP !!!!!!!!!!!!!!!!!!!!!
@@ -297,8 +288,9 @@ document.addEventListener('keydown', function(event) {
     ZEMİNESASEBATHESAP(A,B)
     DİKMEHESAPLA(MKAÇI)
     YanBağKirişHesap(H)
-    ÇaprazYanHesap ()
-
+    ÇaprazYanHesap() 
+    /*KOLON_BOX1(H)*/
+    console.log("KOLONEBAT değeri:", KOLONEBAT); // Değeri kontrol ediyoruz
     
     kolonGrubu = YATAYKOLONGRUBU(H);  // Kolon grubu oluşturuluyor
     soldiyagonelGrup = SOLDİYAGONELGRUBU(H);
@@ -308,7 +300,9 @@ document.addEventListener('keydown', function(event) {
     yankirişcons = YanKiriş_1(H, A);
     makasiçibracingTamCons =  Bracing_MakasİçiTam(H)
     ÇaprazYanCons = ÇaprazYanKomple(H)
-    
+    ÇatıÇAprazCons = ÇatıÇaprazTam(H)
+    totemcons= Totem1(H)
+    CepheKaplamaCons = CepheKaplamaSağSol(B, H, KOLONEBAT, A)
     
     scene.add(kolonGrubu);  // KOLON1 ile oluşturulan kolonları sahneye ekle
     scene.add(soldiyagonelGrup);  // Sahneye ekle
@@ -320,11 +314,12 @@ document.addEventListener('keydown', function(event) {
     scene.add(yankirişcons);
     scene.add(makasiçibracingTamCons);
     scene.add(ÇaprazYanCons);
+    scene.add(ÇatıÇAprazCons);
+    scene.add(totemcons)
+    scene.add(CepheKaplamaCons)
 
 
-
-    //#endregion
-
+//
     // Kamera pozisyonu
   camera.position.set(-60, 35, 55);
 // `controls` ile odak noktası belirleme
@@ -376,3 +371,89 @@ window.addEventListener('resize', () => {
     }
 });
 //#endregion
+
+
+// #region Üçgen ve kaydırma çubuğu için HTML elemanlarını oluşturma
+// Üçgen için ana wrapper oluşturma
+const triangleWrapper = document.createElement("div");
+triangleWrapper.style.position = "absolute";
+triangleWrapper.style.top = "20px"; // Formun sağ tarafına hizalayın
+triangleWrapper.style.left = "250px"; // Formdan biraz boşluk bırakın
+triangleWrapper.style.display = "flex";
+triangleWrapper.style.flexDirection = "column";
+triangleWrapper.style.alignItems = "center";
+
+// Opaklık yazısı ekleme
+const opacityLabel = document.createElement("span");
+opacityLabel.textContent = "Opaklık";
+opacityLabel.style.fontSize = "14px";
+opacityLabel.style.color = "black";
+opacityLabel.style.marginBottom = "5px";
+triangleWrapper.appendChild(opacityLabel);
+
+// Üçgen şekli oluşturma
+const opacityTriangle = document.createElement("div");
+opacityTriangle.style.width = "0";
+opacityTriangle.style.height = "0";
+opacityTriangle.style.borderTop = "10px solid transparent"; // Şeffaf üst kenar
+opacityTriangle.style.borderBottom = "10px solid transparent"; // Şeffaf alt kenar
+opacityTriangle.style.borderLeft = "50px solid rgba(0, 0, 0, 0.5)"; // Üçgenin sağa bakan kısmı
+opacityTriangle.style.opacity = "1"; // Başlangıç şeffaflığı
+triangleWrapper.appendChild(opacityTriangle);
+
+
+
+// Üçgen üzerinde hareket edecek dikdörtgen işaretçi
+const sliderHandle = document.createElement("div");
+sliderHandle.style.position = "absolute";
+sliderHandle.style.width = "10px";
+sliderHandle.style.height = "15px";
+sliderHandle.style.backgroundColor = "black";
+sliderHandle.style.cursor = "pointer";
+sliderHandle.style.top = "30px"; // Üçgenin üzerine hizalamak için
+sliderHandle.style.left = "10px"; // Başlangıç konumu
+triangleWrapper.appendChild(sliderHandle);
+
+// Elemanları DOM'a ekleme
+document.body.appendChild(triangleWrapper);
+
+// İşaretçiyi sürüklemek için olaylar ekleyin
+let isDragging = false;
+
+sliderHandle.addEventListener("mousedown", function() {
+  isDragging = true;
+});
+
+document.addEventListener("mouseup", function() {
+  isDragging = false;
+});
+
+document.addEventListener("mousemove", function(event) {
+  if (isDragging) {
+    // İşaretçinin sol sınırını ve sağ sınırını belirleyin
+    const minLeft = 10;
+    const maxLeft = 50;
+
+    // Fare x konumunu alıp sınırlara göre ayarlayın
+    let newLeft = event.clientX - triangleWrapper.offsetLeft;
+    newLeft = Math.max(minLeft, Math.min(maxLeft, newLeft));
+    
+    // İşaretçinin yeni pozisyonunu ayarlayın
+    sliderHandle.style.left = `${newLeft}px`;
+
+    // Üçgenin opacity değerini işaretçinin pozisyonuna göre hesaplayın
+    const opacityValue = 0.4 + ((newLeft - minLeft) / (maxLeft - minLeft)) * (1 - 0.4);
+    opacityTriangle.style.borderBottomColor = `rgba(0, 0, 0, ${opacityValue})`;
+    
+    // Cephe kaplama material'inin opacity değerini dinamik olarak güncelleyin
+    if (typeof CepheKaplamaCons !== "undefined") {
+      CepheKaplamaCons.children.forEach(mesh => {
+        if (mesh.material) {
+          mesh.material.opacity = opacityValue;
+          mesh.material.needsUpdate = true;
+        }
+      });
+    }
+  }
+});
+// #endregion
