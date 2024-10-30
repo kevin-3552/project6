@@ -397,13 +397,13 @@ opacityTriangle.style.width = "0";
 opacityTriangle.style.height = "0";
 opacityTriangle.style.borderTop = "7px solid transparent";
 opacityTriangle.style.borderBottom = "7px solid transparent";
-opacityTriangle.style.borderLeft = "50px solid rgba(0, 0, 0, 0.5)";
+opacityTriangle.style.borderLeft = "80px solid rgba(0, 0, 0, 0.5)";
 triangleWrapper.appendChild(opacityTriangle);
 
 // İşaretçi olarak hareket edecek dikdörtgen oluşturma
 const sliderHandle = document.createElement("div");
 sliderHandle.style.position = "absolute";
-sliderHandle.style.width = "15px";
+sliderHandle.style.width = "10px";
 sliderHandle.style.height = "20px";
 sliderHandle.style.backgroundColor = "rgba(0, 0, 0, 0.5)"; // Yarı saydam siyah
 sliderHandle.style.cursor = "pointer";
@@ -438,8 +438,8 @@ document.addEventListener("touchend", function() {
 // Sürükleme esnasında işaretçiyi hareket ettirme (Masaüstü ve Mobil)
 function moveSlider(event) {
   if (isDragging) {
-    const minLeft = 10;
-    const maxLeft = 50;
+    const minLeft = 0;
+    const maxLeft = 70;
 
     // Mouse veya touch konumunu alın
     const clientX = event.touches ? event.touches[0].clientX : event.clientX;
