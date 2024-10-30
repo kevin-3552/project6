@@ -21,25 +21,45 @@ export const MAKASMALZEME = new THREE.MeshBasicMaterial({
 // #endregion
 */
 
-// #region KOLON MALZEMELERİ - KOLON MATERIAL 1
+//#region Çim Zemin malzemesi
+export const ÇimZeminMalzeme1 = (() => {
+  // Texture yükleyici
+  const textureLoader = new THREE.TextureLoader();
+  const groundTexture = textureLoader.load('textures/zemin.png');
+  groundTexture.wrapS = THREE.RepeatWrapping;
+  groundTexture.wrapT = THREE.RepeatWrapping;
+  groundTexture.repeat.set(5, 5);  // Zemin dokusunun tekrarlanmasını sağlar
+  groundTexture.offset.y = -1;     // Y ekseninde dokuyu aşağı kaydırır
+
+  // Çim zemin malzemesini oluştur
+  return new THREE.MeshBasicMaterial({
+    map: groundTexture,
+    side: THREE.DoubleSide  // Zeminin iki yüzüne de doku ekler
+  });
+})();
+//#endregion
+
+
+
+// #region Kolon Malzemeleri - Kolon Material 1
 export const kolonMaterial1 = new THREE.MeshBasicMaterial({
   map: new THREE.TextureLoader().load('textures/çelik7.png')
 });
 //#endregion
 
-// #region KOLON MALZEMELERİ - KOLON MATERIAL 2
+// #region Kolon Malzemeleri - Kolon Material 2
 export const kolonMaterial2 = new THREE.MeshBasicMaterial({
     map: new THREE.TextureLoader().load('textures/çelik13.png')
   });
 // #endregion
 
-//#region MAKAS MALZEMESİ
+//#region Makas Malzemesi
 const textureLoader = new THREE.TextureLoader();
 export const MAKASMALZEME = new THREE.MeshBasicMaterial({
   map: textureLoader.load('textures/makas1.png')});  // Makas malzemesi texture atanıyor
 //#endregion
 
-//#region  DİKME MALZEMESİ
+//#region  Dikme Malzemesi
 export const DİKMEMALZEME = new THREE.MeshStandardMaterial({
   color: 0x8229c0,   // Açık mavi renk
   roughness: 0.5,    // Pürüzlülük; 0’a yakınsa daha parlak, 1’e yakınsa mat olur
@@ -47,7 +67,7 @@ export const DİKMEMALZEME = new THREE.MeshStandardMaterial({
 });
 //#endregion
 
-//#region // DİYAGONEL MALZEMESİ
+//#region // Diyagonel Malzemesi
 export const DİYAGONELMALZEME = new THREE.MeshStandardMaterial({
   color: 0x87CEEB,   // Açık mavi renk
   roughness: 0.5,    // Pürüzlülük; 0’a yakınsa daha parlak, 1’e yakınsa mat olur
@@ -55,24 +75,17 @@ export const DİYAGONELMALZEME = new THREE.MeshStandardMaterial({
 });
 // #endregion
 
-//#region BağKirişi MALZEMESİ - Boyuna Akslarda
+//#region BağKirişi Malzemesi- Boyuna Akslarda
 export const BağKirişiMalzeme = new THREE.MeshStandardMaterial({
   color: 0x20c0c0 
 });
 //#endregion
 
-//#region BağKirişi 2 MALZEMESİ - makas içi
+//#region BağKirişi 2 Malzemesi - makas içi
 export const BağKirişiMalzeme2 = new THREE.MeshStandardMaterial({
   color: 0xc99b15 
 });
 //#endregion
 
-//#region // Yatay ÇApraz Malzemesi
-export const ÇatıÇaprazMalzemesi = new THREE.MeshStandardMaterial({
-  color: 0x20c04e,   // Açık mavi renk
-  roughness: 0.5,    // Pürüzlülük; 0’a yakınsa daha parlak, 1’e yakınsa mat olur
-  metalness: 0.1     // Metalik görünüm; 0 mat, 1 tamamen metalik
-});
-// #endregion
 
 
