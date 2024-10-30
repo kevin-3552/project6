@@ -37,6 +37,9 @@ export let YanÇaprazAra
 export let YanÇaprazAksadet
 export let ÇaprazYükseklik
 export let YanÇaprazDüşeyAdet
+export let ÇatıÇaprazZekseniAra
+export let ÇatıÇaprazZekseniAdet
+
 
 //#endregion 
 
@@ -166,7 +169,7 @@ export function hesaplaDüşeyAks(B, K) {
   }
 //#endregion
   
-//#region ZEMİN ESAS EBAT HESAP
+//#region Zemin Esas Ebat Hesap
 export function ZEMİNESASEBATHESAP(A, B) {
     esaszeminA = A+10
     esaszeminB = B+10
@@ -197,7 +200,7 @@ console.log("ÇatıBağKirişSayısı", ÇatıBağKirişSayısı)
 }
 //#endregion
 
-//#region Çapraz Yan Hesap
+//#region Çapraz Yan Hesap ve Çatı Çapraz Değişkenler
 
 export function ÇaprazYanHesap() {
 YanÇaprazAksadet = Math.ceil(DÜŞEYHOLSAYISI/2)
@@ -208,8 +211,9 @@ console.log("YanKirişArası",YanKirişArası)
 console.log("YanÇaprazDüşeyAdet",YanÇaprazDüşeyAdet)
 console.log("YanÇaprazAksadet",YanÇaprazAksadet)
 
-
+ÇatıÇaprazZekseniAra = YanÇaprazAra
+ÇatıÇaprazZekseniAdet = YanÇaprazAksadet
 }
 
-
 //#endregion
+
