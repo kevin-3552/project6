@@ -825,19 +825,20 @@ export function Totem1(H, logoTexture = null) {
 //#endregion
 
 //#region Cephe Kaplama
+//#region Cephe Kaplama
+//#region Cephe Kaplama
 export function CepheKaplamaSağSol(B, H, KOLONEBAT, A) {
   // Kaplama dokusunu yükleme
-
   const kaplamaMap = new THREE.TextureLoader().load('textures/mavisandviç.png');
   kaplamaMap.wrapS = THREE.RepeatWrapping;
   kaplamaMap.wrapT = THREE.RepeatWrapping;
-  kaplamaMap.repeat.set(B * 2, 1);
+  kaplamaMap.repeat.set(A * 2, 1);
 
   const kaplamaMaterial = new THREE.MeshBasicMaterial({
     map: kaplamaMap,
     side: THREE.DoubleSide,
-    transparent: true,      // Şeffaflık özelliğini etkinleştir
-    opacity: 1        // Şeffaflık değeri (0 tamamen şeffaf, 1 tamamen opak)
+    transparent: true, // Şeffaflık özelliğini etkinleştir
+    opacity: 1         // Şeffaflık değeri (0 tamamen şeffaf, 1 tamamen opak)
   });
   
   // Kaplama Geometrisi: Uzunluk B, Yükseklik H + MYÜKS
@@ -851,20 +852,31 @@ export function CepheKaplamaSağSol(B, H, KOLONEBAT, A) {
 
   // İkinci Kaplama (mesh2) - x ekseninin A/2 noktasından geçen z eksenine göre mirror
   const kaplamaMesh2 = kaplamaMesh1.clone();
-  
   const mirrorMatrix = new THREE.Matrix4();
   mirrorMatrix.makeScale(-1, 1, 1); // X ekseninde aynalama
   mirrorMatrix.setPosition(new THREE.Vector3(A, 0, 0)); // X ekseninin A/2 noktasından yansıma
-
   kaplamaMesh2.applyMatrix4(mirrorMatrix); // Aynalama matrisini uyguluyoruz
+
+  // Arka Kaplama oluşturma
+  const arkaKaplamaGeometry = new THREE.PlaneGeometry(A, kaplamaYukseklik);
+  const arkaKaplamaMaterial = new THREE.MeshBasicMaterial({
+    map: kaplamaMap, // Aynı dokuyu kullanıyoruz
+    side: THREE.DoubleSide,
+    transparent: true,
+    opacity: 1
+  });
+  const arkaKaplamaMesh = new THREE.Mesh(arkaKaplamaGeometry, arkaKaplamaMaterial);
+  arkaKaplamaMesh.position.set(A / 2, kaplamaYukseklik / 2, -B); // x ekseninde A / 2, y ekseninde ortalanmış, z ekseninde -B
 
   // Cephe kaplama grubu
   const kaplamaGroup = new THREE.Group();
   kaplamaGroup.add(kaplamaMesh1);
   kaplamaGroup.add(kaplamaMesh2);
+  kaplamaGroup.add(arkaKaplamaMesh); // Arka Kaplamayı ekleyin
 
   return kaplamaGroup;
 }
+
 
 //#endregion
 
