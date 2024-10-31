@@ -831,13 +831,13 @@ export function CepheKaplamaSağSol(B, H, A) {
   const kaplamaYukseklik = H+MYÜKS;
 
   // Texture tekrar değerlerini B ve H'ye göre ayarlayalım
-  const kaplamaTexture1 = createKaplamaTexture(A * 2, 1);
+  const kaplamaTexture1 = createKaplamaTexture();
   const kaplamaTexture2 = createKaplamaTexture(A * 2, 1);
   const kaplamaTexture3 = createKaplamaTexture();
   const kaplamaTexture4 = createKaplamaTexture(A * 2, 1);
 
   // Kaplama Geometrisi: Uzunluk B, Yükseklik H
-  const kaplamaGeometry = new THREE.PlaneGeometry(B+ArkaKaplamaSınır+0.1, kaplamaYukseklik+MK_EN);
+  const kaplamaGeometry = new THREE.PlaneGeometry(B+ArkaKaplamaSınır+0.1, kaplamaYukseklik+MK_EN+0.15);
 
   // Kaplama Malzemesi
   const kaplamaMaterial = new THREE.MeshBasicMaterial({
@@ -930,10 +930,10 @@ triangleMeshMirror.applyMatrix4(mirrorMatrix);
 export function SolÇatıKaplama(H, B) {
   // Dört köşe noktasının koordinatları
   const vertices = [
-    new THREE.Vector3(0, H + MYÜKS+MK_EN, 0),                                         // 1. nokta
+    new THREE.Vector3(-KOLONEBAT, H + MYÜKS+MK_EN, 0),                                         // 1. nokta
     new THREE.Vector3(YATAYHOLGENİŞLİĞİ / 2, BinaYükseklik+MK_EN, 0),                 // 2. nokta
     new THREE.Vector3(YATAYHOLGENİŞLİĞİ / 2, BinaYükseklik+MK_EN, -B - KOLONEBAT / 2), // 3. nokta
-    new THREE.Vector3(0, H + MYÜKS+MK_EN, -B - KOLONEBAT / 2)                         // 4. nokta
+    new THREE.Vector3(-KOLONEBAT, H + MYÜKS+MK_EN, -B - KOLONEBAT / 2)                         // 4. nokta
   ];
 
   // Geometri oluşturuluyor ve köşeler ekleniyor

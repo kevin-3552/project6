@@ -58,17 +58,72 @@ function createFormContainer() {
   formContainer.style.position = 'absolute';
   formContainer.style.top = '3px';
   formContainer.style.left = '10px';
-  formContainer.style.zIndex = '10';
+  formContainer.style.zIndex = '10';  // Formun z-index değeri
   formContainer.style.backgroundColor = 'rgba(240, 240, 240, 0.9)';
   formContainer.style.padding = '5px';
   formContainer.style.border = '1px solid #000';
   formContainer.style.borderRadius = '8px';
   formContainer.style.width = '200px';
 
-  // Formu sayfaya ekliyoruz
-    document.body.appendChild(formContainer);   return formContainer;}
-  // Fonksiyonu çağırarak formu sayfaya ekleyin
-  const formContainer = createFormContainer();
+  // Formu sayfaya ekleyin
+  document.body.appendChild(formContainer);   
+  return formContainer;
+}
+
+// `createFormContainer` fonksiyonunu çağırın
+const formContainer = createFormContainer();
+
+
+function createCameraIconWithTooltip() {
+  // Kamera ikonu oluştur ve doğrudan `body`'ye ekle
+  const cameraIcon = document.createElement('img');
+  cameraIcon.src = 'textures/cameraicon.png';       // Kamera ikonunun yolunu belirtin
+  cameraIcon.style.position = 'fixed';
+  cameraIcon.style.top = '170px';                   // Ekranda konumlandırma
+  cameraIcon.style.left = '20px';
+  cameraIcon.style.width = '24px';
+  cameraIcon.style.height = '15px';
+  cameraIcon.style.cursor = 'pointer';
+  cameraIcon.style.zIndex = '9999';
+  cameraIcon.title = "Kamera ayarlarını sıfırlayın"; // Masaüstü için tooltip
+
+  // Mobil cihazlarda dokunulduğunda gösterilecek mesaj kutusu
+  const tooltip = document.createElement('div');
+  tooltip.innerText = "Kamera ayarlarını sıfırlayın";
+  tooltip.style.position = 'fixed';
+  tooltip.style.top = '200px';                     // Tooltip'in konumunu ikona göre ayarlayın
+  tooltip.style.left = '20px';
+  tooltip.style.padding = '5px 10px';
+  tooltip.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+  tooltip.style.color = 'white';
+  tooltip.style.borderRadius = '5px';
+  tooltip.style.display = 'none';                  // Başlangıçta gizli
+  tooltip.style.zIndex = '10000';
+  document.body.appendChild(tooltip);
+
+  // Kamera ikonuna tıklama ve dokunma olaylarını ekle
+  cameraIcon.addEventListener('click', () => {
+    camera.position.set(-60, 35, 55);              // Kamera pozisyonunu ayarla
+    controls.target.set(A / 3, H / 3, -B / 3);     // Odak noktasını belirle
+    controls.update();
+  });
+
+  // Mobil cihazlarda dokunulduğunda tooltip'i göster
+  cameraIcon.addEventListener('touchstart', () => {
+    tooltip.style.display = 'block';
+    setTimeout(() => {
+      tooltip.style.display = 'none';
+    }, 2000); // Tooltip 2 saniye sonra kaybolur
+  });
+
+  // Kamera ikonunu doğrudan body'ye ekle
+  document.body.appendChild(cameraIcon);
+}
+
+// Fonksiyonu çağırarak kamera ikonu ve tooltip’i oluştur
+createCameraIconWithTooltip();
+
+
 
 // Butonları ve formu oluşturmak için bir fonksiyon
 function createFormAndButton() {
@@ -142,6 +197,22 @@ function createFormAndButton() {
   // FormContainer'ı body içine ekleme
   document.body.appendChild(formContainer);
 }
+
+// Mevcut `createFormContainer` fonksiyonunun altına ekleyin
+function adjustFormContainerWidth() {
+  const formContainer = document.getElementById('formContainer');
+  if (formContainer) {
+    formContainer.style.width = `${Math.min(window.innerWidth * 0.9, 200)}px`; // Maksimum genişlik 200px
+  }
+}
+
+// Ekran yeniden boyutlandırıldığında veya yön değiştiğinde genişliği ayarla
+window.addEventListener('resize', adjustFormContainerWidth);
+window.addEventListener('orientationchange', adjustFormContainerWidth);
+
+// Sayfa yüklendiğinde başlangıçta boyut ayarlaması yap
+adjustFormContainerWidth();
+
 // Bu fonksiyonu çağırarak buton ve formu oluşturabilirsiniz
 createFormAndButton();
 

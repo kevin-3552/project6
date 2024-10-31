@@ -92,26 +92,49 @@ export const BağKirişiMalzeme2 = new THREE.MeshStandardMaterial({
 });
 //#endregion
 
-//#region Kaplama malzemesi
-
+//#region Kaplama malzemeleri
 // cephe paneli
-
 export function createKaplamaTexture() {
     const texture = new THREE.TextureLoader().load('textures/mavisandviç.png');
     texture.wrapS = THREE.RepeatWrapping;
     texture.wrapT = THREE.RepeatWrapping;
-    texture.needsUpdate = true;
+    /*texture.needsUpdate = true;*/
     return texture;
 }
 
 // Çatı Paneli
 export function createKaplamaTexture2() {
+  const textureLoader = new THREE.TextureLoader();
+  
+
+  
+  // Texture yüklenme durumunu kontrol et
+  const texture = textureLoader.load(
+    'textures/kırmızıpanel.png',
+    // Yükleme başarılı olduğunda
+    (loadedTexture) => {
+      console.log('kırmızıpanel.png başarıyla yüklendi');
+      loadedTexture.wrapS = THREE.RepeatWrapping;
+      loadedTexture.wrapT = THREE.RepeatWrapping;
+      loadedTexture.needsUpdate = true;
+    },
+    undefined,
+    // Hata durumunda
+    (error) => {
+      console.error('kırmızıpanel.png yüklenirken hata oluştu:', error);
+    }
+  );
+
+  return texture;
+}
+
+/*export function createKaplamaTexture2() {
   const texture = new THREE.TextureLoader().load('textures/kırmızıpanel.png');
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
   texture.needsUpdate = true;
   return texture;
-}
+} orjinal console log göstermeyen..*/
 
-//#€ndregion
+//#endregion
 
