@@ -50,7 +50,7 @@ import { ÇimZeminMalzeme1  } from './malzemeler.js';  //
 
 //#endregion 
 
-// #region FORM - HTML vs İŞLEMLERİ...
+// #region FORM - HTML - Camera Icon vsİşlemleri...
 // HTML form yapısını tamamen JavaScript ile oluşturma ve sayfaya ekleme
 function createFormContainer() {
   const formContainer = document.createElement('div');
@@ -87,19 +87,6 @@ function createCameraIconWithTooltip() {
   cameraIcon.style.zIndex = '9999';
   cameraIcon.title = "Kamera ayarlarını sıfırlayın"; // Masaüstü için tooltip
 
-  // Mobil cihazlarda dokunulduğunda gösterilecek mesaj kutusu
-  const tooltip = document.createElement('div');
-  tooltip.innerText = "Kamera ayarlarını sıfırlayın";
-  tooltip.style.position = 'fixed';
-  tooltip.style.top = '200px';                     // Tooltip'in konumunu ikona göre ayarlayın
-  tooltip.style.left = '20px';
-  tooltip.style.padding = '5px 10px';
-  tooltip.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-  tooltip.style.color = 'white';
-  tooltip.style.borderRadius = '5px';
-  tooltip.style.display = 'none';                  // Başlangıçta gizli
-  tooltip.style.zIndex = '10000';
-  document.body.appendChild(tooltip);
 
   // Kamera ikonuna tıklama ve dokunma olaylarını ekle
   cameraIcon.addEventListener('click', () => {
