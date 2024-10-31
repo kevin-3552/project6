@@ -1,18 +1,21 @@
 
-// #region// Değişkenler
-// IMPORT DEĞİŞKENLER
+export let KOLONUZUNLUK
+export let MK_UZUNLUK
+
+
+// #region// Hesapla & Import 
 import { MALTBÇAP, DÜŞEYAKSSAYISI, YATAYAKSSAYISI, YATAYHOLGENİŞLİĞİ, MAKASBOYU, DÜŞEYHOLGENİŞLİĞİ, 
-  YATAYHOLSAYISI, ALTMAKASYÜKS2, MYÜKS, MKAÇI, İKİDİKMEARASI, DİKME_Y_ARTIŞ, MDDİYGÇAP, DİKMESAYISI, MAKAS_YÜKSEKL_HESAPLA, YanKirişArası, YanBağKirişAdet, 
-DÜŞEYHOLSAYISI, ÇatıBağKirişSayısı, ÇatıBağKirişAra_Yatay, ÇatıBağKirişAra_Yekseni, 
-ÇaprazYükseklik, YanÇaprazAksadet, YanÇaprazDüşeyAdet,  ÇatıÇaprazZekseniAra, ÇatıÇaprazZekseniAdet,   } from './hesapla.js';
+  YATAYHOLSAYISI, ALTMAKASYÜKS2, MYÜKS, MKAÇI, İKİDİKMEARASI, DİKME_Y_ARTIŞ, MDDİYGÇAP, DİKMESAYISI, MAKAS_YÜKSEKL_HESAPLA, 
+  YanKirişArası, YanBağKirişAdet, DÜŞEYHOLSAYISI, ÇatıBağKirişSayısı, ÇatıBağKirişAra_Yatay, ÇatıBağKirişAra_Yekseni, 
+ÇaprazYükseklik, YanÇaprazAksadet, YanÇaprazDüşeyAdet,  ÇatıÇaprazZekseniAra, ÇatıÇaprazZekseniAdet, BinaYükseklik, ArkaKaplamaSınır, KaplamaSınırHesap   } from './hesapla.js';
 
 // Geometriler Import
 import { KOLON1, HEA300, KOLON_BOX1, YATAY_MK_GEO_1, Yatay_Kiriş_Profil_1, Yatay_Kiriş_Profil_2, YatayÇaprazProfil,
-  YatayÇaprazÇap, ÇatıÇaprazProfil, KOLONEBAT} from './geometriler.js';
+  YatayÇaprazÇap, ÇatıÇaprazProfil, KOLONEBAT, MK_EN} from './geometriler.js';
 
 // MALZEMELER import
-import { kolonMaterial2, DİKMEMALZEME, MAKASMALZEME, DİYAGONELMALZEME, BağKirişiMalzeme, BağKirişiMalzeme2 
-   } from './malzemeler.js';
+import { kolonMaterial2, DİKMEMALZEME, MAKASMALZEME, DİYAGONELMALZEME, BağKirişiMalzeme, BağKirişiMalzeme2, kolonMaterial3
+   , createKaplamaTexture, createKaplamaTexture2  } from './malzemeler.js';
 
 
 // #endregion// 
@@ -34,12 +37,11 @@ export function YATAYKOLONGRUBU(H) {
   // DKG fonksiyonu: Düşey kolon grubu
   function DKG(H) {
     const kolonGroup = new THREE.Group();
-  let KOLONUZUNLUK = H
+  KOLONUZUNLUK = H
     for (let i = 0; i < DÜŞEYAKSSAYISI; i++) {
-      const kolon = KOLON_BOX1(KOLONUZUNLUK, kolonMaterial2);
+      const kolon = KOLON_BOX1(H, kolonMaterial3);
       kolon.position.set(0, 0, i * -DÜŞEYHOLGENİŞLİĞİ);  // Z ekseni boyunca DÜŞEYHOLGENİŞLİĞİ mesafesiyle yerleştiriliyor
       kolonGroup.add(kolon);
-      console.log("KOLONEBAT - kolon fonk içindeki - ", KOLONEBAT)
     }
   
     return kolonGroup;  // Tüm kolonları içeren grup geri döndürülüyor
@@ -49,7 +51,7 @@ export function YATAYKOLONGRUBU(H) {
 // #region 🔱 Makaslar ara fonksiyonlar🔱
 // TEKLİ SOL MAKAS ALT BAŞLIK Fonksiyonu
 export function MakasAlt(H) {
-  const MK_UZUNLUK = YATAYHOLGENİŞLİĞİ; // MK_UZUNLUK değeri atanıyor
+   MK_UZUNLUK = YATAYHOLGENİŞLİĞİ; // MK_UZUNLUK değeri atanıyor
   const makasAltBaslik = YATAY_MK_GEO_1(YATAYHOLGENİŞLİĞİ, MK_UZUNLUK); // Grup olarak alınır
   makasAltBaslik.position.set(YATAYHOLGENİŞLİĞİ / 2, H, 0); // Pozisyon ayarlanıyor
   makasAltBaslik.rotation.z = THREE.MathUtils.degToRad(90);  // Z ekseni etrafında 90° + MKAÇI döndürme
@@ -57,7 +59,7 @@ export function MakasAlt(H) {
 }
 
 export function MakasÜstSol() {
-  const MK_UZUNLUK = YATAYHOLGENİŞLİĞİ / 2; // MK_UZUNLUK değeri atanıyor
+   MK_UZUNLUK = YATAYHOLGENİŞLİĞİ / 2; // MK_UZUNLUK değeri atanıyor
   const makasAltBaslik = YATAY_MK_GEO_1(YATAYHOLGENİŞLİĞİ, MK_UZUNLUK); // Grup olarak alınır
   makasAltBaslik.position.set(YATAYHOLGENİŞLİĞİ / 4,(ALTMAKASYÜKS2 + MYÜKS), 0); // Pozisyon ayarlanıyor
   makasAltBaslik.rotation.z = THREE.MathUtils.degToRad(90 + MKAÇI);  // Z ekseni etrafında 90° + MKAÇI döndürme
@@ -763,7 +765,6 @@ export function ÇatıÇaprazTam(H) {
   for (let z = 0; z < ÇatıÇaprazZekseniAdet; z++) {
     for (let x = 0; x < YATAYHOLSAYISI; x++) {
       const makasGrup = ÇatıÇapraz1MakasGrup(H, YATAYHOLGENİŞLİĞİ, DÜŞEYHOLGENİŞLİĞİ);
-console.log("ÇatıÇaprazZekseniAdet",ÇatıÇaprazZekseniAdet)
       // Pozisyon ayarları
       makasGrup.position.x = x * YATAYHOLGENİŞLİĞİ;
       makasGrup.position.z = z * -ÇatıÇaprazZekseniAra;
@@ -825,54 +826,99 @@ export function Totem1(H, logoTexture = null) {
 //#endregion
 
 //#region Cephe Kaplama
-//#region Cephe Kaplama
-//#region Cephe Kaplama
-export function CepheKaplamaSağSol(B, H, KOLONEBAT, A) {
-  // Kaplama dokusunu yükleme
-  const kaplamaMap = new THREE.TextureLoader().load('textures/mavisandviç.png');
-  kaplamaMap.wrapS = THREE.RepeatWrapping;
-  kaplamaMap.wrapT = THREE.RepeatWrapping;
-  kaplamaMap.repeat.set(A * 2, 1);
 
+export function CepheKaplamaSağSol(B, H, A) {
+  const kaplamaYukseklik = H+MYÜKS;
+
+  // Texture tekrar değerlerini B ve H'ye göre ayarlayalım
+  const kaplamaTexture1 = createKaplamaTexture(A * 2, 1);
+  const kaplamaTexture2 = createKaplamaTexture(A * 2, 1);
+  const kaplamaTexture3 = createKaplamaTexture();
+  const kaplamaTexture4 = createKaplamaTexture(A * 2, 1);
+
+  // Kaplama Geometrisi: Uzunluk B, Yükseklik H
+  const kaplamaGeometry = new THREE.PlaneGeometry(B+ArkaKaplamaSınır+0.1, kaplamaYukseklik+MK_EN);
+
+  // Kaplama Malzemesi
   const kaplamaMaterial = new THREE.MeshBasicMaterial({
-    map: kaplamaMap,
-    side: THREE.DoubleSide,
-    transparent: true, // Şeffaflık özelliğini etkinleştir
-    opacity: 1         // Şeffaflık değeri (0 tamamen şeffaf, 1 tamamen opak)
+      map: kaplamaTexture1,
+      side: THREE.DoubleSide,
+      transparent: true,
+      opacity: 0.5
   });
-  
-  // Kaplama Geometrisi: Uzunluk B, Yükseklik H + MYÜKS
-  const kaplamaYukseklik = H + MYÜKS;
-  const kaplamaGeometry = new THREE.PlaneGeometry(B, kaplamaYukseklik);
 
-  // İlk Kaplama (mesh1)
+  // Kaplama Mesh'i oluşturuluyor
   const kaplamaMesh1 = new THREE.Mesh(kaplamaGeometry, kaplamaMaterial);
-  kaplamaMesh1.position.set(-(KOLONEBAT / 2) - 0.05, kaplamaYukseklik / 2, -B / 2);
-  kaplamaMesh1.rotation.y = Math.PI / 2; // Y ekseninde 90° döndürme
 
-  // İkinci Kaplama (mesh2) - x ekseninin A/2 noktasından geçen z eksenine göre mirror
+  // Pozisyon ve rotasyon ayarı
+  kaplamaMesh1.position.set(-KOLONEBAT/2- 0.05, kaplamaYukseklik / 2, -B / 2);
+  kaplamaMesh1.rotation.y = Math.PI / 2;
+  kaplamaTexture1.repeat.set( B,1);
+
+
+
+  // İkinci Kaplama (mesh2)
   const kaplamaMesh2 = kaplamaMesh1.clone();
-  const mirrorMatrix = new THREE.Matrix4();
-  mirrorMatrix.makeScale(-1, 1, 1); // X ekseninde aynalama
-  mirrorMatrix.setPosition(new THREE.Vector3(A, 0, 0)); // X ekseninin A/2 noktasından yansıma
-  kaplamaMesh2.applyMatrix4(mirrorMatrix); // Aynalama matrisini uyguluyoruz
+  const mirrorMatrix = new THREE.Matrix4().makeScale(-1, 1, 1);
+  mirrorMatrix.setPosition(new THREE.Vector3(A, 0, 0));
+  kaplamaMesh2.applyMatrix4(mirrorMatrix);
 
-  // Arka Kaplama oluşturma
-  const arkaKaplamaGeometry = new THREE.PlaneGeometry(A, kaplamaYukseklik);
-  const arkaKaplamaMaterial = new THREE.MeshBasicMaterial({
-    map: kaplamaMap, // Aynı dokuyu kullanıyoruz
+// Arka Kaplama Geometrisi: Uzunluk A, Yükseklik H
+const arkaKaplamaGeometry = new THREE.PlaneGeometry((A+(KOLONEBAT)+0.1), kaplamaYukseklik+MK_EN);
+const arkaKaplamaMaterial = new THREE.MeshBasicMaterial({
+    map: kaplamaTexture2,
     side: THREE.DoubleSide,
     transparent: true,
-    opacity: 1
-  });
-  const arkaKaplamaMesh = new THREE.Mesh(arkaKaplamaGeometry, arkaKaplamaMaterial);
-  arkaKaplamaMesh.position.set(A / 2, kaplamaYukseklik / 2, -B); // x ekseninde A / 2, y ekseninde ortalanmış, z ekseninde -B
+    opacity: 0.5
+});
+kaplamaTexture2.repeat.set(YATAYHOLGENİŞLİĞİ*2,1);
+const arkaKaplamaMesh = new THREE.Mesh(arkaKaplamaGeometry, arkaKaplamaMaterial);
+arkaKaplamaMesh.position.set(A / 2, kaplamaYukseklik / 2, -B - ArkaKaplamaSınır / 2 - 0.05);
+console.log("ArkaKaplamaSınır ",ArkaKaplamaSınır )
 
-  // Cephe kaplama grubu
+// Üçgen Kaplama Malzemesi
+const triangleMaterial = new THREE.MeshBasicMaterial({
+  map: kaplamaTexture3,
+  side: THREE.DoubleSide,
+  transparent: true,
+  opacity: 0.5,
+});
+
+// Üçgen şeklin geometrisini oluşturma
+const shape = new THREE.Shape();
+shape.moveTo(0, 0);
+shape.lineTo(YATAYHOLGENİŞLİĞİ / 2, BinaYükseklik - H - MYÜKS);
+shape.lineTo(YATAYHOLGENİŞLİĞİ, 0);
+shape.lineTo(0, 0);
+const triangleGeometry = new THREE.ShapeGeometry(shape);
+kaplamaTexture3.repeat.set(YATAYHOLGENİŞLİĞİ,1);
+
+
+// UV koordinatlarını ayarlama
+triangleGeometry.attributes.uv.array[0] = 0; // (0,0) noktasının u değeri
+triangleGeometry.attributes.uv.array[1] = 0; // (0,0) noktasının v değeri
+
+triangleGeometry.attributes.uv.array[2] = 0.5; // (YATAYHOLGENİŞLİĞİ / 2, BinaYükseklik - H - MYÜKS) u değeri
+triangleGeometry.attributes.uv.array[3] = 1;   // (YATAYHOLGENİŞLİĞİ / 2, BinaYükseklik - H - MYÜKS) v değeri
+
+triangleGeometry.attributes.uv.array[4] = 1;   // (YATAYHOLGENİŞLİĞİ, 0) u değeri
+triangleGeometry.attributes.uv.array[5] = 0;   // (YATAYHOLGENİŞLİĞİ, 0) v değeri
+
+// Üçgen Mesh oluşturma
+const triangleMesh = new THREE.Mesh(triangleGeometry, triangleMaterial);
+triangleMesh.position.set(0, H + MYÜKS+MK_EN/2, -B - KOLONEBAT  - 0.1);
+
+// Aynalanmış Üçgen Mesh
+const triangleMeshMirror = triangleMesh.clone();
+const mirrorMatrix2 = new THREE.Matrix4().makeScale(-1, 1, 1); // x ekseninde aynalama
+mirrorMatrix2.setPosition(new THREE.Vector3(YATAYHOLGENİŞLİĞİ, 0, 0)); // Aynalama konumu ayarı
+triangleMeshMirror.applyMatrix4(mirrorMatrix);
+
+
+  // Kaplama grubu
   const kaplamaGroup = new THREE.Group();
-  kaplamaGroup.add(kaplamaMesh1);
-  kaplamaGroup.add(kaplamaMesh2);
-  kaplamaGroup.add(arkaKaplamaMesh); // Arka Kaplamayı ekleyin
+/* bu doğrusu eskisi  kaplamaGroup.add(kaplamaMesh1, kaplamaMesh2, arkaKaplamaMesh, triangleMesh); */
+  kaplamaGroup.add(kaplamaMesh1,kaplamaMesh2, arkaKaplamaMesh, triangleMesh, triangleMeshMirror);
 
   return kaplamaGroup;
 }
@@ -880,4 +926,59 @@ export function CepheKaplamaSağSol(B, H, KOLONEBAT, A) {
 
 //#endregion
 
+//#region Çatı Kaplama
+export function SolÇatıKaplama(H, B) {
+  // Dört köşe noktasının koordinatları
+  const vertices = [
+    new THREE.Vector3(0, H + MYÜKS+MK_EN, 0),                                         // 1. nokta
+    new THREE.Vector3(YATAYHOLGENİŞLİĞİ / 2, BinaYükseklik+MK_EN, 0),                 // 2. nokta
+    new THREE.Vector3(YATAYHOLGENİŞLİĞİ / 2, BinaYükseklik+MK_EN, -B - KOLONEBAT / 2), // 3. nokta
+    new THREE.Vector3(0, H + MYÜKS+MK_EN, -B - KOLONEBAT / 2)                         // 4. nokta
+  ];
+
+  // Geometri oluşturuluyor ve köşeler ekleniyor
+  const geometry = new THREE.BufferGeometry().setFromPoints(vertices);
+
+  // Geometriye yüzey tanımlanıyor
+  geometry.setIndex([0, 1, 2, 2, 3, 0]);
+  geometry.computeVertexNormals();
+
+  // UV koordinatları 90° döndürülmüş olarak tanımlanıyor
+  const uvs = [
+    1, 1,  // 1. nokta için UV koordinatı
+    1, 0,  // 2. nokta için UV koordinatı
+    0, 0,  // 3. nokta için UV koordinatı
+    0, 1   // 4. nokta için UV koordinatı
+  ];
+  geometry.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
+
+  // Texture oluşturma ve malzeme ayarı
+  const kaplamaTexture2 = createKaplamaTexture2(B, 1); // Texture tekrar değerlerini `B` ve `1` olarak ayarlayın
+  const kaplamaMaterial = new THREE.MeshBasicMaterial({
+    map: kaplamaTexture2,
+    side: THREE.DoubleSide,
+    transparent: true,       // Transparan özelliğini etkinleştirin
+    opacity: 0.5            // Opaklık değerini ayarlayın (0.5 örneği yarı saydamlık verir)
+
+  });
+
+  // Mesh oluşturuluyor
+  const solCatiKaplamaMesh = new THREE.Mesh(geometry, kaplamaMaterial);
+  kaplamaTexture2.repeat.set(B,1);
+
+  // `SolÇatıKaplamacons` adında grup oluşturup mesh'i ekleyin
+  const SolÇatıKaplamacons = new THREE.Group();
+  SolÇatıKaplamacons.add(solCatiKaplamaMesh);
+
+  // Grubu döndür
+  return SolÇatıKaplamacons;
+
+
+
+  // Sonucu döndür
+  return solCatiKaplama;
+}
+
+
+//#endregion
 

@@ -39,8 +39,6 @@ export const ÇimZeminMalzeme1 = (() => {
 })();
 //#endregion
 
-
-
 // #region Kolon Malzemeleri - Kolon Material 1
 export const kolonMaterial1 = new THREE.MeshBasicMaterial({
   map: new THREE.TextureLoader().load('textures/çelik7.png')
@@ -51,6 +49,13 @@ export const kolonMaterial1 = new THREE.MeshBasicMaterial({
 export const kolonMaterial2 = new THREE.MeshBasicMaterial({
     map: new THREE.TextureLoader().load('textures/çelik13.png')
   });
+// #endregion
+
+// #region Kolon Malzemeleri - Kolon Material 3
+export const kolonMaterial3 = new THREE.MeshStandardMaterial({
+  color: 0xff0000 // Kırmızı renk için renk kodu
+});
+
 // #endregion
 
 //#region Makas Malzemesi
@@ -87,5 +92,26 @@ export const BağKirişiMalzeme2 = new THREE.MeshStandardMaterial({
 });
 //#endregion
 
+//#region Kaplama malzemesi
 
+// cephe paneli
+
+export function createKaplamaTexture() {
+    const texture = new THREE.TextureLoader().load('textures/mavisandviç.png');
+    texture.wrapS = THREE.RepeatWrapping;
+    texture.wrapT = THREE.RepeatWrapping;
+    texture.needsUpdate = true;
+    return texture;
+}
+
+// Çatı Paneli
+export function createKaplamaTexture2() {
+  const texture = new THREE.TextureLoader().load('textures/kırmızıpanel.png');
+  texture.wrapS = THREE.RepeatWrapping;
+  texture.wrapT = THREE.RepeatWrapping;
+  texture.needsUpdate = true;
+  return texture;
+}
+
+//#€ndregion
 

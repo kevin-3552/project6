@@ -30,6 +30,7 @@ let createButton;
 // Nesneler
 import { YATAYKOLONGRUBU, SOLDİYAGONELGRUBU, SAĞDİYAGONELGRUBU, MakasGrupÇoğalt, YanKiriş_1, MakasİçiAltTamBracing, 
   Bracing_MakasİçiTam, ÇaprazYanKomple, ÇatıÇapraz1MakasGrup, ÇatıÇaprazTam, Totem1,CepheKaplamaSağSol  } from './nesneler.js';  // 
+  MK_UZUNLUK  } from './nesneler.js';  // 
 
 // Hesaplar
 import { DİKMEHESAPLA, hesaplaDüşeyAks, hesaplaYatayKolon, ÇATIEĞİMHETKİSİHESAP, MAKASBOYUHESAP, 
@@ -40,7 +41,7 @@ import { DİKMEHESAPLA, hesaplaDüşeyAks, hesaplaYatayKolon, ÇATIEĞİMHETKİS
   esaszeminA, esaszeminB, MAKAS_YÜKSEKL_HESAPLA, ÇaprazYükseklik} from './hesapla.js';
 
 // Geometriler
-import { YatayÇaprazÇap, KOLONEBAT, KOLON_BOX1  } from './geometriler.js';  // 
+import { YatayÇaprazÇap, KOLONEBAT, KOLON_BOX1 , MK_EN, YATAY_MK_GEO_1 } from './geometriler.js';  // 
 
 // Malzemeler
 import { ÇimZeminMalzeme1  } from './malzemeler.js';  // 
@@ -156,7 +157,7 @@ createButton.addEventListener('click', () => {
 const ZEMİNESAS_TEXTURE = new THREE.TextureLoader().load('textures/zemin9.png');
 // #endregion 
 
-//#region Işık - Kamera Ayarları
+//#region Işık Ayarları
 // Yönlü ışık ekleme fonksiyonu
 function addDirectionalLight() {
   const light = new THREE.DirectionalLight(0xffffff, 1);
@@ -175,8 +176,11 @@ function init() {
   // Sahne oluşturma
   scene = new THREE.Scene();
 
-  // Kamera ayarları
+//#region Kamera ayarları
   camera = new THREE.PerspectiveCamera(25, window.innerWidth / window.innerHeight, 0.1, 1000);
+//#endregion
+
+
 
   // Renderer
   renderer = new THREE.WebGLRenderer();
@@ -271,6 +275,7 @@ document.addEventListener('keydown', function(event) {
     if (ÇatıÇAprazCons) { scene.remove(ÇatıÇAprazCons);}
     if (totemcons) { scene.remove(totemcons);}
     if (CepheKaplamaCons) { scene.remove(CepheKaplamaCons);}
+    if (SolÇatıKaplamacons) { scene.remove(SolÇatıKaplamacons);}
 
 
        
@@ -286,9 +291,13 @@ document.addEventListener('keydown', function(event) {
     ÇATIEĞİMHETKİSİHESAP(H, YATAYHOLGENİŞLİĞİ, MKAÇI);
     MAKASBOYUHESAP()
     ZEMİNESASEBATHESAP(A,B)
-    DİKMEHESAPLA(MKAÇI)
+    DİKMEHESAPLA(H)
     YanBağKirişHesap(H)
     ÇaprazYanHesap() 
+    YATAY_MK_GEO_1(YATAYHOLGENİŞLİĞİ, MK_UZUNLUK)
+    KaplamaSınırHesap ()
+        console.log("ArkaKaplamaSınır - app içi ",ArkaKaplamaSınır )
+
     /*KOLON_BOX1(H)*/
     console.log("KOLONEBAT değeri:", KOLONEBAT); // Değeri kontrol ediyoruz
     
@@ -302,7 +311,8 @@ document.addEventListener('keydown', function(event) {
     ÇaprazYanCons = ÇaprazYanKomple(H)
     ÇatıÇAprazCons = ÇatıÇaprazTam(H)
     totemcons= Totem1(H)
-    CepheKaplamaCons = CepheKaplamaSağSol(B, H, KOLONEBAT, A)
+    CepheKaplamaCons = CepheKaplamaSağSol(B, H, A)
+    SolÇatıKaplamacons = SolÇatıKaplama(H, B,)
     
     scene.add(kolonGrubu);  // KOLON1 ile oluşturulan kolonları sahneye ekle
     scene.add(soldiyagonelGrup);  // Sahneye ekle
@@ -317,6 +327,7 @@ document.addEventListener('keydown', function(event) {
     scene.add(ÇatıÇAprazCons);
     scene.add(totemcons)
     scene.add(CepheKaplamaCons)
+    scene.add(SolÇatıKaplamacons)
 
 
 //
@@ -324,6 +335,15 @@ document.addEventListener('keydown', function(event) {
   camera.position.set(-60, 35, 55);
 // `controls` ile odak noktası belirleme
   controls.target.set(A/3, H/3, -B/3);
+
+  // FlyControls başlatma ve ayar yapma
+  controlFly = new THREE.FlyControls(camera, renderer.domElement);
+  controlFly.movementSpeed = 2.0;
+  controlFly.rollSpeed = 0.02;
+  controlFly.dragToLook = true;
+  controlFly.autoForward = false;
+
+
   controls.update();
   
     renderer.render(scene, camera);
@@ -336,6 +356,8 @@ document.addEventListener('keydown', function(event) {
 function animate() {
   requestAnimationFrame(animate);
   controls.update();  // Kontrolleri güncelle
+  if (controlFly) controlFly.update(0.1); // Delta zamanı geçin
+
   renderer.render(scene, camera);  // Sahneyi render et 
 }
 //#endregion
@@ -371,7 +393,6 @@ window.addEventListener('resize', () => {
     }
 });
 //#endregion
-
 
 // #region Üçgen ve kaydırma çubuğu için HTML elemanlarını oluşturma
 // Üçgen ve kaydırma çubuğu için ana wrapper oluşturma
@@ -451,6 +472,7 @@ function moveSlider(event) {
     /*const opacityValue = 0.4 + ((newLeft - minLeft) / (maxLeft - minLeft)) * (1 - 0.2); */
     const opacityValue = 1 - ((newLeft - minLeft) / (maxLeft - minLeft)) * (1 - 0.1);
 
+    /*SolÇatıKaplamacons*/
 
     if (typeof CepheKaplamaCons !== "undefined") {
       CepheKaplamaCons.children.forEach(mesh => {
@@ -460,7 +482,16 @@ function moveSlider(event) {
         }
       });
     }
-  }
+    
+    if (typeof SolÇatıKaplamacons !== "undefined") {
+      SolÇatıKaplamacons.children.forEach(mesh => {
+        if (mesh.material) {
+          mesh.material.opacity = opacityValue;
+          mesh.material.needsUpdate = true;
+        }
+      });
+    }
+      }
 }
 
 // Masaüstü için sürükleme hareketini algıla
@@ -470,3 +501,4 @@ document.addEventListener("mousemove", moveSlider);
 document.addEventListener("touchmove", moveSlider);
 
 // #endregion
+

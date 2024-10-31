@@ -1,10 +1,14 @@
 
 export let YatayÇaprazÇap
 export let KOLONEBAT
+export let MK_EN 
+export let MK_YÜKS
 
 
 // #region DEĞİŞKENLER import
 import { kolonMaterial1, MAKASMALZEME } from './malzemeler.js'; // Malzeme dosyasını import edin
+import { KOLONUZUNLUK } from './nesneler.js'; // Malzeme dosyasını import edin
+
 
 // #endregion
 
@@ -175,7 +179,7 @@ export function KOLON1(H) {
 
 //#region Yatay_Makas Geometri 1
 export function YATAY_MK_GEO_1(YATAYHOLGENİŞLİĞİ, MK_UZUNLUK) {
-  let MK_EN, MK_YÜKS;
+ /* let MK_EN, MK_YÜKS;*/
 
   // YATAYHOLGENİŞLİĞİ değerine göre MK_EN ve MK_YÜKS belirleniyor
   if (YATAYHOLGENİŞLİĞİ > 0 && YATAYHOLGENİŞLİĞİ <= 6) {

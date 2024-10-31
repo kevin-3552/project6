@@ -39,9 +39,14 @@ export let ÇaprazYükseklik
 export let YanÇaprazDüşeyAdet
 export let ÇatıÇaprazZekseniAra
 export let ÇatıÇaprazZekseniAdet
+export let BinaYükseklik
+export let ArkaKaplamaSınır
 
+import { KOLONEBAT, MK_EN} from './geometriler.js';
 
 //#endregion 
+
+
 
 //#region Makas Yüksekliği Hespalama
 export function MAKAS_YÜKSEKL_HESAPLA(YATAYHOLGENİŞLİĞİ, H) {
@@ -96,7 +101,7 @@ export function MAKAS_YÜKSEKL_HESAPLA(YATAYHOLGENİŞLİĞİ, H) {
   //#endregion 
 
 //#region DİKMEHESAP
-export function DİKMEHESAPLA() {
+export function DİKMEHESAPLA(H) {
     if (YATAYHOLGENİŞLİĞİ > 0 && YATAYHOLGENİŞLİĞİ <= 10) 
       { MALTBÇAP = 0.1;
          MÜÜSTBÇAP = 0.1; 
@@ -130,6 +135,10 @@ export function DİKMEHESAPLA() {
     DİKMESAYISI = YATAYHOLGENİŞLİĞİ /(İKİDİKMEARASI*2)
     DİKME_Y_ARTIŞ = İKİDİKMEARASI * Math.tan(MKAÇI * Math.PI / 180);
     ÇAPRAZ_Y_ARTIŞ = DİKME_Y_ARTIŞ + MYÜKS
+    BinaYükseklik= H+ MYÜKS+DİKME_Y_ARTIŞ*DİKMESAYISI
+console.log("BinaYükseklik",BinaYükseklik)
+
+
     }
 //#endregion
 
@@ -207,9 +216,6 @@ YanÇaprazAksadet = Math.ceil(DÜŞEYHOLSAYISI/2)
 YanÇaprazAra =2*DÜŞEYHOLGENİŞLİĞİ
 ÇaprazYükseklik = YanKirişArası
 YanÇaprazDüşeyAdet=YanBağKirişAraAdet+1
-console.log("YanKirişArası",YanKirişArası)
-console.log("YanÇaprazDüşeyAdet",YanÇaprazDüşeyAdet)
-console.log("YanÇaprazAksadet",YanÇaprazAksadet)
 
 ÇatıÇaprazZekseniAra = YanÇaprazAra
 ÇatıÇaprazZekseniAdet = YanÇaprazAksadet
@@ -217,3 +223,17 @@ console.log("YanÇaprazAksadet",YanÇaprazAksadet)
 
 //#endregion
 
+//#region Kaplama için sınırlar hesap
+// ArkaKaplamaSınır değerini hesaplayan fonksiyon
+export function KaplamaSınırHesap ( ) {
+  console.log("KOLONEBAT",KOLONEBAT)
+  console.log("MK_EN",MK_EN)
+  
+  if (KOLONEBAT >= MK_EN) {
+      ArkaKaplamaSınır = KOLONEBAT;
+  } else {
+      ArkaKaplamaSınır = MK_EN;
+  }
+}
+
+//#endregion
