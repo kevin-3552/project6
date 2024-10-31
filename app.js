@@ -12,6 +12,8 @@ let ÇaprazYanCons
 let ÇatıÇAprazCons 
 let totemcons
 let CepheKaplamaCons
+let controlFly
+let SolÇatıKaplamacons
 
 let currentGroundMesh = null;
 window.MKSHG=35 // MAKSİMUM HOL GENİŞLİĞİ
@@ -29,12 +31,12 @@ let createButton;
 
 // Nesneler
 import { YATAYKOLONGRUBU, SOLDİYAGONELGRUBU, SAĞDİYAGONELGRUBU, MakasGrupÇoğalt, YanKiriş_1, MakasİçiAltTamBracing, 
-  Bracing_MakasİçiTam, ÇaprazYanKomple, ÇatıÇapraz1MakasGrup, ÇatıÇaprazTam, Totem1,CepheKaplamaSağSol  } from './nesneler.js';  // 
+  Bracing_MakasİçiTam, ÇaprazYanKomple, ÇatıÇapraz1MakasGrup, ÇatıÇaprazTam, Totem1,CepheKaplamaSağSol, SolÇatıKaplama,
   MK_UZUNLUK  } from './nesneler.js';  // 
 
 // Hesaplar
 import { DİKMEHESAPLA, hesaplaDüşeyAks, hesaplaYatayKolon, ÇATIEĞİMHETKİSİHESAP, MAKASBOYUHESAP, 
-  ZEMİNESASEBATHESAP, YanBağKirişHesap , ÇaprazYanHesap  } from './hesapla.js'; 
+  ZEMİNESASEBATHESAP, YanBağKirişHesap , ÇaprazYanHesap, KaplamaSınırHesap, ArkaKaplamaSınır } from './hesapla.js'; 
 
 // Hesapla Const
   import { MKAÇI, YanKirişArası, YanBağKirişAdet, YATAYHOLGENİŞLİĞİ, DÜŞEYHOLSAYISI, DÜŞEYHOLGENİŞLİĞİ ,
