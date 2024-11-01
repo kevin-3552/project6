@@ -1,1 +1,564 @@
-const _0x5f91a1=_0x539d;(function(_0x31ba97,_0x250857){const _0x20365e=_0x539d,_0x15d0e5=_0x31ba97();while(!![]){try{const _0x267afb=-parseInt(_0x20365e(0x1b0))/0x1+-parseInt(_0x20365e(0x149))/0x2+parseInt(_0x20365e(0x159))/0x3+-parseInt(_0x20365e(0x1bb))/0x4+-parseInt(_0x20365e(0x190))/0x5*(parseInt(_0x20365e(0x1ab))/0x6)+parseInt(_0x20365e(0x199))/0x7*(-parseInt(_0x20365e(0x17b))/0x8)+parseInt(_0x20365e(0x191))/0x9;if(_0x267afb===_0x250857)break;else _0x15d0e5['push'](_0x15d0e5['shift']());}catch(_0x4ccd62){_0x15d0e5['push'](_0x15d0e5['shift']());}}}(_0x547d,0x95031));let scene,camera,renderer,controls,kolonGrubu,soldiyagonelGrup,sağdiyagonelGrup,zeminesascons,makasçoğal,yankirişcons,makasiçbracingAltCons,makasiçibracingTamCons,ÇaprazYanCons,ÇatıÇAprazCons,totemcons,CepheKaplamaCons,controlFly,SolÇatıKaplamacons,currentGroundMesh=null;window[_0x5f91a1(0x15a)]=0x23;let A,B,H,K;window[_0x5f91a1(0x19b)],window[_0x5f91a1(0x151)],window[_0x5f91a1(0x196)];let createButton;import{YATAYKOLONGRUBU,SOLDİYAGONELGRUBU,SAĞDİYAGONELGRUBU,MakasGrupÇoğalt,YanKiriş_1,MakasİçiAltTamBracing,Bracing_MakasİçiTam,ÇaprazYanKomple,ÇatıÇapraz1MakasGrup,ÇatıÇaprazTam,Totem1,CepheKaplamaSağSol,SolÇatıKaplama,MK_UZUNLUK,ZEMİNESAS}from'./nesneler.js';import{DİKMEHESAPLA,hesaplaDüşeyAks,hesaplaYatayKolon,ÇATIEĞİMHETKİSİHESAP,MAKASBOYUHESAP,ZEMİNESASEBATHESAP,YanBağKirişHesap,ÇaprazYanHesap,KaplamaSınırHesap,ArkaKaplamaSınır}from'./hesapla.js';import{MKAÇI,YanKirişArası,YanBağKirişAdet,YATAYHOLGENİŞLİĞİ,DÜŞEYHOLSAYISI,DÜŞEYHOLGENİŞLİĞİ,MAKAS_YÜKSEKL_HESAPLA,ÇaprazYükseklik}from'./hesapla.js';import{YatayÇaprazÇap,KOLONEBAT,KOLON_BOX1,MK_EN,YATAY_MK_GEO_1}from'./geometriler.js';import{ÇimZeminMalzeme1}from'./malzemeler.js';import{ÇelikTonajı,ÇelikTonaj,MlytToplamÇlk,MlytToplamÇlkTL,dolarKuru}from'./maliyet.js';function createFormAndButton(){const _0x484871=_0x5f91a1,_0x5911f7=document[_0x484871(0x186)](_0x484871(0x136));_0x5911f7['id']=_0x484871(0x179),_0x5911f7['style'][_0x484871(0x1a6)]=_0x484871(0x1b7),_0x5911f7[_0x484871(0x13d)][_0x484871(0x1ad)]=_0x484871(0x180),_0x5911f7[_0x484871(0x13d)]['left']='10px',_0x5911f7['style'][_0x484871(0x160)]='10',_0x5911f7[_0x484871(0x13d)][_0x484871(0x156)]=_0x484871(0x1ae),_0x5911f7[_0x484871(0x13d)][_0x484871(0x12e)]=_0x484871(0x173),_0x5911f7['style']['border']=_0x484871(0x161),_0x5911f7[_0x484871(0x13d)][_0x484871(0x135)]=_0x484871(0x1a1),_0x5911f7['style'][_0x484871(0x14d)]=_0x484871(0x137);const _0x3af5ca=document[_0x484871(0x186)](_0x484871(0x16d));_0x3af5ca['style'][_0x484871(0x14d)]='100%';function _0x5c360d(_0x5c97ea,_0x3e7ec3,_0x30de21){const _0xe3fe48=_0x484871,_0x58b560=document[_0xe3fe48(0x186)]('tr'),_0x6a81b0=document[_0xe3fe48(0x186)]('td');_0x6a81b0[_0xe3fe48(0x13d)][_0xe3fe48(0x12e)]=_0xe3fe48(0x173),_0x6a81b0[_0xe3fe48(0x13d)][_0xe3fe48(0x1af)]=_0xe3fe48(0x155),_0x6a81b0['textContent']=_0x5c97ea;const _0x34ed0e=document['createElement']('td');_0x34ed0e[_0xe3fe48(0x13d)]['padding']=_0xe3fe48(0x165);const _0x3b2cd2=document[_0xe3fe48(0x186)](_0xe3fe48(0x18b));return _0x3b2cd2[_0xe3fe48(0x198)]=_0xe3fe48(0x181),_0x3b2cd2['id']=_0x3e7ec3,_0x3b2cd2[_0xe3fe48(0x15f)]=_0x30de21,_0x3b2cd2['style']['width']=_0xe3fe48(0x17e),_0x3b2cd2['style'][_0xe3fe48(0x12e)]=_0xe3fe48(0x173),_0x3b2cd2[_0xe3fe48(0x13d)][_0xe3fe48(0x135)]=_0xe3fe48(0x1b3),_0x3b2cd2['style'][_0xe3fe48(0x16c)]='1px\x20solid\x20#ccc',_0x34ed0e[_0xe3fe48(0x178)](_0x3b2cd2),_0x58b560[_0xe3fe48(0x178)](_0x6a81b0),_0x58b560[_0xe3fe48(0x178)](_0x34ed0e),_0x58b560;}_0x3af5ca[_0x484871(0x178)](_0x5c360d(_0x484871(0x1b1),'A','60')),_0x3af5ca['appendChild'](_0x5c360d(_0x484871(0x164),'B','50')),_0x3af5ca[_0x484871(0x178)](_0x5c360d(_0x484871(0x15e),'H','6')),_0x3af5ca[_0x484871(0x178)](_0x5c360d(_0x484871(0x1a5),'K','6')),_0x5911f7[_0x484871(0x178)](_0x3af5ca),createButton=document[_0x484871(0x186)]('button'),createButton['id']='createCube',createButton[_0x484871(0x14b)]=_0x484871(0x174),createButton[_0x484871(0x13d)][_0x484871(0x13b)]=_0x484871(0x147),createButton[_0x484871(0x13d)]['width']=_0x484871(0x17e),createButton[_0x484871(0x13d)][_0x484871(0x12e)]='10px',createButton[_0x484871(0x13d)][_0x484871(0x156)]=_0x484871(0x167),createButton[_0x484871(0x13d)][_0x484871(0x130)]=_0x484871(0x185),createButton[_0x484871(0x13d)][_0x484871(0x16c)]='none',createButton['style']['borderRadius']=_0x484871(0x1b3),createButton['style']['cursor']=_0x484871(0x17a),_0x5911f7['appendChild'](createButton),document[_0x484871(0x13c)]['appendChild'](_0x5911f7);}function adjustFormContainerWidth(){const _0x42bc49=_0x5f91a1,_0x3662e2=document[_0x42bc49(0x143)](_0x42bc49(0x179));_0x3662e2&&(_0x3662e2[_0x42bc49(0x13d)][_0x42bc49(0x14d)]=Math[_0x42bc49(0x1a4)](window['innerWidth']*0.9,0xc8)+'px');}window[_0x5f91a1(0x139)](_0x5f91a1(0x193),adjustFormContainerWidth),window[_0x5f91a1(0x139)](_0x5f91a1(0x19e),adjustFormContainerWidth),adjustFormContainerWidth(),createFormAndButton(),createButton[_0x5f91a1(0x139)]('click',()=>{const _0x15785e=_0x5f91a1,_0x53ed92=parseFloat(document[_0x15785e(0x143)]('A')['value']),_0x4fbd34=parseFloat(document['getElementById']('B')[_0x15785e(0x15f)]),_0x5e85f8=parseFloat(document[_0x15785e(0x143)]('H')[_0x15785e(0x15f)]),_0x2bb0af=parseFloat(document[_0x15785e(0x143)]('K')[_0x15785e(0x15f)]);});function addDirectionalLight(){const _0x2481b6=_0x5f91a1,_0x5d974f=new THREE[(_0x2481b6(0x17f))](0xffffff,0x1);_0x5d974f[_0x2481b6(0x1a6)][_0x2481b6(0x17c)](0x5,0x5,0x5)['normalize'](),scene[_0x2481b6(0x177)](_0x5d974f);}function addAmbientLight(){const _0x27e7f6=new THREE['AmbientLight'](0x404040,0x1);scene['add'](_0x27e7f6);}function init(){const _0x408371=_0x5f91a1;scene=new THREE[(_0x408371(0x145))](),camera=new THREE[(_0x408371(0x163))](0x19,window[_0x408371(0x18a)]/window['innerHeight'],0.1,0x3e8),renderer=new THREE[(_0x408371(0x1a0))](),renderer[_0x408371(0x192)](window[_0x408371(0x18a)],window[_0x408371(0x19d)]),renderer[_0x408371(0x1b8)](window[_0x408371(0x131)]),document[_0x408371(0x13c)]['appendChild'](renderer[_0x408371(0x142)]),controls=new THREE[(_0x408371(0x12f))](camera,renderer[_0x408371(0x142)]),controls['enableZoom']=!![],addDirectionalLight(),addAmbientLight();function _0x33a689(){const _0x4cb144=_0x408371,_0x5db9c5=new THREE[(_0x4cb144(0x1a9))](0x12c,0xc8),_0x8543d=new THREE[(_0x4cb144(0x17d))](_0x5db9c5,ÇimZeminMalzeme1);_0x8543d[_0x4cb144(0x157)]['x']=-Math['PI']/0x2,_0x8543d[_0x4cb144(0x1a6)][_0x4cb144(0x17c)](0x32,-0.2,-0x32);const _0x2b5591=new THREE[(_0x4cb144(0x184))]();return _0x2b5591[_0x4cb144(0x177)](_0x8543d),scene[_0x4cb144(0x177)](_0x2b5591),_0x2b5591;}const _0x2f9442=_0x33a689();function _0x417f6a(_0xffc7f2){const _0x363e90=_0x408371,_0x44746e=new THREE[(_0x363e90(0x153))](),_0x2475de=_0x44746e[_0x363e90(0x18d)](_0x363e90(0x18c)),_0x44f003=new THREE[(_0x363e90(0x15b))](0x3e8,0x3c,0x28),_0x4c7761=new THREE[(_0x363e90(0x140))]({'map':_0x2475de,'side':THREE[_0x363e90(0x1a2)]}),_0x3d57f1=new THREE[(_0x363e90(0x17d))](_0x44f003,_0x4c7761);_0x3d57f1[_0x363e90(0x1a6)]['y']=0x1f4,_0x3d57f1[_0x363e90(0x1a6)]['x']=0x1f4,_0x3d57f1[_0x363e90(0x1a6)]['z']=0x1f4,_0xffc7f2[_0x363e90(0x177)](_0x3d57f1);}_0x417f6a(scene),document[_0x408371(0x139)](_0x408371(0x15d),function(_0x3df2b9){const _0x2662bf=_0x408371;_0x3df2b9['altKey']&&(_0x3df2b9[_0x2662bf(0x18e)]==='m'||_0x3df2b9[_0x2662bf(0x18e)]==='M')&&document[_0x2662bf(0x143)]('createCube')[_0x2662bf(0x168)]();}),document[_0x408371(0x143)](_0x408371(0x162))[_0x408371(0x139)](_0x408371(0x168),()=>{const _0x2f0df9=_0x408371;kolonGrubu&&scene['remove'](kolonGrubu),soldiyagonelGrup&&scene['remove'](soldiyagonelGrup),sağdiyagonelGrup&&scene[_0x2f0df9(0x138)](sağdiyagonelGrup),zeminesascons&&scene[_0x2f0df9(0x138)](zeminesascons),currentGroundMesh&&scene['remove'](currentGroundMesh),makasçoğal&&scene[_0x2f0df9(0x138)](makasçoğal),yankirişcons&&scene['remove'](yankirişcons),makasiçibracingTamCons&&scene['remove'](makasiçibracingTamCons),ÇaprazYanCons&&scene[_0x2f0df9(0x138)](ÇaprazYanCons),ÇatıÇAprazCons&&scene[_0x2f0df9(0x138)](ÇatıÇAprazCons),totemcons&&scene[_0x2f0df9(0x138)](totemcons),CepheKaplamaCons&&scene[_0x2f0df9(0x138)](CepheKaplamaCons),SolÇatıKaplamacons&&scene['remove'](SolÇatıKaplamacons),A=parseFloat(document[_0x2f0df9(0x143)]('A')[_0x2f0df9(0x15f)]),B=parseFloat(document[_0x2f0df9(0x143)]('B')[_0x2f0df9(0x15f)]),H=parseFloat(document['getElementById']('H')[_0x2f0df9(0x15f)]),K=parseFloat(document[_0x2f0df9(0x143)]('K')[_0x2f0df9(0x15f)]),hesaplaDüşeyAks(B,K),hesaplaYatayKolon(A),MAKAS_YÜKSEKL_HESAPLA(YATAYHOLGENİŞLİĞİ,H),ÇATIEĞİMHETKİSİHESAP(H,YATAYHOLGENİŞLİĞİ,MKAÇI),MAKASBOYUHESAP(),ZEMİNESASEBATHESAP(A,B),DİKMEHESAPLA(H),YanBağKirişHesap(H),ÇaprazYanHesap(),YATAY_MK_GEO_1(YATAYHOLGENİŞLİĞİ,MK_UZUNLUK),KaplamaSınırHesap(),checkDolarKuruReady(()=>{const _0x4c9fa0=_0x2f0df9;ÇelikTonajı(A,B,H);const _0x354cb2=new Intl[(_0x4c9fa0(0x182))](_0x4c9fa0(0x14f),{'minimumFractionDigits':0x0})[_0x4c9fa0(0x146)](ÇelikTonaj),_0x51d483=new Intl[(_0x4c9fa0(0x182))]('tr-TR')[_0x4c9fa0(0x146)](MlytToplamÇlk),_0x4be196=new Intl[(_0x4c9fa0(0x182))](_0x4c9fa0(0x14f))[_0x4c9fa0(0x146)](MlytToplamÇlkTL);document['getElementById'](_0x4c9fa0(0x154))[_0x4c9fa0(0x14b)]=_0x4c9fa0(0x16a)+_0x354cb2+'\x20ton',document[_0x4c9fa0(0x143)](_0x4c9fa0(0x16b))[_0x4c9fa0(0x14b)]=_0x4c9fa0(0x171)+_0x51d483+'\x20$\x20('+_0x4be196+_0x4c9fa0(0x187);}),kolonGrubu=YATAYKOLONGRUBU(H),soldiyagonelGrup=SOLDİYAGONELGRUBU(H),sağdiyagonelGrup=SAĞDİYAGONELGRUBU(H),makasçoğal=MakasGrupÇoğalt(H),zeminesascons=ZEMİNESAS(A,B),yankirişcons=YanKiriş_1(H,A),makasiçibracingTamCons=Bracing_MakasİçiTam(H),ÇaprazYanCons=ÇaprazYanKomple(H),ÇatıÇAprazCons=ÇatıÇaprazTam(H),totemcons=Totem1(H),CepheKaplamaCons=CepheKaplamaSağSol(B,H,A),SolÇatıKaplamacons=SolÇatıKaplama(H,B),scene['add'](kolonGrubu),scene[_0x2f0df9(0x177)](soldiyagonelGrup),scene[_0x2f0df9(0x177)](sağdiyagonelGrup),scene[_0x2f0df9(0x177)](zeminesascons),scene[_0x2f0df9(0x177)](zeminesascons),scene[_0x2f0df9(0x177)](makasçoğal),scene[_0x2f0df9(0x177)](yankirişcons),scene[_0x2f0df9(0x177)](makasiçibracingTamCons),scene[_0x2f0df9(0x177)](ÇaprazYanCons),scene['add'](ÇatıÇAprazCons),scene['add'](totemcons),scene[_0x2f0df9(0x177)](CepheKaplamaCons),scene[_0x2f0df9(0x177)](SolÇatıKaplamacons),camera[_0x2f0df9(0x1a6)]['set'](-0x3c,0x23,0x37),controls['target'][_0x2f0df9(0x17c)](A/0x3,H/0x3,-B/0x3),controlFly=new THREE[(_0x2f0df9(0x188))](camera,renderer['domElement']),controlFly[_0x2f0df9(0x14e)]=0x2,controlFly[_0x2f0df9(0x1ac)]=0.02,controlFly[_0x2f0df9(0x158)]=!![],controlFly[_0x2f0df9(0x189)]=![],controls[_0x2f0df9(0x1a8)](),renderer[_0x2f0df9(0x1aa)](scene,camera),animate();});}function animate(){const _0x39b023=_0x5f91a1;requestAnimationFrame(animate),controls[_0x39b023(0x1a8)]();if(controlFly)controlFly[_0x39b023(0x1a8)](0.1);renderer[_0x39b023(0x1aa)](scene,camera);}init(),window[_0x5f91a1(0x139)](_0x5f91a1(0x193),()=>{const _0x165a27=_0x5f91a1,_0x30bd5e=window['innerWidth'],_0xa79b97=window[_0x165a27(0x19d)];camera[_0x165a27(0x13f)]=_0x30bd5e/_0xa79b97,camera[_0x165a27(0x1b9)](),renderer[_0x165a27(0x192)](_0x30bd5e,_0xa79b97);}),window[_0x5f91a1(0x139)](_0x5f91a1(0x19c),()=>{const _0x5cd722=_0x5f91a1,_0x130194=parseFloat(document[_0x5cd722(0x143)]('A')[_0x5cd722(0x15f)]),_0x520646=parseFloat(document['getElementById']('B')[_0x5cd722(0x15f)]),_0x5b0c00=parseFloat(document['getElementById']('H')[_0x5cd722(0x15f)]),_0x3c7f83=parseFloat(document[_0x5cd722(0x143)]('K')['value']);document['getElementById'](_0x5cd722(0x162))&&document[_0x5cd722(0x143)]('createCube')['click']();});const triangleWrapper=document[_0x5f91a1(0x186)]('div');triangleWrapper[_0x5f91a1(0x13d)]['position']=_0x5f91a1(0x1b7),triangleWrapper[_0x5f91a1(0x13d)][_0x5f91a1(0x1ad)]=_0x5f91a1(0x150),triangleWrapper[_0x5f91a1(0x13d)][_0x5f91a1(0x18f)]=_0x5f91a1(0x16f),triangleWrapper[_0x5f91a1(0x13d)]['display']='flex',triangleWrapper[_0x5f91a1(0x13d)][_0x5f91a1(0x1b5)]='column',triangleWrapper[_0x5f91a1(0x13d)]['alignItems']='center';const opacityLabel=document[_0x5f91a1(0x186)]('span');opacityLabel[_0x5f91a1(0x14b)]=_0x5f91a1(0x15c),opacityLabel['style'][_0x5f91a1(0x197)]=_0x5f91a1(0x19f),opacityLabel[_0x5f91a1(0x13d)][_0x5f91a1(0x130)]='black',opacityLabel['style'][_0x5f91a1(0x170)]=_0x5f91a1(0x173),triangleWrapper[_0x5f91a1(0x178)](opacityLabel);const opacityTriangle=document[_0x5f91a1(0x186)](_0x5f91a1(0x136));opacityTriangle['style'][_0x5f91a1(0x14d)]='0',opacityTriangle[_0x5f91a1(0x13d)][_0x5f91a1(0x169)]='0',opacityTriangle[_0x5f91a1(0x13d)]['borderTop']='7px\x20solid\x20transparent',opacityTriangle['style'][_0x5f91a1(0x13a)]='7px\x20solid\x20transparent',opacityTriangle[_0x5f91a1(0x13d)][_0x5f91a1(0x132)]=_0x5f91a1(0x1b4),triangleWrapper['appendChild'](opacityTriangle);function _0x539d(_0x3fc01c,_0x5a7594){const _0x547d23=_0x547d();return _0x539d=function(_0x539d79,_0xb2ecaf){_0x539d79=_0x539d79-0x12e;let _0x15b685=_0x547d23[_0x539d79];return _0x15b685;},_0x539d(_0x3fc01c,_0x5a7594);}const sliderHandle=document[_0x5f91a1(0x186)](_0x5f91a1(0x136));sliderHandle[_0x5f91a1(0x13d)]['position']=_0x5f91a1(0x1b7),sliderHandle[_0x5f91a1(0x13d)][_0x5f91a1(0x14d)]=_0x5f91a1(0x147),sliderHandle[_0x5f91a1(0x13d)]['height']=_0x5f91a1(0x150),sliderHandle[_0x5f91a1(0x13d)][_0x5f91a1(0x156)]='rgba(0,\x200,\x200,\x200.5)',sliderHandle['style'][_0x5f91a1(0x1a7)]='pointer',sliderHandle['style'][_0x5f91a1(0x1ad)]=_0x5f91a1(0x144),sliderHandle[_0x5f91a1(0x13d)]['left']=_0x5f91a1(0x147),triangleWrapper[_0x5f91a1(0x178)](sliderHandle),document[_0x5f91a1(0x13c)][_0x5f91a1(0x178)](triangleWrapper);let isDragging=![];sliderHandle[_0x5f91a1(0x139)](_0x5f91a1(0x16e),function(){isDragging=!![];}),sliderHandle[_0x5f91a1(0x139)](_0x5f91a1(0x148),function(){isDragging=!![];}),document['addEventListener'](_0x5f91a1(0x1b2),function(){isDragging=![];}),document['addEventListener'](_0x5f91a1(0x1ba),function(){isDragging=![];});function moveSlider(_0xe360b9){const _0x2c9107=_0x5f91a1;if(isDragging){const _0xf0484d=0x0,_0x4d74f2=0x46,_0x25dc0b=_0xe360b9['touches']?_0xe360b9['touches'][0x0][_0x2c9107(0x141)]:_0xe360b9[_0x2c9107(0x141)];let _0x50babd=_0x25dc0b-triangleWrapper[_0x2c9107(0x166)];_0x50babd=Math[_0x2c9107(0x1a3)](_0xf0484d,Math['min'](_0x4d74f2,_0x50babd)),sliderHandle[_0x2c9107(0x13d)][_0x2c9107(0x18f)]=_0x50babd+'px';const _0x352bf6=0x1-(_0x50babd-_0xf0484d)/(_0x4d74f2-_0xf0484d)*(0x1-0.1);typeof CepheKaplamaCons!==_0x2c9107(0x172)&&CepheKaplamaCons[_0x2c9107(0x1b6)][_0x2c9107(0x194)](_0x39fcb7=>{const _0x33588e=_0x2c9107;_0x39fcb7[_0x33588e(0x19a)]&&(_0x39fcb7[_0x33588e(0x19a)]['opacity']=_0x352bf6,_0x39fcb7['material'][_0x33588e(0x183)]=!![]);}),typeof SolÇatıKaplamacons!==_0x2c9107(0x172)&&SolÇatıKaplamacons['children']['forEach'](_0x563f1a=>{const _0x2dbd9a=_0x2c9107;_0x563f1a[_0x2dbd9a(0x19a)]&&(_0x563f1a[_0x2dbd9a(0x19a)]['opacity']=_0x352bf6,_0x563f1a[_0x2dbd9a(0x19a)]['needsUpdate']=!![]);});}}document[_0x5f91a1(0x139)](_0x5f91a1(0x195),moveSlider),document['addEventListener'](_0x5f91a1(0x175),moveSlider);function _0x547d(){const _0x57fe8b=['domElement','getElementById','18px','Scene','format','10px','touchstart','1483410vCZApD','bottom','textContent','innerHTML','width','movementSpeed','tr-TR','20px','YATAYHOLSAYISI','<div\x20id=\x22maliyetCelik\x22>Maliyet:\x20</div>','TextureLoader','celikTonaj','right','backgroundColor','rotation','dragToLook','48972fTugok','MKSHG','SphereGeometry','Opaklık','keydown','Yükseklik\x20(H):','value','zIndex','1px\x20solid\x20#000','createCube','PerspectiveCamera','Boy\x20(B):','6px','offsetLeft','#007BFF','click','height','Çelik:\x20','maliyetCelik','border','table','mousedown','250px','marginBottom','Maliyet:\x20','undefined','5px','3D\x20BİNA\x20MODELLE','touchmove','maliyetContainer','add','appendChild','formContainer','pointer','3415528QoCuel','set','Mesh','100%','DirectionalLight','3px','number','NumberFormat','needsUpdate','Group','white','createElement','\x20₺)','FlyControls','autoForward','innerWidth','input','textures/sky.png','load','key','left','600UwnBxK','24875694GuZKVl','setSize','resize','forEach','mousemove','YATAYAKSSAYISI','fontSize','type','14grLcDw','material','YATAYHOLGENİŞLİĞİ','DOMContentLoaded','innerHeight','orientationchange','14px','WebGLRenderer','8px','BackSide','max','min','Aks\x20Arası:','position','cursor','update','PlaneGeometry','render','3336BkNlWe','rollSpeed','top','rgba(240,\x20240,\x20240,\x200.9)','textAlign','272498obiGdY','En\x20(A):','mouseup','4px','80px\x20solid\x20rgba(0,\x200,\x200,\x200.5)','flexDirection','children','absolute','setPixelRatio','updateProjectionMatrix','touchend','940528QdIWRU','padding','OrbitControls','color','devicePixelRatio','borderLeft','yellow','costDisplayContainer','borderRadius','div','200px','remove','addEventListener','borderBottom','marginTop','body','style','<div\x20id=\x22celikTonaj\x22>Çelik\x20Tonaj:\x20</div>','aspect','MeshBasicMaterial','clientX'];_0x547d=function(){return _0x57fe8b;};return _0x547d();}function createCostDisplay(){const _0xd91be7=_0x5f91a1,_0x4b46c7=document[_0xd91be7(0x186)]('div');_0x4b46c7['id']=_0xd91be7(0x134),_0x4b46c7[_0xd91be7(0x13d)]['position']='absolute',_0x4b46c7[_0xd91be7(0x13d)][_0xd91be7(0x14a)]=_0xd91be7(0x147),_0x4b46c7[_0xd91be7(0x13d)][_0xd91be7(0x18f)]=_0xd91be7(0x150),_0x4b46c7[_0xd91be7(0x13d)]['width']=_0xd91be7(0x137),_0x4b46c7['style'][_0xd91be7(0x160)]='20',_0x4b46c7[_0xd91be7(0x13d)][_0xd91be7(0x130)]=_0xd91be7(0x133);const _0x4d26aa=document[_0xd91be7(0x186)](_0xd91be7(0x136));_0x4d26aa['id']='tonajContainer',_0x4d26aa[_0xd91be7(0x14c)]=_0xd91be7(0x13e);const _0x294313=document['createElement'](_0xd91be7(0x136));_0x294313['id']=_0xd91be7(0x176),_0x294313[_0xd91be7(0x14c)]=_0xd91be7(0x152),_0x4b46c7['appendChild'](_0x4d26aa),_0x4b46c7[_0xd91be7(0x178)](_0x294313),document[_0xd91be7(0x13c)][_0xd91be7(0x178)](_0x4b46c7);}createCostDisplay();function checkDolarKuruReady(_0x288c59){dolarKuru?_0x288c59():setTimeout(()=>checkDolarKuruReady(_0x288c59),0x64);}
+//#region DEĞİŞKENLER ATAMA
+let scene, camera, renderer, controls;
+let kolonGrubu;
+let soldiyagonelGrup //
+let sağdiyagonelGrup
+let zeminesascons; //
+let makasçoğal
+let yankirişcons
+let makasiçbracingAltCons
+let makasiçibracingTamCons
+let ÇaprazYanCons
+let ÇatıÇAprazCons 
+let totemcons
+let CepheKaplamaCons
+let controlFly
+let SolÇatıKaplamacons
+
+let currentGroundMesh = null;
+window.MKSHG=35 // MAKSİMUM HOL GENİŞLİĞİ
+
+// Global değişkenler
+let A, B, H, K;  // En, Boy, Yükseklik değişkenleri
+window.YATAYHOLGENİŞLİĞİ; 
+window.YATAYHOLSAYISI;
+window.YATAYAKSSAYISI; 
+
+let createButton; 
+//#endregion
+
+//#region IMPORT'lar
+// Nesneler
+import { YATAYKOLONGRUBU, SOLDİYAGONELGRUBU, SAĞDİYAGONELGRUBU, MakasGrupÇoğalt, YanKiriş_1, MakasİçiAltTamBracing, 
+  Bracing_MakasİçiTam, ÇaprazYanKomple, ÇatıÇapraz1MakasGrup, ÇatıÇaprazTam, Totem1,CepheKaplamaSağSol, SolÇatıKaplama,
+  MK_UZUNLUK, ZEMİNESAS} from './nesneler.js';  // 
+
+// Hesaplar
+import { DİKMEHESAPLA, hesaplaDüşeyAks, hesaplaYatayKolon, ÇATIEĞİMHETKİSİHESAP, MAKASBOYUHESAP, 
+  ZEMİNESASEBATHESAP, YanBağKirişHesap , ÇaprazYanHesap, KaplamaSınırHesap, ArkaKaplamaSınır } from './hesapla.js'; 
+
+// Hesapla Const
+  import { MKAÇI, YanKirişArası, YanBağKirişAdet, YATAYHOLGENİŞLİĞİ, DÜŞEYHOLSAYISI, DÜŞEYHOLGENİŞLİĞİ ,
+   MAKAS_YÜKSEKL_HESAPLA, ÇaprazYükseklik} from './hesapla.js';
+
+// Geometriler
+import { YatayÇaprazÇap, KOLONEBAT, KOLON_BOX1 , MK_EN, YATAY_MK_GEO_1 } from './geometriler.js';  // 
+
+// Malzemeler
+import { ÇimZeminMalzeme1  } from './malzemeler.js';  // 
+
+/*import makas1 from './textures/zemin.png' ;*/
+
+
+//#region Maliyetler Import
+import { ÇelikTonajı , ÇelikTonaj,  MlytToplamÇlk, MlytToplamÇlkTL, dolarKuru} from './maliyet.js';  // 
+
+//#endregion 
+//#endregion 
+
+// #region FORM - HTML - Camera Iconu vs İşlemleri...
+
+//#region Butonları ve formu oluşturmak için  fonksiyon
+function createFormAndButton() {
+  // Form Container oluşturma
+  const formContainer = document.createElement('div');
+  formContainer.id = 'formContainer';
+  formContainer.style.position = 'absolute';
+  formContainer.style.top = '3px';
+  formContainer.style.left = '10px';
+  formContainer.style.zIndex = '10';
+  formContainer.style.backgroundColor = 'rgba(240, 240, 240, 0.9)';
+  formContainer.style.padding = '5px';
+  formContainer.style.border = '1px solid #000';
+  formContainer.style.borderRadius = '8px';
+  formContainer.style.width = '200px';
+
+  // Tablo elemanlarını oluşturma
+  const table = document.createElement('table');
+  table.style.width = '100%';
+
+  // Bir satır ve hücreler oluşturan yardımcı işlev
+  function createRow(labelText, inputId, defaultValue) {
+    const row = document.createElement('tr');
+    const labelCell = document.createElement('td');
+    labelCell.style.padding = '5px';
+    labelCell.style.textAlign = 'right';
+    labelCell.textContent = labelText;
+
+    const inputCell = document.createElement('td');
+    inputCell.style.padding = '6px';
+
+    const input = document.createElement('input');
+    input.type = 'number';
+    input.id = inputId;
+    input.value = defaultValue;
+    input.style.width = '100%';
+    input.style.padding = '5px';
+    input.style.borderRadius = '4px';
+    input.style.border = '1px solid #ccc';
+
+    inputCell.appendChild(input);
+    row.appendChild(labelCell);
+    row.appendChild(inputCell);
+
+    return row;
+  }
+
+  // Tabloya satırları ekleme
+  table.appendChild(createRow('En (A):', 'A', '60'));
+  table.appendChild(createRow('Boy (B):', 'B', '50'));
+  table.appendChild(createRow('Yükseklik (H):', 'H', '6'));
+  table.appendChild(createRow('Aks Arası:', 'K', '6'));
+
+  // Tabloyu formContainer içine ekleme
+  formContainer.appendChild(table);
+
+  // 3D BİNA MODELLE butonunu ekleme
+  const createButton = document.createElement('button');
+  createButton.id = 'createCube';
+  createButton.textContent = '3D BİNA MODELLE';
+  createButton.style.marginTop = '10px';
+  createButton.style.width = '100%';
+  createButton.style.padding = '10px';
+  createButton.style.backgroundColor = '#007BFF';
+  createButton.style.color = 'white';
+  createButton.style.border = 'none';
+  createButton.style.borderRadius = '4px';
+  createButton.style.cursor = 'pointer';
+  formContainer.appendChild(createButton);
+
+  // FormContainer'ı body içine ekleme
+  document.body.appendChild(formContainer);
+
+  // Hide/Show butonunu ekleme
+  const hideButton = document.createElement('img');
+  hideButton.src = 'textures/hide.png'; // Buton ikonu
+  hideButton.alt = 'Show/Hide Form';
+  hideButton.style.position = 'absolute';
+  hideButton.style.top = '5px';
+  hideButton.style.left = '220px'; // Formun yanında konumlandırma
+  hideButton.style.width = '24px';
+  hideButton.style.height = '24px';
+  hideButton.style.cursor = 'pointer';
+  hideButton.style.zIndex = '15';
+  document.body.appendChild(hideButton);
+
+  // Hide/Show işlevselliğini ekleme
+  let formVisible = true;
+  hideButton.addEventListener('click', () => {
+    formVisible = !formVisible;
+    formContainer.style.display = formVisible ? 'block' : 'none';
+  });
+}
+
+
+// Form Hizalama Fonksion
+function adjustFormContainerWidth() {
+  const formContainer = document.getElementById('formContainer');
+  if (formContainer) {
+    formContainer.style.width = `${Math.min(window.innerWidth * 0.9, 200)}px`; // Maksimum genişlik 200px
+  }
+}
+
+// Ekran Resize En Boy ayarla
+window.addEventListener('resize', adjustFormContainerWidth);
+window.addEventListener('orientationchange', adjustFormContainerWidth);
+
+// Sayfa yüklendiğinde başlangıçta boyut ayarlaması yap
+adjustFormContainerWidth();
+
+// Fonk çağar
+createFormAndButton();
+
+//#endregion Form ve Butonların Sonu
+
+/*
+// Butona click olay işleyicisi ekleyelim
+createButton.addEventListener('click', () => {
+    const A = parseFloat(document.getElementById('A').value);
+    const B = parseFloat(document.getElementById('B').value);
+    const H = parseFloat(document.getElementById('H').value);
+    const K = parseFloat(document.getElementById('K').value);
+
+    // Burada 3D bina modelleme işlemlerini başlatabilirsiniz
+});
+//#endregion
+*/
+
+//#region Işık Ayarları
+// Yönlü ışık ekleme fonksiyonu
+function addDirectionalLight() {
+  const light = new THREE.DirectionalLight(0xffffff, 1);
+  light.position.set(5, 5, 5).normalize();
+  scene.add(light);
+}
+// Ambient light ekleme fonksiyonu
+function addAmbientLight() {
+  const ambientLight = new THREE.AmbientLight(0x404040, 1); // Yumuşak aydınlatma
+  scene.add(ambientLight);
+}
+//#endregion
+
+//#region🔥 INIT fonksiyonu & BUTON🔥
+function init() {
+  // Sahne oluşturma
+  scene = new THREE.Scene();
+
+//#region Kamera ayarları
+  camera = new THREE.PerspectiveCamera(25, window.innerWidth / window.innerHeight, 0.1, 1000);
+//#endregion
+
+  // Renderer
+  renderer = new THREE.WebGLRenderer();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setPixelRatio(window.devicePixelRatio);
+  document.body.appendChild(renderer.domElement);
+
+  // OrbitControls ekleme
+  controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableZoom = true;
+
+    // Işıkları ekleme
+    addDirectionalLight();
+    addAmbientLight();
+//#endregion
+  //#region Çim - Gökyüzü & Zemin Ekleme
+  // Çim Zemin ekleme
+  function createGround() {
+    // Geometri oluşturma
+    const groundGeometry = new THREE.PlaneGeometry(300, 200);  // Büyük bir zemin düzlemi
+      // Mesh oluşturma ve ayarlama
+    const groundMesh = new THREE.Mesh(groundGeometry, ÇimZeminMalzeme1);
+    groundMesh.rotation.x = -Math.PI / 2; // Yatay hale getiriyoruz
+    groundMesh.position.set(50, -0.2, -50);  // X, Y, Z koordinatları
+    const groundGroup = new THREE.Group();  // Zemini bir grup içinde organize ediyoruz
+    groundGroup.add(groundMesh);
+    scene.add(groundGroup);
+    return groundGroup;  // İleride kontrol için zemini geri döndürüyoruz
+  }
+  const ZeminEkleConst = createGround();
+
+// Gökyüzü küresi ekleme
+function createSky(scene) {
+  const textureLoader = new THREE.TextureLoader();
+  const skyTexture = textureLoader.load('textures/sky.png');
+  
+  const skyGeometry = new THREE.SphereGeometry(1000, 60, 40); // Büyük bir küre, gökyüzü etkisi için
+  const skyMaterial = new THREE.MeshBasicMaterial({
+      map: skyTexture,
+      side: THREE.BackSide // Kürenin iç yüzeyi görünsün
+  });
+  
+  const skyMesh = new THREE.Mesh(skyGeometry, skyMaterial);
+  skyMesh.position.y = 500; 
+  skyMesh.position.x = 500; 
+  skyMesh.position.z = 500; 
+
+  // Gökyüzü küresini sahneye ekleme
+  scene.add(skyMesh);
+}
+createSky(scene);
+
+
+document.addEventListener('keydown', function(event) {
+  // Alt + M tuş kombinasyonunu kontrol edin
+  if (event.altKey && (event.key === 'm' || event.key === 'M')) {
+      document.getElementById('createCube').click();
+  }
+});
+//#endregion
+  //#region🔥🔥🔥🔥🔥🔥 BUTONA BASINCA OLACAKLAR   🔥🔥🔥🔥🔥🔥🔥🔥
+  document.getElementById('createCube').addEventListener('click', () => {
+    // Önceki kolon grubunu temizleyelim
+    if (kolonGrubu) {scene.remove(kolonGrubu);}
+    if (soldiyagonelGrup) {scene.remove(soldiyagonelGrup);}
+    if (sağdiyagonelGrup) {scene.remove(sağdiyagonelGrup);}
+    if (zeminesascons) { scene.remove(zeminesascons); }
+    if (currentGroundMesh) {scene.remove(currentGroundMesh);}  // Önceki zemini sahneden kaldırıyoruz
+    if (makasçoğal) { scene.remove(makasçoğal);}
+    if (yankirişcons) { scene.remove(yankirişcons);}
+    if (makasiçibracingTamCons) { scene.remove(makasiçibracingTamCons);}
+    if (ÇaprazYanCons) { scene.remove(ÇaprazYanCons);}
+    if (ÇatıÇAprazCons) { scene.remove(ÇatıÇAprazCons);}
+    if (totemcons) { scene.remove(totemcons);}
+    if (CepheKaplamaCons) { scene.remove(CepheKaplamaCons);}
+    if (SolÇatıKaplamacons) { scene.remove(SolÇatıKaplamacons);}
+
+
+       
+    // A, B, H değerlerini inputlardan alalım  - BUTON HESAP !!!!!!!!!!!!!!!!!!!!!
+    A = parseFloat(document.getElementById('A').value);   // En (A)
+    B = parseFloat(document.getElementById('B').value);   // Boy (B)
+    H = parseFloat(document.getElementById('H').value);   // Yükseklik (H)
+    K = parseFloat(document.getElementById('K').value);   // Aks Arası (K)
+
+    hesaplaDüşeyAks(B, K); 
+    hesaplaYatayKolon(A); 
+    MAKAS_YÜKSEKL_HESAPLA(YATAYHOLGENİŞLİĞİ, H)
+    ÇATIEĞİMHETKİSİHESAP(H, YATAYHOLGENİŞLİĞİ, MKAÇI);
+    MAKASBOYUHESAP()
+    ZEMİNESASEBATHESAP(A, B)
+    DİKMEHESAPLA(H)
+    YanBağKirişHesap(H)
+    ÇaprazYanHesap() 
+    YATAY_MK_GEO_1(YATAYHOLGENİŞLİĞİ, MK_UZUNLUK)
+    KaplamaSınırHesap ()
+
+    // Dolar kuru hazır olduğunda ÇelikTonajı hesaplamasını çalıştır
+    checkDolarKuruReady(() => {
+      // ÇelikTonajı fonksiyonunu çağırarak global değişkenleri güncelleyin
+      ÇelikTonajı(A, B, H);
+
+      // Çelik Tonaj ve Maliyet değerlerini formatlı olarak hesaplayın
+      const formattedTonaj = new Intl.NumberFormat('tr-TR', { minimumFractionDigits: 0 }).format(ÇelikTonaj); // ton cinsine dönüştürme
+      const formattedMaliyet = new Intl.NumberFormat('tr-TR').format(MlytToplamÇlk); // $ formatında
+      const formattedMaliyetTL = new Intl.NumberFormat('tr-TR').format(MlytToplamÇlkTL); // TL formatında
+
+      // Güncellenmiş değerleri göster
+      document.getElementById('celikTonaj').textContent = `Çelik: ${formattedTonaj} ton`;
+      document.getElementById('maliyetCelik').textContent = `Maliyet: ${formattedMaliyet} $ (${formattedMaliyetTL} ₺)`;
+  });    
+
+ 
+    kolonGrubu = YATAYKOLONGRUBU(H);  // Kolon grubu oluşturuluyor
+    soldiyagonelGrup = SOLDİYAGONELGRUBU(H);
+    sağdiyagonelGrup = SAĞDİYAGONELGRUBU(H);
+    makasçoğal = MakasGrupÇoğalt(H);
+    zeminesascons =ZEMİNESAS(A, B);
+    yankirişcons = YanKiriş_1(H, A);
+    makasiçibracingTamCons =  Bracing_MakasİçiTam(H)
+    ÇaprazYanCons = ÇaprazYanKomple(H)
+    ÇatıÇAprazCons = ÇatıÇaprazTam(H)
+    totemcons= Totem1(H)
+    CepheKaplamaCons = CepheKaplamaSağSol(B, H, A)
+    SolÇatıKaplamacons = SolÇatıKaplama(H, B,)
+    
+    scene.add(kolonGrubu);  // KOLON1 ile oluşturulan kolonları sahneye ekle
+    scene.add(soldiyagonelGrup);  // Sahneye ekle
+    scene.add(sağdiyagonelGrup);  // Sahneye ekle
+    scene.add(zeminesascons);  // Sahneye ekle
+    scene.add(zeminesascons);
+
+   /* currentGroundMesh = zemin; */
+    scene.add(makasçoğal);
+    scene.add(yankirişcons);
+    scene.add(makasiçibracingTamCons);
+    scene.add(ÇaprazYanCons);
+    scene.add(ÇatıÇAprazCons);
+    scene.add(totemcons)
+    scene.add(CepheKaplamaCons)
+    scene.add(SolÇatıKaplamacons)
+
+
+//
+    // Kamera pozisyonu
+  camera.position.set(-60, 35, 55);
+// `controls` ile odak noktası belirleme
+  controls.target.set(A/3, H/3, -B/3);
+
+  // FlyControls başlatma ve ayar yapma
+  controlFly = new THREE.FlyControls(camera, renderer.domElement);
+  controlFly.movementSpeed = 2.0;
+  controlFly.rollSpeed = 0.02;
+  controlFly.dragToLook = true;
+  controlFly.autoForward = false;
+
+
+  controls.update();
+  
+    renderer.render(scene, camera);
+    animate();
+  });
+}
+// #endregion🔥
+
+//#region animate
+function animate() {
+  requestAnimationFrame(animate);
+  controls.update();  // Kontrolleri güncelle
+  if (controlFly) controlFly.update(0.1); // Delta zamanı geçin
+
+  renderer.render(scene, camera);  // Sahneyi render et 
+}
+//#endregion
+
+//#region init
+init();
+// Resize olduğunda ekranın boyutlarını güncelle
+window.addEventListener('resize', () => {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    // Kamera en-boy oranını güncelle
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+
+    // Renderer boyutlarını güncelle
+    renderer.setSize(width, height);
+  });
+  //#endregion
+
+//#region İLK SAYFA AÇILIŞ MODEL GÖSTER
+
+  window.addEventListener('DOMContentLoaded', () => {
+    // Varsayılan değerleri inputlardan alarak A, B, H ve K'ya atıyoruz
+    const A = parseFloat(document.getElementById('A').value);
+    const B = parseFloat(document.getElementById('B').value);
+    const H = parseFloat(document.getElementById('H').value);
+    const K = parseFloat(document.getElementById('K').value);
+
+    // Varsayılan değerlere göre modeli oluştur
+    if (document.getElementById('createCube')) {
+        document.getElementById('createCube').click(); // Modelleme butonuna tıklayarak modeli otomatik oluşturuyoruz
+    }
+});
+//#endregion
+
+// #region Üçgen ve kaydırma çubuğu için HTML elemanlarını oluşturma
+// Üçgen ve kaydırma çubuğu için ana wrapper oluşturma
+const triangleWrapper = document.createElement("div");
+triangleWrapper.style.position = "absolute";
+triangleWrapper.style.top = "20px"; // Formun sağ tarafına hizalayın
+triangleWrapper.style.left = "250px"; // Formdan biraz boşluk bırakın
+triangleWrapper.style.display = "flex";
+triangleWrapper.style.flexDirection = "column";
+triangleWrapper.style.alignItems = "center";
+
+// Opaklık yazısı ekleme
+const opacityLabel = document.createElement("span");
+opacityLabel.textContent = "Opaklık";
+opacityLabel.style.fontSize = "14px";
+opacityLabel.style.color = "black";
+opacityLabel.style.marginBottom = "5px";
+triangleWrapper.appendChild(opacityLabel);
+
+// Üçgen şekli oluşturma (sabit kalacak)
+const opacityTriangle = document.createElement("div");
+opacityTriangle.style.width = "0";
+opacityTriangle.style.height = "0";
+opacityTriangle.style.borderTop = "7px solid transparent";
+opacityTriangle.style.borderBottom = "7px solid transparent";
+opacityTriangle.style.borderLeft = "80px solid rgba(0, 0, 0, 0.5)";
+triangleWrapper.appendChild(opacityTriangle);
+
+// İşaretçi olarak hareket edecek dikdörtgen oluşturma
+const sliderHandle = document.createElement("div");
+sliderHandle.style.position = "absolute";
+sliderHandle.style.width = "10px";
+sliderHandle.style.height = "20px";
+sliderHandle.style.backgroundColor = "rgba(0, 0, 0, 0.5)"; // Yarı saydam siyah
+sliderHandle.style.cursor = "pointer";
+sliderHandle.style.top = "18px"; // Üçgenin üzerine hizalamak için
+sliderHandle.style.left = "10px"; // Başlangıç konumu
+triangleWrapper.appendChild(sliderHandle);
+
+// Elemanları DOM'a ekleme
+document.body.appendChild(triangleWrapper);
+
+let isDragging = false;
+
+// Masaüstü için sürükleme başlatma
+sliderHandle.addEventListener("mousedown", function() {
+  isDragging = true;
+});
+
+// Mobil için sürükleme başlatma
+sliderHandle.addEventListener("touchstart", function() {
+  isDragging = true;
+});
+
+// Sürükleme bitirme olayları
+document.addEventListener("mouseup", function() {
+  isDragging = false;
+});
+
+document.addEventListener("touchend", function() {
+  isDragging = false;
+});
+
+// Sürükleme esnasında işaretçiyi hareket ettirme (Masaüstü ve Mobil)
+function moveSlider(event) {
+  if (isDragging) {
+    const minLeft = 0;
+    const maxLeft = 70;
+
+    // Mouse veya touch konumunu alın
+    const clientX = event.touches ? event.touches[0].clientX : event.clientX;
+    let newLeft = clientX - triangleWrapper.offsetLeft;
+    newLeft = Math.max(minLeft, Math.min(maxLeft, newLeft));
+
+    sliderHandle.style.left = `${newLeft}px`;
+
+    /*const opacityValue = 0.4 + ((newLeft - minLeft) / (maxLeft - minLeft)) * (1 - 0.2); */
+    const opacityValue = 1 - ((newLeft - minLeft) / (maxLeft - minLeft)) * (1 - 0.1);
+
+    /*SolÇatıKaplamacons*/
+
+    if (typeof CepheKaplamaCons !== "undefined") {
+      CepheKaplamaCons.children.forEach(mesh => {
+        if (mesh.material) {
+          mesh.material.opacity = opacityValue;
+          mesh.material.needsUpdate = true;
+        }
+      });
+    }
+    
+    if (typeof SolÇatıKaplamacons !== "undefined") {
+      SolÇatıKaplamacons.children.forEach(mesh => {
+        if (mesh.material) {
+          mesh.material.opacity = opacityValue;
+          mesh.material.needsUpdate = true;
+        }
+      });
+    }
+      }
+}
+
+// Masaüstü için sürükleme hareketini algıla
+document.addEventListener("mousemove", moveSlider);
+
+// Mobil için sürükleme hareketini algıla
+document.addEventListener("touchmove", moveSlider);
+
+// #endregion
+
+//#region Maliyet Hesap ve kutucuk
+
+// Gösterilecek alanları tanımlayın ve stil özelliklerini ayarlayın
+// Çelik Tonajı ve Maliyet göstergelerini oluşturma
+// Çelik Tonajı ve Maliyet göstergelerini oluşturma
+function createCostDisplay() {
+  const costDisplayContainer = document.createElement('div');
+  costDisplayContainer.id = 'costDisplayContainer';
+  costDisplayContainer.style.position = 'absolute';
+  costDisplayContainer.style.bottom = '10px';
+  costDisplayContainer.style.left = '20px';
+  costDisplayContainer.style.width = '200px';
+  costDisplayContainer.style.zIndex = '20';
+  costDisplayContainer.style.color = 'yellow';
+
+  const tonajElement = document.createElement('div');
+  tonajElement.id = 'tonajContainer';
+  tonajElement.innerHTML = `<div id="celikTonaj">Çelik Tonaj: </div>`;
+
+  const maliyetElement = document.createElement('div');
+  maliyetElement.id = 'maliyetContainer';
+  maliyetElement.innerHTML = `<div id="maliyetCelik">Maliyet: </div>`;
+
+  costDisplayContainer.appendChild(tonajElement);
+  costDisplayContainer.appendChild(maliyetElement);
+  document.body.appendChild(costDisplayContainer);
+}
+
+// Sayfa yüklendiğinde göstergeleri oluştur
+createCostDisplay();
+
+function checkDolarKuruReady(callback) {
+  if (dolarKuru) {
+      callback();
+  } else {
+      setTimeout(() => checkDolarKuruReady(callback), 100); // 100 ms sonra tekrar kontrol et
+  }
+}
+
+//#endregion
