@@ -25,7 +25,7 @@ export const MAKASMALZEME = new THREE.MeshBasicMaterial({
 export const ÇimZeminMalzeme1 = (() => {
   // Texture yükleyici
   const textureLoader = new THREE.TextureLoader();
-  const groundTexture = textureLoader.load('textures/zemin.png');
+  const groundTexture = textureLoader.load('./textures/zemin.png');
   groundTexture.wrapS = THREE.RepeatWrapping;
   groundTexture.wrapT = THREE.RepeatWrapping;
   groundTexture.repeat.set(5, 5);  // Zemin dokusunun tekrarlanmasını sağlar
@@ -61,7 +61,7 @@ export const kolonMaterial3 = new THREE.MeshStandardMaterial({
 //#region Makas Malzemesi
 const textureLoader = new THREE.TextureLoader();
 export const MAKASMALZEME = new THREE.MeshBasicMaterial({
-  map: textureLoader.load('textures/makas1.png')});  // Makas malzemesi texture atanıyor
+  map: textureLoader.load('./textures/makas1.png')});  // Makas malzemesi texture atanıyor
 //#endregion
 
 //#region  Dikme Malzemesi
