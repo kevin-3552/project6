@@ -1,37 +1,24 @@
 //#region DEĞİŞKENLER ATAMA
-let scene, camera, renderer, controls;
-let kolonGrubu;
-let soldiyagonelGrup //
-let sağdiyagonelGrup
-let zeminesascons; //
-let makasçoğal
-let yankirişcons
-let makasiçbracingAltCons
-let makasiçibracingTamCons
-let ÇaprazYanCons
-let ÇatıÇAprazCons 
-let totemcons
-let CepheKaplamaCons
+export let scene, camera, renderer, controls;
 let controlFly
-let SolÇatıKaplamacons
-
-let currentGroundMesh = null;
-window.MKSHG=35 // MAKSİMUM HOL GENİŞLİĞİ
+let hideButton
+let İlkkutu
+let formVisible = true;
+export let vinçcheckbox 
 
 // Global değişkenler
-let A, B, H, K;  // En, Boy, Yükseklik değişkenleri
+export let A, B, H, K;  // En, Boy, Yükseklik değişkenleri
 window.YATAYHOLGENİŞLİĞİ; 
 window.YATAYHOLSAYISI;
 window.YATAYAKSSAYISI; 
 
-let createButton; 
 //#endregion
 
 //#region IMPORT'lar
 // Nesneler
 import { YATAYKOLONGRUBU, SOLDİYAGONELGRUBU, SAĞDİYAGONELGRUBU, MakasGrupÇoğalt, YanKiriş_1, MakasİçiAltTamBracing, 
   Bracing_MakasİçiTam, ÇaprazYanKomple, ÇatıÇapraz1MakasGrup, ÇatıÇaprazTam, Totem1,CepheKaplamaSağSol, SolÇatıKaplama,
-  MK_UZUNLUK, ZEMİNESAS} from './nesneler.js';  // 
+  MK_UZUNLUK, ZEMİNESAS, VinçKirişi, VincKancasi, loadedFont} from './nesneler.js';  // 
 
 // Hesaplar
 import { DİKMEHESAPLA, hesaplaDüşeyAks, hesaplaYatayKolon, ÇATIEĞİMHETKİSİHESAP, MAKASBOYUHESAP, 
@@ -47,31 +34,35 @@ import { YatayÇaprazÇap, KOLONEBAT, KOLON_BOX1 , MK_EN, YATAY_MK_GEO_1 } from 
 // Malzemeler
 import { ÇimZeminMalzeme1  } from './malzemeler.js';  // 
 
-/*import makas1 from './textures/zemin.png' ;*/
-
-
-//#region Maliyetler Import
+// Maliyetler Import
 import { ÇelikTonajı , ÇelikTonaj,  MlytToplamÇlk, MlytToplamÇlkTL, dolarKuru} from './maliyet.js';  // 
 
-//#endregion 
-//#endregion 
+// BUTON Import
+import { üçdbutonabas, CepheKaplamaCons, SolÇatıKaplamacons,vinçkirişicons, vinçkirişkaldir, üçgenOpaklıkAyarlama,
+  maliyetgösterfonk
+ } from './butonfonk.js';  // 
 
-// #region FORM - HTML - Camera Iconu vs İşlemleri...
+//#endregion Form ve Butonların Sonu
 
-//#region Butonları ve formu oluşturmak için  fonksiyon
-function createFormAndButton() {
+//#region Formlar
+function İLKFORM() {
+   // Eğer form daha önce oluşturulduysa, eski formu kaldır
+   /*if (İlkkutu) {
+    İlkkutu.remove();
+  }*/
+
   // Form Container oluşturma
-  const formContainer = document.createElement('div');
-  formContainer.id = 'formContainer';
-  formContainer.style.position = 'absolute';
-  formContainer.style.top = '3px';
-  formContainer.style.left = '10px';
-  formContainer.style.zIndex = '10';
-  formContainer.style.backgroundColor = 'rgba(240, 240, 240, 0.9)';
-  formContainer.style.padding = '5px';
-  formContainer.style.border = '1px solid #000';
-  formContainer.style.borderRadius = '8px';
-  formContainer.style.width = '200px';
+  İlkkutu = document.createElement('div');
+  İlkkutu.id = 'formContainer';
+  İlkkutu.style.position = 'absolute';
+  İlkkutu.style.top = '3px';
+  İlkkutu.style.left = '10px';
+  İlkkutu.style.zIndex = '10';
+  İlkkutu.style.backgroundColor = 'rgba(240, 240, 240, 0.9)';
+  İlkkutu.style.padding = '5px';
+  İlkkutu.style.border = '1px solid #000';
+  İlkkutu.style.borderRadius = '8px';
+  İlkkutu.style.width = '200px';
 
   // Tablo elemanlarını oluşturma
   const table = document.createElement('table');
@@ -110,8 +101,32 @@ function createFormAndButton() {
   table.appendChild(createRow('Yükseklik (H):', 'H', '6'));
   table.appendChild(createRow('Aks Arası:', 'K', '6'));
 
-  // Tabloyu formContainer içine ekleme
-  formContainer.appendChild(table);
+  // Tabloyu İlkkutu içine ekleme
+  İlkkutu.appendChild(table);
+
+  // Vinç seçeneğini ekleme (sol alt köşe)
+  const vinçcheckboxkutu = document.createElement('div');
+  vinçcheckboxkutu.style.display = 'flex';
+  vinçcheckboxkutu.style.alignItems = 'center';
+  vinçcheckboxkutu.style.marginTop = '3px';
+
+  vinçcheckbox = document.createElement('input');
+  vinçcheckbox.type = 'checkbox';
+  vinçcheckbox.id = 'craneCheckbox';
+  
+  vinçcheckbox.style.marginRight = '5px';
+  vinçcheckbox.style.marginBottom = '2px';
+
+  const vinçcheckboxLabel = document.createElement('label');
+  vinçcheckboxLabel.textContent = 'Vinç Yolu';
+  vinçcheckboxLabel.style.fontSize = '12px';
+  vinçcheckboxLabel.style.marginBottom = '1px'
+  vinçcheckboxLabel.htmlFor = 'craneCheckbox';
+
+  vinçcheckboxkutu.appendChild(vinçcheckbox );
+  vinçcheckboxkutu.appendChild(vinçcheckboxLabel );
+  İlkkutu.appendChild(vinçcheckboxkutu);
+  
 
   // 3D BİNA MODELLE butonunu ekleme
   const createButton = document.createElement('button');
@@ -125,13 +140,13 @@ function createFormAndButton() {
   createButton.style.border = 'none';
   createButton.style.borderRadius = '4px';
   createButton.style.cursor = 'pointer';
-  formContainer.appendChild(createButton);
+  İlkkutu.appendChild(createButton);
 
-  // FormContainer'ı body içine ekleme
-  document.body.appendChild(formContainer);
+  // İlkkutu'ı body içine ekleme
+  document.body.appendChild(İlkkutu);
 
   // Hide/Show butonunu ekleme
-  const hideButton = document.createElement('img');
+  hideButton = document.createElement('img');
   hideButton.src = 'textures/hide.png'; // Buton ikonu
   hideButton.alt = 'Show/Hide Form';
   hideButton.style.position = 'absolute';
@@ -142,237 +157,144 @@ function createFormAndButton() {
   hideButton.style.cursor = 'pointer';
   hideButton.style.zIndex = '15';
   document.body.appendChild(hideButton);
-
-  // Hide/Show işlevselliğini ekleme
-  let formVisible = true;
-  hideButton.addEventListener('click', () => {
-    formVisible = !formVisible;
-    formContainer.style.display = formVisible ? 'block' : 'none';
-  });
 }
+//#endregion İLK FORM SONU
+İLKFORM()
+üçgenOpaklıkAyarlama();
 
+//#region Buton Çağırmalar
+
+// Hide/Show işlevselliğini ekleme
+hideButton.addEventListener('click', () => {
+  formVisible = !formVisible;
+  İlkkutu.style.display = formVisible ? 'block' : 'none';
+});
+
+vinçkirişkaldir();
+İlkkutuAdjustfonk();  // sayfa yüklendiğinde en boy ayarı
 
 // Form Hizalama Fonksion
-function adjustFormContainerWidth() {
-  const formContainer = document.getElementById('formContainer');
-  if (formContainer) {
-    formContainer.style.width = `${Math.min(window.innerWidth * 0.9, 200)}px`; // Maksimum genişlik 200px
+function İlkkutuAdjustfonk() {
+  const İlkkutu = document.getElementById('İlkkutu');
+  if (İlkkutu) {
+    İlkkutu.style.width = `${Math.min(window.innerWidth * 0.9, 200)}px`; // Maksimum genişlik 200px
   }
 }
 
 // Ekran Resize En Boy ayarla
-window.addEventListener('resize', adjustFormContainerWidth);
-window.addEventListener('orientationchange', adjustFormContainerWidth);
+window.addEventListener('resize', İlkkutuAdjustfonk);
+window.addEventListener('orientationchange', İlkkutuAdjustfonk);
 
-// Sayfa yüklendiğinde başlangıçta boyut ayarlaması yap
-adjustFormContainerWidth();
+// Fonksiyon çağırmalar 
 
-// Fonk çağar
-createFormAndButton();
-
-//#endregion Form ve Butonların Sonu
-
-/*
-// Butona click olay işleyicisi ekleyelim
-createButton.addEventListener('click', () => {
-    const A = parseFloat(document.getElementById('A').value);
-    const B = parseFloat(document.getElementById('B').value);
-    const H = parseFloat(document.getElementById('H').value);
-    const K = parseFloat(document.getElementById('K').value);
-
-    // Burada 3D bina modelleme işlemlerini başlatabilirsiniz
-});
 //#endregion
-*/
+
+
 
 //#region Işık Ayarları
-// Yönlü ışık ekleme fonksiyonu
-function addDirectionalLight() {
+function addDirectionalLight() { // Yönlü ışık ekleme fonksiyonu
+
   const light = new THREE.DirectionalLight(0xffffff, 1);
   light.position.set(5, 5, 5).normalize();
   scene.add(light);
 }
-// Ambient light ekleme fonksiyonu
-function addAmbientLight() {
+function addAmbientLight() { // Ambient light ekleme fonksiyonu
+
   const ambientLight = new THREE.AmbientLight(0x404040, 1); // Yumuşak aydınlatma
   scene.add(ambientLight);
 }
 //#endregion
 
-//#region🔥 INIT fonksiyonu & BUTON🔥
-function init() {
-  // Sahne oluşturma
-  scene = new THREE.Scene();
+//#region ÇİM & GÖKYÜZÜ Fonksiyonları
+function createGround() { // Çim Zemin ekleme
+  const groundGeometry = new THREE.PlaneGeometry(300, 200);  // 
+  const groundMesh = new THREE.Mesh(groundGeometry, ÇimZeminMalzeme1);
+  groundMesh.rotation.x = -Math.PI / 2; // Yatay hale getiriyoruz
+  groundMesh.position.set(50, -0.2, -50);  // X, Y, Z koordinatları
+  const groundGroup = new THREE.Group();  // Zemini bir grup içinde organize ediyoruz
+  groundGroup.add(groundMesh);
+  scene.add(groundGroup);
+  return groundGroup;} // İleride kontrol için zemini geri döndürüyoruz
 
-//#region Kamera ayarları
-  camera = new THREE.PerspectiveCamera(25, window.innerWidth / window.innerHeight, 0.1, 1000);
+  function gökyüzüfonksiyon(scene) {
+    const textureLoader = new THREE.TextureLoader();
+    const skyTexture = textureLoader.load('textures/sky.png');
+    
+    const skyGeometry = new THREE.SphereGeometry(1000, 60, 40); // Büyük bir küre, gökyüzü etkisi için
+    const skyMaterial = new THREE.MeshBasicMaterial({
+        map: skyTexture,
+        side: THREE.BackSide // Kürenin iç yüzeyi görünsün
+    });
+    
+    const skyMesh = new THREE.Mesh(skyGeometry, skyMaterial);
+    skyMesh.position.y = 500; 
+    skyMesh.position.x = 500; 
+    skyMesh.position.z = 500; 
+  
+    scene.add(skyMesh);     // Gökyüzü küresini sahneye ekleme
+
+  }
 //#endregion
 
-  // Renderer
-  renderer = new THREE.WebGLRenderer();
+//#region🔥 INIT fonksiyonu
+function init() {
+  // Sahne & Kamera & REndere
+  scene = new THREE.Scene();
+  camera = new THREE.PerspectiveCamera(25, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+  renderer = new THREE.WebGLRenderer(); // renderer
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(window.devicePixelRatio);
   document.body.appendChild(renderer.domElement);
 
-  // OrbitControls ekleme
-  controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls = new THREE.OrbitControls(camera, renderer.domElement); // // OrbitControls 
   controls.enableZoom = true;
-
-    // Işıkları ekleme
-    addDirectionalLight();
-    addAmbientLight();
-//#endregion
-  //#region Çim - Gökyüzü & Zemin Ekleme
-  // Çim Zemin ekleme
-  function createGround() {
-    // Geometri oluşturma
-    const groundGeometry = new THREE.PlaneGeometry(300, 200);  // Büyük bir zemin düzlemi
-      // Mesh oluşturma ve ayarlama
-    const groundMesh = new THREE.Mesh(groundGeometry, ÇimZeminMalzeme1);
-    groundMesh.rotation.x = -Math.PI / 2; // Yatay hale getiriyoruz
-    groundMesh.position.set(50, -0.2, -50);  // X, Y, Z koordinatları
-    const groundGroup = new THREE.Group();  // Zemini bir grup içinde organize ediyoruz
-    groundGroup.add(groundMesh);
-    scene.add(groundGroup);
-    return groundGroup;  // İleride kontrol için zemini geri döndürüyoruz
-  }
+  addDirectionalLight();    // Işıkları ekleme
+  addAmbientLight();
   const ZeminEkleConst = createGround();
-
-// Gökyüzü küresi ekleme
-function createSky(scene) {
-  const textureLoader = new THREE.TextureLoader();
-  const skyTexture = textureLoader.load('textures/sky.png');
-  
-  const skyGeometry = new THREE.SphereGeometry(1000, 60, 40); // Büyük bir küre, gökyüzü etkisi için
-  const skyMaterial = new THREE.MeshBasicMaterial({
-      map: skyTexture,
-      side: THREE.BackSide // Kürenin iç yüzeyi görünsün
-  });
-  
-  const skyMesh = new THREE.Mesh(skyGeometry, skyMaterial);
-  skyMesh.position.y = 500; 
-  skyMesh.position.x = 500; 
-  skyMesh.position.z = 500; 
-
-  // Gökyüzü küresini sahneye ekleme
-  scene.add(skyMesh);
+  gökyüzüfonksiyon(scene); // Gökyüzü küresi ekleme
+animate();
 }
-createSky(scene);
+//#endregion
 
-
-document.addEventListener('keydown', function(event) {
-  // Alt + M tuş kombinasyonunu kontrol edin
+//#region Butonlar: 3D Modelle Butonu EventListener
+document.addEventListener('DOMContentLoaded', () => {
+  const createCubeButton = document.getElementById('createCube');
+  if (createCubeButton) {
+    console.log("createCube butonu bulundu ve event listener eklendi."); // Bu mesaj DOM yüklendiğinde bir kez görünmeli
+    createCubeButton.addEventListener('click', () => {
+      console.log("createCube butonuna tıklanıldı.");
+      üçdbutonabas(A, B, K,H); // Butona tıklandığında Üçdbutonhandler çalışır
+    });
+  } else {
+    console.log("createCube butonu bulunamadı.");
+  }
+});
+document.addEventListener('keydown', function(event) { // Alt + M kısayolu
   if (event.altKey && (event.key === 'm' || event.key === 'M')) {
       document.getElementById('createCube').click();
   }
 });
+
 //#endregion
-  //#region🔥🔥🔥🔥🔥🔥 BUTONA BASINCA OLACAKLAR   🔥🔥🔥🔥🔥🔥🔥🔥
-  document.getElementById('createCube').addEventListener('click', () => {
-    // Önceki kolon grubunu temizleyelim
-    if (kolonGrubu) {scene.remove(kolonGrubu);}
-    if (soldiyagonelGrup) {scene.remove(soldiyagonelGrup);}
-    if (sağdiyagonelGrup) {scene.remove(sağdiyagonelGrup);}
-    if (zeminesascons) { scene.remove(zeminesascons); }
-    if (currentGroundMesh) {scene.remove(currentGroundMesh);}  // Önceki zemini sahneden kaldırıyoruz
-    if (makasçoğal) { scene.remove(makasçoğal);}
-    if (yankirişcons) { scene.remove(yankirişcons);}
-    if (makasiçibracingTamCons) { scene.remove(makasiçibracingTamCons);}
-    if (ÇaprazYanCons) { scene.remove(ÇaprazYanCons);}
-    if (ÇatıÇAprazCons) { scene.remove(ÇatıÇAprazCons);}
-    if (totemcons) { scene.remove(totemcons);}
-    if (CepheKaplamaCons) { scene.remove(CepheKaplamaCons);}
-    if (SolÇatıKaplamacons) { scene.remove(SolÇatıKaplamacons);}
 
+//#region İLK SAYFA AÇILIŞ MODEL GÖSTER
 
-       
-    // A, B, H değerlerini inputlardan alalım  - BUTON HESAP !!!!!!!!!!!!!!!!!!!!!
-    A = parseFloat(document.getElementById('A').value);   // En (A)
-    B = parseFloat(document.getElementById('B').value);   // Boy (B)
-    H = parseFloat(document.getElementById('H').value);   // Yükseklik (H)
-    K = parseFloat(document.getElementById('K').value);   // Aks Arası (K)
+window.addEventListener('DOMContentLoaded', () => {
+  // Varsayılan değerleri inputlardan alarak A, B, H ve K'ya atıyoruz
+  const A = parseFloat(document.getElementById('A').value);
+  const B = parseFloat(document.getElementById('B').value);
+  const H = parseFloat(document.getElementById('H').value);
+  const K = parseFloat(document.getElementById('K').value);
 
-    hesaplaDüşeyAks(B, K); 
-    hesaplaYatayKolon(A); 
-    MAKAS_YÜKSEKL_HESAPLA(YATAYHOLGENİŞLİĞİ, H)
-    ÇATIEĞİMHETKİSİHESAP(H, YATAYHOLGENİŞLİĞİ, MKAÇI);
-    MAKASBOYUHESAP()
-    ZEMİNESASEBATHESAP(A, B)
-    DİKMEHESAPLA(H)
-    YanBağKirişHesap(H)
-    ÇaprazYanHesap() 
-    YATAY_MK_GEO_1(YATAYHOLGENİŞLİĞİ, MK_UZUNLUK)
-    KaplamaSınırHesap ()
+  // Varsayılan değerlere göre modeli oluştur
+  if (document.getElementById('createCube')) {
+      document.getElementById('createCube').click(); // Modelleme butonuna tıklayarak modeli otomatik oluşturuyoruz
+  }
+});
+//#endregion
 
-    // Dolar kuru hazır olduğunda ÇelikTonajı hesaplamasını çalıştır
-    checkDolarKuruReady(() => {
-      // ÇelikTonajı fonksiyonunu çağırarak global değişkenleri güncelleyin
-      ÇelikTonajı(A, B, H);
-
-      // Çelik Tonaj ve Maliyet değerlerini formatlı olarak hesaplayın
-      const formattedTonaj = new Intl.NumberFormat('tr-TR', { minimumFractionDigits: 0 }).format(ÇelikTonaj); // ton cinsine dönüştürme
-      const formattedMaliyet = new Intl.NumberFormat('tr-TR').format(MlytToplamÇlk); // $ formatında
-      const formattedMaliyetTL = new Intl.NumberFormat('tr-TR').format(MlytToplamÇlkTL); // TL formatında
-
-      // Güncellenmiş değerleri göster
-      document.getElementById('celikTonaj').textContent = `Çelik: ${formattedTonaj} ton`;
-      document.getElementById('maliyetCelik').textContent = `Maliyet: ${formattedMaliyet} $ (${formattedMaliyetTL} ₺)`;
-  });    
-
- 
-    kolonGrubu = YATAYKOLONGRUBU(H);  // Kolon grubu oluşturuluyor
-    soldiyagonelGrup = SOLDİYAGONELGRUBU(H);
-    sağdiyagonelGrup = SAĞDİYAGONELGRUBU(H);
-    makasçoğal = MakasGrupÇoğalt(H);
-    zeminesascons =ZEMİNESAS(A, B);
-    yankirişcons = YanKiriş_1(H, A);
-    makasiçibracingTamCons =  Bracing_MakasİçiTam(H)
-    ÇaprazYanCons = ÇaprazYanKomple(H)
-    ÇatıÇAprazCons = ÇatıÇaprazTam(H)
-    totemcons= Totem1(H)
-    CepheKaplamaCons = CepheKaplamaSağSol(B, H, A)
-    SolÇatıKaplamacons = SolÇatıKaplama(H, B,)
-    
-    scene.add(kolonGrubu);  // KOLON1 ile oluşturulan kolonları sahneye ekle
-    scene.add(soldiyagonelGrup);  // Sahneye ekle
-    scene.add(sağdiyagonelGrup);  // Sahneye ekle
-    scene.add(zeminesascons);  // Sahneye ekle
-    scene.add(zeminesascons);
-
-   /* currentGroundMesh = zemin; */
-    scene.add(makasçoğal);
-    scene.add(yankirişcons);
-    scene.add(makasiçibracingTamCons);
-    scene.add(ÇaprazYanCons);
-    scene.add(ÇatıÇAprazCons);
-    scene.add(totemcons)
-    scene.add(CepheKaplamaCons)
-    scene.add(SolÇatıKaplamacons)
-
-
-//
-    // Kamera pozisyonu
-  camera.position.set(-60, 35, 55);
-// `controls` ile odak noktası belirleme
-  controls.target.set(A/3, H/3, -B/3);
-
-  // FlyControls başlatma ve ayar yapma
-  controlFly = new THREE.FlyControls(camera, renderer.domElement);
-  controlFly.movementSpeed = 2.0;
-  controlFly.rollSpeed = 0.02;
-  controlFly.dragToLook = true;
-  controlFly.autoForward = false;
-
-
-  controls.update();
-  
-    renderer.render(scene, camera);
-    animate();
-  });
-}
-// #endregion🔥
-
-//#region animate
+//#region animate Fonksiyonu Tanımlama
 function animate() {
   requestAnimationFrame(animate);
   controls.update();  // Kontrolleri güncelle
@@ -382,7 +304,7 @@ function animate() {
 }
 //#endregion
 
-//#region init
+//#region Init Çağırma ve Resize
 init();
 // Resize olduğunda ekranın boyutlarını güncelle
 window.addEventListener('resize', () => {
@@ -398,136 +320,12 @@ window.addEventListener('resize', () => {
   });
   //#endregion
 
-//#region İLK SAYFA AÇILIŞ MODEL GÖSTER
-
-  window.addEventListener('DOMContentLoaded', () => {
-    // Varsayılan değerleri inputlardan alarak A, B, H ve K'ya atıyoruz
-    const A = parseFloat(document.getElementById('A').value);
-    const B = parseFloat(document.getElementById('B').value);
-    const H = parseFloat(document.getElementById('H').value);
-    const K = parseFloat(document.getElementById('K').value);
-
-    // Varsayılan değerlere göre modeli oluştur
-    if (document.getElementById('createCube')) {
-        document.getElementById('createCube').click(); // Modelleme butonuna tıklayarak modeli otomatik oluşturuyoruz
-    }
-});
-//#endregion
-
-// #region Üçgen ve kaydırma çubuğu için HTML elemanlarını oluşturma
-// Üçgen ve kaydırma çubuğu için ana wrapper oluşturma
-const triangleWrapper = document.createElement("div");
-triangleWrapper.style.position = "absolute";
-triangleWrapper.style.top = "20px"; // Formun sağ tarafına hizalayın
-triangleWrapper.style.left = "250px"; // Formdan biraz boşluk bırakın
-triangleWrapper.style.display = "flex";
-triangleWrapper.style.flexDirection = "column";
-triangleWrapper.style.alignItems = "center";
-
-// Opaklık yazısı ekleme
-const opacityLabel = document.createElement("span");
-opacityLabel.textContent = "Opaklık";
-opacityLabel.style.fontSize = "14px";
-opacityLabel.style.color = "black";
-opacityLabel.style.marginBottom = "5px";
-triangleWrapper.appendChild(opacityLabel);
-
-// Üçgen şekli oluşturma (sabit kalacak)
-const opacityTriangle = document.createElement("div");
-opacityTriangle.style.width = "0";
-opacityTriangle.style.height = "0";
-opacityTriangle.style.borderTop = "7px solid transparent";
-opacityTriangle.style.borderBottom = "7px solid transparent";
-opacityTriangle.style.borderLeft = "80px solid rgba(0, 0, 0, 0.5)";
-triangleWrapper.appendChild(opacityTriangle);
-
-// İşaretçi olarak hareket edecek dikdörtgen oluşturma
-const sliderHandle = document.createElement("div");
-sliderHandle.style.position = "absolute";
-sliderHandle.style.width = "10px";
-sliderHandle.style.height = "20px";
-sliderHandle.style.backgroundColor = "rgba(0, 0, 0, 0.5)"; // Yarı saydam siyah
-sliderHandle.style.cursor = "pointer";
-sliderHandle.style.top = "18px"; // Üçgenin üzerine hizalamak için
-sliderHandle.style.left = "10px"; // Başlangıç konumu
-triangleWrapper.appendChild(sliderHandle);
-
-// Elemanları DOM'a ekleme
-document.body.appendChild(triangleWrapper);
-
-let isDragging = false;
-
-// Masaüstü için sürükleme başlatma
-sliderHandle.addEventListener("mousedown", function() {
-  isDragging = true;
-});
-
-// Mobil için sürükleme başlatma
-sliderHandle.addEventListener("touchstart", function() {
-  isDragging = true;
-});
-
-// Sürükleme bitirme olayları
-document.addEventListener("mouseup", function() {
-  isDragging = false;
-});
-
-document.addEventListener("touchend", function() {
-  isDragging = false;
-});
-
-// Sürükleme esnasında işaretçiyi hareket ettirme (Masaüstü ve Mobil)
-function moveSlider(event) {
-  if (isDragging) {
-    const minLeft = 0;
-    const maxLeft = 70;
-
-    // Mouse veya touch konumunu alın
-    const clientX = event.touches ? event.touches[0].clientX : event.clientX;
-    let newLeft = clientX - triangleWrapper.offsetLeft;
-    newLeft = Math.max(minLeft, Math.min(maxLeft, newLeft));
-
-    sliderHandle.style.left = `${newLeft}px`;
-
-    /*const opacityValue = 0.4 + ((newLeft - minLeft) / (maxLeft - minLeft)) * (1 - 0.2); */
-    const opacityValue = 1 - ((newLeft - minLeft) / (maxLeft - minLeft)) * (1 - 0.1);
-
-    /*SolÇatıKaplamacons*/
-
-    if (typeof CepheKaplamaCons !== "undefined") {
-      CepheKaplamaCons.children.forEach(mesh => {
-        if (mesh.material) {
-          mesh.material.opacity = opacityValue;
-          mesh.material.needsUpdate = true;
-        }
-      });
-    }
-    
-    if (typeof SolÇatıKaplamacons !== "undefined") {
-      SolÇatıKaplamacons.children.forEach(mesh => {
-        if (mesh.material) {
-          mesh.material.opacity = opacityValue;
-          mesh.material.needsUpdate = true;
-        }
-      });
-    }
-      }
-}
-
-// Masaüstü için sürükleme hareketini algıla
-document.addEventListener("mousemove", moveSlider);
-
-// Mobil için sürükleme hareketini algıla
-document.addEventListener("touchmove", moveSlider);
-
 // #endregion
 
 //#region Maliyet Hesap ve kutucuk
 
 // Gösterilecek alanları tanımlayın ve stil özelliklerini ayarlayın
-// Çelik Tonajı ve Maliyet göstergelerini oluşturma
-// Çelik Tonajı ve Maliyet göstergelerini oluşturma
-function createCostDisplay() {
+export function createCostDisplay() {
   const costDisplayContainer = document.createElement('div');
   costDisplayContainer.id = 'costDisplayContainer';
   costDisplayContainer.style.position = 'absolute';
@@ -553,12 +351,11 @@ function createCostDisplay() {
 // Sayfa yüklendiğinde göstergeleri oluştur
 createCostDisplay();
 
-function checkDolarKuruReady(callback) {
+export function checkDolarKuruReady(callback) {
   if (dolarKuru) {
       callback();
   } else {
       setTimeout(() => checkDolarKuruReady(callback), 100); // 100 ms sonra tekrar kontrol et
   }
 }
-
 //#endregion
