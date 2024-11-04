@@ -1,0 +1,117 @@
+/* Genel yerleşim */
+#infoContainer { position: fixed; width: 100%; bottom: 0; display: flex; 
+    justify-content: space-between; padding: 10px; box-sizing: border-box; }
+
+/* Masaüstü görünüm */
+/*DAİRE - MASAÜSTÜ SOL TARAF TONAJ*/
+@media (min-width: 768px) {
+    #celikTonaj::before { content: ""; display: inline-block; width: 10px; height: 10px; background-color:
+    yellow ; border-radius: 20%; margin-right: 8px; vertical-align: middle; }
+
+    #celikTonaj {
+        position: fixed;
+        bottom: 15px;
+        left: 0px;
+        color: yellow;
+        text-align: left;
+        background-color: rgba(42, 45, 209, 0.67); /* Açık gri yarı transparan arka plan */
+        padding: 5px; /* İç boşluk */
+        border: 1px solid white; /* İnce beyaz çerçeve */
+        border-radius: 5px; /* Hafif yuvarlatılmış köşeler */
+    }
+    .Çeliktonajbaslik { color: red; font-weight: normal; font-size: 1.0em; }
+    .Çeliktonajicerik { color:yellow; font-size: 1.0em; margin-left: 0px; }
+
+    
+    #maliyetCelik { position: fixed; bottom: 10px; right: 10px; color: red; text-align: right;
+        background-color: rgba(238, 238, 238, 0.921); /* Açık gri yarı transparan arka plan */
+        padding: 5px; /* İç boşluk */
+        border: 1px solid white; /* İnce beyaz çerçeve */
+        border-radius: 5px; /* Hafif yuvarlatılmış köşeler */
+        display: flex;
+        align-items: center; /* Dikey ortalamak için */
+        gap: 10px; /* Öğeler arasında boşluk için */
+
+    
+    }
+
+
+/*maliyet kısmı sağ taraf*/
+    .maliyet-başlık { color: red; font-weight: bold; font-size: 1.1 em }
+
+    .maliyet-tl-değeri {  color: red; display: inline-block; margin-top: 5px; font-size: 1.1 em; }
+
+    .maliyet-usd { color:red;  font-size: 1.0 em}
+
+    .dolar-kuru { color: grey; font-size: 0.7em; }
+
+    /*.maliyet-tl-değeri::after {
+        content: " /"; /* ₺ sembolünden sonra slaş ekler 
+        font-weight: bold; color: black; font-size: 1.3em; 
+    }*/
+/*DAİRE MASAÜSTÜ maliyet öncesi*/
+    .maliyet-başlık::before { content: ""; display: inline-block; width: 10px; height: 10px; background-color:
+        rgb(205, 50, 151) ; border-radius: 20%; margin-right: 8px; vertical-align: middle; }
+    
+
+}
+
+
+
+
+/* Mobil görünüm */
+@media (max-width: 767px) {
+    #celikTonaj { position: fixed; bottom: 10px; left: 10px; color: black; text-align: left;
+    background-color: rgba(42, 45, 209, 0.67); /* Yarı transparan gri arka plan */
+    padding: 5px; /* İç boşluk */
+    border: 1px solid white; /* İnce beyaz çerçeve */
+    border-radius: 5px; /* Hafif yuvarlatılmış köşeler */
+        }
+
+
+    .Çeliktonajbaslik { color: yellow; font-weight: normal; font-size: 1.0em; }
+    
+    .Çeliktonajicerik { color: yellow; font-size: 1em; margin-left: 5px; display: block}
+    
+    /*maliyet kısmı Arka plan*/
+    #maliyetCelik { position: fixed; bottom: 5px; right: 5px; color: black; text-align: right; 
+    background-color: rgba(51, 38, 38, 0.8); /* Yarı transparan gri arka plan */
+    padding: 5px; /* İç boşluk */
+    border: 1px solid white; /* İnce beyaz çerçeve */
+    border-radius: 5px; /* Hafif yuvarlatılmış köşeler */
+
+    }
+
+    .maliyet-başlık { color: red; font-weight: bold; }
+    
+    .maliyet-tl-değeri {color: red; margin-right: 10px; font-size: 1em;}
+
+    .maliyet-usd { color: rgb(163, 181, 30);  }
+    
+    .dolar-kuru { color: rgb(134, 134, 134); margin-right: 10px; font-size: 0.8em;}
+
+    .maliyet-başlık::before { content: ""; display: inline-block; width: 10px; height: 10px; background-color:
+        greenyellow ; border-radius: 20%; margin-right: 8px; vertical-align: middle; }
+
+    
+    .maliyet1.satir {
+        display: flex;
+        justify-content: start; /* Öğeleri sola hizalar */
+        margin-bottom: 5px; /* İki satır arasında boşluk */
+    }
+    .maliyet2.satir {
+        display: flex;
+        justify-content: start; /* Öğeleri sola hizalar */
+        margin-bottom: 5px; /* İki satır arasında boşluk */
+    }
+
+    
+
+    
+}
+
+
+   /* .maliyet-alt-satir { display: inline-block; color: yellow; margin-top: 5px; font-size: 0.9em; } */
+    /*maliyet kısmı sağ taraf*/
+    /* .maliyet-tl::before { content: ""; display: inline-block; width: 10px; height: 10px; background-color:
+        greenyellow; border-radius: 50%; margin-right: 8px; vertical-align: middle; }  */
