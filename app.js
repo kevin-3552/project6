@@ -113,6 +113,8 @@ function İLKFORM() {
   vinçcheckbox = document.createElement('input');
   vinçcheckbox.type = 'checkbox';
   vinçcheckbox.id = 'craneCheckbox';
+  vinçcheckbox.checked = true; // Checkbox'u varsayılan olarak işaretli yapar
+
   
   vinçcheckbox.style.marginRight = '5px';
   vinçcheckbox.style.marginBottom = '2px';
