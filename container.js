@@ -121,6 +121,7 @@ export function İLKFORM() {
   
 //#endregion 
 
+//#region Maliyet Ctr
 export function maliyetgösterfonk(A, B, H) {
   checkDolarKuruReady(() => {
       const { ÇelikTonaj, MlytToplamÇlk, MlytToplamÇlkTL } = ÇelikTonajı(A, B, H);
@@ -131,35 +132,74 @@ export function maliyetgösterfonk(A, B, H) {
       const formattedMaliyetTL = new Intl.NumberFormat('tr-TR').format(MlytToplamÇlkTL);
       const formattedDolarKuru = dolarKuru.toFixed(2);
 
-// Maliyet container oluştur
-const maliyetContainer = document.createElement('div');
-maliyetContainer.id = 'maliyetContainer';
-maliyetContainer.style.position = 'absolute';
-maliyetContainer.style.right = '10px'; // Sağdan 10px boşluk bırak
-maliyetContainer.style.bottom = '10px'; // Alttan 10px boşluk bırak
-maliyetContainer.style.zIndex = '10';
-maliyetContainer.style.backgroundColor = 'rgba(240, 240, 240, 0.9)';
-maliyetContainer.style.padding = '10px';
-maliyetContainer.style.border = '1px solid #000';
-maliyetContainer.style.borderRadius = '8px';
-maliyetContainer.style.width = '220px';
+      // Maliyet container oluştur
+      const maliyetContainer = document.createElement('div');
+      maliyetContainer.id = 'maliyetContainer';
+      maliyetContainer.style.position = 'absolute';
+      maliyetContainer.style.right = '10px';
+      maliyetContainer.style.bottom = '10px';
+      maliyetContainer.style.zIndex = '10';
+      maliyetContainer.style.backgroundColor = 'rgba(240, 240, 240, 0.9)';
+      maliyetContainer.style.padding = '10px';
+      maliyetContainer.style.border = '1px solid #000';
+      maliyetContainer.style.borderRadius = '8px';
+      const maliyetcontgenişlik = '220px'
+      maliyetContainer.style.width = maliyetcontgenişlik ;
+      maliyetContainer.style.transition = 'height 0.3s ease, opacity 0.3s ease';
+      maliyetContainer.style.overflow = 'hidden';
+
+      // İçerik container (contentContainer) oluştur
+      const contentContainer = document.createElement('div');
 
       // Tonaj bilgisini ekle
       const tonajDiv = document.createElement('div');
       tonajDiv.style.marginBottom = '10px';
       tonajDiv.textContent = `Metal Yapı: ${formattedTonaj} ton`;
-      maliyetContainer.appendChild(tonajDiv);
+      contentContainer.appendChild(tonajDiv);
 
       // TL maliyet bilgisini ekle
       const maliyetTLDiv = document.createElement('div');
       maliyetTLDiv.style.marginBottom = '5px';
       maliyetTLDiv.textContent = `Maliyet: ${formattedMaliyetTL} ₺`;
-      maliyetContainer.appendChild(maliyetTLDiv);
+      contentContainer.appendChild(maliyetTLDiv);
 
       // USD maliyet ve dolar kuru bilgisini ekle
       const maliyetUsdDiv = document.createElement('div');
       maliyetUsdDiv.textContent = `${formattedMaliyet} $ (1 $ = ${formattedDolarKuru} ₺)`;
-      maliyetContainer.appendChild(maliyetUsdDiv);
+      contentContainer.appendChild(maliyetUsdDiv);
+
+      maliyetContainer.appendChild(contentContainer);
+
+      // İkon oluştur ve `maliyetContainer` dışında ekle
+      const toggleIcon = document.createElement('div');
+      toggleIcon.textContent = '▶'; // Katlanır simge olarak ok kullanıyoruz
+      toggleIcon.style.cursor = 'pointer';
+      toggleIcon.style.position = 'absolute';
+      toggleIcon.style.color= 'yellow';
+      toggleIcon.style.bottom = '32px'; // `maliyetContainer`'in hemen üstünde konumlandır
+      const gizlebutonkenar =  `250px`
+      toggleIcon.style.right = gizlebutonkenar;
+      console.log("gizle sağ", toggleIcon.style.right)
+      toggleIcon.style.fontSize = '20px';
+      toggleIcon.style.zIndex = '20'; // Üstte kalması için daha yüksek bir z-index veriyoruz
+
+      document.body.appendChild(toggleIcon); // İkonu doğrudan `body` içine ekle
+
+      // Göster/Gizle işlevi
+      let isHidden = false;
+      toggleIcon.addEventListener('click', () => {
+          isHidden = !isHidden;
+          if (isHidden) {
+              maliyetContainer.style.height = '0px';
+              maliyetContainer.style.opacity = '0';
+              toggleIcon.style.opacity = '0.8';
+              toggleIcon.textContent = '◀'; // İkonu değiştir
+          } else {
+              maliyetContainer.style.height = 'auto';
+              maliyetContainer.style.opacity = '1';
+              toggleIcon.textContent = '▶';
+          }
+      });
 
       // `appContainer` öğesi yoksa doğrudan `body` içine ekle
       if (!document.getElementById('appContainer')) {
@@ -171,5 +211,6 @@ maliyetContainer.style.width = '220px';
       }
   });
 }
+//#endregion
 
 
