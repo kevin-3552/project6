@@ -1,1 +1,1182 @@
-(function(_0x565341,_0x4e7da8){const _0x1b877c=_0x467d,_0x156e80=_0x565341();while(!![]){try{const _0x56278b=-parseInt(_0x1b877c(0x1fc))/0x1*(-parseInt(_0x1b877c(0x1bc))/0x2)+parseInt(_0x1b877c(0x1fb))/0x3+parseInt(_0x1b877c(0x1bf))/0x4+-parseInt(_0x1b877c(0x1be))/0x5+-parseInt(_0x1b877c(0x1e2))/0x6*(parseInt(_0x1b877c(0x1d2))/0x7)+-parseInt(_0x1b877c(0x1bd))/0x8+parseInt(_0x1b877c(0x1ed))/0x9*(-parseInt(_0x1b877c(0x206))/0xa);if(_0x56278b===_0x4e7da8)break;else _0x156e80['push'](_0x156e80['shift']());}catch(_0x4e0daa){_0x156e80['push'](_0x156e80['shift']());}}}(_0x3f31,0xefb7b));export let KOLONUZUNLUK;export let MK_UZUNLUK;export let loadedFont=null;import{MALTBÇAP,DÜŞEYAKSSAYISI,YATAYAKSSAYISI,YATAYHOLGENİŞLİĞİ,MAKASBOYU,DÜŞEYHOLGENİŞLİĞİ,YATAYHOLSAYISI,ALTMAKASYÜKS2,MYÜKS,MKAÇI,İKİDİKMEARASI,DİKME_Y_ARTIŞ,MDDİYGÇAP,DİKMESAYISI,MAKAS_YÜKSEKL_HESAPLA,YanKirişArası,YanBağKirişAdet,DÜŞEYHOLSAYISI,ÇatıBağKirişSayısı,ÇatıBağKirişAra_Yatay,ÇatıBağKirişAra_Yekseni,ÇaprazYükseklik,YanÇaprazAksadet,YanÇaprazDüşeyAdet,ÇatıÇaprazZekseniAra,ÇatıÇaprazZekseniAdet,BinaYükseklik,ArkaKaplamaSınır,KaplamaSınırHesap,esaszeminA,esaszeminB}from'./hesapla.js';import{KOLON1,HEA300,KOLON_BOX1,YATAY_MK_GEO_1,Yatay_Kiriş_Profil_1,Yatay_Kiriş_Profil_2,YatayÇaprazProfil,YatayÇaprazÇap,ÇatıÇaprazProfil,KOLONEBAT,MK_EN}from'./geometriler.js';import{kolonMaterial2,DİKMEMALZEME,MAKASMALZEME,DİYAGONELMALZEME,BağKirişiMalzeme,BağKirişiMalzeme2,kolonMaterial3,createKaplamaTexture,createKaplamaTexture2}from'./malzemeler.js';export function ZEMİNESAS(_0x651736,_0x12fd4c){const _0x16716b=_0x467d,_0x1533dd=new THREE[(_0x16716b(0x1f2))]()['load'](_0x16716b(0x1f6));_0x1533dd[_0x16716b(0x1f0)]=THREE[_0x16716b(0x1e0)],_0x1533dd[_0x16716b(0x1dd)]=THREE[_0x16716b(0x1e0)],_0x1533dd[_0x16716b(0x1e7)]['set'](0x1,0x1);const _0x2e4453=new THREE['PlaneGeometry'](esaszeminA,esaszeminB),_0x3ae0b8=new THREE[(_0x16716b(0x1df))]({'map':_0x1533dd,'side':THREE[_0x16716b(0x1ca)]});console[_0x16716b(0x1d7)]('esaszeminA',esaszeminA);const _0x35ca1b=new THREE['Mesh'](_0x2e4453,_0x3ae0b8);return _0x35ca1b[_0x16716b(0x1d0)]['x']=-Math['PI']/0x2,_0x35ca1b['position'][_0x16716b(0x1ee)](_0x651736/0x2,-0.1,-_0x12fd4c/0x2),_0x35ca1b;}export function YATAYKOLONGRUBU(_0x40ca58){const _0x1731d9=_0x467d,_0x1f301d=new THREE[(_0x1731d9(0x1d3))]();for(let _0x1e9f4a=0x0;_0x1e9f4a<YATAYAKSSAYISI;_0x1e9f4a++){const _0x9273b6=DKG(_0x40ca58);_0x9273b6['position'][_0x1731d9(0x1ee)](_0x1e9f4a*YATAYHOLGENİŞLİĞİ,0x0,0x0),_0x1f301d[_0x1731d9(0x200)](_0x9273b6);}return _0x1f301d;}function DKG(_0x40cb53){const _0x3e24dd=_0x467d,_0xa7d618=new THREE[(_0x3e24dd(0x1d3))]();KOLONUZUNLUK=_0x40cb53;for(let _0x2962f3=0x0;_0x2962f3<DÜŞEYAKSSAYISI;_0x2962f3++){const _0x232ff7=KOLON_BOX1(_0x40cb53,kolonMaterial3);_0x232ff7['position'][_0x3e24dd(0x1ee)](0x0,0x0,_0x2962f3*-DÜŞEYHOLGENİŞLİĞİ),_0xa7d618[_0x3e24dd(0x200)](_0x232ff7);}return _0xa7d618;}export function MakasAlt(_0x1de1dc){const _0x55c56c=_0x467d;MK_UZUNLUK=YATAYHOLGENİŞLİĞİ;const _0x1cf3ff=YATAY_MK_GEO_1(YATAYHOLGENİŞLİĞİ,MK_UZUNLUK);return _0x1cf3ff[_0x55c56c(0x1fa)][_0x55c56c(0x1ee)](YATAYHOLGENİŞLİĞİ/0x2,_0x1de1dc,0x0),_0x1cf3ff[_0x55c56c(0x1d0)]['z']=THREE[_0x55c56c(0x1f8)]['degToRad'](0x5a),_0x1cf3ff;}export function MakasÜstSol(){const _0x16e95a=_0x467d;MK_UZUNLUK=YATAYHOLGENİŞLİĞİ/0x2;const _0x29da19=YATAY_MK_GEO_1(YATAYHOLGENİŞLİĞİ,MK_UZUNLUK);return _0x29da19[_0x16e95a(0x1fa)]['set'](YATAYHOLGENİŞLİĞİ/0x4,ALTMAKASYÜKS2+MYÜKS,0x0),_0x29da19[_0x16e95a(0x1d0)]['z']=THREE[_0x16e95a(0x1f8)][_0x16e95a(0x1ce)](0x5a+MKAÇI),_0x29da19;}export function MakasÜstSağ(){const _0x4ec37d=_0x467d,_0x573b33=new THREE[(_0x4ec37d(0x1d3))](),_0x4e120b=MakasÜstSol(H);_0x573b33[_0x4ec37d(0x200)](_0x4e120b);const _0x48e905=_0x4e120b['clone']();return _0x48e905['position']['x']=YATAYHOLGENİŞLİĞİ*0.75,_0x48e905[_0x4ec37d(0x1fa)]['z']=0x0,_0x48e905[_0x4ec37d(0x1d0)]['y']=-Math['PI'],_0x573b33[_0x4ec37d(0x200)](_0x48e905),_0x573b33;}export function DİKME1(){const _0x3873a5=_0x467d,_0x44b9c7=new THREE[(_0x3873a5(0x209))](MDDİYGÇAP,MDDİYGÇAP,MYÜKS,0x20),_0x49997e=new THREE[(_0x3873a5(0x1ec))](_0x44b9c7,DİKMEMALZEME);return _0x49997e[_0x3873a5(0x1fa)][_0x3873a5(0x1ee)](0x0,H+MYÜKS/0x2,0x0),_0x49997e[_0x3873a5(0x1d0)]['z']=0x0,_0x49997e;}function _0x467d(_0xba7576,_0x1d2885){const _0x3f31bc=_0x3f31();return _0x467d=function(_0x467d7c,_0x2e06b5){_0x467d7c=_0x467d7c-0x1b9;let _0x2a69e8=_0x3f31bc[_0x467d7c];return _0x2a69e8;},_0x467d(_0xba7576,_0x1d2885);}export function DİKME1_GRUP_SOL(_0x5f1af4){const _0x430cd4=_0x467d,_0xdabf3d=new THREE['Group']();for(let _0x464da2=0x0;_0x464da2<DİKMESAYISI;_0x464da2++){const _0x24dd8f=MYÜKS+_0x464da2*DİKME_Y_ARTIŞ,_0x393516=new THREE[(_0x430cd4(0x209))](MDDİYGÇAP,MDDİYGÇAP,_0x24dd8f,0x20),_0x2f3e1f=new THREE[(_0x430cd4(0x1ec))](_0x393516,DİKMEMALZEME),_0x14b4b8=_0x464da2*İKİDİKMEARASI,_0x2c0c55=_0x5f1af4+MYÜKS/0x2+_0x464da2*(DİKME_Y_ARTIŞ/0x2);_0x2f3e1f['position'][_0x430cd4(0x1ee)](_0x14b4b8,_0x2c0c55,0x0),_0xdabf3d['add'](_0x2f3e1f);}return _0xdabf3d;}export function DİKME1_GRUP_SAĞ(_0x479986){const _0x486b16=_0x467d,_0x268cde=new THREE[(_0x486b16(0x1d3))](),_0xccc805=DİKME1_GRUP_SOL(_0x479986);_0x268cde[_0x486b16(0x200)](_0xccc805);const _0x50317d=_0xccc805[_0x486b16(0x1e5)]();return _0x50317d[_0x486b16(0x1fa)]['x']=YATAYHOLGENİŞLİĞİ,_0x50317d['rotation']['y']=-Math['PI'],_0x268cde[_0x486b16(0x200)](_0x50317d),_0x268cde;}export function DİKME1_orta(_0x286ba7){const _0x15788c=_0x467d,_0x419d6b=new THREE['Group'](),_0x45e803=MYÜKS+DİKME_Y_ARTIŞ*DİKMESAYISI,_0x395b8d=new THREE[(_0x15788c(0x209))](MDDİYGÇAP,MDDİYGÇAP,_0x45e803,0x20),_0x43dde7=new THREE[(_0x15788c(0x1ec))](_0x395b8d,DİKMEMALZEME);return _0x43dde7['position']['x']=YATAYHOLGENİŞLİĞİ/0x2,_0x43dde7['position']['z']=0x0,_0x43dde7[_0x15788c(0x1fa)]['y']=_0x286ba7+_0x45e803/0x2,_0x419d6b[_0x15788c(0x200)](_0x43dde7),_0x419d6b;}export function DİYAGONELSOL1(_0x326a5f,_0x4f399c,_0x4148c3,_0x34d210){const _0x425268=_0x467d,_0x5b75bc=Math[_0x425268(0x1bb)](Math['pow'](_0x34d210-_0x4f399c,0x2)+Math[_0x425268(0x1cc)](_0x4148c3-_0x326a5f,0x2)),_0x1e4536=new THREE['CylinderGeometry'](MDDİYGÇAP,MDDİYGÇAP,_0x5b75bc,0x20),_0x503532=new THREE[(_0x425268(0x1ec))](_0x1e4536,DİYAGONELMALZEME),_0x2fd463=Math['atan']((_0x34d210-_0x4f399c)/(_0x4148c3-_0x326a5f));return _0x503532['rotation']['z']=Math['PI']/0x2+Math['atan2'](_0x34d210-_0x4f399c,_0x4148c3-_0x326a5f),_0x503532[_0x425268(0x1fa)][_0x425268(0x1ee)]((_0x326a5f+_0x4148c3)/0x2,(_0x4f399c+_0x34d210)/0x2,0x0),_0x503532;}export function SOLDİYAGONELGRUBU(_0x4cc189){const _0x29e459=_0x467d,_0x15d696=new THREE[(_0x29e459(0x1d3))]();for(let _0x4f32d0=0x0;_0x4f32d0<DİKMESAYISI;_0x4f32d0++){const _0x530e7f=(_0x4f32d0+0x1)*İKİDİKMEARASI,_0x519540=_0x4cc189,_0x2721a0=_0x4f32d0*İKİDİKMEARASI,_0x5d2e7a=_0x4cc189+MYÜKS+_0x4f32d0*DİKME_Y_ARTIŞ,_0x3770f5=DİYAGONELSOL1(_0x2721a0,_0x5d2e7a,_0x530e7f,_0x519540);_0x15d696[_0x29e459(0x200)](_0x3770f5);}return _0x15d696;}export function SAĞDİYAGONELGRUBU(_0x3f9d00){const _0x55e942=_0x467d,_0x441b8d=new THREE[(_0x55e942(0x1d3))](),_0x2de5a8=SOLDİYAGONELGRUBU(_0x3f9d00),_0x36d374=_0x2de5a8['clone']();return _0x36d374['position']['x']=YATAYHOLGENİŞLİĞİ,_0x36d374[_0x55e942(0x1d0)]['y']=Math['PI'],_0x441b8d[_0x55e942(0x200)](_0x36d374),_0x441b8d;}export function MakasTamGrup(_0x55c863){const _0x5bb1c6=_0x467d,_0x50f26f=new THREE['Group'](),_0x5b931d=DİKME1_GRUP_SOL(_0x55c863),_0x164427=DİKME1_GRUP_SAĞ(_0x55c863),_0x2571e3=DİKME1_orta(_0x55c863),_0x502b94=MakasAlt(_0x55c863),_0x27df03=MakasÜstSol(),_0x1f0c8b=MakasÜstSağ(),_0x3ce456=SOLDİYAGONELGRUBU(_0x55c863),_0x103bdb=SAĞDİYAGONELGRUBU(_0x55c863);return _0x50f26f[_0x5bb1c6(0x200)](_0x5b931d),_0x50f26f[_0x5bb1c6(0x200)](_0x164427),_0x50f26f[_0x5bb1c6(0x200)](_0x502b94),_0x50f26f[_0x5bb1c6(0x200)](_0x27df03),_0x50f26f[_0x5bb1c6(0x200)](_0x1f0c8b),_0x50f26f['add'](_0x3ce456),_0x50f26f[_0x5bb1c6(0x200)](_0x103bdb),_0x50f26f['add'](_0x2571e3),_0x50f26f;}export function MakasGrupÇoğalt(_0x27dc76){const _0x353299=_0x467d,_0x1b73b3=new THREE['Group']();for(let _0x44fc4f=0x0;_0x44fc4f<YATAYHOLSAYISI;_0x44fc4f++){for(let _0x126e76=0x0;_0x126e76<DÜŞEYAKSSAYISI;_0x126e76++){const _0x349904=MakasTamGrup(_0x27dc76);_0x349904[_0x353299(0x1fa)][_0x353299(0x1ee)](_0x44fc4f*YATAYHOLGENİŞLİĞİ,0x0,-_0x126e76*DÜŞEYHOLGENİŞLİĞİ),_0x1b73b3['add'](_0x349904);}}return _0x1b73b3;}export function YanKiriş_1(_0x3e858a){const _0x48e03e=_0x467d,_0xf5cae=new THREE[(_0x48e03e(0x1d3))](),_0x1b230b=DÜŞEYHOLGENİŞLİĞİ-0.2;if(_0x3e858a<0x6){}else for(let _0x5e958d=0x0;_0x5e958d<YanBağKirişAdet;_0x5e958d++){for(let _0x48caaf=0x0;_0x48caaf<DÜŞEYHOLSAYISI;_0x48caaf++){for(let _0x1267cb=0x0;_0x1267cb<YATAYHOLSAYISI+0x1;_0x1267cb++){const _0x3f6af6=Yatay_Kiriş_Profil_1(_0x1b230b,BağKirişiMalzeme,_0x3e858a);_0x3f6af6[_0x48e03e(0x1fa)]['set'](_0x1267cb*YATAYHOLGENİŞLİĞİ,YanKirişArası+_0x5e958d*YanKirişArası,-DÜŞEYHOLGENİŞLİĞİ/0x2+-_0x48caaf*DÜŞEYHOLGENİŞLİĞİ),_0x3f6af6[_0x48e03e(0x1d0)]['x']=Math['PI']/0x2,_0xf5cae[_0x48e03e(0x200)](_0x3f6af6);}}}for(let _0x2d57bd=0x0;_0x2d57bd<YATAYHOLSAYISI+0x1;_0x2d57bd++){for(let _0x9e782f=0x0;_0x9e782f<DÜŞEYHOLSAYISI;_0x9e782f++){for(let _0x2a327c=0x0;_0x2a327c<0x2;_0x2a327c++){const _0x186c69=Yatay_Kiriş_Profil_1(_0x1b230b,BağKirişiMalzeme,_0x3e858a);_0x186c69[_0x48e03e(0x1fa)]['set'](_0x2d57bd*YATAYHOLGENİŞLİĞİ,_0x3e858a+_0x2a327c*MYÜKS,-DÜŞEYHOLGENİŞLİĞİ/0x2+-_0x9e782f*DÜŞEYHOLGENİŞLİĞİ),_0x186c69['rotation']['x']=Math['PI']/0x2,_0xf5cae[_0x48e03e(0x200)](_0x186c69);}}}return _0xf5cae;}function _0x3f31(){const _0x3ca461=['log','array','fillStyle','fillText','width','getContext','wrapT','ceil','MeshBasicMaterial','RepeatWrapping','WireframeGeometry','12OQCtvS','ArkaKaplamaSınır\x20','height','clone','normalize','repeat','floor','CanvasTexture','KOLONEBAT:','distanceTo','Mesh','60714dVMcNH','set','YATAYHOLGENİŞLİĞİ:','wrapS','multiplyScalar','TextureLoader','setPosition','LineSegments','ShapeGeometry','textures/zemin9.png','mesh','MathUtils','setFromPoints','position','5312385rwtHRb','35GkTOBz','Quaternion','atan2','setIndex','add','moveTo','addVectors','BoxGeometry','black','applyQuaternion','40UAzszx','setFromUnitVectors','Matrix4','CylinderGeometry','BufferGeometry','ÇatıBağKirişSayısı\x20/\x202','sqrt','88066hTWquf','7639752FEAtCM','6167960kQjuRA','4634000CPQBuK','applyMatrix4','scale','MeshStandardMaterial','createElement','LineBasicMaterial','setAttribute','makeScale','computeVertexNormals','attributes','Vinç\x20Kiriş\x20Genişliği:','DoubleSide','font','pow','subVectors','degToRad','PlaneGeometry','rotation','Vector3','4455577iyWufJ','Group','lineTo','C\x20\x20\x20R\x20\x20\x20A\x20\x20\x20N\x20\x20\x20E','copy'];_0x3f31=function(){return _0x3ca461;};return _0x3f31();}export function Bracing_MakasİçiTam(_0x48ec7f){const _0x54af05=_0x467d,_0x2eb493=new THREE[(_0x54af05(0x1d3))]();for(let _0x3f34d1=0x0;_0x3f34d1<YATAYHOLSAYISI;_0x3f34d1++){for(let _0xd1fff0=0x0;_0xd1fff0<DÜŞEYHOLSAYISI;_0xd1fff0++){const _0x4ac6ff=Bracing1HolTam(_0x48ec7f);_0x4ac6ff[_0x54af05(0x1fa)][_0x54af05(0x1ee)](_0x3f34d1*YATAYHOLGENİŞLİĞİ,0x0,-_0xd1fff0*DÜŞEYHOLGENİŞLİĞİ),_0x2eb493[_0x54af05(0x200)](_0x4ac6ff);}}return _0x2eb493;}export function Bracing1HolTam(_0x46c5eb){const _0x50f560=_0x467d,_0x59bc28=new THREE[(_0x50f560(0x1d3))](),_0x912e99=MakasİçiÜstTamBracing1(_0x46c5eb);return _0x59bc28[_0x50f560(0x200)](_0x912e99),_0x59bc28;}export function MakasİçiAltTamBracing(_0x286701){const _0x186e2f=_0x467d,_0xce3115=new THREE[(_0x186e2f(0x1d3))](),_0x2a8fe8=makas_içi_bağ_kirişi_alt(_0x286701,ÇatıBağKirişAra_Yatay,ÇatıBağKirişSayısı);return _0xce3115[_0x186e2f(0x200)](_0x2a8fe8),_0xce3115;}export function MakasİçiÜstTamBracing1(_0x26e5a5){const _0x1de077=_0x467d,_0x5f0680=new THREE[(_0x1de077(0x1d3))](),_0x274088=makas_içi_bağ_kirişi_üstSol(_0x26e5a5,ÇatıBağKirişAra_Yatay,ÇatıBağKirişSayısı),_0x5c8bd3=makas_içi_bağ_kirişi_üstSağ(_0x26e5a5,ÇatıBağKirişAra_Yatay,ÇatıBağKirişSayısı);return _0x5f0680['add'](_0x274088),_0x5f0680['add'](_0x5c8bd3),_0x5f0680;}export function makas_içi_bağ_kirişi_üstSol(_0x353ee3,_0x1e5f22,_0x50efda){const _0x8917e5=_0x467d,_0x1a0de7=new THREE[(_0x8917e5(0x1d3))](),_0x1681d5=DÜŞEYHOLGENİŞLİĞİ-0.2,_0x13021d=Math[_0x8917e5(0x1de)](_0x50efda/0x2);for(let _0x34b59b=0x1;_0x34b59b<_0x50efda+0x1;_0x34b59b++){const _0x2a1504=Yatay_Kiriş_Profil_2(_0x1681d5,BağKirişiMalzeme2,_0x353ee3);_0x2a1504[_0x8917e5(0x1fa)][_0x8917e5(0x1ee)](_0x34b59b*_0x1e5f22,_0x353ee3+MYÜKS+_0x34b59b*ÇatıBağKirişAra_Yekseni,-DÜŞEYHOLGENİŞLİĞİ/0x2),_0x2a1504['rotation']['x']=Math['PI']/0x2,_0x1a0de7[_0x8917e5(0x200)](_0x2a1504);}return _0x1a0de7;}export function makas_içi_bağ_kirişi_üstSağ(_0x58b5c2,_0x4e3252,_0x851329){const _0x6afbc7=_0x467d,_0x5f4e3a=new THREE[(_0x6afbc7(0x1d3))](),_0x1ea7ae=DÜŞEYHOLGENİŞLİĞİ-0.2,_0x3ac202=Math[_0x6afbc7(0x1de)](_0x851329/0x2);for(let _0x1fc548=0x1;_0x1fc548<_0x851329;_0x1fc548++){const _0x5b97d4=Yatay_Kiriş_Profil_2(_0x1ea7ae,BağKirişiMalzeme2,_0x58b5c2);_0x5b97d4[_0x6afbc7(0x1fa)][_0x6afbc7(0x1ee)](_0x4e3252*_0x851329+_0x1fc548*_0x4e3252,_0x58b5c2+MYÜKS+_0x851329*ÇatıBağKirişAra_Yekseni-_0x1fc548*ÇatıBağKirişAra_Yekseni,-DÜŞEYHOLGENİŞLİĞİ/0x2),_0x5b97d4['rotation']['x']=Math['PI']/0x2,_0x5f4e3a[_0x6afbc7(0x200)](_0x5b97d4);}return _0x5f4e3a;}export function makas_içi_bağ_kirişi_alt(_0x478f75,_0x365b41,_0x8b4eb6){const _0x470620=_0x467d,_0x119b08=new THREE[(_0x470620(0x1d3))](),_0x569601=DÜŞEYHOLGENİŞLİĞİ-0.2,_0x9f1336=Math['ceil'](_0x8b4eb6/0x2);for(let _0x352c36=0x1;_0x352c36<_0x8b4eb6*0x2;_0x352c36++){const _0x518ec0=Yatay_Kiriş_Profil_2(_0x569601,BağKirişiMalzeme2,_0x478f75);_0x518ec0[_0x470620(0x1fa)][_0x470620(0x1ee)](_0x352c36*_0x365b41,_0x478f75,-DÜŞEYHOLGENİŞLİĞİ/0x2),_0x518ec0[_0x470620(0x1d0)]['x']=Math['PI']/0x2,_0x119b08[_0x470620(0x200)](_0x518ec0);}return _0x119b08;}export function ÇaprazYan1Aks(_0x4ce0c8){const _0x49c12c=_0x467d,_0x506ff4=new THREE[(_0x49c12c(0x1d3))]();let _0x57a5a2;_0x4ce0c8<0x6?_0x57a5a2=_0x4ce0c8:_0x57a5a2=ÇaprazYükseklik;const _0x5f54fc=new THREE[(_0x49c12c(0x1d3))](),_0x59245e=new THREE[(_0x49c12c(0x1d1))](0x0,0x0,0x0),_0x1c075c=new THREE[(_0x49c12c(0x1d1))](0x0,_0x57a5a2,-DÜŞEYHOLGENİŞLİĞİ),_0x453997=new THREE[(_0x49c12c(0x1d1))](0x0,0x0,-DÜŞEYHOLGENİŞLİĞİ),_0x1337b0=new THREE[(_0x49c12c(0x1d1))](0x0,_0x57a5a2,0x0),_0x78e619=_0x59245e[_0x49c12c(0x1eb)](_0x1c075c),_0x353af8=YatayÇaprazProfil(_0x4ce0c8,_0x78e619)['mesh'];_0x353af8['position']['copy'](_0x59245e);const _0x397bfd=Math[_0x49c12c(0x1fe)](_0x1c075c['y']-_0x59245e['y'],_0x1c075c['z']-_0x59245e['z']);_0x353af8['rotation']['x']=_0x397bfd,_0x353af8[_0x49c12c(0x1d0)]['y']=0x5a*(Math['PI']/0xb4),_0x353af8[_0x49c12c(0x1fa)][_0x49c12c(0x1ee)](0x0,_0x57a5a2/0x2,-DÜŞEYHOLGENİŞLİĞİ/0x2),_0x5f54fc[_0x49c12c(0x200)](_0x353af8);const _0xec1c9=_0x453997['distanceTo'](_0x1337b0),_0x4fbdc9=YatayÇaprazProfil(_0x4ce0c8,_0xec1c9)[_0x49c12c(0x1f7)];_0x4fbdc9[_0x49c12c(0x1fa)][_0x49c12c(0x1d6)](_0x453997);const _0x1b94c2=Math[_0x49c12c(0x1fe)](_0x1337b0['y']-_0x453997['y'],_0x1337b0['z']-_0x453997['z']);_0x4fbdc9[_0x49c12c(0x1d0)]['x']=_0x1b94c2,_0x4fbdc9[_0x49c12c(0x1d0)]['y']=0x5a*(Math['PI']/0xb4),_0x4fbdc9['position'][_0x49c12c(0x1ee)](0x0,_0x57a5a2/0x2,-DÜŞEYHOLGENİŞLİĞİ/0x2),_0x5f54fc[_0x49c12c(0x200)](_0x4fbdc9);if(_0x4ce0c8>=0x6)for(let _0x340a02=0x0;_0x340a02<YanÇaprazDüşeyAdet-0x1;_0x340a02++){const _0x5b9351=_0x5f54fc[_0x49c12c(0x1e5)]();_0x5b9351['position'][_0x49c12c(0x1ee)](0x0,_0x340a02*ÇaprazYükseklik,0x0),_0x506ff4[_0x49c12c(0x200)](_0x5b9351);}else{if(_0x4ce0c8<0x6)for(let _0x2e4f03=0x0;_0x2e4f03<0x1;_0x2e4f03++){const _0xb1a605=_0x5f54fc[_0x49c12c(0x1e5)]();_0xb1a605[_0x49c12c(0x1fa)][_0x49c12c(0x1ee)](0x0,_0x2e4f03*ÇaprazYükseklik,0x0),_0x506ff4['add'](_0xb1a605);}}return _0x506ff4;}export function ÇaprazYan1AksBütün(_0x1f1d65){const _0x3a65a9=_0x467d,_0x25a198=new THREE[(_0x3a65a9(0x1d3))]();for(let _0x1f861d=0x0;_0x1f861d<YanÇaprazAksadet;_0x1f861d++){const _0x5b28e6=ÇaprazYan1Aks(_0x1f1d65);_0x5b28e6['position'][_0x3a65a9(0x1ee)](0x0,0x0,-_0x1f861d*0x2*DÜŞEYHOLGENİŞLİĞİ),_0x25a198[_0x3a65a9(0x200)](_0x5b28e6);}return _0x25a198;}export function ÇaprazYanKomple(_0x4d02dd){const _0x3314c8=_0x467d,_0x3ba690=new THREE[(_0x3314c8(0x1d3))]();for(let _0xe2ec58=0x0;_0xe2ec58<YATAYHOLSAYISI+0x1;_0xe2ec58++){const _0x10d073=ÇaprazYan1AksBütün(_0x4d02dd);_0x10d073['position'][_0x3314c8(0x1ee)](_0xe2ec58*YATAYHOLGENİŞLİĞİ,0x0,0x0),_0x3ba690['add'](_0x10d073);}return _0x3ba690;}export function ÇatıÇaprazTekSol(_0xa27313){const _0x10890e=_0x467d,_0x4d0060=new THREE[(_0x10890e(0x1d3))](),_0x54bb1d=new THREE[(_0x10890e(0x1d1))](0x0,_0xa27313+MYÜKS,0x0),_0x2adfaa=new THREE[(_0x10890e(0x1d1))](ÇatıBağKirişAra_Yatay,_0xa27313+MYÜKS+ÇatıBağKirişAra_Yekseni,-DÜŞEYHOLGENİŞLİĞİ),_0x280268=_0x54bb1d[_0x10890e(0x1eb)](_0x2adfaa),_0x2714ba=ÇatıÇaprazProfil(_0xa27313,_0x280268)[_0x10890e(0x1f7)],_0x429279=new THREE[(_0x10890e(0x1d1))]()[_0x10890e(0x202)](_0x54bb1d,_0x2adfaa)[_0x10890e(0x1f1)](0.5);_0x2714ba[_0x10890e(0x1fa)][_0x10890e(0x1d6)](_0x429279);const _0x5cd156=new THREE[(_0x10890e(0x1d1))]()[_0x10890e(0x1cd)](_0x2adfaa,_0x54bb1d)[_0x10890e(0x1e6)](),_0x270419=new THREE[(_0x10890e(0x1fd))]();return _0x270419[_0x10890e(0x207)](new THREE[(_0x10890e(0x1d1))](0x0,0x1,0x0),_0x5cd156),_0x2714ba[_0x10890e(0x205)](_0x270419),_0x4d0060[_0x10890e(0x200)](_0x2714ba),_0x4d0060;}export function ÇatıÇaprazTek2Sol(_0x3140af){const _0x280152=_0x467d,_0x441254=new THREE[(_0x280152(0x1d3))](),_0x543d59=new THREE['Vector3'](0x0,_0x3140af+MYÜKS,-DÜŞEYHOLGENİŞLİĞİ),_0x5a45b1=new THREE[(_0x280152(0x1d1))](ÇatıBağKirişAra_Yatay,_0x3140af+MYÜKS+ÇatıBağKirişAra_Yekseni,0x0),_0xb7bc85=_0x543d59[_0x280152(0x1eb)](_0x5a45b1),_0xb91c8d=ÇatıÇaprazProfil(_0x3140af,_0xb7bc85)[_0x280152(0x1f7)],_0x4a2067=new THREE[(_0x280152(0x1d1))]()['addVectors'](_0x543d59,_0x5a45b1)[_0x280152(0x1f1)](0.5);_0xb91c8d[_0x280152(0x1fa)][_0x280152(0x1d6)](_0x4a2067);const _0xcc42cd=new THREE[(_0x280152(0x1d1))]()[_0x280152(0x1cd)](_0x5a45b1,_0x543d59)[_0x280152(0x1e6)](),_0x43ba40=new THREE[(_0x280152(0x1fd))]();return _0x43ba40[_0x280152(0x207)](new THREE[(_0x280152(0x1d1))](0x0,0x1,0x0),_0xcc42cd),_0xb91c8d[_0x280152(0x205)](_0x43ba40),_0x441254[_0x280152(0x200)](_0xb91c8d),_0x441254;}export function ÇatıÇapraz1AraSol(_0x548257){const _0x48995b=_0x467d,_0x4f485d=new THREE[(_0x48995b(0x1d3))](),_0x6fabf5=ÇatıÇaprazTekSol(_0x548257),_0x2600f2=ÇatıÇaprazTek2Sol(_0x548257);return _0x4f485d[_0x48995b(0x200)](_0x6fabf5),_0x4f485d[_0x48995b(0x200)](_0x2600f2),_0x4f485d;}export function ÇatıÇapraz1SolMakas(_0xfdbe){const _0xd1d3fb=_0x467d,_0x2acacd=new THREE['Group'](),_0x82c2d7=Math[_0xd1d3fb(0x1e8)](ÇatıBağKirişSayısı/0x2);let _0x5acee2;ÇatıBağKirişSayısı/0x2<0x1?_0x5acee2=0x1:_0x5acee2=ÇatıBağKirişSayısı/0x2+0x1;console[_0xd1d3fb(0x1d7)](_0xd1d3fb(0x1ba),ÇatıBağKirişSayısı/0x2);for(let _0x58c1e0=0x0;_0x58c1e0<_0x5acee2;_0x58c1e0++){const _0x3a6206=ÇatıÇapraz1AraSol(_0xfdbe);_0x3a6206[_0xd1d3fb(0x1fa)]['x']=_0x58c1e0*ÇatıBağKirişAra_Yatay,_0x3a6206[_0xd1d3fb(0x1fa)]['y']=_0x58c1e0*ÇatıBağKirişAra_Yekseni,_0x2acacd[_0xd1d3fb(0x200)](_0x3a6206);}return _0x2acacd;}export function ÇatıÇapraz1Ayna(_0x2f0067){const _0x540662=_0x467d,_0x21e386=new THREE[(_0x540662(0x1d3))](),_0xdd48fc=ÇatıÇapraz1SolMakas(_0x2f0067);_0x21e386[_0x540662(0x200)](_0xdd48fc);const _0x5182d3=_0xdd48fc['clone']();return _0x5182d3[_0x540662(0x1fa)]['x']=YATAYHOLGENİŞLİĞİ,_0x5182d3[_0x540662(0x1fa)]['z']=-DÜŞEYHOLGENİŞLİĞİ,_0x5182d3['rotation']['y']=-Math['PI'],_0x21e386[_0x540662(0x200)](_0x5182d3),_0x21e386;}export function ÇatıÇapraz1MakasGrup(_0x571610){const _0x541895=_0x467d,_0x238bcf=new THREE[(_0x541895(0x1d3))](),_0x7b8c86=ÇatıÇapraz1SolMakas(_0x571610);_0x238bcf[_0x541895(0x200)](_0x7b8c86);const _0xce0184=ÇatıÇapraz1Ayna(_0x571610,YATAYHOLGENİŞLİĞİ,DÜŞEYHOLGENİŞLİĞİ);return _0x238bcf[_0x541895(0x200)](_0xce0184),_0x238bcf;}export function ÇatıÇaprazTam(_0x497205){const _0x3691d0=_0x467d,_0x425b3f=new THREE[(_0x3691d0(0x1d3))]();for(let _0x5f2650=0x0;_0x5f2650<ÇatıÇaprazZekseniAdet;_0x5f2650++){for(let _0x34974b=0x0;_0x34974b<YATAYHOLSAYISI;_0x34974b++){const _0x4ef2af=ÇatıÇapraz1MakasGrup(_0x497205,YATAYHOLGENİŞLİĞİ,DÜŞEYHOLGENİŞLİĞİ);_0x4ef2af[_0x3691d0(0x1fa)]['x']=_0x34974b*YATAYHOLGENİŞLİĞİ,_0x4ef2af[_0x3691d0(0x1fa)]['z']=_0x5f2650*-ÇatıÇaprazZekseniAra,_0x425b3f[_0x3691d0(0x200)](_0x4ef2af);}}return _0x425b3f;}export function Totem1(_0x47d4b8,_0x197a01=null){const _0x47053e=_0x467d,_0x55fcbd=_0x47d4b8+0x2,_0x2f422d=new THREE['CylinderGeometry'](0.3,0.3,_0x55fcbd,0x20),_0x102a59=new THREE[(_0x47053e(0x1c2))]({'color':0x761453}),_0x45167c=new THREE[(_0x47053e(0x1ec))](_0x2f422d,_0x102a59);_0x45167c['position'][_0x47053e(0x1ee)](-0x6,_0x55fcbd/0x2,0x0);const _0x4c654e=_0x197a01||new THREE[(_0x47053e(0x1f2))]()['load']('textures/logo.png'),_0x356591=new THREE[(_0x47053e(0x203))](0x5,0x3,0.8),_0x425d74=new THREE[(_0x47053e(0x1df))]({'map':_0x4c654e}),_0x7014a8=new THREE['MeshBasicMaterial']({'color':0x5f6070}),_0x51289b=[_0x7014a8,_0x7014a8,_0x7014a8,_0x7014a8,_0x425d74,_0x425d74],_0x52ea3e=new THREE[(_0x47053e(0x1ec))](_0x356591,_0x51289b);_0x52ea3e[_0x47053e(0x1fa)][_0x47053e(0x1ee)](-0x6,_0x55fcbd,0x0);const _0x5b526a=new THREE[(_0x47053e(0x1d3))]();return _0x5b526a[_0x47053e(0x200)](_0x45167c),_0x5b526a['add'](_0x52ea3e),_0x5b526a;}export function CepheKaplamaSağSol(_0x5bcbf5,_0x8fa246,_0x3745f1){const _0x5b2b8f=_0x467d,_0x411bab=_0x8fa246+MYÜKS,_0x1fb847=createKaplamaTexture(),_0x49adad=createKaplamaTexture(_0x3745f1*0x2,0x1),_0x2262f3=createKaplamaTexture(),_0x2a935e=createKaplamaTexture(_0x3745f1*0x2,0x1),_0x4fc9d0=new THREE[(_0x5b2b8f(0x1cf))](_0x5bcbf5+ArkaKaplamaSınır+0.1,_0x411bab+MK_EN+0.15),_0x25979b=new THREE[(_0x5b2b8f(0x1df))]({'map':_0x1fb847,'side':THREE[_0x5b2b8f(0x1ca)],'transparent':!![],'opacity':0.5}),_0x18862b=new THREE['Mesh'](_0x4fc9d0,_0x25979b);_0x18862b[_0x5b2b8f(0x1fa)][_0x5b2b8f(0x1ee)](-KOLONEBAT/0x2-0.05,_0x411bab/0x2,-_0x5bcbf5/0x2),_0x18862b[_0x5b2b8f(0x1d0)]['y']=Math['PI']/0x2,_0x1fb847[_0x5b2b8f(0x1e7)][_0x5b2b8f(0x1ee)](_0x5bcbf5,0x1);const _0x2b08ea=_0x18862b[_0x5b2b8f(0x1e5)](),_0xc84fc2=new THREE[(_0x5b2b8f(0x208))]()[_0x5b2b8f(0x1c6)](-0x1,0x1,0x1);_0xc84fc2['setPosition'](new THREE['Vector3'](_0x3745f1,0x0,0x0)),_0x2b08ea[_0x5b2b8f(0x1c0)](_0xc84fc2);const _0x3e91df=new THREE[(_0x5b2b8f(0x1cf))](_0x3745f1+KOLONEBAT+0.1,_0x411bab+MK_EN),_0xf0d0ac=new THREE[(_0x5b2b8f(0x1df))]({'map':_0x49adad,'side':THREE['DoubleSide'],'transparent':!![],'opacity':0.5});_0x49adad[_0x5b2b8f(0x1e7)][_0x5b2b8f(0x1ee)](YATAYHOLGENİŞLİĞİ*0x2,0x1);const _0x1750fc=new THREE[(_0x5b2b8f(0x1ec))](_0x3e91df,_0xf0d0ac);_0x1750fc['position'][_0x5b2b8f(0x1ee)](_0x3745f1/0x2,_0x411bab/0x2,-_0x5bcbf5-ArkaKaplamaSınır/0x2-0.05),console[_0x5b2b8f(0x1d7)](_0x5b2b8f(0x1e3),ArkaKaplamaSınır);const _0x1814d6=new THREE[(_0x5b2b8f(0x1df))]({'map':_0x2262f3,'side':THREE[_0x5b2b8f(0x1ca)],'transparent':!![],'opacity':0.5}),_0x5a9666=new THREE['Shape']();_0x5a9666[_0x5b2b8f(0x201)](0x0,0x0),_0x5a9666['lineTo'](YATAYHOLGENİŞLİĞİ/0x2,BinaYükseklik-_0x8fa246-MYÜKS),_0x5a9666['lineTo'](YATAYHOLGENİŞLİĞİ,0x0),_0x5a9666[_0x5b2b8f(0x1d4)](0x0,0x0);const _0x1bdacd=new THREE[(_0x5b2b8f(0x1f5))](_0x5a9666);_0x2262f3[_0x5b2b8f(0x1e7)]['set'](YATAYHOLGENİŞLİĞİ,0x1),_0x1bdacd[_0x5b2b8f(0x1c8)]['uv'][_0x5b2b8f(0x1d8)][0x0]=0x0,_0x1bdacd[_0x5b2b8f(0x1c8)]['uv'][_0x5b2b8f(0x1d8)][0x1]=0x0,_0x1bdacd['attributes']['uv'][_0x5b2b8f(0x1d8)][0x2]=0.5,_0x1bdacd[_0x5b2b8f(0x1c8)]['uv']['array'][0x3]=0x1,_0x1bdacd[_0x5b2b8f(0x1c8)]['uv'][_0x5b2b8f(0x1d8)][0x4]=0x1,_0x1bdacd[_0x5b2b8f(0x1c8)]['uv']['array'][0x5]=0x0;const _0x1c4cfd=new THREE[(_0x5b2b8f(0x1ec))](_0x1bdacd,_0x1814d6);_0x1c4cfd[_0x5b2b8f(0x1fa)][_0x5b2b8f(0x1ee)](0x0,_0x8fa246+MYÜKS+MK_EN/0x2,-_0x5bcbf5-KOLONEBAT-0.1);const _0x50c068=_0x1c4cfd[_0x5b2b8f(0x1e5)](),_0xc3158c=new THREE['Matrix4']()[_0x5b2b8f(0x1c6)](-0x1,0x1,0x1);_0xc3158c[_0x5b2b8f(0x1f3)](new THREE[(_0x5b2b8f(0x1d1))](YATAYHOLGENİŞLİĞİ,0x0,0x0)),_0x50c068[_0x5b2b8f(0x1c0)](_0xc84fc2);const _0x247ee1=new THREE[(_0x5b2b8f(0x1d3))]();return _0x247ee1['add'](_0x18862b,_0x2b08ea,_0x1750fc,_0x1c4cfd,_0x50c068),_0x247ee1;}export function SolÇatıKaplama(_0x354bda,_0x37f33c){const _0x3fd777=_0x467d,_0x17c990=[new THREE[(_0x3fd777(0x1d1))](-KOLONEBAT,_0x354bda+MYÜKS+MK_EN,0x0),new THREE['Vector3'](YATAYHOLGENİŞLİĞİ/0x2,BinaYükseklik+MK_EN,0x0),new THREE['Vector3'](YATAYHOLGENİŞLİĞİ/0x2,BinaYükseklik+MK_EN,-_0x37f33c-KOLONEBAT/0x2),new THREE['Vector3'](-KOLONEBAT,_0x354bda+MYÜKS+MK_EN,-_0x37f33c-KOLONEBAT/0x2)],_0x57b534=new THREE[(_0x3fd777(0x1b9))]()[_0x3fd777(0x1f9)](_0x17c990);_0x57b534[_0x3fd777(0x1ff)]([0x0,0x1,0x2,0x2,0x3,0x0]),_0x57b534[_0x3fd777(0x1c7)]();const _0x4310c1=[0x1,0x1,0x1,0x0,0x0,0x0,0x0,0x1];_0x57b534[_0x3fd777(0x1c5)]('uv',new THREE['Float32BufferAttribute'](_0x4310c1,0x2));const _0xe7194b=createKaplamaTexture2(_0x37f33c,0x1),_0x29914c=new THREE['MeshBasicMaterial']({'map':_0xe7194b,'side':THREE[_0x3fd777(0x1ca)],'transparent':!![],'opacity':0.5}),_0x1487f0=new THREE[(_0x3fd777(0x1ec))](_0x57b534,_0x29914c);_0xe7194b[_0x3fd777(0x1e7)]['set'](_0x37f33c,0x1);const _0x29c233=new THREE['Group']();_0x29c233[_0x3fd777(0x200)](_0x1487f0);return _0x29c233;return solCatiKaplama;}export function VinçKirişi(_0x5880c0,_0x4a7215){const _0x1d00bc=_0x467d,_0x56fa1f=YATAYHOLGENİŞLİĞİ-KOLONEBAT,_0x225084=0.7,_0x471931=0.3,_0x9be173=0xffff00,_0x4b5185=1.5,_0x19cfe2=-0x2,_0x3f1315=new THREE['Group'](),_0x233cad=new THREE[(_0x1d00bc(0x203))](_0x56fa1f,_0x225084,_0x471931),_0x1f2adc=new THREE[(_0x1d00bc(0x1c2))]({'color':_0x9be173}),_0x2b2978=new THREE[(_0x1d00bc(0x1c4))]({'color':0x0});for(let _0x3f8d43=0x0;_0x3f8d43<YATAYHOLSAYISI;_0x3f8d43++){for(let _0x586bf6=0x0;_0x586bf6<0x2;_0x586bf6++){const _0x4b3cfd=new THREE[(_0x1d00bc(0x1ec))](_0x233cad,_0x1f2adc);_0x4b3cfd['position'][_0x1d00bc(0x1ee)](YATAYHOLGENİŞLİĞİ/0x2+_0x3f8d43*YATAYHOLGENİŞLİĞİ,_0x5880c0-_0x4b5185/0x2,_0x19cfe2+_0x586bf6*0x1);const _0xbb0b25=new THREE[(_0x1d00bc(0x1f4))](new THREE[(_0x1d00bc(0x1e1))](_0x233cad),_0x2b2978);_0x4b3cfd[_0x1d00bc(0x200)](_0xbb0b25),_0x3f1315[_0x1d00bc(0x200)](_0x4b3cfd);}}for(let _0x426d38=0x0;_0x426d38<YATAYHOLSAYISI;_0x426d38++){const _0x1f13cf=VincKancasi();_0x1f13cf[_0x1d00bc(0x1c1)][_0x1d00bc(0x1ee)](0.3,0.5,0.5),_0x1f13cf[_0x1d00bc(0x1fa)][_0x1d00bc(0x1ee)](YATAYHOLGENİŞLİĞİ/0x2+_0x426d38*YATAYHOLGENİŞLİĞİ,_0x5880c0-_0x4b5185,_0x19cfe2),_0x3f1315['add'](_0x1f13cf);}const _0x4eaa88=document[_0x1d00bc(0x1c3)]('canvas');_0x4eaa88[_0x1d00bc(0x1db)]=0x2bc,_0x4eaa88[_0x1d00bc(0x1e4)]=0x100;const _0x135fd0=_0x4eaa88[_0x1d00bc(0x1dc)]('2d');_0x135fd0[_0x1d00bc(0x1d9)]=_0x1d00bc(0x204),_0x135fd0[_0x1d00bc(0x1cb)]='80px\x20Arial',_0x135fd0[_0x1d00bc(0x1da)](_0x1d00bc(0x1d5),0x0,0x82);const _0x4c214a=new THREE[(_0x1d00bc(0x1e9))](_0x4eaa88),_0x414e6e=new THREE[(_0x1d00bc(0x1df))]({'map':_0x4c214a,'transparent':!![]});for(let _0x113cf6=0x0;_0x113cf6<YATAYHOLSAYISI;_0x113cf6++){const _0x43ba04=new THREE[(_0x1d00bc(0x1ec))](new THREE[(_0x1d00bc(0x1cf))](0x5,2.5),_0x414e6e);_0x43ba04[_0x1d00bc(0x1fa)]['set'](YATAYHOLGENİŞLİĞİ/0x2+_0x113cf6*YATAYHOLGENİŞLİĞİ,_0x5880c0-_0x4b5185/0x2,_0x19cfe2+1.5),_0x3f1315[_0x1d00bc(0x200)](_0x43ba04);}const _0x1195ce=0.3,_0xb5deb7=0.4,_0x192b71=new THREE[(_0x1d00bc(0x1d3))](),_0x2aa54d=new THREE[(_0x1d00bc(0x203))](_0x1195ce,_0xb5deb7,_0x4a7215),_0x2409b4=new THREE[(_0x1d00bc(0x1c2))]({'color':0x575758}),_0x54e3a0=new THREE[(_0x1d00bc(0x1ec))](_0x2aa54d,_0x2409b4),_0x10d162=new THREE[(_0x1d00bc(0x1f4))](new THREE[(_0x1d00bc(0x1e1))](_0x2aa54d),_0x2b2978);_0x54e3a0['add'](_0x10d162),_0x54e3a0[_0x1d00bc(0x1fa)][_0x1d00bc(0x1ee)](KOLONEBAT/0x2+0.05+_0x1195ce/0x2,_0x5880c0-_0x4b5185/0x2-_0x225084/0x2-_0xb5deb7/0x2,-_0x4a7215/0x2),_0x192b71[_0x1d00bc(0x200)](_0x54e3a0);const _0x1cdb2e=_0x54e3a0['clone']();_0x1cdb2e[_0x1d00bc(0x1fa)]['x']=YATAYHOLGENİŞLİĞİ-KOLONEBAT/0x2-0.15-_0x1195ce/0x2,_0x192b71[_0x1d00bc(0x200)](_0x1cdb2e);const _0x43e608=new THREE[(_0x1d00bc(0x1d3))]();for(let _0x30e8e2=0x0;_0x30e8e2<YATAYHOLSAYISI;_0x30e8e2++){const _0x13bbeb=_0x192b71[_0x1d00bc(0x1e5)]();_0x13bbeb['position']['x']=_0x30e8e2*YATAYHOLGENİŞLİĞİ,_0x43e608[_0x1d00bc(0x200)](_0x13bbeb);}return _0x3f1315[_0x1d00bc(0x200)](_0x43e608),console[_0x1d00bc(0x1d7)](_0x1d00bc(0x1c9),_0x56fa1f),console['log']('VinçKirişYüksekliği',_0x4b5185),console[_0x1d00bc(0x1d7)]('B:',_0x4a7215),console[_0x1d00bc(0x1d7)]('YATAYHOLSAYISI:',YATAYHOLSAYISI),console[_0x1d00bc(0x1d7)](_0x1d00bc(0x1ef),YATAYHOLGENİŞLİĞİ),console[_0x1d00bc(0x1d7)](_0x1d00bc(0x1ea),KOLONEBAT),_0x3f1315;}export function VincKancasi(){const _0x8f0ed2=_0x467d,_0x469a41=new THREE[(_0x8f0ed2(0x1d3))](),_0x53d287=new THREE['TorusGeometry'](0x1,0.15,0x10,0x64,Math['PI']*1.5),_0x320c25=new THREE[(_0x8f0ed2(0x1c2))]({'color':0x808080,'metalness':0.6,'roughness':0.4}),_0x2b5feb=new THREE[(_0x8f0ed2(0x1ec))](_0x53d287,_0x320c25);_0x2b5feb[_0x8f0ed2(0x1d0)]['z']=Math['PI']/0x2,_0x469a41[_0x8f0ed2(0x200)](_0x2b5feb);const _0xc63d49=new THREE[(_0x8f0ed2(0x209))](0.2,0.2,0x1,0x20),_0x176b3e=new THREE[(_0x8f0ed2(0x1c2))]({'color':0x808080,'metalness':0.6,'roughness':0.4}),_0x4241bc=new THREE[(_0x8f0ed2(0x1ec))](_0xc63d49,_0x176b3e);_0x4241bc['position']['y']=0x1,_0x469a41[_0x8f0ed2(0x200)](_0x4241bc);const _0x28796a=new THREE['TorusGeometry'](0.3,0.1,0x10,0x64),_0x2947c5=new THREE[(_0x8f0ed2(0x1ec))](_0x28796a,_0x176b3e);return _0x2947c5[_0x8f0ed2(0x1fa)]['y']=1.6,_0x2947c5[_0x8f0ed2(0x1d0)]['x']=Math['PI']/0x2,_0x469a41['add'](_0x2947c5),_0x469a41;}
+
+// #region// Hesapla & Import 
+
+export let KOLONUZUNLUK
+export let MK_UZUNLUK
+export let loadedFont = null;
+export let kancatoplamyükseklik
+
+
+import { MALTBÇAP, DÜŞEYAKSSAYISI, YATAYAKSSAYISI, YATAYHOLGENİŞLİĞİ, MAKASBOYU, DÜŞEYHOLGENİŞLİĞİ, 
+  YATAYHOLSAYISI, ALTMAKASYÜKS2, MYÜKS, MKAÇI, İKİDİKMEARASI, DİKME_Y_ARTIŞ, MDDİYGÇAP, DİKMESAYISI, MAKAS_YÜKSEKL_HESAPLA, 
+  YanKirişArası, YanBağKirişAdet, DÜŞEYHOLSAYISI, ÇatıBağKirişSayısı, ÇatıBağKirişAra_Yatay, ÇatıBağKirişAra_Yekseni, 
+ÇaprazYükseklik, YanÇaprazAksadet, YanÇaprazDüşeyAdet,  ÇatıÇaprazZekseniAra, ÇatıÇaprazZekseniAdet,
+ BinaYükseklik, ArkaKaplamaSınır, KaplamaSınırHesap, esaszeminA, esaszeminB} from './hesapla.js';
+
+// Geometriler Import
+import { KOLON1, HEA300, KOLON_BOX1, YATAY_MK_GEO_1, Yatay_Kiriş_Profil_1, Yatay_Kiriş_Profil_2, YatayÇaprazProfil,
+  YatayÇaprazÇap, ÇatıÇaprazProfil, KOLONEBAT, MK_EN} from './geometriler.js';
+
+// MALZEMELER import
+import { kolonMaterial2, DİKMEMALZEME, MAKASMALZEME, DİYAGONELMALZEME, BağKirişiMalzeme, BağKirişiMalzeme2, kolonMaterial3
+   , createKaplamaTexture, createKaplamaTexture2  } from './malzemeler.js';
+
+
+// #endregion// 
+
+//#region Zemin - Beton
+// ZEMİNESAS fonksiyonu
+export function ZEMİNESAS(A, B) {
+  const ZEMİNESAS_TEXTURE = new THREE.TextureLoader().load('textures/zemin9.png');
+  ZEMİNESAS_TEXTURE.wrapS = THREE.RepeatWrapping;
+  ZEMİNESAS_TEXTURE.wrapT = THREE.RepeatWrapping;
+  ZEMİNESAS_TEXTURE.repeat.set(1, 1);  // Zemin dokusunun tekrarlanmasını sağlar
+
+  const groundGeometry = new THREE.PlaneGeometry(esaszeminA, esaszeminB);  // Zemin ebatları A+10 ve B+10
+  const groundMaterial = new THREE.MeshBasicMaterial({
+    map: ZEMİNESAS_TEXTURE,
+    side: THREE.DoubleSide // Zeminin iki yüzüne de doku ekler
+  });
+console.log("esaszeminA", esaszeminA)
+  const groundMesh = new THREE.Mesh(groundGeometry, groundMaterial);
+  groundMesh.rotation.x = -Math.PI / 2;  // Yatay hale getiriyoruz
+  groundMesh.position.set(A/2, -0.1,-B/2);  // Pozisyon x=-5, z=5 olacak şekilde ayarlanıyor
+  return groundMesh;
+}
+// #endregion 
+
+//#region ⛔ Kolonlar ⛔  
+// YATAY KOLON OLUŞTURMA GRUBU fonksiyonu
+export function YATAYKOLONGRUBU(H) {
+    const yatayKolonGroup = new THREE.Group();
+  
+    for (let i = 0; i < YATAYAKSSAYISI; i++) {
+      const kolon = DKG(H);  // DKG fonksiyonundan kolon oluşturuyoruz
+      kolon.position.set(i * YATAYHOLGENİŞLİĞİ, 0, 0);  // X ekseninde YATAYHOLGENİŞLİĞİ mesafesiyle
+      yatayKolonGroup.add(kolon);
+    }
+  
+    return yatayKolonGroup;  // Grubu geri döndürüyoruz
+  }
+  
+  // DKG fonksiyonu: Düşey kolon grubu
+  function DKG(H) {
+    const kolonGroup = new THREE.Group();
+  KOLONUZUNLUK = H
+    for (let i = 0; i < DÜŞEYAKSSAYISI; i++) {
+      const kolon = KOLON_BOX1(H, kolonMaterial3);
+      kolon.position.set(0, 0, i * -DÜŞEYHOLGENİŞLİĞİ);  // Z ekseni boyunca DÜŞEYHOLGENİŞLİĞİ mesafesiyle yerleştiriliyor
+      kolonGroup.add(kolon);
+    }
+  
+    return kolonGroup;  // Tüm kolonları içeren grup geri döndürülüyor
+}
+//#endregion
+
+// #region 🔱 Makaslar ara fonksiyonlar🔱
+// TEKLİ SOL MAKAS ALT BAŞLIK Fonksiyonu
+export function MakasAlt(H) {
+   MK_UZUNLUK = YATAYHOLGENİŞLİĞİ; // MK_UZUNLUK değeri atanıyor
+  const makasAltBaslik = YATAY_MK_GEO_1(YATAYHOLGENİŞLİĞİ, MK_UZUNLUK); // Grup olarak alınır
+  makasAltBaslik.position.set(YATAYHOLGENİŞLİĞİ / 2, H, 0); // Pozisyon ayarlanıyor
+  makasAltBaslik.rotation.z = THREE.MathUtils.degToRad(90);  // Z ekseni etrafında 90° + MKAÇI döndürme
+  return makasAltBaslik;
+}
+
+export function MakasÜstSol() {
+   MK_UZUNLUK = YATAYHOLGENİŞLİĞİ / 2; // MK_UZUNLUK değeri atanıyor
+  const makasAltBaslik = YATAY_MK_GEO_1(YATAYHOLGENİŞLİĞİ, MK_UZUNLUK); // Grup olarak alınır
+  makasAltBaslik.position.set(YATAYHOLGENİŞLİĞİ / 4,(ALTMAKASYÜKS2 + MYÜKS), 0); // Pozisyon ayarlanıyor
+  makasAltBaslik.rotation.z = THREE.MathUtils.degToRad(90 + MKAÇI);  // Z ekseni etrafında 90° + MKAÇI döndürme
+  return makasAltBaslik;
+}
+   
+  //SAĞ ÜST MAKAS BAŞLIK OLUŞTURMA Fonksiyonu
+/*
+  export function MakasÜstSağ() {
+  const MK_UZUNLUK = YATAYHOLGENİŞLİĞİ / 2; // MK_UZUNLUK değeri atanıyor
+  const makasAltBaslik = YATAY_MK_GEO_1(YATAYHOLGENİŞLİĞİ, MK_UZUNLUK); // Grup olarak alınır
+  makasAltBaslik.position.set(3*YATAYHOLGENİŞLİĞİ / 4,(ALTMAKASYÜKS2 + MYÜKS), 0); // Pozisyon ayarlanıyor
+  makasAltBaslik.rotation.z = THREE.MathUtils.degToRad(90 - MKAÇI);  // Z ekseni etrafında 90° + MKAÇI döndürme
+  return makasAltBaslik;
+*/
+export function MakasÜstSağ() {
+  const tümÇatıGrup = new THREE.Group();
+
+  // Sol makas grubu
+  const üstMakasSol = MakasÜstSol(H);
+
+  // Sol makası ana gruba ekle
+  tümÇatıGrup.add(üstMakasSol);
+
+  // Sol makasın aynalanmış kopyası (sağ makas)
+  const üstMakasSağ = üstMakasSol.clone();
+
+  // Aynalamak için sağ makasın pozisyonunu ve rotasyonunu ayarla
+  üstMakasSağ.position.x = YATAYHOLGENİŞLİĞİ*0.75; // X eksenine göre simetri
+  üstMakasSağ.position.z = 0; // Z eksenine göre simetri
+  üstMakasSağ.rotation.y = -Math.PI; // Y ekseninde 180 derece döndürme
+
+  // Sağ makası ana gruba ekle
+  tümÇatıGrup.add(üstMakasSağ);
+
+  return tümÇatıGrup;
+}
+
+// #endregion
+
+// #region ❗ Dikmeler  ❗
+  // 1 DİKME FONKSİYONU
+export function DİKME1() {
+    const geometry = new THREE.CylinderGeometry(MDDİYGÇAP, MDDİYGÇAP, MYÜKS, 32);  // Silindir
+    const dikme = new THREE.Mesh(geometry, DİKMEMALZEME);  // Silindirin malzemesi atanıyor
+    dikme.position.set(0, H + MYÜKS / 2, 0);  // Dikmenin başlangıç noktası (x, y, z)
+    dikme.rotation.z = 0;  // Y ekseninde konumlandırılıyor
+    return dikme;  // Tek dikmeyi geri döndürüyor
+  }
+  
+    // DİKME SOL GRUBU FONKSİYONU 
+export function DİKME1_GRUP_SOL(H) {
+    const dikmeGrubu = new THREE.Group(); 
+  
+    for (let i = 0; i < DİKMESAYISI; i++) {
+      const yeniMYÜKS = MYÜKS + i * DİKME_Y_ARTIŞ;  
+      const geometry = new THREE.CylinderGeometry(MDDİYGÇAP, MDDİYGÇAP, yeniMYÜKS, 32);  
+      const dikme = new THREE.Mesh(geometry, DİKMEMALZEME);  
+  
+      // X ve Y koordinatları her dikmede artıyor
+      const xKoordinati = i * İKİDİKMEARASI;  
+      const yKoordinati = H + MYÜKS/ 2 + i * (DİKME_Y_ARTIŞ / 2); 
+
+      // Dikmenin konumunu yeni x ve y koordinatlarına göre ayarlıyoruz
+      dikme.position.set(xKoordinati, yKoordinati, 0);
+  
+      // Dikmeyi gruba ekliyoruz
+      dikmeGrubu.add(dikme);
+    }
+  
+    return dikmeGrubu;  // Tüm dikmeleri içeren grubu geri döndürüyoruz
+  }
+      // DİKME SAĞ GRUBU FONKSİYONU 
+      /*  eskisi bu - yerine mirror koydum
+export function DİKME1_GRUP_SAĞ(H) {
+    const dikmeGrubu = new THREE.Group(); 
+    for (let i = DİKMESAYISI; i < 2*DİKMESAYISI+1; i++) {
+      const yeniMYÜKS = MYÜKS + (DİKMESAYISI * DİKME_Y_ARTIŞ)-(i-DİKMESAYISI) * DİKME_Y_ARTIŞ;  
+      const geometry = new THREE.CylinderGeometry(MDDİYGÇAP, MDDİYGÇAP, yeniMYÜKS, 32);  
+      const dikme = new THREE.Mesh(geometry, DİKMEMALZEME);  
+  
+      // X ve Y koordinatları her dikmede artıyor
+      const xKoordinati = i * İKİDİKMEARASI;  
+      const yKoordinati = H + (MYÜKS/2)+(DİKMESAYISI*DİKME_Y_ARTIŞ/2) - ((i-DİKMESAYISI) * (DİKME_Y_ARTIŞ )/2); 
+
+      // Dikmenin konumunu yeni x ve y koordinatlarına göre ayarlıyoruz
+      dikme.position.set(xKoordinati, yKoordinati, 0);
+  
+      // Dikmeyi gruba ekliyoruz
+      dikmeGrubu.add(dikme);
+    }
+  
+    return dikmeGrubu;  // Tüm dikmeleri içeren grubu geri döndürüyoruz
+  }*/
+
+    export function DİKME1_GRUP_SAĞ(H) {
+      const tümDikmeGrup = new THREE.Group();
+    
+      // Sol dikme grubu
+      const dikmeSol = DİKME1_GRUP_SOL(H);
+    
+      // Sol dikme grubunu ana gruba ekle
+      tümDikmeGrup.add(dikmeSol);
+    
+      // Sol dikme grubunun aynalanmış kopyası (sağ dikme)
+      const dikmeSağ = dikmeSol.clone();
+    
+      // Aynalamak için sağ dikmenin pozisyonunu ve rotasyonunu ayarla
+      dikmeSağ.position.x = YATAYHOLGENİŞLİĞİ; // X eksenine göre simetri
+      dikmeSağ.rotation.y = -Math.PI; // Y ekseninde 180 derece döndürme
+    
+      // Sağ dikmeyi ana gruba ekle
+      tümDikmeGrup.add(dikmeSağ);
+    
+      return tümDikmeGrup;
+    }
+
+    export function DİKME1_orta(H) {
+      const dikmeGrubu = new THREE.Group();
+    
+      // Orta dikmenin uzunluğunu hesapla
+      const uzunluk = MYÜKS + DİKME_Y_ARTIŞ * DİKMESAYISI;
+    
+      // Orta dikme için geometry ve mesh oluştur
+      const geometry = new THREE.CylinderGeometry(MDDİYGÇAP, MDDİYGÇAP, uzunluk, 32);
+      const dikme = new THREE.Mesh(geometry, DİKMEMALZEME);
+    
+      // Orta dikmenin koordinatlarını ayarla
+      dikme.position.x = YATAYHOLGENİŞLİĞİ / 2;
+      dikme.position.z = 0;
+      dikme.position.y = H+(uzunluk / 2);
+    
+      // Dikmeyi gruba ekle
+      dikmeGrubu.add(dikme);
+    
+      return dikmeGrubu;
+    }
+// #endregion
+
+// #region 🚼 Diyagoneller 🚼
+  // DİYAGONELSOL1 fonksiyonu 
+export function DİYAGONELSOL1(startX, startY, endX, endY) {
+    // Diyagonelin boyu iki nokta arasındaki mesafeden hesaplanıyor
+    const boy = Math.sqrt(Math.pow(endY - startY, 2) + Math.pow(endX - startX, 2));  // Hipotenüs
+  
+    // Silindir geometrisi
+    const geometry = new THREE.CylinderGeometry(MDDİYGÇAP, MDDİYGÇAP, boy, 32);  // Silindir çapı ve boyu belirleniyor
+    const diyagonel = new THREE.Mesh(geometry, DİYAGONELMALZEME);  // Malzemesi atanıyor
+  
+    // Rotasyonu belirleme (alfa açısı)
+    const alfa = Math.atan((endY - startY) / (endX - startX));  // Arc tan ile doğru açı hesaplanıyor
+    diyagonel.rotation.z = (Math.PI / 2) + Math.atan2(endY - startY, endX - startX);  // Z ekseninde 90 - alfa açısına göre döndürülüyor
+    
+    // Diyagonelin pozisyonu ayarlanıyor (başlangıç ve bitiş noktalarının ortalaması)
+    diyagonel.position.set((startX + endX) / 2, (startY + endY) / 2, 0);  // Ortalaması alınarak konum ayarlanıyor
+  
+    return diyagonel;  // Diyagonel elemanı geri döndürüyor
+  }
+  
+  // SOLDİYAGONELGRUBU fonksiyonu
+ export function SOLDİYAGONELGRUBU(H) {
+    const diyagonelGrubu = new THREE.Group();  // Tüm diyagonelleri içerecek bir grup oluşturuluyor
+  
+    // Her diyagonel için başlangıç ve bitiş noktaları ayarlanıyor
+    for (let i = 0; i < DİKMESAYISI; i++) {
+  
+      const endX = (i + 1) * İKİDİKMEARASI;  
+      const endY = H;   
+      const startX = i * İKİDİKMEARASI; 
+      const startY = H + MYÜKS + i * DİKME_Y_ARTIŞ; 
+  
+      // Her diyagoneli oluşturalım ve gruba ekleyelim
+      const diyagonel = DİYAGONELSOL1(startX, startY, endX, endY);
+      diyagonelGrubu.add(diyagonel);
+    }
+      return diyagonelGrubu;  // Tüm diyagonelleri içeren grup geri döndürüyoruz
+  }
+
+  
+  export function SAĞDİYAGONELGRUBU(H) {
+    const sağDiyagonelGrup = new THREE.Group();
+  
+    // Sol diyagonel grubunu alıp aynalayarak sağ grubu oluşturuyoruz
+    const solDiyagonelGrup = SOLDİYAGONELGRUBU(H);
+  
+    // Aynalama işlemi: x ekseninde YATAYHOLGENİŞLİĞİ kadar kaydırarak simetri sağlanır
+    const sağDiyagonel = solDiyagonelGrup.clone();
+    sağDiyagonel.position.x = YATAYHOLGENİŞLİĞİ; // X ekseninde simetrik konumlandırma
+    sağDiyagonel.rotation.y = Math.PI; // Y ekseninde 180 derece döndürme
+  
+    // Sağ diyagonel grubuna aynalanmış sol grubu ekle
+    sağDiyagonelGrup.add(sağDiyagonel);
+  
+    return sağDiyagonelGrup;
+  }
+  
+
+    // SAĞ DİYAGONELGRUBU fonksiyonu
+    /* ESKİ MİRROR'SUZ
+ export function SAĞDİYAGONELGRUBU(H) {
+  const diyagonelGrubu = new THREE.Group();  // Tüm diyagonelleri içerecek bir grup oluşturuluyor
+
+  // Her diyagonel için başlangıç ve bitiş noktaları ayarlanıyor
+  for (let i = DİKMESAYISI; i < 2*DİKMESAYISI; i++) {
+    // 1. Diyagonel: startX = 1* İKİDİKMEARASI, endX = 0
+    // 2. Diyagonel: startX = 2* İKİDİKMEARASI, endX = 1* İKİDİKMEARASI vb.
+
+    const startX = (i + 1) * İKİDİKMEARASI;  // X ekseninde offset
+    const endY = H;  // Başlangıç yüksekliği (H)
+
+    const endX = i * İKİDİKMEARASI;  // Bir önceki X noktası
+    const startY = H + MYÜKS +  (DİKMESAYISI-1)* DİKME_Y_ARTIŞ-((i-DİKMESAYISI)*DİKME_Y_ARTIŞ);  // Y ekseninde artış
+
+    // Her diyagoneli oluşturalım ve gruba ekleyelim
+    const diyagonel = DİYAGONELSOL1(startX, startY, endX, endY);
+    diyagonelGrubu.add(diyagonel);
+  }
+    return diyagonelGrubu;  // Tüm diyagonelleri içeren grup geri döndürüyoruz
+}
+
+*/
+
+
+  // #endregion
+
+//#region //  Makas Grup Çoğaltma
+export function MakasTamGrup (H) {
+  const TamMakasGrup = new THREE.Group();
+
+  // SOL ve SAĞ dikme gruplarını alıyoruz
+  const dikmeGrupSol = DİKME1_GRUP_SOL(H);
+  const dikmeGrupSağ = DİKME1_GRUP_SAĞ(H);
+  const dikmeOrta = DİKME1_orta(H);
+  const makasaltsol = MakasAlt(H);
+  const makasüstsol = MakasÜstSol()
+  const makasüstsağ = MakasÜstSağ()
+  const soldiyagonel = SOLDİYAGONELGRUBU(H)
+  const sağdiyagonel = SAĞDİYAGONELGRUBU(H)
+ 
+
+  // Grupları birleştiriyoruz
+  TamMakasGrup.add(dikmeGrupSol);
+  TamMakasGrup.add(dikmeGrupSağ);
+  TamMakasGrup.add(makasaltsol);
+  TamMakasGrup.add(makasüstsol);
+  TamMakasGrup.add(makasüstsağ);
+  TamMakasGrup.add(soldiyagonel);
+  TamMakasGrup.add(sağdiyagonel);
+  TamMakasGrup.add(dikmeOrta);
+
+  
+  return TamMakasGrup; // Tam dikme grubunu geri döndür
+}
+
+export function MakasGrupÇoğalt(H) {
+  const tamMakasGrubu = new THREE.Group();
+
+  // X ve Z yönlerinde çoğaltma işlemi
+  for (let x = 0; x < YATAYHOLSAYISI; x++) {
+    for (let z = 0; z < DÜŞEYAKSSAYISI; z++) {
+      // TAMDİKMEGRUP'u her döngüde çağırarak çoğaltıyoruz
+      const makasgrubu = MakasTamGrup(H);
+
+      // Çoğaltılmış grubun pozisyonunu ayarlıyoruz
+      makasgrubu.position.set(
+        x * YATAYHOLGENİŞLİĞİ, 0, -z * DÜŞEYHOLGENİŞLİĞİ
+      );
+
+      // Grupları ana gruba ekliyoruz
+      tamMakasGrubu.add(makasgrubu);
+    }
+  }
+
+  return tamMakasGrubu; // Tüm çoğaltılmış dikmeleri içeren grubu geri döndür
+}
+
+//#endregion
+
+//#region Yan Bracing Kirişler - oluştur ve çoğalt
+export function YanKiriş_1(H) {
+    const yanKirişGrubu = new THREE.Group();
+    const yatayboy_1 = DÜŞEYHOLGENİŞLİĞİ - 0.2;
+    if (H < 6) {/*
+        for (let z = 0; z < DÜŞEYHOLSAYISI+1; z++) {
+          for (let x = 0; x < YATAYHOLSAYISI+1; x++) {
+          const yatayProfil = Yatay_Kiriş_Profil_1(yatayboy_1, BağKirişiMalzeme, H);
+          yatayProfil.position.set( x * YATAYHOLGENİŞLİĞİ * A, (-z * DÜŞEYHOLGENİŞLİĞİ) );
+          yatayProfil.rotation.x= (Math.PI / 2)
+          yanKirişGrubu.add(yatayProfil);
+            } 
+        } */
+    } else {
+        for (let y = 0; y < YanBağKirişAdet; y++) {
+        for (let z = 0; z < DÜŞEYHOLSAYISI; z++) {
+        for (let x = 0; x < YATAYHOLSAYISI+1; x++) {
+            const yatayProfil = Yatay_Kiriş_Profil_1(yatayboy_1, BağKirişiMalzeme, H); // Yatay profilin boyunu geçiyoruz
+            yatayProfil.position.set(  x * YATAYHOLGENİŞLİĞİ, YanKirişArası+ y * YanKirişArası, - DÜŞEYHOLGENİŞLİĞİ/2+ (-z * DÜŞEYHOLGENİŞLİĞİ));
+            yatayProfil.rotation.x= (Math.PI / 2)
+            yanKirişGrubu.add(yatayProfil);}
+            }
+        }
+    }
+// MAKAS ÜSTÜNDEKİ
+
+    for (let x = 0; x < YATAYHOLSAYISI+1; x++) {
+    for (let z = 0; z < DÜŞEYHOLSAYISI; z++) {
+      for (let y = 0; y < 2; y++) {
+      const yatayProfilEkstra = Yatay_Kiriş_Profil_1(yatayboy_1, BağKirişiMalzeme, H );
+      yatayProfilEkstra.position.set(x * YATAYHOLGENİŞLİĞİ, H + y*MYÜKS,  - DÜŞEYHOLGENİŞLİĞİ/2+ (-z * DÜŞEYHOLGENİŞLİĞİ)); // Z ekseninde merkezde
+      yatayProfilEkstra.rotation.x = Math.PI / 2;
+      yanKirişGrubu.add(yatayProfilEkstra);
+    }}
+}
+    return yanKirişGrubu;
+}
+//#endregion
+
+//#region Makasİçi Tam Bracingler fonksiyonu
+
+// Bi Makas Arası Tam grup oluşturma - Bracing
+
+export function Bracing_MakasİçiTam(H) {
+    const bracingTamGroup = new THREE.Group();
+
+    for (let x = 0; x < YATAYHOLSAYISI; x++) {
+        for (let z = 0; z < DÜŞEYHOLSAYISI; z++) {
+            const bracingInstance = Bracing1HolTam(H);
+
+            // Çoğaltılmış bracing'in konumunu ayarlıyoruz
+            bracingInstance.position.set(
+                x * YATAYHOLGENİŞLİĞİ,  // x ekseninde YATAYHOLGENİŞLİĞİ aralıklarla
+                0,
+                -z * DÜŞEYHOLGENİŞLİĞİ  // -z ekseninde DÜŞEYHOLGENİŞLİĞİ aralıklarla
+            );
+
+            bracingTamGroup.add(bracingInstance);
+        }
+    }
+
+    return bracingTamGroup; // Çoğaltılmış tüm bracing gruplarını içeren ana grubu geri döndür
+}
+
+
+export function Bracing1HolTam(H) {
+    const bracingHolTamGroup = new THREE.Group();
+
+    // Alt ve üst bracing fonksiyonlarını çağırıyoruz
+    /*const altBracing = MakasİçiAltTamBracing(H);!!!!!!!!!  bunu sildim ŞİMDİLİK */ 
+    const üstBracing = MakasİçiÜstTamBracing1(H);
+
+    // Alt ve üst bracing gruplarını ana gruba ekliyoruz
+    /*bracingHolTamGroup.add(altBracing); */
+    bracingHolTamGroup.add(üstBracing);
+
+    return bracingHolTamGroup; // Tüm bracing'leri içeren grubu geri döndür
+}
+
+
+export function MakasİçiAltTamBracing(H) {
+  // BUNU ŞİMDİLİK İPTAL EDİYORUM - KOYMUYORUM MODELE ------------
+    const tamBracingGrubu = new THREE.Group(); // Tüm bracing yapısını içerecek ana grup
+
+    // makas_içi_bağ_kirişi_alt fonksiyonunu çağırarak bracing grubunu ekleyelim
+    const bagKirisGrubu = makas_içi_bağ_kirişi_alt(H, ÇatıBağKirişAra_Yatay, ÇatıBağKirişSayısı);
+
+    // Bracing yapısını ana gruba ekleyin
+    tamBracingGrubu.add(bagKirisGrubu);
+
+    return tamBracingGrubu; // Tüm bracing yapısını içeren grubu geri döndür
+}
+
+export function MakasİçiÜstTamBracing1(H) {
+  const tamBracingGrubu = new THREE.Group(); // Tüm bracing yapısını içerecek ana grup
+
+  // makas_içi_bağ_kirişi_alt fonksiyonunu çağırarak bracing grubunu ekleyelim
+  const bagKirisGrubu = makas_içi_bağ_kirişi_üstSol(H, ÇatıBağKirişAra_Yatay, ÇatıBağKirişSayısı);
+  const bagKirisGrubu2 = makas_içi_bağ_kirişi_üstSağ(H, ÇatıBağKirişAra_Yatay, ÇatıBağKirişSayısı) 
+  // Bracing yapısını ana gruba ekleyin
+  tamBracingGrubu.add(bagKirisGrubu);
+  tamBracingGrubu.add(bagKirisGrubu2); 
+
+  return tamBracingGrubu; // Tüm bracing yapısını içeren grubu geri döndür
+}
+
+export function makas_içi_bağ_kirişi_üstSol(H, ÇatıBağKirişAra_Yatay, ÇatıBağKirişSayısı) {
+  const bagKirisGrubu = new THREE.Group();
+  const yatayboy_1 = DÜŞEYHOLGENİŞLİĞİ - 0.2;
+  // ÇatıBağKirişSayısı / 2'yi üste yuvarlayarak çoğaltma sayısını belirliyoruz
+  const adet = Math.ceil(ÇatıBağKirişSayısı / 2);
+
+  for (let i = 1; i < ÇatıBağKirişSayısı+1; i++) {
+      const yatayProfil = Yatay_Kiriş_Profil_2(yatayboy_1, BağKirişiMalzeme2, H); // Yatay_Kiriş_Profil_2 geometrisini çağırıyoruz
+
+      // Konumlandırma
+      yatayProfil.position.set(
+          i * ÇatıBağKirişAra_Yatay, // X ekseninde her adımda ÇatıBağKirişAra_Yatay mesafe kadar
+          H+MYÜKS+i*ÇatıBağKirişAra_Yekseni,                         // Y ekseninde H yüksekliği
+          -DÜŞEYHOLGENİŞLİĞİ/2                         // Z ekseninde sıfır
+      );
+      yatayProfil.rotation.x = Math.PI / 2; // X ekseninde 90° döndürme
+      bagKirisGrubu.add(yatayProfil); // Profili gruba ekle
+  }
+
+  return bagKirisGrubu; // Tüm bağ kirişi grubunu geri döndür
+}
+
+export function makas_içi_bağ_kirişi_üstSağ(H, ÇatıBağKirişAra_Yatay, ÇatıBağKirişSayısı) {
+  const bagKirisGrubu = new THREE.Group();
+  const yatayboy_1 = DÜŞEYHOLGENİŞLİĞİ - 0.2;
+  // ÇatıBağKirişSayısı / 2'yi üste yuvarlayarak çoğaltma sayısını belirliyoruz
+  const adet = Math.ceil(ÇatıBağKirişSayısı / 2);
+
+  for (let i = 1; i < ÇatıBağKirişSayısı; i++) {
+      const yatayProfil = Yatay_Kiriş_Profil_2(yatayboy_1, BağKirişiMalzeme2, H); // Yatay_Kiriş_Profil_2 geometrisini çağırıyoruz
+
+      // Konumlandırma
+      yatayProfil.position.set(
+        ÇatıBağKirişAra_Yatay*ÇatıBağKirişSayısı + i * ÇatıBağKirişAra_Yatay, // X ekseninde her adımda ÇatıBağKirişAra_Yatay mesafe kadar
+          H+MYÜKS+ÇatıBağKirişSayısı*ÇatıBağKirişAra_Yekseni-(i*ÇatıBağKirişAra_Yekseni),                         // Y ekseninde H yüksekliği
+          -DÜŞEYHOLGENİŞLİĞİ/2                         // Z ekseninde sıfır
+      );
+      yatayProfil.rotation.x = Math.PI / 2; // X ekseninde 90° döndürme
+      bagKirisGrubu.add(yatayProfil); // Profili gruba ekle
+  }
+
+  return bagKirisGrubu; // Tüm bağ kirişi grubunu geri döndür
+}
+
+export function makas_içi_bağ_kirişi_alt(H, ÇatıBağKirişAra_Yatay, ÇatıBağKirişSayısı) {
+    const bagKirisGrubu = new THREE.Group();
+    const yatayboy_1 = DÜŞEYHOLGENİŞLİĞİ - 0.2;
+    // ÇatıBağKirişSayısı / 2'yi üste yuvarlayarak çoğaltma sayısını belirliyoruz
+    const adet = Math.ceil(ÇatıBağKirişSayısı / 2);
+    for (let i = 1; i < ÇatıBağKirişSayısı*2; i++) {
+        const yatayProfil = Yatay_Kiriş_Profil_2(yatayboy_1, BağKirişiMalzeme2, H); // Yatay_Kiriş_Profil_2 geometrisini çağırıyoruz
+
+        // Konumlandırma
+        yatayProfil.position.set(
+            i * ÇatıBağKirişAra_Yatay, // X ekseninde her adımda ÇatıBağKirişAra_Yatay mesafe kadar
+            H,                         // Y ekseninde H yüksekliği
+            -DÜŞEYHOLGENİŞLİĞİ/2                         // Z ekseninde sıfır
+        );
+        yatayProfil.rotation.x = Math.PI / 2; // X ekseninde 90° döndürme
+        bagKirisGrubu.add(yatayProfil); // Profili gruba ekle
+    }
+
+    return bagKirisGrubu; // Tüm bağ kirişi grubunu geri döndür
+}
+// #endregion
+
+//#region Cephe Çaprazlar
+
+export function ÇaprazYan1Aks(H) {
+    const çaprazAksGrubu = new THREE.Group();
+
+    let çapryuksfonk2;
+    if (H < 6) {
+        çapryuksfonk2 = H;
+    } else {
+        çapryuksfonk2 = ÇaprazYükseklik;
+    }
+    
+    // Çapraz1Boşluk grubunu tanımlıyoruz
+    const Çapraz1Boşluk = new THREE.Group();
+
+    // YanÇapraz1 ve YanÇapraz2 için başlangıç ve bitiş koordinatlarını tanımlayın
+    const startCoord1 = new THREE.Vector3(0, 0, 0); // Başlangıç: x: 0, y: 0, z: 0
+    const endCoord1 = new THREE.Vector3(0, çapryuksfonk2, -DÜŞEYHOLGENİŞLİĞİ); // Bitiş: x: 0, y: ÇaprazYükseklik, z: -DÜŞEYHOLGENİŞLİĞİ
+    
+    const startCoord2 = new THREE.Vector3(0, 0, -DÜŞEYHOLGENİŞLİĞİ); // Başlangıç: x: 0, y: 0, z: -DÜŞEYHOLGENİŞLİĞİ
+    const endCoord2 = new THREE.Vector3(0, çapryuksfonk2, 0); // Bitiş: x: 0, y: ÇaprazYükseklik, z: 0
+
+    // 1. Çapraz: YanÇapraz1'i oluşturun ve yönlendirin
+    const uzunluk1 = startCoord1.distanceTo(endCoord1); // Boyu hesaplayın
+    const YanÇapraz1 = YatayÇaprazProfil(H, uzunluk1).mesh; // Hesaplanan uzunlukla profil oluştur
+    YanÇapraz1.position.copy(startCoord1); // Başlangıç noktasına yerleştirin
+
+    // Başlangıç ve bitiş arasındaki açıyı hesaplayın ve x ekseni etrafında döndürün
+    const angle1 = Math.atan2(endCoord1.y - startCoord1.y, endCoord1.z - startCoord1.z);
+    YanÇapraz1.rotation.x = angle1;
+    YanÇapraz1.rotation.y = 90 * (Math.PI / 180);
+    YanÇapraz1.position.set(0, çapryuksfonk2 / 2, -DÜŞEYHOLGENİŞLİĞİ / 2);
+    Çapraz1Boşluk.add(YanÇapraz1);
+
+    // 2. Çapraz: YanÇapraz2'yi oluşturun ve yönlendirin
+    const uzunluk2 = startCoord2.distanceTo(endCoord2); // Boyu hesaplayın
+    const YanÇapraz2 = YatayÇaprazProfil(H, uzunluk2).mesh; // Hesaplanan uzunlukla profil oluştur
+    YanÇapraz2.position.copy(startCoord2); // Başlangıç noktasına yerleştirin
+
+    // Başlangıç ve bitiş arasındaki açıyı hesaplayın ve x ekseni etrafında döndürün
+    const angle2 = Math.atan2(endCoord2.y - startCoord2.y, endCoord2.z - startCoord2.z);
+    YanÇapraz2.rotation.x = angle2;
+    YanÇapraz2.rotation.y = 90 * (Math.PI / 180);
+
+    YanÇapraz2.position.set(0, çapryuksfonk2 / 2, -DÜŞEYHOLGENİŞLİĞİ / 2);
+    Çapraz1Boşluk.add(YanÇapraz2);
+
+    
+    // Çapraz1Boşluk grubunu ÇaprazDüşeyAdet kadar çoğaltarak yerleştiriyoruz
+    if (H >= 6) {
+      for (let i = 0; i < (YanÇaprazDüşeyAdet - 1); i++) {
+          const yeniÇapraz = Çapraz1Boşluk.clone();
+          yeniÇapraz.position.set(0, i * ÇaprazYükseklik, 0);
+          çaprazAksGrubu.add(yeniÇapraz);
+      }
+  } else if (H < 6) {
+      for (let i = 0; i < 1; i++) {
+          const yeniÇapraz = Çapraz1Boşluk.clone();
+          yeniÇapraz.position.set(0, i * ÇaprazYükseklik, 0);
+          çaprazAksGrubu.add(yeniÇapraz);
+      }
+  }
+    
+    return çaprazAksGrubu;
+}
+
+export function ÇaprazYan1AksBütün(H) {
+    const çaprazAksBütünGrup = new THREE.Group();
+
+    for (let i = 0; i < YanÇaprazAksadet; i++) {
+        const çaprazAks = ÇaprazYan1Aks(H);
+
+        // Z ekseninde 2 * DÜŞEYHOLGENİŞLİĞİ aralıkla yerleştiriliyor
+        çaprazAks.position.set(0, 0, -i * 2 * DÜŞEYHOLGENİŞLİĞİ);
+
+        çaprazAksBütünGrup.add(çaprazAks);
+    }
+
+    return çaprazAksBütünGrup;
+}
+
+
+export function ÇaprazYanKomple(H) {
+    const çaprazKompleGrup = new THREE.Group();
+
+    for (let x = 0; x < YATAYHOLSAYISI+1; x++) {
+        const çaprazAksBütün = ÇaprazYan1AksBütün(H);
+
+        // X ekseninde YATAYHOLGENİŞLİĞİ aralıklarla çoğaltıyoruz
+        çaprazAksBütün.position.set(x * YATAYHOLGENİŞLİĞİ, 0, 0);
+
+        çaprazKompleGrup.add(çaprazAksBütün);
+    }
+
+    return çaprazKompleGrup;
+}
+//#endregion
+
+//#region Çatı Çaprazlar
+/* lazım olacak değişkenler
+ÇatıBağKirişAra_Yatay
+ÇatıBağKirişAra_Yekseni
+ÇatıBağKirişSayısı  
+*/
+
+export function ÇatıÇaprazTekSol(H) {
+  const çaprazGrup = new THREE.Group();
+
+  // Başlangıç ve bitiş koordinatları
+  const startCoord = new THREE.Vector3(0, H + MYÜKS, 0);
+  const endCoord = new THREE.Vector3(ÇatıBağKirişAra_Yatay, H + MYÜKS + ÇatıBağKirişAra_Yekseni, -DÜŞEYHOLGENİŞLİĞİ);
+
+  // İki nokta arasındaki uzunluk
+  const uzunluk = startCoord.distanceTo(endCoord);
+
+  // Çatı Çapraz Profil geometrisi ve malzemesi
+  const çapraz = ÇatıÇaprazProfil(H, uzunluk).mesh;
+
+  // Çaprazın pozisyonunu ortalama noktasına ayarlayın
+  const ortaNokta = new THREE.Vector3().addVectors(startCoord, endCoord).multiplyScalar(0.5);
+  çapraz.position.copy(ortaNokta);
+
+  // Yön vektörü
+  const direction = new THREE.Vector3().subVectors(endCoord, startCoord).normalize();
+
+  // Yön vektörüne göre quaternion dönüşümünü hesapla
+  const quaternion = new THREE.Quaternion();
+  quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction); // Silindirin başlangıç yönü Y eksenine göre hizalandı
+
+  // Quaternion'u silindirin dönüşüne uygula
+  çapraz.applyQuaternion(quaternion);
+
+  çaprazGrup.add(çapraz);
+
+  return çaprazGrup;
+}
+
+export function ÇatıÇaprazTek2Sol(H) {
+  const çaprazGrup = new THREE.Group();
+
+  // Başlangıç ve bitiş koordinatları
+  const startCoord = new THREE.Vector3(0, H + MYÜKS, -DÜŞEYHOLGENİŞLİĞİ);
+  const endCoord = new THREE.Vector3(ÇatıBağKirişAra_Yatay, H + MYÜKS + ÇatıBağKirişAra_Yekseni, 0);
+
+  // İki nokta arasındaki uzunluk
+  const uzunluk = startCoord.distanceTo(endCoord);
+
+  // Çatı Çapraz Profil geometrisi ve malzemesi
+  const çapraz = ÇatıÇaprazProfil(H, uzunluk).mesh;
+
+  // Çaprazın pozisyonunu ortalama noktasına ayarlayın
+  const ortaNokta = new THREE.Vector3().addVectors(startCoord, endCoord).multiplyScalar(0.5);
+  çapraz.position.copy(ortaNokta);
+
+  // Yön vektörü
+  const direction = new THREE.Vector3().subVectors(endCoord, startCoord).normalize();
+
+  // Yön vektörüne göre quaternion dönüşümünü hesapla
+  const quaternion = new THREE.Quaternion();
+  quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction); // Silindirin başlangıç yönü Y eksenine göre hizalandı
+
+  // Quaternion'u silindirin dönüşüne uygula
+  çapraz.applyQuaternion(quaternion);
+
+  çaprazGrup.add(çapraz);
+
+  return çaprazGrup;
+}
+
+export function ÇatıÇapraz1AraSol(H) {
+  const çatıÇaprazGrup = new THREE.Group();
+
+  // ÇatıÇaprazTek ve ÇatıÇaprazTek2 fonksiyonlarını çağırıyoruz
+  const çaprazTek1 = ÇatıÇaprazTekSol(H);
+  const çaprazTek2 = ÇatıÇaprazTek2Sol(H);
+
+  // İki fonksiyonun döndürdüğü grupları ana gruba ekliyoruz
+  çatıÇaprazGrup.add(çaprazTek1);
+  çatıÇaprazGrup.add(çaprazTek2);
+
+  return çatıÇaprazGrup;
+}
+
+export function ÇatıÇapraz1SolMakas(H) {
+  const solMakasGrup = new THREE.Group();
+
+  // ÇatıBağKirişSayısı / 2 adet çoğaltma yapılacak
+  const çoğaltmaAdedi = Math.floor(ÇatıBağKirişSayısı / 2);
+
+  let adet;
+  if ((ÇatıBağKirişSayısı / 2) < 1) {
+    adet = 1;
+  } else {
+    adet = (ÇatıBağKirişSayısı / 2) + 1;
+  }
+console.log("ÇatıBağKirişSayısı / 2",ÇatıBağKirişSayısı / 2)
+  for (let i = 0; i < (adet); i++) {
+    // Her bir çoğaltmada ÇatıÇapraz1Ara fonksiyonunu çağırıyoruz
+    const çapraz = ÇatıÇapraz1AraSol(H);
+
+    // Çoğaltmalar için x ve y pozisyonlarını ayarlıyoruz
+    çapraz.position.x = i * ÇatıBağKirişAra_Yatay;
+    çapraz.position.y = i * ÇatıBağKirişAra_Yekseni;
+
+    // Çoğaltılmış ÇatıÇapraz1Ara nesnesini ana gruba ekliyoruz
+    solMakasGrup.add(çapraz);
+  }
+
+  return solMakasGrup;
+}
+
+export function ÇatıÇapraz1Ayna(H) {
+  const tümÇatıGrup = new THREE.Group();
+
+  // Sol makas grubu
+  const solMakas = ÇatıÇapraz1SolMakas(H);
+
+  // Sol makası ana gruba ekle
+  tümÇatıGrup.add(solMakas);
+
+  // Sol makasın aynalanmış kopyası
+  const sağMakas = solMakas.clone();
+
+  // Aynalamak için sağ makasın pozisyonunu ve rotasyonunu ayarla
+  sağMakas.position.x = YATAYHOLGENİŞLİĞİ;  // X eksenine göre simetri
+  sağMakas.position.z= -DÜŞEYHOLGENİŞLİĞİ;  // X eksenine göre simetri
+  sağMakas.rotation.y = -Math.PI;  // Y ekseninde 180 derece döndürme
+
+  // Sağ makası ana gruba ekle
+  tümÇatıGrup.add(sağMakas);
+
+  return tümÇatıGrup;
+}
+
+export function ÇatıÇapraz1MakasGrup(H) {
+  const makasGrup = new THREE.Group();
+
+  // Sol makas grubunu ekle
+  const solMakas = ÇatıÇapraz1SolMakas(H);
+  makasGrup.add(solMakas);
+
+  // Sağ makas grubunu (aynalanmış sol makas) ekle
+  const sağMakas = ÇatıÇapraz1Ayna(H, YATAYHOLGENİŞLİĞİ, DÜŞEYHOLGENİŞLİĞİ);
+  makasGrup.add(sağMakas);
+
+  return makasGrup;
+}
+
+export function ÇatıÇaprazTam(H) {
+  const tamGrup = new THREE.Group();
+
+  // +z ekseninde ve +x ekseninde çoğaltma
+  for (let z = 0; z < ÇatıÇaprazZekseniAdet; z++) {
+    for (let x = 0; x < YATAYHOLSAYISI; x++) {
+      const makasGrup = ÇatıÇapraz1MakasGrup(H, YATAYHOLGENİŞLİĞİ, DÜŞEYHOLGENİŞLİĞİ);
+      // Pozisyon ayarları
+      makasGrup.position.x = x * YATAYHOLGENİŞLİĞİ;
+      makasGrup.position.z = z * -ÇatıÇaprazZekseniAra;
+
+      // Çoğaltılmış grubu ana gruba ekle
+      tamGrup.add(makasGrup);
+    }
+  }
+
+  return tamGrup;
+}
+
+
+
+
+//#endregion
+
+//#region TOTEM
+export function Totem1(H, logoTexture = null) {
+  // Totem Direği
+  const totemDirekYukseklik = H + 2;
+  const totemDirek = new THREE.CylinderGeometry(0.3, 0.3, totemDirekYukseklik, 32);
+  const totemDirekMaterial = new THREE.MeshStandardMaterial({ color: 0x761453 });
+  const totemDirekMesh = new THREE.Mesh(totemDirek, totemDirekMaterial);
+  totemDirekMesh.position.set(-6, totemDirekYukseklik / 2, 0);
+
+  // Logo dokusunu yükleme
+  const logoMap = logoTexture || new THREE.TextureLoader().load('textures/logo.png');
+
+  // Tabela Geometrisi ve Malzemeleri
+  const tabelaGeometry = new THREE.BoxGeometry(5, 3, 0.8);
+
+  // Ön, Arka, Üst ve Alt Yüzler İçin Malzeme (logo)
+  const logoMaterial = new THREE.MeshBasicMaterial({ map: logoMap });
+
+  // Yan Yüzler İçin Tek Renk Malzeme
+  const sideMaterial = new THREE.MeshBasicMaterial({ color: 0x5f6070 });
+
+  // Tüm Yüzlerin Malzemelerini Sırasıyla Tanımlayın
+  const tabelaMaterials = [
+    sideMaterial,  // Sol yüz
+    sideMaterial,  // Sağ yüz
+    sideMaterial,  // Ön yüz (logo)
+    sideMaterial,  // Arka yüz (logo)
+    logoMaterial,  // Üst yüz (logo)
+    logoMaterial   // Alt yüz (logo)
+  ];
+
+  // Tabela Mesh Oluşturma
+  const tabelaMesh = new THREE.Mesh(tabelaGeometry, tabelaMaterials);
+  tabelaMesh.position.set(-6, totemDirekYukseklik, 0); // Tabelanın üst konumu
+
+  // Grubu döndürme
+  const totemGroup = new THREE.Group();
+  totemGroup.add(totemDirekMesh);
+  totemGroup.add(tabelaMesh);
+  return totemGroup;
+}
+//#endregion
+
+//#region Cephe Kaplama
+
+export function CepheKaplamaSağSol(B, H, A) {
+  const kaplamaYukseklik = H+MYÜKS;
+
+  // Texture tekrar değerlerini B ve H'ye göre ayarlayalım
+  const kaplamaTexture1 = createKaplamaTexture();
+  const kaplamaTexture2 = createKaplamaTexture(A * 2, 1);
+  const kaplamaTexture3 = createKaplamaTexture();
+  const kaplamaTexture4 = createKaplamaTexture(A * 2, 1);
+
+  // Kaplama Geometrisi: Uzunluk B, Yükseklik H
+  const kaplamaGeometry = new THREE.PlaneGeometry(B+ArkaKaplamaSınır+0.1, kaplamaYukseklik+MK_EN+0.15);
+
+  // Kaplama Malzemesi
+  const kaplamaMaterial = new THREE.MeshBasicMaterial({
+      map: kaplamaTexture1,
+      side: THREE.DoubleSide,
+      transparent: true,
+      opacity: 0.5
+  });
+
+  // Kaplama Mesh'i oluşturuluyor
+  const kaplamaMesh1 = new THREE.Mesh(kaplamaGeometry, kaplamaMaterial);
+
+  // Pozisyon ve rotasyon ayarı
+  kaplamaMesh1.position.set(-KOLONEBAT/2- 0.05, kaplamaYukseklik / 2, -B / 2);
+  kaplamaMesh1.rotation.y = Math.PI / 2;
+  kaplamaTexture1.repeat.set( B,1);
+
+
+
+  // İkinci Kaplama (mesh2)
+  const kaplamaMesh2 = kaplamaMesh1.clone();
+  const mirrorMatrix = new THREE.Matrix4().makeScale(-1, 1, 1);
+  mirrorMatrix.setPosition(new THREE.Vector3(A, 0, 0));
+  kaplamaMesh2.applyMatrix4(mirrorMatrix);
+
+// Arka Kaplama Geometrisi: Uzunluk A, Yükseklik H
+const arkaKaplamaGeometry = new THREE.PlaneGeometry((A+(KOLONEBAT)+0.1), kaplamaYukseklik+MK_EN);
+const arkaKaplamaMaterial = new THREE.MeshBasicMaterial({
+    map: kaplamaTexture2,
+    side: THREE.DoubleSide,
+    transparent: true,
+    opacity: 0.5
+});
+kaplamaTexture2.repeat.set(YATAYHOLGENİŞLİĞİ*2,1);
+const arkaKaplamaMesh = new THREE.Mesh(arkaKaplamaGeometry, arkaKaplamaMaterial);
+arkaKaplamaMesh.position.set(A / 2, kaplamaYukseklik / 2, -B - ArkaKaplamaSınır / 2 - 0.05);
+console.log("ArkaKaplamaSınır ",ArkaKaplamaSınır )
+
+// Üçgen Kaplama Malzemesi
+const triangleMaterial = new THREE.MeshBasicMaterial({
+  map: kaplamaTexture3,
+  side: THREE.DoubleSide,
+  transparent: true,
+  opacity: 0.5,
+});
+
+// Üçgen şeklin geometrisini oluşturma
+const shape = new THREE.Shape();
+shape.moveTo(0, 0);
+shape.lineTo(YATAYHOLGENİŞLİĞİ / 2, BinaYükseklik - H - MYÜKS);
+shape.lineTo(YATAYHOLGENİŞLİĞİ, 0);
+shape.lineTo(0, 0);
+const triangleGeometry = new THREE.ShapeGeometry(shape);
+kaplamaTexture3.repeat.set(YATAYHOLGENİŞLİĞİ,1);
+
+
+// UV koordinatlarını ayarlama
+triangleGeometry.attributes.uv.array[0] = 0; // (0,0) noktasının u değeri
+triangleGeometry.attributes.uv.array[1] = 0; // (0,0) noktasının v değeri
+
+triangleGeometry.attributes.uv.array[2] = 0.5; // (YATAYHOLGENİŞLİĞİ / 2, BinaYükseklik - H - MYÜKS) u değeri
+triangleGeometry.attributes.uv.array[3] = 1;   // (YATAYHOLGENİŞLİĞİ / 2, BinaYükseklik - H - MYÜKS) v değeri
+
+triangleGeometry.attributes.uv.array[4] = 1;   // (YATAYHOLGENİŞLİĞİ, 0) u değeri
+triangleGeometry.attributes.uv.array[5] = 0;   // (YATAYHOLGENİŞLİĞİ, 0) v değeri
+
+// Üçgen Mesh oluşturma
+const triangleMesh = new THREE.Mesh(triangleGeometry, triangleMaterial);
+triangleMesh.position.set(0, H + MYÜKS+MK_EN/2, -B - KOLONEBAT  - 0.1);
+
+// Aynalanmış Üçgen Mesh
+const triangleMeshMirror = triangleMesh.clone();
+const mirrorMatrix2 = new THREE.Matrix4().makeScale(-1, 1, 1); // x ekseninde aynalama
+mirrorMatrix2.setPosition(new THREE.Vector3(YATAYHOLGENİŞLİĞİ, 0, 0)); // Aynalama konumu ayarı
+triangleMeshMirror.applyMatrix4(mirrorMatrix);
+
+
+  // Kaplama grubu
+  const kaplamaGroup = new THREE.Group();
+/* bu doğrusu eskisi  kaplamaGroup.add(kaplamaMesh1, kaplamaMesh2, arkaKaplamaMesh, triangleMesh); */
+  kaplamaGroup.add(kaplamaMesh1,kaplamaMesh2, arkaKaplamaMesh, triangleMesh, triangleMeshMirror);
+
+  return kaplamaGroup;
+}
+
+
+//#endregion
+
+//#region Çatı Kaplama
+export function SolÇatıKaplama(H, B) {
+  // Dört köşe noktasının koordinatları
+  const vertices = [
+    new THREE.Vector3(-KOLONEBAT, H + MYÜKS+MK_EN, 0),                                         // 1. nokta
+    new THREE.Vector3(YATAYHOLGENİŞLİĞİ / 2, BinaYükseklik+MK_EN, 0),                 // 2. nokta
+    new THREE.Vector3(YATAYHOLGENİŞLİĞİ / 2, BinaYükseklik+MK_EN, -B - KOLONEBAT / 2), // 3. nokta
+    new THREE.Vector3(-KOLONEBAT, H + MYÜKS+MK_EN, -B - KOLONEBAT / 2)                         // 4. nokta
+  ];
+
+  // Geometri oluşturuluyor ve köşeler ekleniyor
+  const geometry = new THREE.BufferGeometry().setFromPoints(vertices);
+
+  // Geometriye yüzey tanımlanıyor
+  geometry.setIndex([0, 1, 2, 2, 3, 0]);
+  geometry.computeVertexNormals();
+
+  // UV koordinatları 90° döndürülmüş olarak tanımlanıyor
+  const uvs = [
+    1, 1,  // 1. nokta için UV koordinatı
+    1, 0,  // 2. nokta için UV koordinatı
+    0, 0,  // 3. nokta için UV koordinatı
+    0, 1   // 4. nokta için UV koordinatı
+  ];
+  geometry.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
+
+  // Texture oluşturma ve malzeme ayarı
+  const kaplamaTexture2 = createKaplamaTexture2(B, 1); // Texture tekrar değerlerini `B` ve `1` olarak ayarlayın
+  const kaplamaMaterial = new THREE.MeshBasicMaterial({
+    map: kaplamaTexture2,
+    side: THREE.DoubleSide,
+    transparent: true,       // Transparan özelliğini etkinleştirin
+    opacity: 0.5            // Opaklık değerini ayarlayın (0.5 örneği yarı saydamlık verir)
+
+  });
+
+  // Mesh oluşturuluyor
+  const solCatiKaplamaMesh = new THREE.Mesh(geometry, kaplamaMaterial);
+  kaplamaTexture2.repeat.set(B,1);
+
+  // `SolÇatıKaplamacons` adında grup oluşturup mesh'i ekleyin
+  const SolÇatıKaplamacons = new THREE.Group();
+  SolÇatıKaplamacons.add(solCatiKaplamaMesh);
+
+  // Grubu döndür
+  return SolÇatıKaplamacons;
+
+
+
+  // Sonucu döndür
+  return solCatiKaplama;
+}
+
+
+//#endregion
+
+//#region Vinç Kirişi
+// Vinç Kirişi Fonksiyonu
+
+
+
+export function VinçKirişi(H, B) {
+  const VinçKirişGenişliği = YATAYHOLGENİŞLİĞİ - KOLONEBAT;
+  const VinçKirişYükseklik = 0.7;
+  const VinçKirişKalınlık = 0.3;
+  const kirisRenk = 0xffff00; // Sarı renk (Hexadecimal)
+  const VinçKirişYüksektenİniş = 0.75;
+  const vinçöndenmesafe = -2;
+  const ikivinçkediarası= 1;
+
+
+  // Tüm kirişleri içerecek ana grubu oluşturun
+  const kirisGroup = new THREE.Group();
+
+  // Vinç kirişi için temel 3D kutu geometrisi ve malzeme oluşturma
+  const kirisGeometry = new THREE.BoxGeometry(VinçKirişGenişliği, VinçKirişYükseklik, VinçKirişKalınlık);
+  const kirisMaterial = new THREE.MeshStandardMaterial({ color: kirisRenk });
+  const wireframeMaterial = new THREE.LineBasicMaterial({ color: 0x000000 }); // Siyah renk
+
+  // Vinç kirişlerini oluşturma ve gruba ekleme
+  for (let i = 0; i < YATAYHOLSAYISI; i++) {
+      for (let j = 0; j < 2; j++) {
+          const kirisMesh = new THREE.Mesh(kirisGeometry, kirisMaterial);
+          kirisMesh.position.set(
+              YATAYHOLGENİŞLİĞİ / 2 + i * YATAYHOLGENİŞLİĞİ,
+              H - VinçKirişYüksektenİniş,
+              vinçöndenmesafe + j * ikivinçkediarası
+          );
+
+          const wireframe = new THREE.LineSegments(
+              new THREE.WireframeGeometry(kirisGeometry),
+              wireframeMaterial
+          );
+          kirisMesh.add(wireframe);
+          kirisGroup.add(kirisMesh);
+      }
+  }
+
+  // Vinç kancaları
+  for (let i = 0; i < YATAYHOLSAYISI; i++) {
+      const kanca = VincKancasi();
+      kanca.scale.set(0.3, 0.3, 0.7);
+      kanca.position.set(
+          YATAYHOLGENİŞLİĞİ / 2 + i * YATAYHOLGENİŞLİĞİ,
+          H - VinçKirişYüksektenİniş -kancatoplamyükseklik/2,
+          vinçöndenmesafe+ikivinçkediarası/2
+      );
+      kirisGroup.add(kanca);
+  }
+
+  // Yazı ekleme
+  const canvas = document.createElement('canvas');
+  canvas.width = 700;
+  /*const ölçekFaktörü = 100;  */   // 1 birimi 100 piksele ölçekleyelim
+  canvas.height = 300
+  const context = canvas.getContext('2d');
+  context.fillStyle = 'black';
+
+  const ölçekFaktörü2 = 150; // 1 birimi 100 piksele ölçekleyelim
+  const textHeight = VinçKirişYükseklik * ölçekFaktörü2; // Yazı yüksekliği, VinçKirişYükseklik'in ölçeklenmiş hali
+  context.font = `${textHeight}px Arial`;
+    
+// Yazının genişliğini alarak yatayda ortalama
+const text = 'C   R   A   N   E';
+const textWidth = context.measureText(text).width;
+const x = (canvas.width - textWidth) / 2;
+
+// Dikeyde ortalamak için `textBaseline` ve `y` koordinatını ayarlama
+context.textBaseline = 'middle';
+const y = canvas.height / 2;
+
+// Metni belirtilen x ve y konumunda çizme (tam ortalanmış)
+context.fillText(text, x, y);
+  const texture = new THREE.CanvasTexture(canvas);
+  const textMaterial = new THREE.MeshBasicMaterial({ map: texture, transparent: true });
+
+  for (let i = 0; i < YATAYHOLSAYISI; i++) {
+      const textPlane = new THREE.Mesh(new THREE.PlaneGeometry(5, 2.5), textMaterial);
+      textPlane.position.set(
+          YATAYHOLGENİŞLİĞİ / 2 + i * YATAYHOLGENİŞLİĞİ,
+          H - VinçKirişYüksektenİniş ,
+          vinçöndenmesafe + 1.5
+      );
+      kirisGroup.add(textPlane);
+  }
+
+  // Vinç yolu eklemek için gerekli parametreler
+  const box_en = 0.3;
+  const box_yükseklik = 0.40;
+
+  // birvinçyolukiriş nesnesi için grup oluştur
+  const birholvinçyolu = new THREE.Group();
+
+  // birvinçyolukiriş nesnesi oluştur ve gruba ekle
+  const birvinçyolukirişGeometry = new THREE.BoxGeometry(box_en, box_yükseklik, B);
+  const birvinçyolukirişMaterial = new THREE.MeshStandardMaterial({ color: 0x575758 });
+  const birvinçyolukiriş = new THREE.Mesh(birvinçyolukirişGeometry, birvinçyolukirişMaterial);
+  const wireframe = new THREE.LineSegments(
+      new THREE.WireframeGeometry(birvinçyolukirişGeometry),
+      wireframeMaterial
+  );
+  birvinçyolukiriş.add(wireframe);
+
+  // birvinçyolukiriş konum ayarı
+  birvinçyolukiriş.position.set(
+      (KOLONEBAT / 2) + 0.05 + (box_en / 2),
+      H - VinçKirişYüksektenİniş-(VinçKirişYükseklik/2)- (box_yükseklik / 2),
+      -B / 2
+  );
+  birholvinçyolu.add(birvinçyolukiriş);
+
+  // birholvinçyolu'nun aynasını oluşturma ve gruba ekleme
+  const mirrorVinçYolu = birvinçyolukiriş.clone();
+  mirrorVinçYolu.position.x = YATAYHOLGENİŞLİĞİ-(KOLONEBAT / 2) - 0.15 - (box_en / 2);
+  birholvinçyolu.add(mirrorVinçYolu);
+
+  // Vinç yollarını çoğaltmak için vinçyollarıtam grubunu oluşturma
+  const vinçyollarıtam = new THREE.Group();
+  for (let i = 0; i < YATAYHOLSAYISI; i++) {
+      const clonedVinçYolu = birholvinçyolu.clone();
+      clonedVinçYolu.position.x = i * YATAYHOLGENİŞLİĞİ;
+      vinçyollarıtam.add(clonedVinçYolu);
+  }
+
+  // Tüm vinç yollarını kirisGroup'a ekleyin
+  kirisGroup.add(vinçyollarıtam);
+  console.log("Vinç Kiriş Genişliği:", VinçKirişGenişliği);
+  console.log("VinçKirişYüksektenİniş", VinçKirişYüksektenİniş)
+  console.log("B:", B);
+  console.log("YATAYHOLSAYISI:", YATAYHOLSAYISI);
+  console.log("YATAYHOLGENİŞLİĞİ:", YATAYHOLGENİŞLİĞİ);
+  console.log("KOLONEBAT:", KOLONEBAT);
+  
+  // Grubu döndür
+  return kirisGroup;
+}
+
+export function VincKancasi() {
+  const kancaGroup = new THREE.Group();
+
+  // Kanca kısmı (bükülmüş halka şeklinde)
+  const kancaGeometry = new THREE.TorusGeometry(1, 0.15, 16, 100, Math.PI * 1.5); // Çeyrek halka
+  const kancaMaterial = new THREE.MeshStandardMaterial({ color: 0x808080, metalness: 0.6, roughness: 0.4 });
+  const kancaMesh = new THREE.Mesh(kancaGeometry, kancaMaterial);
+  kancaMesh.rotation.z = Math.PI / 2; // Yatay olarak döndürme
+  kancaGroup.add(kancaMesh);
+
+  // Bağlantı kısmı (silindir)
+  const baglantiGeometry = new THREE.CylinderGeometry(0.2, 0.2, 1, 32);
+  const baglantiMaterial = new THREE.MeshStandardMaterial({ color: 0x808080, metalness: 0.6, roughness: 0.4 });
+  const baglantiMesh = new THREE.Mesh(baglantiGeometry, baglantiMaterial);
+  baglantiMesh.position.y = 1; // Bağlantıyı yukarıda konumlandırma
+  kancaGroup.add(baglantiMesh);
+
+  // Üst bağlantı halkası
+  const halkaGeometry = new THREE.TorusGeometry(0.3, 0.1, 16, 100);
+  const halkaMesh = new THREE.Mesh(halkaGeometry, baglantiMaterial);
+  halkaMesh.position.y = 1.6; // Kancanın üstüne yerleştirme
+  halkaMesh.rotation.x = Math.PI / 2; // Yatay döndürme
+  kancaGroup.add(halkaMesh);
+
+  kancatoplamyükseklik = 1
+
+  return kancaGroup;
+}
+
+
+
+//#endregion

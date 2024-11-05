@@ -1,1 +1,112 @@
-const _0x294926=_0x21e7;(function(_0x5a29c9,_0x1c291a){const _0x26bf12=_0x21e7,_0x49bb23=_0x5a29c9();while(!![]){try{const _0x2bbc55=-parseInt(_0x26bf12(0x7a))/0x1*(parseInt(_0x26bf12(0x8a))/0x2)+parseInt(_0x26bf12(0x81))/0x3*(parseInt(_0x26bf12(0x74))/0x4)+-parseInt(_0x26bf12(0x86))/0x5*(parseInt(_0x26bf12(0x82))/0x6)+-parseInt(_0x26bf12(0x84))/0x7*(-parseInt(_0x26bf12(0x7c))/0x8)+-parseInt(_0x26bf12(0x85))/0x9+parseInt(_0x26bf12(0x75))/0xa+parseInt(_0x26bf12(0x73))/0xb*(parseInt(_0x26bf12(0x8b))/0xc);if(_0x2bbc55===_0x1c291a)break;else _0x49bb23['push'](_0x49bb23['shift']());}catch(_0x586454){_0x49bb23['push'](_0x49bb23['shift']());}}}(_0x5e84,0xcffb8));export let BrÇlkM2;export let ÇelikTonaj;export let BrmFytÇlk;export let MlytToplamÇlk;function _0x21e7(_0x464411,_0x56fc03){const _0x5e84b9=_0x5e84();return _0x21e7=function(_0x21e73e,_0x1056b9){_0x21e73e=_0x21e73e-0x71;let _0x54bb11=_0x5e84b9[_0x21e73e];return _0x54bb11;},_0x21e7(_0x464411,_0x56fc03);}export let MlytToplamÇlkTL;function _0x5e84(){const _0xb5b48e=['964784egKSDF','Güncel\x20Dolar\x20Kuru:','MlytToplamÇlk:','then','TRY','12KBcBzO','6NGXvOR','warn','14wFLVBn','9543618BcUorW','8319385ZXVBRv','rates','getElementById','value','2iwzQwO','692100rvdtAg','catch','https://api.exchangerate-api.com/v4/latest/USD','550gQNbpX','174396MUDKFp','10286600FOpwSn','Geçersiz\x20A,\x20B\x20veya\x20H\x20değeri:\x20','Dolar\x20kuru\x20alınırken\x20hata\x20oluştu:','log','json','751827zkGYYe','error'];_0x5e84=function(){return _0xb5b48e;};return _0x5e84();}export let dolarKuru;import{vinçcheckbox}from'./container.js';fetch(_0x294926(0x72))[_0x294926(0x7f)](_0x5a4c6b=>_0x5a4c6b[_0x294926(0x79)]())[_0x294926(0x7f)](_0xfb659d=>{const _0x23d904=_0x294926;dolarKuru=_0xfb659d[_0x23d904(0x87)][_0x23d904(0x80)],console[_0x23d904(0x78)](_0x23d904(0x7d),dolarKuru);})[_0x294926(0x71)](_0x3d80ac=>{const _0x42fb39=_0x294926;console[_0x42fb39(0x7b)](_0x42fb39(0x77),_0x3d80ac);});export function checkDolarKuruReady(_0x296fb9){dolarKuru?_0x296fb9():setTimeout(()=>checkDolarKuruReady(_0x296fb9),0x64);}export function ÇelikTonajı(_0x5c7da2,_0x416a64,_0xa2fb78){const _0x4bad49=_0x294926;_0x5c7da2=parseFloat(document[_0x4bad49(0x88)]('A')[_0x4bad49(0x89)]),_0x416a64=parseFloat(document[_0x4bad49(0x88)]('B')[_0x4bad49(0x89)]),_0xa2fb78=parseFloat(document[_0x4bad49(0x88)]('H')[_0x4bad49(0x89)]);if(isNaN(_0x5c7da2)||isNaN(_0x416a64)||isNaN(_0xa2fb78))return console[_0x4bad49(0x83)](_0x4bad49(0x76),{'A':_0x5c7da2,'B':_0x416a64,'H':_0xa2fb78}),{'ÇelikTonaj':NaN,'MlytToplamÇlk':NaN,'MlytToplamÇlkTL':NaN};if(vinçcheckbox&&vinçcheckbox['checked']){if(_0xa2fb78>=0x0&&_0xa2fb78<=0x6)BrÇlkM2=0x3c;else{if(_0xa2fb78>0x6&&_0xa2fb78<=0x8)BrÇlkM2=0x49;else{if(_0xa2fb78>0x8&&_0xa2fb78<=0xa)BrÇlkM2=0x50;else{if(_0xa2fb78>0xa&&_0xa2fb78<=0xc)BrÇlkM2=0x69;else{if(_0xa2fb78>0xc&&_0xa2fb78<=0x10)BrÇlkM2=0x73;else{if(_0xa2fb78>0x10&&_0xa2fb78<=0x17)BrÇlkM2=0x7e;else _0xa2fb78>0x17&&(BrÇlkM2=0x7d+(_0xa2fb78-0x17)*3.6);}}}}}}else{if(_0xa2fb78>=0x0&&_0xa2fb78<=0x6)BrÇlkM2=0x32;else{if(_0xa2fb78>0x6&&_0xa2fb78<=0x8)BrÇlkM2=0x3f;else{if(_0xa2fb78>0x8&&_0xa2fb78<=0xa)BrÇlkM2=0x46;else{if(_0xa2fb78>0xa&&_0xa2fb78<=0xc)BrÇlkM2=0x58;else{if(_0xa2fb78>0xc&&_0xa2fb78<=0x10)BrÇlkM2=0x5f;else{if(_0xa2fb78>0x10&&_0xa2fb78<=0x17)BrÇlkM2=0x69;else _0xa2fb78>0x17&&(BrÇlkM2=0x69+(_0xa2fb78-0x17)*0x3);}}}}}}return ÇelikTonaj=_0x5c7da2*_0x416a64*BrÇlkM2/0x3e8,BrmFytÇlk=0x7d0,MlytToplamÇlk=BrmFytÇlk*ÇelikTonaj,MlytToplamÇlkTL=dolarKuru*MlytToplamÇlk,console[_0x4bad49(0x78)]('ÇelikTonaj:',ÇelikTonaj),console[_0x4bad49(0x78)](_0x4bad49(0x7e),MlytToplamÇlk),{'ÇelikTonaj':ÇelikTonaj,'MlytToplamÇlk':MlytToplamÇlk,'MlytToplamÇlkTL':MlytToplamÇlkTL};}
+
+export let BrÇlkM2
+export let ÇelikTonaj
+export let BrmFytÇlk
+export let MlytToplamÇlk
+export let MlytToplamÇlkTL
+export let dolarKuru;
+
+// App.js den,
+ import {vinçcheckbox} from './container.js'
+
+
+
+// Dolar kurunu API'den al
+fetch('https://api.exchangerate-api.com/v4/latest/USD')
+    .then(response => response.json())
+    .then(data => {
+        dolarKuru = data.rates.TRY;
+        console.log('Güncel Dolar Kuru:', dolarKuru);
+    })
+    .catch(error => {
+        console.error('Dolar kuru alınırken hata oluştu:', error);
+    });
+
+export function checkDolarKuruReady(callback) {
+        if (dolarKuru) {
+            callback();
+        } else {
+            setTimeout(() => checkDolarKuruReady(callback), 100); // 100 ms sonra tekrar kontrol et
+        }
+      }
+      
+
+ export function ÇelikTonajı(A, B, H) {
+    A = parseFloat(document.getElementById('A').value);
+    B = parseFloat(document.getElementById('B').value);
+    H = parseFloat(document.getElementById('H').value);
+
+    if (isNaN(A) || isNaN(B) || isNaN(H)) {
+        console.warn("Geçersiz A, B veya H değeri: ", { A, B, H });
+        return { ÇelikTonaj: NaN, MlytToplamÇlk: NaN, MlytToplamÇlkTL: NaN };
+      }
+    
+
+        // Vinç seçiliyse BrÇlkM2'yi farklı bir hesaplama ile belirleyin
+        if (vinçcheckbox && vinçcheckbox.checked) {
+            // Vinç işaretliyken BrÇlkM2'ye farklı değerler verilebilir
+            if (H >= 0 && H <= 6) {
+                BrÇlkM2 = 60; // Örneğin, normalden %20 daha fazla olarak belirleyin
+            } else if (H > 6 && H <= 8) {
+                BrÇlkM2 = 73;
+            } else if (H > 8 && H <= 10) {
+                BrÇlkM2 = 80;
+            } else if (H > 10 && H <= 12) {
+                BrÇlkM2 = 105;
+            } else if (H > 12 && H <= 16) {
+                BrÇlkM2 = 115;
+            } else if (H > 16 && H <= 23) {
+                BrÇlkM2 = 126;
+            } else if (H > 23) {
+                BrÇlkM2 = 125 + ((H - 23) * 3.6); // Yüzde artırarak bir hesaplama
+            }
+        } else {
+            // Vinç işaretli değilken orijinal hesaplamalar
+            if (H >= 0 && H <= 6) {
+                BrÇlkM2 = 50;
+            } else if (H > 6 && H <= 8) {
+                BrÇlkM2 = 63;
+            } else if (H > 8 && H <= 10) {
+                BrÇlkM2 = 70;
+            } else if (H > 10 && H <= 12) {
+                BrÇlkM2 = 88;
+            } else if (H > 12 && H <= 16) {
+                BrÇlkM2 = 95;
+            } else if (H > 16 && H <= 23) {
+                BrÇlkM2 = 105;
+            } else if (H > 23) {
+                BrÇlkM2 = 105 + ((H - 23) * 3);
+            }
+        }
+/*    
+        
+        if (H >= 0 && H <= 6) {
+            BrÇlkM2 = 50;
+        } else if (H > 6 && H <= 8) {
+            BrÇlkM2 = 63;
+        } else if (H > 8 && H <= 10) {
+            BrÇlkM2 = 70;
+        } else if (H > 10 && H <= 12) {
+            BrÇlkM2 = 88;
+        } else if (H > 12 && H <= 16) {
+            BrÇlkM2 = 95;
+        } else if (H > 16 && H <= 23) {
+            BrÇlkM2 = 105;
+        } else if (H > 23) {
+            BrÇlkM2 = 105 + ((H - 23) * 3);
+        }*/
+             
+        ÇelikTonaj = (A*B*BrÇlkM2)/1000
+        BrmFytÇlk = 2000
+        MlytToplamÇlk =BrmFytÇlk * ÇelikTonaj
+        MlytToplamÇlkTL = dolarKuru* MlytToplamÇlk
+        console.log("ÇelikTonaj:", ÇelikTonaj);
+        console.log("MlytToplamÇlk:", MlytToplamÇlk);
+                
+        return { ÇelikTonaj, MlytToplamÇlk, MlytToplamÇlkTL};
+
+
+    }
+
+
+    

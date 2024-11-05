@@ -123,7 +123,18 @@ export function İLKFORM() {
 
 //#region Maliyet Ctr
 export function maliyetgösterfonk(A, B, H) {
+    // Önceden var olan maliyetContainer ve toggleIcon öğelerini kaldır
+    const existingContainer = document.getElementById('maliyetContainer');
+    const existingToggleIcon = document.getElementById('toggleIcon');
+    if (existingContainer) {
+        existingContainer.remove();
+    }
+    if (existingToggleIcon) {
+        existingToggleIcon.remove();
+    }
+
   checkDolarKuruReady(() => {
+    
       const { ÇelikTonaj, MlytToplamÇlk, MlytToplamÇlkTL } = ÇelikTonajı(A, B, H);
 
       // Formatlanmış maliyet ve tonaj değerleri
@@ -172,6 +183,7 @@ export function maliyetgösterfonk(A, B, H) {
 
       // İkon oluştur ve `maliyetContainer` dışında ekle
       const toggleIcon = document.createElement('div');
+      toggleIcon.id = 'toggleIcon'; // ID ekliyoruz
       toggleIcon.textContent = '▶'; // Katlanır simge olarak ok kullanıyoruz
       toggleIcon.style.cursor = 'pointer';
       toggleIcon.style.position = 'absolute';
