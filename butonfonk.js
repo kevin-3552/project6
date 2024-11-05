@@ -1,1 +1,247 @@
-(function(_0x36629b,_0x17688c){const _0xf91f96=_0x44f3,_0x4ae33e=_0x36629b();while(!![]){try{const _0x291f6e=parseInt(_0xf91f96(0x186))/0x1+parseInt(_0xf91f96(0x171))/0x2+parseInt(_0xf91f96(0x139))/0x3+-parseInt(_0xf91f96(0x18b))/0x4+-parseInt(_0xf91f96(0x141))/0x5+-parseInt(_0xf91f96(0x175))/0x6*(-parseInt(_0xf91f96(0x138))/0x7)+-parseInt(_0xf91f96(0x162))/0x8;if(_0x291f6e===_0x17688c)break;else _0x4ae33e['push'](_0x4ae33e['shift']());}catch(_0x345522){_0x4ae33e['push'](_0x4ae33e['shift']());}}}(_0x10f2,0x90076));export let vinçcheckbox;export let İlkkutu;export let hideButton;import'./app.js';import{ÇelikTonajı,dolarKuru,checkDolarKuruReady}from'./maliyet.js';export function İLKFORM(){const _0x54d322=_0x44f3;İlkkutu=document[_0x54d322(0x17a)](_0x54d322(0x13e)),İlkkutu['id']=_0x54d322(0x16a),İlkkutu[_0x54d322(0x146)]['position']=_0x54d322(0x164),İlkkutu[_0x54d322(0x146)][_0x54d322(0x170)]=_0x54d322(0x176),İlkkutu['style']['left']='10px',İlkkutu[_0x54d322(0x146)][_0x54d322(0x16f)]='10',İlkkutu[_0x54d322(0x146)][_0x54d322(0x13f)]=_0x54d322(0x17d),İlkkutu[_0x54d322(0x146)][_0x54d322(0x15b)]=_0x54d322(0x185),İlkkutu[_0x54d322(0x146)][_0x54d322(0x14b)]=_0x54d322(0x132),İlkkutu[_0x54d322(0x146)][_0x54d322(0x16c)]=_0x54d322(0x15a),İlkkutu['style'][_0x54d322(0x18c)]=_0x54d322(0x173);const _0x1ca78b=document[_0x54d322(0x17a)](_0x54d322(0x18d));_0x1ca78b[_0x54d322(0x146)]['width']=_0x54d322(0x169);function _0x1633c3(_0x2b5b40,_0x154d49,_0xc5c7c2){const _0x209445=_0x54d322,_0x3fb720=document['createElement']('tr'),_0x271ba2=document[_0x209445(0x17a)]('td');_0x271ba2[_0x209445(0x146)]['padding']=_0x209445(0x185),_0x271ba2['style'][_0x209445(0x12e)]=_0x209445(0x150),_0x271ba2['textContent']=_0x2b5b40;const _0x26c40f=document[_0x209445(0x17a)]('td');_0x26c40f[_0x209445(0x146)]['padding']=_0x209445(0x13a);const _0x3b5e2b=document[_0x209445(0x17a)](_0x209445(0x181));return _0x3b5e2b[_0x209445(0x163)]=_0x209445(0x174),_0x3b5e2b['id']=_0x154d49,_0x3b5e2b[_0x209445(0x140)]=_0xc5c7c2,_0x3b5e2b[_0x209445(0x146)]['width']=_0x209445(0x169),_0x3b5e2b[_0x209445(0x146)][_0x209445(0x15b)]=_0x209445(0x185),_0x3b5e2b[_0x209445(0x146)][_0x209445(0x16c)]='4px',_0x3b5e2b[_0x209445(0x146)][_0x209445(0x14b)]=_0x209445(0x17f),_0x26c40f['appendChild'](_0x3b5e2b),_0x3fb720[_0x209445(0x131)](_0x271ba2),_0x3fb720['appendChild'](_0x26c40f),_0x3fb720;}_0x1ca78b[_0x54d322(0x131)](_0x1633c3(_0x54d322(0x17c),'A','60')),_0x1ca78b[_0x54d322(0x131)](_0x1633c3('Boy\x20(B):','B','50')),_0x1ca78b[_0x54d322(0x131)](_0x1633c3(_0x54d322(0x153),'H','6')),_0x1ca78b[_0x54d322(0x131)](_0x1633c3(_0x54d322(0x16e),'K','6')),İlkkutu[_0x54d322(0x131)](_0x1ca78b);const _0x3d80dd=document[_0x54d322(0x17a)]('div');_0x3d80dd[_0x54d322(0x146)]['display']=_0x54d322(0x143),_0x3d80dd[_0x54d322(0x146)]['alignItems']=_0x54d322(0x158),_0x3d80dd['style'][_0x54d322(0x134)]=_0x54d322(0x176),vinçcheckbox=document['createElement'](_0x54d322(0x181)),vinçcheckbox[_0x54d322(0x163)]=_0x54d322(0x12d),vinçcheckbox['id']=_0x54d322(0x142),vinçcheckbox[_0x54d322(0x17e)]=!![],vinçcheckbox['style'][_0x54d322(0x177)]=_0x54d322(0x185),vinçcheckbox[_0x54d322(0x146)][_0x54d322(0x145)]=_0x54d322(0x147);const _0x493915=document[_0x54d322(0x17a)](_0x54d322(0x14c));_0x493915[_0x54d322(0x18a)]=_0x54d322(0x148),_0x493915[_0x54d322(0x146)][_0x54d322(0x168)]=_0x54d322(0x166),_0x493915['style'][_0x54d322(0x145)]=_0x54d322(0x135),_0x493915['htmlFor']='craneCheckbox',_0x3d80dd['appendChild'](vinçcheckbox),_0x3d80dd[_0x54d322(0x131)](_0x493915),İlkkutu[_0x54d322(0x131)](_0x3d80dd);const _0x527b2e=document[_0x54d322(0x17a)](_0x54d322(0x179));_0x527b2e['id']=_0x54d322(0x180),_0x527b2e['textContent']='3D\x20BİNA\x20MODELLE',_0x527b2e[_0x54d322(0x146)][_0x54d322(0x134)]=_0x54d322(0x14a),_0x527b2e[_0x54d322(0x146)][_0x54d322(0x18c)]=_0x54d322(0x169),_0x527b2e['style'][_0x54d322(0x15b)]=_0x54d322(0x14a),_0x527b2e[_0x54d322(0x146)][_0x54d322(0x13f)]=_0x54d322(0x182),_0x527b2e[_0x54d322(0x146)][_0x54d322(0x15e)]=_0x54d322(0x17b),_0x527b2e[_0x54d322(0x146)][_0x54d322(0x14b)]=_0x54d322(0x130),_0x527b2e[_0x54d322(0x146)]['borderRadius']=_0x54d322(0x183),_0x527b2e[_0x54d322(0x146)][_0x54d322(0x159)]='pointer',İlkkutu['appendChild'](_0x527b2e),document['body'][_0x54d322(0x131)](İlkkutu),hideButton=document[_0x54d322(0x17a)]('img'),hideButton['src']=_0x54d322(0x184),hideButton['alt']=_0x54d322(0x13d),hideButton[_0x54d322(0x146)][_0x54d322(0x149)]=_0x54d322(0x164),hideButton[_0x54d322(0x146)][_0x54d322(0x170)]=_0x54d322(0x185),hideButton[_0x54d322(0x146)][_0x54d322(0x16b)]=_0x54d322(0x144),hideButton['style'][_0x54d322(0x18c)]=_0x54d322(0x15c),hideButton['style'][_0x54d322(0x187)]=_0x54d322(0x15c),hideButton[_0x54d322(0x146)][_0x54d322(0x159)]=_0x54d322(0x137),hideButton[_0x54d322(0x146)][_0x54d322(0x16f)]='15',document[_0x54d322(0x14d)][_0x54d322(0x131)](hideButton);}function _0x10f2(){const _0x3d9a9a=['marginTop','1px','maliyetContainer','pointer','4001753MBfCjr','3501777vToTqj','6px','remove','\x20$\x20(1\x20$\x20=\x20','Show/Hide\x20Form','div','backgroundColor','value','3236780oVBacs','craneCheckbox','flex','220px','marginBottom','style','2px','Vinç\x20Yolu','position','10px','border','label','body','\x20ton','tr-TR','right','toFixed','gizle\x20sağ','Yükseklik\x20(H):','height\x200.3s\x20ease,\x20opacity\x200.3s\x20ease','hidden','Metal\x20Yapı:\x20','NumberFormat','center','cursor','8px','padding','24px','log','color','appContainer','toggleIcon','getElementById','11254456VDneXZ','type','absolute','Maliyet:\x20','12px','250px','fontSize','100%','formContainer','left','borderRadius','format','Aks\x20Arası:','zIndex','top','2070246vvkQeO','overflow','200px','number','6eyGlLl','3px','marginRight','addEventListener','button','createElement','white','En\x20(A):','rgba(240,\x20240,\x20240,\x200.9)','checked','1px\x20solid\x20#ccc','createCube','input','#007BFF','4px','textures/hide.png','5px','206433roCPtK','height','auto','yellow','textContent','1345556xNiSDD','width','table','checkbox','textAlign','opacity','none','appendChild','1px\x20solid\x20#000','32px'];_0x10f2=function(){return _0x3d9a9a;};return _0x10f2();}function _0x44f3(_0x301d75,_0x48a96a){const _0x10f244=_0x10f2();return _0x44f3=function(_0x44f3b8,_0x57ed6b){_0x44f3b8=_0x44f3b8-0x12d;let _0x382b7e=_0x10f244[_0x44f3b8];return _0x382b7e;},_0x44f3(_0x301d75,_0x48a96a);}export function maliyetgösterfonk(_0x464afe,_0x2f0c6f,_0x283e0d){const _0x550b17=_0x44f3,_0x3156fb=document['getElementById'](_0x550b17(0x136)),_0x502f16=document[_0x550b17(0x161)](_0x550b17(0x160));_0x3156fb&&_0x3156fb[_0x550b17(0x13b)](),_0x502f16&&_0x502f16[_0x550b17(0x13b)](),checkDolarKuruReady(()=>{const _0x3c9e4b=_0x550b17,{ÇelikTonaj:_0x42e448,MlytToplamÇlk:_0x1fad2d,MlytToplamÇlkTL:_0x58eab7}=ÇelikTonajı(_0x464afe,_0x2f0c6f,_0x283e0d),_0x4de1fb=new Intl[(_0x3c9e4b(0x157))](_0x3c9e4b(0x14f),{'minimumFractionDigits':0x0})[_0x3c9e4b(0x16d)](_0x42e448),_0x3c9bc0=new Intl[(_0x3c9e4b(0x157))](_0x3c9e4b(0x14f))[_0x3c9e4b(0x16d)](_0x1fad2d),_0x2d6571=new Intl[(_0x3c9e4b(0x157))](_0x3c9e4b(0x14f))['format'](_0x58eab7),_0x57c7ac=dolarKuru[_0x3c9e4b(0x151)](0x2),_0x18da5d=document[_0x3c9e4b(0x17a)](_0x3c9e4b(0x13e));_0x18da5d['id']=_0x3c9e4b(0x136),_0x18da5d['style'][_0x3c9e4b(0x149)]=_0x3c9e4b(0x164),_0x18da5d[_0x3c9e4b(0x146)][_0x3c9e4b(0x150)]=_0x3c9e4b(0x14a),_0x18da5d[_0x3c9e4b(0x146)]['bottom']='10px',_0x18da5d[_0x3c9e4b(0x146)][_0x3c9e4b(0x16f)]='10',_0x18da5d['style'][_0x3c9e4b(0x13f)]=_0x3c9e4b(0x17d),_0x18da5d[_0x3c9e4b(0x146)][_0x3c9e4b(0x15b)]=_0x3c9e4b(0x14a),_0x18da5d[_0x3c9e4b(0x146)][_0x3c9e4b(0x14b)]=_0x3c9e4b(0x132),_0x18da5d['style'][_0x3c9e4b(0x16c)]='8px';const _0x3f6002=_0x3c9e4b(0x144);_0x18da5d['style'][_0x3c9e4b(0x18c)]=_0x3f6002,_0x18da5d[_0x3c9e4b(0x146)]['transition']=_0x3c9e4b(0x154),_0x18da5d['style'][_0x3c9e4b(0x172)]=_0x3c9e4b(0x155);const _0x27c09b=document[_0x3c9e4b(0x17a)](_0x3c9e4b(0x13e)),_0x44e09d=document[_0x3c9e4b(0x17a)](_0x3c9e4b(0x13e));_0x44e09d[_0x3c9e4b(0x146)][_0x3c9e4b(0x145)]=_0x3c9e4b(0x14a),_0x44e09d[_0x3c9e4b(0x18a)]=_0x3c9e4b(0x156)+_0x4de1fb+_0x3c9e4b(0x14e),_0x27c09b[_0x3c9e4b(0x131)](_0x44e09d);const _0x3dab12=document[_0x3c9e4b(0x17a)](_0x3c9e4b(0x13e));_0x3dab12[_0x3c9e4b(0x146)]['marginBottom']='5px',_0x3dab12[_0x3c9e4b(0x18a)]=_0x3c9e4b(0x165)+_0x2d6571+'\x20₺',_0x27c09b[_0x3c9e4b(0x131)](_0x3dab12);const _0x268006=document['createElement'](_0x3c9e4b(0x13e));_0x268006[_0x3c9e4b(0x18a)]=_0x3c9bc0+_0x3c9e4b(0x13c)+_0x57c7ac+'\x20₺)',_0x27c09b[_0x3c9e4b(0x131)](_0x268006),_0x18da5d['appendChild'](_0x27c09b);const _0x3efbec=document['createElement'](_0x3c9e4b(0x13e));_0x3efbec['id']=_0x3c9e4b(0x160),_0x3efbec[_0x3c9e4b(0x18a)]='▶',_0x3efbec[_0x3c9e4b(0x146)][_0x3c9e4b(0x159)]=_0x3c9e4b(0x137),_0x3efbec[_0x3c9e4b(0x146)][_0x3c9e4b(0x149)]=_0x3c9e4b(0x164),_0x3efbec[_0x3c9e4b(0x146)]['color']=_0x3c9e4b(0x189),_0x3efbec[_0x3c9e4b(0x146)]['bottom']=_0x3c9e4b(0x133);const _0x2db405=_0x3c9e4b(0x167);_0x3efbec[_0x3c9e4b(0x146)][_0x3c9e4b(0x150)]=_0x2db405,console[_0x3c9e4b(0x15d)](_0x3c9e4b(0x152),_0x3efbec[_0x3c9e4b(0x146)][_0x3c9e4b(0x150)]),_0x3efbec[_0x3c9e4b(0x146)]['fontSize']='20px',_0x3efbec['style'][_0x3c9e4b(0x16f)]='20',document[_0x3c9e4b(0x14d)][_0x3c9e4b(0x131)](_0x3efbec);let _0x37aea6=![];_0x3efbec[_0x3c9e4b(0x178)]('click',()=>{const _0xe9d344=_0x3c9e4b;_0x37aea6=!_0x37aea6,_0x37aea6?(_0x18da5d[_0xe9d344(0x146)]['height']='0px',_0x18da5d[_0xe9d344(0x146)][_0xe9d344(0x12f)]='0',_0x3efbec['style'][_0xe9d344(0x12f)]='0.8',_0x3efbec[_0xe9d344(0x18a)]='◀'):(_0x18da5d['style']['height']=_0xe9d344(0x188),_0x18da5d[_0xe9d344(0x146)][_0xe9d344(0x12f)]='1',_0x3efbec[_0xe9d344(0x18a)]='▶');});if(!document['getElementById']('appContainer'))document[_0x3c9e4b(0x14d)][_0x3c9e4b(0x131)](_0x18da5d);else{const _0x696103=document[_0x3c9e4b(0x161)](_0x3c9e4b(0x15f));_0x696103['innerHTML']='',_0x696103[_0x3c9e4b(0x131)](_0x18da5d);}});}
+
+//#region Değişkenler
+export let kolonGrubu;
+export let soldiyagonelGrup 
+export let sağdiyagonelGrup
+export let zeminesascons; 
+export let makasçoğal
+export let yankirişcons
+export let makasiçibracingTamCons
+export let ÇaprazYanCons
+export let ÇatıÇAprazCons 
+export let totemcons
+export let CepheKaplamaCons
+export let SolÇatıKaplamacons
+export let vinçkirişicons
+
+//#endregion
+
+//#region IMPORT'lar
+// App.js den ve container.js den 
+import { scene, camera, renderer, controls, } from './app.js'
+import { vinçcheckbox, maliyetgösterfonk } from './container.js'
+
+
+
+// Nesneler
+import { YATAYKOLONGRUBU, SOLDİYAGONELGRUBU, SAĞDİYAGONELGRUBU, MakasGrupÇoğalt, YanKiriş_1, MakasİçiAltTamBracing, 
+    Bracing_MakasİçiTam, ÇaprazYanKomple, ÇatıÇapraz1MakasGrup, ÇatıÇaprazTam, Totem1,CepheKaplamaSağSol, SolÇatıKaplama,
+MK_UZUNLUK, ZEMİNESAS, VinçKirişi, VincKancasi, loadedFont} from './nesneler.js';  // 
+  
+// Hesaplar
+import { DİKMEHESAPLA, hesaplaDüşeyAks, hesaplaYatayKolon, ÇATIEĞİMHETKİSİHESAP, MAKASBOYUHESAP, 
+ZEMİNESASEBATHESAP, YanBağKirişHesap , ÇaprazYanHesap, KaplamaSınırHesap, ArkaKaplamaSınır } from './hesapla.js'; 
+  
+// Hesapla Const
+import { MKAÇI, YanKirişArası, YanBağKirişAdet, YATAYHOLGENİŞLİĞİ, DÜŞEYHOLSAYISI, DÜŞEYHOLGENİŞLİĞİ ,
+MAKAS_YÜKSEKL_HESAPLA, ÇaprazYükseklik} from './hesapla.js';
+  
+// Geometriler
+import { YatayÇaprazÇap, KOLONEBAT, KOLON_BOX1 , MK_EN, YATAY_MK_GEO_1 } from './geometriler.js';  // 
+  
+  
+//#region Maliyetler Import
+import { ÇelikTonajı , ÇelikTonaj,  MlytToplamÇlk, MlytToplamÇlkTL, dolarKuru, checkDolarKuruReady} from './maliyet.js';  // 
+
+//#endregion 
+//#endregion 
+
+//#region 3D Buton Fonksyion
+export function üçdbutonabas (A, B, K,H) {
+      //#region Buton iç Fonksiyon detaylar
+          if (kolonGrubu) {scene.remove(kolonGrubu);}
+          if (soldiyagonelGrup) {scene.remove(soldiyagonelGrup);}
+          if (sağdiyagonelGrup) {scene.remove(sağdiyagonelGrup);}
+          if (zeminesascons) { scene.remove(zeminesascons); }
+          if (makasçoğal) { scene.remove(makasçoğal);}
+          if (yankirişcons) { scene.remove(yankirişcons);}
+          if (makasiçibracingTamCons) { scene.remove(makasiçibracingTamCons);}
+          if (ÇaprazYanCons) { scene.remove(ÇaprazYanCons);}
+          if (ÇatıÇAprazCons) { scene.remove(ÇatıÇAprazCons);}
+          if (totemcons) { scene.remove(totemcons);}
+          if (CepheKaplamaCons) { scene.remove(CepheKaplamaCons);}
+          if (SolÇatıKaplamacons) { scene.remove(SolÇatıKaplamacons);}
+          if (vinçkirişicons) { scene.remove(vinçkirişicons);}
+                  
+          A = parseFloat(document.getElementById('A').value);  
+          B = parseFloat(document.getElementById('B').value);   
+          H = parseFloat(document.getElementById('H').value);  
+          K = parseFloat(document.getElementById('K').value); 
+      
+          hesaplaDüşeyAks(B, K); 
+          hesaplaYatayKolon(A); 
+          MAKAS_YÜKSEKL_HESAPLA(YATAYHOLGENİŞLİĞİ, H)
+          ÇATIEĞİMHETKİSİHESAP(H, YATAYHOLGENİŞLİĞİ, MKAÇI);
+          MAKASBOYUHESAP()
+          ZEMİNESASEBATHESAP(A, B)
+          DİKMEHESAPLA(H)
+          YanBağKirişHesap(H)
+          ÇaprazYanHesap() 
+          YATAY_MK_GEO_1(YATAYHOLGENİŞLİĞİ, MK_UZUNLUK)
+          KaplamaSınırHesap ()
+      
+      
+          maliyetgösterfonk(A, B, H)
+       
+          kolonGrubu = YATAYKOLONGRUBU(H);  // Kolon grubu oluşturuluyor
+          soldiyagonelGrup = SOLDİYAGONELGRUBU(H);
+          sağdiyagonelGrup = SAĞDİYAGONELGRUBU(H);
+          makasçoğal = MakasGrupÇoğalt(H);
+          zeminesascons =ZEMİNESAS(A, B);
+          yankirişcons = YanKiriş_1(H, A);
+          makasiçibracingTamCons =  Bracing_MakasİçiTam(H)
+          ÇaprazYanCons = ÇaprazYanKomple(H)
+          ÇatıÇAprazCons = ÇatıÇaprazTam(H)
+          totemcons= Totem1(H)
+          CepheKaplamaCons = CepheKaplamaSağSol(B, H, A)
+          SolÇatıKaplamacons = SolÇatıKaplama(H, B,)
+          vinçkirişicons = VinçKirişi(H, B);
+          
+          scene.add(kolonGrubu);  
+          scene.add(soldiyagonelGrup); 
+          scene.add(sağdiyagonelGrup); 
+          scene.add(zeminesascons);  
+          scene.add(zeminesascons);
+          scene.add(makasçoğal);
+          scene.add(yankirişcons);
+          scene.add(makasiçibracingTamCons);
+          scene.add(ÇaprazYanCons);
+          scene.add(ÇatıÇAprazCons);
+          scene.add(totemcons)
+          scene.add(CepheKaplamaCons)
+          scene.add(SolÇatıKaplamacons)
+          scene.add(vinçkirişicons)
+      
+      //#endregion buton iç fonksiyon detay bitiş
+      
+      // Kamera pozisyonu
+        camera.position.set(-60, 35, 55);
+      // `controls` ile odak noktası belirleme
+      controls.target.set(A/3, H/3, -B/3);
+      
+
+        };
+//#endregion
+
+//#region Vinç kirişini sahneye ekleme/çıkarma fonksiyonu
+export function vinçkirişkaldir() {
+    vinçcheckbox.addEventListener('change', () => {
+      if (vinçcheckbox.checked) {
+        scene.add(vinçkirişicons);
+        maliyetgösterfonk(A, B, H); // Maliyeti güncelle
+        console.log("Vinç sahneye eklendi:", vinçkirişicons);
+      } else {
+        // Checkbox işareti kaldırıldıysa vinç kirişini sahneden çıkar
+        if (vinçkirişicons) {
+          scene.remove(vinçkirişicons);
+          maliyetgösterfonk(A, B, H); // Maliyeti güncelle
+          console.log("Vinç sahneden çıkarıldı.");
+        }
+      }
+    });
+  }
+  //#endregion
+  
+//#region Üçgen drag opaklık ayarlama fonksiyonu
+export function üçgenOpaklıkAyarlama() {
+    // Ana wrapper oluşturma
+    const triangleWrapper = document.createElement("div");
+    triangleWrapper.style.position = "absolute";
+    triangleWrapper.style.top = "20px";
+    triangleWrapper.style.left = "250px";
+    triangleWrapper.style.display = "flex";
+    triangleWrapper.style.flexDirection = "column";
+    triangleWrapper.style.alignItems = "center";
+  
+    // Opaklık yazısı ekleme
+    const opacityLabel = document.createElement("span");
+    opacityLabel.textContent = "Opaklık";
+    opacityLabel.style.fontSize = "14px";
+    opacityLabel.style.color = "black";
+    opacityLabel.style.marginBottom = "5px";
+    triangleWrapper.appendChild(opacityLabel);
+  
+    // Üçgen şekli oluşturma
+    const opacityTriangle = document.createElement("div");
+    opacityTriangle.style.width = "0";
+    opacityTriangle.style.height = "0";
+    opacityTriangle.style.borderTop = "7px solid transparent";
+    opacityTriangle.style.borderBottom = "7px solid transparent";
+    opacityTriangle.style.borderLeft = "80px solid rgba(0, 0, 0, 0.5)";
+    triangleWrapper.appendChild(opacityTriangle);
+  
+    // İşaretçi olarak hareket edecek dikdörtgen oluşturma
+    const sliderHandle = document.createElement("div");
+    sliderHandle.style.position = "absolute";
+    sliderHandle.style.width = "10px";
+    sliderHandle.style.height = "20px";
+    sliderHandle.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+    sliderHandle.style.cursor = "pointer";
+    sliderHandle.style.top = "18px";
+    sliderHandle.style.left = "10px";
+    triangleWrapper.appendChild(sliderHandle);
+  
+    // Elemanları DOM'a ekleme
+    document.body.appendChild(triangleWrapper);
+  
+    let isDragging = false;
+  
+    // Masaüstü için sürükleme başlatma
+    sliderHandle.addEventListener("mousedown", function() {
+      isDragging = true;
+    });
+  
+    // Mobil için sürükleme başlatma
+    sliderHandle.addEventListener("touchstart", function() {
+      isDragging = true;
+    });
+  
+    // Sürükleme bitirme olayları
+    document.addEventListener("mouseup", function() {
+      isDragging = false;
+    });
+  
+    document.addEventListener("touchend", function() {
+      isDragging = false;
+    });
+  
+    // Sürükleme esnasında işaretçiyi hareket ettirme
+    function moveSlider(event) {
+      if (isDragging) {
+        const minLeft = 0;
+        const maxLeft = 70;
+  
+        const clientX = event.touches ? event.touches[0].clientX : event.clientX;
+        let newLeft = clientX - triangleWrapper.offsetLeft;
+        newLeft = Math.max(minLeft, Math.min(maxLeft, newLeft));
+  
+        sliderHandle.style.left = `${newLeft}px`;
+  
+        const opacityValue = 1 - ((newLeft - minLeft) / (maxLeft - minLeft)) * (1 - 0.1);
+  
+        if (typeof CepheKaplamaCons !== "undefined") {
+          CepheKaplamaCons.children.forEach(mesh => {
+            if (mesh.material) {
+              mesh.material.opacity = opacityValue;
+              mesh.material.needsUpdate = true;
+            }
+          });
+        }
+        
+        if (typeof SolÇatıKaplamacons !== "undefined") {
+          SolÇatıKaplamacons.children.forEach(mesh => {
+            if (mesh.material) {
+              mesh.material.opacity = opacityValue;
+              mesh.material.needsUpdate = true;
+            }
+          });
+        }
+      }
+    }
+  
+    // Masaüstü ve mobil için sürükleme hareketini algıla
+    document.addEventListener("mousemove", moveSlider);
+    document.addEventListener("touchmove", moveSlider);
+  }
+//#endregion
+
