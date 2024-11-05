@@ -95,7 +95,7 @@ export function üçdbutonabas (A, B, K,H) {
           totemcons= Totem1(H)
           CepheKaplamaCons = CepheKaplamaSağSol(B, H, A)
           SolÇatıKaplamacons = SolÇatıKaplama(H, B,)
-          vinçkirişicons = VinçKirişi(H);
+          vinçkirişicons = VinçKirişi(H, B);
           
           scene.add(kolonGrubu);  
           scene.add(soldiyagonelGrup); 
