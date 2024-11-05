@@ -1,10 +1,7 @@
 //#region DEĞİŞKENLER ATAMA
 export let scene, camera, renderer, controls;
 let controlFly
-let hideButton
-let İlkkutu
 let formVisible = true;
-export let vinçcheckbox 
 
 // Global değişkenler
 export let A, B, H, K;  // En, Boy, Yükseklik değişkenleri
@@ -15,6 +12,11 @@ window.YATAYAKSSAYISI;
 //#endregion
 
 //#region IMPORT'lar
+// conteiner.js ve buton fonkden al
+import { vinçcheckbox, İlkkutu, İLKFORM, hideButton, maliyetgösterfonk} from './container.js'; 
+import { üçdbutonabas, CepheKaplamaCons, SolÇatıKaplamacons,vinçkirişicons, vinçkirişkaldir, üçgenOpaklıkAyarlama,
+    } from './butonfonk.js';  // 
+
 // Nesneler
 import { YATAYKOLONGRUBU, SOLDİYAGONELGRUBU, SAĞDİYAGONELGRUBU, MakasGrupÇoğalt, YanKiriş_1, MakasİçiAltTamBracing, 
   Bracing_MakasİçiTam, ÇaprazYanKomple, ÇatıÇapraz1MakasGrup, ÇatıÇaprazTam, Totem1,CepheKaplamaSağSol, SolÇatıKaplama,
@@ -38,133 +40,12 @@ import { ÇimZeminMalzeme1  } from './malzemeler.js';  //
 import { ÇelikTonajı , ÇelikTonaj,  MlytToplamÇlk, MlytToplamÇlkTL, dolarKuru} from './maliyet.js';  // 
 
 // BUTON Import
-import { üçdbutonabas, CepheKaplamaCons, SolÇatıKaplamacons,vinçkirişicons, vinçkirişkaldir, üçgenOpaklıkAyarlama,
-  maliyetgösterfonk
- } from './butonfonk.js';  // 
 
 //#endregion Form ve Butonların Sonu
 
-//#region Formlar
-function İLKFORM() {
-   // Eğer form daha önce oluşturulduysa, eski formu kaldır
-   /*if (İlkkutu) {
-    İlkkutu.remove();
-  }*/
-
-  // Form Container oluşturma
-  İlkkutu = document.createElement('div');
-  İlkkutu.id = 'formContainer';
-  İlkkutu.style.position = 'absolute';
-  İlkkutu.style.top = '3px';
-  İlkkutu.style.left = '10px';
-  İlkkutu.style.zIndex = '10';
-  İlkkutu.style.backgroundColor = 'rgba(240, 240, 240, 0.9)';
-  İlkkutu.style.padding = '5px';
-  İlkkutu.style.border = '1px solid #000';
-  İlkkutu.style.borderRadius = '8px';
-  İlkkutu.style.width = '200px';
-
-  // Tablo elemanlarını oluşturma
-  const table = document.createElement('table');
-  table.style.width = '100%';
-
-  // Bir satır ve hücreler oluşturan yardımcı işlev
-  function createRow(labelText, inputId, defaultValue) {
-    const row = document.createElement('tr');
-    const labelCell = document.createElement('td');
-    labelCell.style.padding = '5px';
-    labelCell.style.textAlign = 'right';
-    labelCell.textContent = labelText;
-
-    const inputCell = document.createElement('td');
-    inputCell.style.padding = '6px';
-
-    const input = document.createElement('input');
-    input.type = 'number';
-    input.id = inputId;
-    input.value = defaultValue;
-    input.style.width = '100%';
-    input.style.padding = '5px';
-    input.style.borderRadius = '4px';
-    input.style.border = '1px solid #ccc';
-
-    inputCell.appendChild(input);
-    row.appendChild(labelCell);
-    row.appendChild(inputCell);
-
-    return row;
-  }
-
-  // Tabloya satırları ekleme
-  table.appendChild(createRow('En (A):', 'A', '60'));
-  table.appendChild(createRow('Boy (B):', 'B', '50'));
-  table.appendChild(createRow('Yükseklik (H):', 'H', '6'));
-  table.appendChild(createRow('Aks Arası:', 'K', '6'));
-
-  // Tabloyu İlkkutu içine ekleme
-  İlkkutu.appendChild(table);
-
-  // Vinç seçeneğini ekleme (sol alt köşe)
-  const vinçcheckboxkutu = document.createElement('div');
-  vinçcheckboxkutu.style.display = 'flex';
-  vinçcheckboxkutu.style.alignItems = 'center';
-  vinçcheckboxkutu.style.marginTop = '3px';
-
-  vinçcheckbox = document.createElement('input');
-  vinçcheckbox.type = 'checkbox';
-  vinçcheckbox.id = 'craneCheckbox';
-  vinçcheckbox.checked = true; // Checkbox'u varsayılan olarak işaretli yapar
-
-  
-  vinçcheckbox.style.marginRight = '5px';
-  vinçcheckbox.style.marginBottom = '2px';
-
-  const vinçcheckboxLabel = document.createElement('label');
-  vinçcheckboxLabel.textContent = 'Vinç Yolu';
-  vinçcheckboxLabel.style.fontSize = '12px';
-  vinçcheckboxLabel.style.marginBottom = '1px'
-  vinçcheckboxLabel.htmlFor = 'craneCheckbox';
-
-  vinçcheckboxkutu.appendChild(vinçcheckbox );
-  vinçcheckboxkutu.appendChild(vinçcheckboxLabel );
-  İlkkutu.appendChild(vinçcheckboxkutu);
-  
-
-  // 3D BİNA MODELLE butonunu ekleme
-  const createButton = document.createElement('button');
-  createButton.id = 'createCube';
-  createButton.textContent = '3D BİNA MODELLE';
-  createButton.style.marginTop = '10px';
-  createButton.style.width = '100%';
-  createButton.style.padding = '10px';
-  createButton.style.backgroundColor = '#007BFF';
-  createButton.style.color = 'white';
-  createButton.style.border = 'none';
-  createButton.style.borderRadius = '4px';
-  createButton.style.cursor = 'pointer';
-  İlkkutu.appendChild(createButton);
-
-  // İlkkutu'ı body içine ekleme
-  document.body.appendChild(İlkkutu);
-
-  // Hide/Show butonunu ekleme
-  hideButton = document.createElement('img');
-  hideButton.src = 'textures/hide.png'; // Buton ikonu
-  hideButton.alt = 'Show/Hide Form';
-  hideButton.style.position = 'absolute';
-  hideButton.style.top = '5px';
-  hideButton.style.left = '220px'; // Formun yanında konumlandırma
-  hideButton.style.width = '24px';
-  hideButton.style.height = '24px';
-  hideButton.style.cursor = 'pointer';
-  hideButton.style.zIndex = '15';
-  document.body.appendChild(hideButton);
-}
-//#endregion İLK FORM SONU
+//#region Buton Çağırmalar
 İLKFORM()
 üçgenOpaklıkAyarlama();
-
-//#region Buton Çağırmalar
 
 // Hide/Show işlevselliğini ekleme
 hideButton.addEventListener('click', () => {
@@ -190,8 +71,6 @@ window.addEventListener('orientationchange', İlkkutuAdjustfonk);
 // Fonksiyon çağırmalar 
 
 //#endregion
-
-
 
 //#region Işık Ayarları
 function addDirectionalLight() { // Yönlü ışık ekleme fonksiyonu
@@ -322,42 +201,6 @@ window.addEventListener('resize', () => {
   });
   //#endregion
 
-// #endregion
-
 //#region Maliyet Hesap ve kutucuk
 
-// Gösterilecek alanları tanımlayın ve stil özelliklerini ayarlayın
-export function createCostDisplay() {
-  const costDisplayContainer = document.createElement('div');
-  costDisplayContainer.id = 'costDisplayContainer';
-  costDisplayContainer.style.position = 'absolute';
-  costDisplayContainer.style.bottom = '10px';
-  costDisplayContainer.style.left = '20px';
-  costDisplayContainer.style.width = '200px';
-  costDisplayContainer.style.zIndex = '20';
-  costDisplayContainer.style.color = 'yellow';
-
-  const tonajElement = document.createElement('div');
-  tonajElement.id = 'tonajContainer';
-  tonajElement.innerHTML = `<div id="celikTonaj">Çelik Tonaj: </div>`;
-
-  const maliyetElement = document.createElement('div');
-  maliyetElement.id = 'maliyetContainer';
-  maliyetElement.innerHTML = `<div id="maliyetCelik">Maliyet: </div>`;
-
-  costDisplayContainer.appendChild(tonajElement);
-  costDisplayContainer.appendChild(maliyetElement);
-  document.body.appendChild(costDisplayContainer);
-}
-
-// Sayfa yüklendiğinde göstergeleri oluştur
-createCostDisplay();
-
-export function checkDolarKuruReady(callback) {
-  if (dolarKuru) {
-      callback();
-  } else {
-      setTimeout(() => checkDolarKuruReady(callback), 100); // 100 ms sonra tekrar kontrol et
-  }
-}
 //#endregion
