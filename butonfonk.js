@@ -76,7 +76,6 @@ export function üçdbutonabas (A, B, K,H) {
           MAKASBOYUHESAP()
           ZEMİNESASEBATHESAP(A, B)
           DİKMEHESAPLA(H)
-          DKG(H)
           YanBağKirişHesap(H)
           ÇaprazYanHesap() 
           YATAY_MK_GEO_1(YATAYHOLGENİŞLİĞİ, MK_UZUNLUK)
