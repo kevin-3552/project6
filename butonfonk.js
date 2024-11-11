@@ -27,7 +27,7 @@ import { vinçcheckbox, maliyetgösterfonk } from './container.js'
 // Nesneler
 import { YATAYKOLONGRUBU, SOLDİYAGONELGRUBU, SAĞDİYAGONELGRUBU, MakasGrupÇoğalt, YanKiriş_1, MakasİçiAltTamBracing, 
     Bracing_MakasİçiTam, ÇaprazYanKomple, ÇatıÇapraz1MakasGrup, ÇatıÇaprazTam, Totem1,CepheKaplamaSağSol, SolÇatıKaplama,
-MK_UZUNLUK, ZEMİNESAS, VinçKirişi, VincKancasi, loadedFont, DKG} from './nesneler.js';  // 
+MK_UZUNLUK, ZEMİNESAS, VinçKirişi, VincKancasi, loadedFont} from './nesneler.js';  // 
   
 // Hesaplar
 import { DİKMEHESAPLA, hesaplaDüşeyAks, hesaplaYatayKolon, ÇATIEĞİMHETKİSİHESAP, MAKASBOYUHESAP, 
