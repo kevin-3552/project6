@@ -204,3 +204,197 @@ window.addEventListener('resize', () => {
 //#region Maliyet Hesap ve kutucuk
 
 //#endregion
+
+// #region Firebase kodlar
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+
+
+// Firebase yapılandırma
+const firebaseConfig = {
+  apiKey: "AIzaSyDeY9rlshOm3PlvRP3AjDRSIOZ-jUFBGUk",
+  authDomain: "kevin-project35.firebaseapp.com",
+  projectId: "kevin-project35",
+  storageBucket: "kevin-project35.firebasestorage.app",
+  messagingSenderId: "387220126426",
+  appId: "1:387220126426:web:8b22803b31b2fca38fc3e3",
+  measurementId: "G-2BQKX8Y2T1"
+};
+// Firebase'i başlat
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+
+
+// #endregion 
+
+
+// Giriş ve Kayıt Formlarını Oluşturma
+function createAuthForm() {
+  const authContainer = document.createElement('div');
+  authContainer.id = 'auth-container';
+
+  const formTitle = document.createElement('h2');
+  formTitle.textContent = 'Kullanıcı Giriş ve Kayıt';
+  authContainer.appendChild(formTitle);
+
+  // E-posta Input
+  const emailInput = document.createElement('input');
+  emailInput.type = 'email';
+  emailInput.id = 'email';
+  emailInput.placeholder = 'E-posta';
+  authContainer.appendChild(emailInput);
+
+  // Şifre Input
+  const passwordInput = document.createElement('input');
+  passwordInput.type = 'password';
+  passwordInput.id = 'password';
+  passwordInput.placeholder = 'Şifre';
+  authContainer.appendChild(passwordInput);
+
+  // Kayıt Ol Butonu
+  const signupButton = document.createElement('button');
+  signupButton.id = 'signup';
+  signupButton.textContent = 'Kayıt Ol';
+  authContainer.appendChild(signupButton);
+
+  // Giriş Yap Butonu
+  const loginButton = document.createElement('button');
+  loginButton.id = 'login';
+  loginButton.textContent = 'Giriş Yap';
+  authContainer.appendChild(loginButton);
+
+  // Çıkış Yap Butonu
+  const logoutButton = document.createElement('button');
+  logoutButton.id = 'logout';
+  logoutButton.textContent = 'Çıkış Yap';
+  logoutButton.style.display = 'none';
+  authContainer.appendChild(logoutButton);
+
+  // Stil ekleyerek ekranın ortasına alıyoruz
+  authContainer.style.position = 'fixed';
+  authContainer.style.top = '50%';
+  authContainer.style.left = '50%';
+  authContainer.style.transform = 'translate(-50%, -50%)';
+  authContainer.style.background = '#ffffff';
+  authContainer.style.padding = '20px';
+  authContainer.style.borderRadius = '8px';
+  authContainer.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.1)';
+  authContainer.style.zIndex = '1000'; // Diğer içeriklerin üstünde kalır
+
+  document.body.appendChild(authContainer);
+}
+
+// Sayfa Yüklendiğinde Formu Oluştur
+document.addEventListener('DOMContentLoaded', createAuthForm);
+
+
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+
+// Firebase Authentication Başlat
+
+// Kayıt İşlemi
+document.addEventListener('click', (event) => {
+  if (event.target.id === 'signup') {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(userCredential => {
+        console.log('Kayıt başarılı:', userCredential.user);
+        alert('Kayıt başarılı!');
+      })
+      .catch(error => {
+        console.error('Kayıt hatası:', error.message);
+        alert('Kayıt hatası: ' + error.message);
+      });
+  }
+});
+
+// Giriş İşlemi
+document.addEventListener('click', (event) => {
+  if (event.target.id === 'login') {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then(userCredential => {
+        console.log('Giriş başarılı:', userCredential.user);
+        alert('Giriş başarılı!');
+        document.getElementById('logout').style.display = 'block';
+      })
+      .catch(error => {
+        console.error('Giriş hatası:', error.message);
+        alert('Giriş hatası: ' + error.message);
+      });
+  }
+});
+
+// Çıkış İşlemi
+document.addEventListener('click', (event) => {
+  if (event.target.id === 'logout') {
+    signOut(auth)
+      .then(() => {
+        console.log('Çıkış başarılı.');
+        alert('Çıkış başarılı!');
+        document.getElementById('logout').style.display = 'none';
+      })
+      .catch(error => {
+        console.error('Çıkış hatası:', error.message);
+      });
+  }
+});
+
+
+document.getElementById('saveProjectButton').addEventListener('click', () => {
+  const projectName = document.getElementById('projectName').value;
+  const A = parseFloat(document.getElementById('A').value);
+  const B = parseFloat(document.getElementById('B').value);
+  const H = parseFloat(document.getElementById('H').value);
+  const K = parseFloat(document.getElementById('K').value);
+  const hasCrane = document.getElementById('craneCheckbox').checked;
+
+  saveProject(projectName, A, B, H, K, hasCrane);
+});
+
+
+async function saveProject(projectName, A, B, H, K, hasCrane) {
+  try {
+
+const user = auth.currentUser;
+if (user) {
+  console.log("Oturum açan kullanıcı UID:", user.uid);
+} else {
+  console.log("Kullanıcı oturumu açmamış.");
+}
+        const projectData = {
+      projectName,
+      dimensions: { A, B, H, K },
+      hasCrane, // Vinç durumu (true/false)
+      userId: user.uid, // Kullanıcı ID'si
+      createdAt: new Date().toISOString(), // Projenin oluşturulma tarihi
+    };
+  
+    await addDoc(collection(db, 'projects'), projectData);
+    alert(`Proje "${projectName}" başarıyla kaydedildi!`);
+  } catch (error) {
+    /*console.error("Proje kaydedilemedi: ", error);*/
+    alert("Proje kaydedilemedi: " + error.message);
+  }
+}
+
+
+
+//#region Kullanıcı girişi kontrol
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    // Kullanıcı giriş yapmış
+    showLoggedInView(user);
+  } else {
+    // Kullanıcı giriş yapmamış
+    showLoggedOutView();
+  }
+});
+//#endregion

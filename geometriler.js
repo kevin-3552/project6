@@ -1,1 +1,348 @@
-(function(_0x3bebb7,_0x5c5734){const _0x3b9829=_0x1da7,_0x3df1d1=_0x3bebb7();while(!![]){try{const _0x5127fe=-parseInt(_0x3b9829(0x15e))/0x1+parseInt(_0x3b9829(0x162))/0x2*(-parseInt(_0x3b9829(0x153))/0x3)+parseInt(_0x3b9829(0x158))/0x4*(parseInt(_0x3b9829(0x15f))/0x5)+parseInt(_0x3b9829(0x14b))/0x6+parseInt(_0x3b9829(0x14e))/0x7+parseInt(_0x3b9829(0x157))/0x8+-parseInt(_0x3b9829(0x166))/0x9;if(_0x5127fe===_0x5c5734)break;else _0x3df1d1['push'](_0x3df1d1['shift']());}catch(_0x2faf07){_0x3df1d1['push'](_0x3df1d1['shift']());}}}(_0x376c,0xcc80b));function _0x1da7(_0x5728ad,_0x10bff2){const _0x376c5b=_0x376c();return _0x1da7=function(_0x1da7ff,_0x3f6641){_0x1da7ff=_0x1da7ff-0x146;let _0x4a52ca=_0x376c5b[_0x1da7ff];return _0x4a52ca;},_0x1da7(_0x5728ad,_0x10bff2);}export let YatayÇaprazÇap;export let KOLONEBAT;export let MK_EN;export let MK_YÜKS;import{kolonMaterial1,MAKASMALZEME}from'./malzemeler.js';import{KOLONUZUNLUK}from'./nesneler.js';export function HEA300(_0x7f8946){const _0x200c6f=_0x1da7,_0xb2c08a=0.3,_0x1988c3=0.01,_0x2d91cf=0.3,_0x1931cf=0.01,_0x3d7954=new THREE[(_0x200c6f(0x14a))](),_0x267b5f=_0x3d7954[_0x200c6f(0x148)](_0x200c6f(0x156));_0x267b5f['wrapS']=THREE['RepeatWrapping'],_0x267b5f[_0x200c6f(0x159)]=THREE[_0x200c6f(0x155)],_0x267b5f['repeat'][_0x200c6f(0x149)](0x1,0x5);const _0x63d712=new THREE[(_0x200c6f(0x146))]({'map':_0x267b5f}),_0x446f6f=new THREE[(_0x200c6f(0x150))](_0x1988c3,_0x7f8946,_0xb2c08a),_0x33e431=new THREE[(_0x200c6f(0x147))](_0x446f6f,_0x63d712);_0x33e431[_0x200c6f(0x151)][_0x200c6f(0x149)](_0x2d91cf/0x2,_0x7f8946/0x2,0x0);const _0x14c854=new THREE['BoxGeometry'](_0x1988c3,_0x7f8946,_0xb2c08a),_0x1c3269=new THREE[(_0x200c6f(0x147))](_0x14c854,_0x63d712);_0x1c3269[_0x200c6f(0x151)][_0x200c6f(0x149)](-_0x2d91cf/0x2,_0x7f8946/0x2,0x0);const _0x486c17=new THREE[(_0x200c6f(0x150))](_0x2d91cf,_0x7f8946,_0x1931cf),_0x1c9e8d=new THREE['Mesh'](_0x486c17,_0x63d712);_0x1c9e8d[_0x200c6f(0x151)][_0x200c6f(0x149)](0x0,_0x7f8946/0x2,0x0);const _0x5f2e32=new THREE[(_0x200c6f(0x15b))]();return _0x5f2e32['add'](_0x33e431),_0x5f2e32[_0x200c6f(0x160)](_0x1c3269),_0x5f2e32['add'](_0x1c9e8d),_0x5f2e32;}export function KOLON_BOX1(_0x4f58a3,_0x16a7ea=kolonMaterial1){const _0x1609d1=_0x1da7;if(_0x4f58a3>0x0&&_0x4f58a3<=0x6)KOLONEBAT=0.23;else{if(_0x4f58a3>0x6&&_0x4f58a3<=0x7)KOLONEBAT=0.3;else{if(_0x4f58a3>0x7&&_0x4f58a3<0x8)KOLONEBAT=0.35;else{if(_0x4f58a3>=0x8&&_0x4f58a3<0xc)KOLONEBAT=0.4;else{if(_0x4f58a3>=0xc)KOLONEBAT=0.5;else return console['error'](_0x1609d1(0x14c),_0x4f58a3),null;}}}}const _0x3e9fdc=new THREE[(_0x1609d1(0x150))](KOLONEBAT,_0x4f58a3,KOLONEBAT),_0x2b0cd1=new THREE[(_0x1609d1(0x14a))](),_0x4a8e51=_0x2b0cd1[_0x1609d1(0x148)](_0x1609d1(0x156)),_0x25e4c1=new THREE[(_0x1609d1(0x147))](_0x3e9fdc,_0x16a7ea);_0x25e4c1[_0x1609d1(0x151)][_0x1609d1(0x149)](0x0,_0x4f58a3/0x2,0x0);const _0x1ede8f=new THREE[(_0x1609d1(0x161))](_0x3e9fdc),_0x19b253=new THREE[(_0x1609d1(0x152))]({'color':0x0}),_0x1ee60b=new THREE['LineSegments'](_0x1ede8f,_0x19b253);_0x1ee60b[_0x1609d1(0x151)][_0x1609d1(0x164)](_0x25e4c1[_0x1609d1(0x151)]);const _0x24a4a2=new THREE['Group']();return _0x24a4a2[_0x1609d1(0x160)](_0x25e4c1),_0x24a4a2['add'](_0x1ee60b),_0x24a4a2;}export function KOLON1(_0x4168c1){const _0x2a1042=_0x1da7,_0x6052ed=0.01,_0xbe45c6=0.01;let _0x3442a2,_0x4c83b5;if(_0x4168c1>0x0&&_0x4168c1<=0x6)_0x3442a2=0.3,_0x4c83b5=0.3;else{if(_0x4168c1>0x6&&_0x4168c1<=0x7)_0x3442a2=0.35,_0x4c83b5=0.35;else{if(_0x4168c1>0x7&&_0x4168c1<0x8)_0x3442a2=0.43,_0x4c83b5=0.43;else{if(_0x4168c1>=0x8&&_0x4168c1<0xc)_0x3442a2=0.55,_0x4c83b5=0.55;else{if(_0x4168c1>=0xc)_0x3442a2=0.62,_0x4c83b5=0.62;else return console[_0x2a1042(0x14d)]('Geçersiz\x20H\x20değeri:',_0x4168c1),null;}}}}const _0xdbf301=new THREE['TextureLoader'](),_0x1ac5a7=_0xdbf301[_0x2a1042(0x148)](_0x2a1042(0x156));_0x1ac5a7[_0x2a1042(0x15c)]=THREE[_0x2a1042(0x155)],_0x1ac5a7[_0x2a1042(0x159)]=THREE['RepeatWrapping'],_0x1ac5a7[_0x2a1042(0x14f)]['set'](0x1,0x5);const _0x320fa9=new THREE['MeshBasicMaterial']({'map':_0x1ac5a7}),_0x57e82b=new THREE['LineBasicMaterial']({'color':0x0}),_0x204d59=new THREE[(_0x2a1042(0x150))](_0x6052ed,_0x4168c1,_0x3442a2),_0x205560=new THREE[(_0x2a1042(0x147))](_0x204d59,_0x320fa9);_0x205560[_0x2a1042(0x151)][_0x2a1042(0x149)](_0x4c83b5/0x2,_0x4168c1/0x2,0x0);const _0x47771c=new THREE[(_0x2a1042(0x161))](_0x204d59),_0x306f24=new THREE[(_0x2a1042(0x15d))](_0x47771c,_0x57e82b);_0x205560[_0x2a1042(0x160)](_0x306f24);const _0x2a89b7=new THREE[(_0x2a1042(0x150))](_0x6052ed,_0x4168c1,_0x3442a2),_0x31bbef=new THREE[(_0x2a1042(0x147))](_0x2a89b7,_0x320fa9);_0x31bbef[_0x2a1042(0x151)][_0x2a1042(0x149)](-_0x4c83b5/0x2,_0x4168c1/0x2,0x0);const _0x35d626=new THREE[(_0x2a1042(0x161))](_0x2a89b7),_0x3bcaf4=new THREE['LineSegments'](_0x35d626,_0x57e82b);_0x31bbef[_0x2a1042(0x160)](_0x3bcaf4);const _0x4afc9b=new THREE[(_0x2a1042(0x150))](_0x4c83b5,_0x4168c1,_0xbe45c6),_0x220f62=new THREE[(_0x2a1042(0x147))](_0x4afc9b,_0x320fa9);_0x220f62[_0x2a1042(0x151)][_0x2a1042(0x149)](0x0,_0x4168c1/0x2,0x0);const _0x359494=new THREE[(_0x2a1042(0x161))](_0x4afc9b),_0x4dd71d=new THREE[(_0x2a1042(0x15d))](_0x359494,_0x57e82b);_0x220f62[_0x2a1042(0x160)](_0x4dd71d);const _0x3f9ac8=new THREE['Group']();return _0x3f9ac8['add'](_0x205560),_0x3f9ac8['add'](_0x31bbef),_0x3f9ac8[_0x2a1042(0x160)](_0x220f62),_0x3f9ac8;}export function YATAY_MK_GEO_1(_0x23dde7,_0x30bec7){const _0x32045c=_0x1da7;if(_0x23dde7>0x0&&_0x23dde7<=0x6)MK_EN=0.2,MK_YÜKS=0.17;else{if(_0x23dde7>0x6&&_0x23dde7<=0xa)MK_EN=0.22,MK_YÜKS=0.2;else{if(_0x23dde7>0xa&&_0x23dde7<=0xf)MK_EN=0.25,MK_YÜKS=0.22;else{if(_0x23dde7>0xf&&_0x23dde7<=0x14)MK_EN=0.28,MK_YÜKS=0.26;else{if(_0x23dde7>0x14&&_0x23dde7<=0x19)MK_EN=0.31,MK_YÜKS=0.29;else{if(_0x23dde7>0x19)MK_EN=0.33,MK_YÜKS=0.33;else return console['error'](_0x32045c(0x154),_0x23dde7),null;}}}}}const _0x2029da=new THREE[(_0x32045c(0x150))](MK_EN,_0x30bec7,MK_YÜKS),_0x457e7b=new THREE[(_0x32045c(0x147))](_0x2029da,MAKASMALZEME),_0x598268=new THREE['EdgesGeometry'](_0x2029da),_0x41c49b=new THREE[(_0x32045c(0x152))]({'color':0x0}),_0x3509d3=new THREE[(_0x32045c(0x15d))](_0x598268,_0x41c49b),_0x590733=new THREE[(_0x32045c(0x15b))]();return _0x590733['add'](_0x457e7b),_0x590733[_0x32045c(0x160)](_0x3509d3),_0x590733;}export function Yatay_Kiriş_Profil_1(_0x5ab6c8,_0x4c32ea,_0x1f81c7){const _0x1ebe86=_0x1da7;let _0x20a8a5;if(_0x1f81c7<0x6)_0x20a8a5=0.1;else{if(_0x1f81c7>=0x6&&_0x1f81c7<0xc)_0x20a8a5=0.12;else{if(_0x1f81c7>=0xc&&_0x1f81c7<0x12)_0x20a8a5=0.14;else{if(_0x1f81c7>=0x12&&_0x1f81c7<0x19)_0x20a8a5=0.16;else _0x1f81c7>=0x19&&(_0x20a8a5=0.25);}}}const _0x5439ec=new THREE[(_0x1ebe86(0x150))](_0x20a8a5,_0x5ab6c8,_0x20a8a5),_0x295dc5=new THREE['Mesh'](_0x5439ec,_0x4c32ea);_0x295dc5[_0x1ebe86(0x151)][_0x1ebe86(0x149)](0x0,0x0,0x0);const _0x2aa76b=new THREE[(_0x1ebe86(0x161))](_0x5439ec),_0x343f72=new THREE['LineBasicMaterial']({'color':0x0}),_0x3007f2=new THREE[(_0x1ebe86(0x15d))](_0x2aa76b,_0x343f72);_0x3007f2[_0x1ebe86(0x151)][_0x1ebe86(0x164)](_0x295dc5['position']);const _0x22c8b5=new THREE[(_0x1ebe86(0x15b))]();return _0x22c8b5['add'](_0x295dc5),_0x22c8b5[_0x1ebe86(0x160)](_0x3007f2),_0x22c8b5;}function _0x376c(){const _0x42aba4=['LineBasicMaterial','6YDOVBV','Geçersiz\x20YATAYHOLGENİŞLİĞİ\x20değeri:','RepeatWrapping','textures/çelik7.png','6172912uemhvn','420wIESNg','wrapT','rotation','Group','wrapS','LineSegments','1207362aRSZMU','37405CjyJed','add','EdgesGeometry','587754wIHlnp','Geçersiz\x20H\x20değeri:','copy','MeshStandardMaterial','2783187zFInfo','MeshBasicMaterial','Mesh','load','set','TextureLoader','3652554BFjDgQ','Geçersiz\x20KOLONUZUNLUK\x20değeri:','error','5432868nLOOfL','repeat','BoxGeometry','position'];_0x376c=function(){return _0x42aba4;};return _0x376c();}export function Yatay_Kiriş_Profil_2(_0xed298b,_0x2cb9b1,_0x4675a8){const _0x8eb5a9=_0x1da7;let _0xe5ea93=0.16;const _0x392d85=new THREE['BoxGeometry'](_0xe5ea93,_0xed298b,_0xe5ea93),_0x1b9515=new THREE[(_0x8eb5a9(0x147))](_0x392d85,_0x2cb9b1);_0x1b9515[_0x8eb5a9(0x151)]['set'](0x0,0x0,0x0);const _0x31dec8=new THREE[(_0x8eb5a9(0x161))](_0x392d85),_0xbbbe7d=new THREE[(_0x8eb5a9(0x152))]({'color':0x0}),_0x1ff181=new THREE[(_0x8eb5a9(0x15d))](_0x31dec8,_0xbbbe7d);_0x1ff181[_0x8eb5a9(0x151)][_0x8eb5a9(0x164)](_0x1b9515[_0x8eb5a9(0x151)]);const _0x10ef01=new THREE[(_0x8eb5a9(0x15b))]();return _0x10ef01[_0x8eb5a9(0x160)](_0x1b9515),_0x10ef01['add'](_0x1ff181),_0x10ef01;}export function YatayÇaprazProfil(_0xfa72e7,_0x25f389){const _0x5f5053=_0x1da7;if(_0xfa72e7>0x0&&_0xfa72e7<=0x6)YatayÇaprazÇap=0.09;else{if(_0xfa72e7>0x6&&_0xfa72e7<0xc)YatayÇaprazÇap=0.11;else{if(_0xfa72e7>=0xc&&_0xfa72e7<0x12)YatayÇaprazÇap=0.13;else _0xfa72e7>=0x12?YatayÇaprazÇap=0.16:(console['error'](_0x5f5053(0x163),_0xfa72e7),YatayÇaprazÇap=null);}}const _0x558901=new THREE[(_0x5f5053(0x165))]({'color':0xffc0cb}),_0x2240b1=new THREE['CylinderGeometry'](YatayÇaprazÇap,YatayÇaprazÇap,_0x25f389,0x20),_0x49381e=new THREE[(_0x5f5053(0x147))](_0x2240b1,_0x558901);return _0x49381e[_0x5f5053(0x15a)]['z']=Math['PI']/0x2,{'mesh':_0x49381e,'YatayÇaprazÇap':YatayÇaprazÇap};}export function ÇatıÇaprazProfil(_0x5e619f,_0x3dcc6a){const _0xe4b3a4=_0x1da7;if(_0x5e619f>0x0&&_0x5e619f<=0x6)YatayÇaprazÇap=0.09;else{if(_0x5e619f>0x6&&_0x5e619f<0xc)YatayÇaprazÇap=0.11;else{if(_0x5e619f>=0xc&&_0x5e619f<0x12)YatayÇaprazÇap=0.13;else _0x5e619f>=0x12?YatayÇaprazÇap=0.16:(console[_0xe4b3a4(0x14d)](_0xe4b3a4(0x163),_0x5e619f),YatayÇaprazÇap=null);}}const _0x49a802=new THREE[(_0xe4b3a4(0x165))]({'color':0x18c915}),_0xc83723=new THREE['CylinderGeometry'](YatayÇaprazÇap,YatayÇaprazÇap,_0x3dcc6a,0x20),_0x4918b4=new THREE[(_0xe4b3a4(0x147))](_0xc83723,_0x49a802);return _0x4918b4[_0xe4b3a4(0x15a)]['z']=0x0,_0x4918b4[_0xe4b3a4(0x15a)]['y']=0x0,_0x4918b4[_0xe4b3a4(0x15a)]['x']=0x0,{'mesh':_0x4918b4,'YatayÇaprazÇap':YatayÇaprazÇap};}
+
+export let YatayÇaprazÇap
+export let KOLONEBAT
+export let MK_EN 
+export let MK_YÜKS
+
+
+// #region DEĞİŞKENLER import
+import { kolonMaterial1, MAKASMALZEME } from './malzemeler.js'; // Malzeme dosyasını import edin
+import { KOLONUZUNLUK } from './nesneler.js'; // Malzeme dosyasını import edin
+
+
+// #endregion
+
+//#region HEA300
+export function HEA300(H) {
+  const FE = 0.3;  // Flanş eni
+  const FK = 0.01; // Flanş kalınlığı
+  const GE = 0.3;  // Gövde eni
+  const GK = 0.01; // Gövde kalınlığı
+
+  const textureLoader = new THREE.TextureLoader();
+  const texture = textureLoader.load('textures/çelik7.png');
+  
+  // Texture'ün tekrarlanması için wrapS ve wrapT ayarlamaları
+  texture.wrapS = THREE.RepeatWrapping;
+  texture.wrapT = THREE.RepeatWrapping;
+  texture.repeat.set(1, 5);  // 2x2 oranında tekrar eder
+
+  const KM = new THREE.MeshBasicMaterial({
+    map: texture
+  });
+
+  const F1Geometry = new THREE.BoxGeometry(FK, H, FE);
+  const F1 = new THREE.Mesh(F1Geometry, KM);
+  F1.position.set(GE / 2, H / 2, 0);
+
+  const F2Geometry = new THREE.BoxGeometry(FK, H, FE);
+  const F2 = new THREE.Mesh(F2Geometry, KM);
+  F2.position.set(-GE/2, H / 2, 0);
+
+  const G1Geometry = new THREE.BoxGeometry(GE, H, GK);
+  const G1 = new THREE.Mesh(G1Geometry, KM);
+  G1.position.set(0, H / 2, 0);
+
+  const kolonGroup = new THREE.Group();
+  kolonGroup.add(F1);
+  kolonGroup.add(F2);
+  kolonGroup.add(G1);
+
+  return kolonGroup;  // Grup olarak geri döndürülüyor
+}
+//#endregion
+
+//#region Kolon Box 1
+export function KOLON_BOX1(KOLONUZUNLUK, malzeme = kolonMaterial1) {
+
+  // KOLONUZUNLUK değerine göre KOLONEBAT belirleniyor
+  if (KOLONUZUNLUK > 0 && KOLONUZUNLUK <= 6) {
+    KOLONEBAT = 0.23;
+  } else if (KOLONUZUNLUK > 6 && KOLONUZUNLUK <= 7) {
+    KOLONEBAT = 0.3;
+  } else if (KOLONUZUNLUK > 7 && KOLONUZUNLUK < 8) {
+    KOLONEBAT = 0.35;
+  } else if (KOLONUZUNLUK >= 8 && KOLONUZUNLUK < 12) {
+    KOLONEBAT = 0.4;
+  } else if (KOLONUZUNLUK >= 12) {
+    KOLONEBAT = 0.5;
+  } else {
+    console.error("Geçersiz KOLONUZUNLUK değeri:", KOLONUZUNLUK);
+    return null; // Hata durumunda fonksiyonu sonlandır
+  }
+
+  // Kolon için BoxGeometry oluşturuluyor
+  const geometry = new THREE.BoxGeometry(KOLONEBAT, KOLONUZUNLUK, KOLONEBAT);
+
+  // Texture ekleniyor
+  const textureLoader = new THREE.TextureLoader();
+  const texture = textureLoader.load('textures/çelik7.png');
+  const kolon = new THREE.Mesh(geometry, malzeme);
+
+  // Kolonun başlangıç pozisyonu merkezde ayarlanıyor
+  kolon.position.set(0, KOLONUZUNLUK / 2, 0); // Kolonun y ekseninde merkezlenmesi için
+
+  // Siyah köşe çizgileri için EdgesGeometry ve LineBasicMaterial kullanılıyor
+  const edges = new THREE.EdgesGeometry(geometry);
+  const lineMaterial = new THREE.LineBasicMaterial({ color: 0x000000 }); // Siyah çizgiler
+  const outline = new THREE.LineSegments(edges, lineMaterial);
+
+  // Kolon ve çizgiler aynı pozisyona yerleştiriliyor
+  outline.position.copy(kolon.position);
+
+  // Kolon ve çizgileri bir grup olarak döndürüyoruz
+  const kolonGroup = new THREE.Group();
+  kolonGroup.add(kolon);
+  kolonGroup.add(outline);
+
+  return kolonGroup;
+}
+//#endregion
+
+//#region Kolon1
+export function KOLON1(H) {
+  const FK = 0.01; // Flanş kalınlığı
+  const GK = 0.01; // Gövde kalınlığı
+
+  let FE; // Flanş eni
+  let GE; // Gövde eni
+
+  // H değerine göre FE ve GE ayarlanıyor
+  if (H > 0 && H <= 6) {
+      FE = 0.3;
+      GE = 0.3;
+    } else if (H > 6 && H <= 7) {
+      FE = 0.35;
+      GE = 0.35;    
+  } else if (H > 7 && H < 8) {
+      FE = 0.43;
+      GE = 0.43;
+  } else if (H >= 8 && H < 12) {
+      FE = 0.55;
+      GE = 0.55;
+  } else if (H >= 12) {
+      FE = 0.62;
+      GE = 0.62;
+  } else {
+      console.error("Geçersiz H değeri:", H);
+      return null; // Hata durumunda fonksiyonu sonlandır
+  }
+  
+  const textureLoader = new THREE.TextureLoader();
+  const texture = textureLoader.load('textures/çelik7.png');
+  
+  // Texture'ün tekrarlanması için wrapS ve wrapT ayarlamaları
+  texture.wrapS = THREE.RepeatWrapping;
+  texture.wrapT = THREE.RepeatWrapping;
+  texture.repeat.set(1, 5);  // 2x2 oranında tekrar eder
+  
+  const KM = new THREE.MeshBasicMaterial({
+    map: texture
+  });
+
+  const edgeMaterial = new THREE.LineBasicMaterial({ color: 0x000000 }); // Siyah kenar çizgisi
+
+  // Flanş ve gövde parçaları oluşturuluyor
+  const F1Geometry = new THREE.BoxGeometry(FK, H, FE);
+  const F1 = new THREE.Mesh(F1Geometry, KM);
+  F1.position.set(GE / 2, H / 2, 0);
+
+  const F1Edges = new THREE.EdgesGeometry(F1Geometry); // Kenar çizgisi için
+  const F1Line = new THREE.LineSegments(F1Edges, edgeMaterial);
+  F1.add(F1Line); // Kenar çizgilerini ekler
+
+  const F2Geometry = new THREE.BoxGeometry(FK, H, FE);
+  const F2 = new THREE.Mesh(F2Geometry, KM);
+  F2.position.set(-GE / 2, H / 2, 0);
+
+  const F2Edges = new THREE.EdgesGeometry(F2Geometry);
+  const F2Line = new THREE.LineSegments(F2Edges, edgeMaterial);
+  F2.add(F2Line);
+
+  const G1Geometry = new THREE.BoxGeometry(GE, H, GK);
+  const G1 = new THREE.Mesh(G1Geometry, KM);
+  G1.position.set(0, H / 2, 0);
+
+  const G1Edges = new THREE.EdgesGeometry(G1Geometry);
+  const G1Line = new THREE.LineSegments(G1Edges, edgeMaterial);
+  G1.add(G1Line);
+
+  // Grupları birleştir
+  const kolonGroup = new THREE.Group();
+  kolonGroup.add(F1);
+  kolonGroup.add(F2);
+  kolonGroup.add(G1);
+
+  return kolonGroup;  // Grup olarak geri döndürülüyor
+}
+//#endregion
+
+//#region Yatay_Makas Geometri 1
+export function YATAY_MK_GEO_1(YATAYHOLGENİŞLİĞİ, MK_UZUNLUK) {
+ /* let MK_EN, MK_YÜKS;*/
+
+  // YATAYHOLGENİŞLİĞİ değerine göre MK_EN ve MK_YÜKS belirleniyor
+  if (YATAYHOLGENİŞLİĞİ > 0 && YATAYHOLGENİŞLİĞİ <= 6) {
+    MK_EN = 0.20;
+    MK_YÜKS = 0.17;
+  } else if (YATAYHOLGENİŞLİĞİ > 6 && YATAYHOLGENİŞLİĞİ <= 10) {
+    MK_EN = 0.22;
+    MK_YÜKS = 0.20;
+  } else if (YATAYHOLGENİŞLİĞİ > 10 && YATAYHOLGENİŞLİĞİ <= 15) {
+    MK_EN = 0.25;
+    MK_YÜKS = 0.22;
+  } else if (YATAYHOLGENİŞLİĞİ > 15 && YATAYHOLGENİŞLİĞİ <= 20) {
+    MK_EN = 0.28;
+    MK_YÜKS = 0.26;
+  } else if (YATAYHOLGENİŞLİĞİ > 20 && YATAYHOLGENİŞLİĞİ <= 25) {
+    MK_EN = 0.31;
+    MK_YÜKS = 0.29;
+  } else if (YATAYHOLGENİŞLİĞİ > 25) {
+    MK_EN = 0.33;
+    MK_YÜKS = 0.33;
+  } else {
+    console.error("Geçersiz YATAYHOLGENİŞLİĞİ değeri:", YATAYHOLGENİŞLİĞİ);
+    return null;
+  }
+
+  // Geometri ve mesh oluşturuluyor
+  const geometry = new THREE.BoxGeometry(MK_EN, MK_UZUNLUK, MK_YÜKS);
+  const mesh = new THREE.Mesh(geometry, MAKASMALZEME);
+
+  // Siyah dış köşe çizgileri için EdgesGeometry ve LineBasicMaterial kullanılıyor
+  const edges = new THREE.EdgesGeometry(geometry);
+  const edgeMaterial = new THREE.LineBasicMaterial({ color: 0x000000 });
+  const edgeLines = new THREE.LineSegments(edges, edgeMaterial);
+
+  // Grup olarak döndürülüyor
+  const group = new THREE.Group();
+  group.add(mesh);
+  group.add(edgeLines);
+
+  return group;
+}
+//#endregion
+
+//#region Yatay Kiriş profil 1
+export function Yatay_Kiriş_Profil_1(yatayboy_1, malzeme, H) {
+  let YK_EN;
+
+  if (H < 6) {
+      YK_EN = 0.1;
+  } else if (H >= 6 && H < 12) {
+      YK_EN = 0.12;
+  } else if (H >= 12 && H < 18) {
+      YK_EN = 0.14;
+  } else if (H >= 18 && H < 25) {
+      YK_EN = 0.16;
+  } else if (H >= 25) {
+      YK_EN = 0.25;
+  }
+  const geometry = new THREE.BoxGeometry(YK_EN, yatayboy_1, YK_EN);
+  const kolon = new THREE.Mesh(geometry, malzeme);
+  kolon.position.set(0, 0, 0);
+
+
+  // Siyah köşe çizgileri 
+  const edges = new THREE.EdgesGeometry(geometry);
+  const lineMaterial = new THREE.LineBasicMaterial({ color: 0x000000 }); // Siyah çizgiler
+  const outline = new THREE.LineSegments(edges, lineMaterial);
+  // Kolon ve çizgiler aynı pozisyona yerleştiriliyor
+  outline.position.copy(kolon.position);
+
+  // Kolon ve çizgileri bir grup olarak döndürüyoruz
+  const kolonGroup = new THREE.Group();
+  kolonGroup.add(kolon);
+  kolonGroup.add(outline);
+
+  return kolonGroup;
+}
+//#endregion
+
+//#region Yatay Kiriş profili2
+export function Yatay_Kiriş_Profil_2(yatayboy_1, malzeme, H) {
+  let YK_EN =0.16
+ 
+  const geometry = new THREE.BoxGeometry(YK_EN, yatayboy_1, YK_EN);
+  const kolon = new THREE.Mesh(geometry, malzeme);
+  kolon.position.set(0, 0, 0);
+
+  // Siyah köşe çizgileri 
+  const edges = new THREE.EdgesGeometry(geometry);
+  const lineMaterial = new THREE.LineBasicMaterial({ color: 0x000000 }); // Siyah çizgiler
+  const outline = new THREE.LineSegments(edges, lineMaterial);
+  // Kolon ve çizgiler aynı pozisyona yerleştiriliyor
+  outline.position.copy(kolon.position);
+
+  // Kolon ve çizgileri bir grup olarak döndürüyoruz
+  const kolonGroup = new THREE.Group();
+  kolonGroup.add(kolon);
+  kolonGroup.add(outline);
+
+  return kolonGroup;
+}
+//#endregion
+
+//#region Yatay Çapraz Profili
+export function YatayÇaprazProfil(H, yatayçaprazuzunluk) {
+    if (H > 0 && H <= 6) {
+      YatayÇaprazÇap = 0.09;
+  } else if (H >6 && H < 12) {
+      YatayÇaprazÇap = 0.11;
+  } else if (H >= 12 && H < 18) {
+      YatayÇaprazÇap = 0.13;
+  } else if (H >= 18) {
+      YatayÇaprazÇap = 0.16;
+  } else {
+      console.error("Geçersiz H değeri:", H);
+      YatayÇaprazÇap = null;
+  }
+
+  // Açık pembe renkte standard material tanımı
+  const malzeme = new THREE.MeshStandardMaterial({ color: 0xffc0cb }); // Açık pembe renk (Hex kodu: 0xffc0cb)
+
+  // Silindir geometrisi tanımı
+  const geometry = new THREE.CylinderGeometry(YatayÇaprazÇap, YatayÇaprazÇap, yatayçaprazuzunluk, 32); // Silindir
+
+  // Silindirin malzemesi atanıyor
+  const yatayÇaprazSilindir = new THREE.Mesh(geometry, malzeme);
+  yatayÇaprazSilindir.rotation.z = Math.PI / 2; // Silindiri yatay pozisyona getiriyoruz
+
+  return { mesh: yatayÇaprazSilindir, YatayÇaprazÇap }; // Geometri (mesh) ve çap değerini döndürür
+
+}
+//#endregion Yatay Çapraz Profili
+
+//#region Çatı Çapraz Profili
+export function ÇatıÇaprazProfil(H, yatayçaprazuzunluk) {
+  if (H > 0 && H <= 6) {
+    YatayÇaprazÇap = 0.09;
+} else if (H >6 && H < 12) {
+    YatayÇaprazÇap = 0.11;
+} else if (H >= 12 && H < 18) {
+    YatayÇaprazÇap = 0.13;
+} else if (H >= 18) {
+    YatayÇaprazÇap = 0.16;
+} else {
+    console.error("Geçersiz H değeri:", H);
+    YatayÇaprazÇap = null;
+}
+
+// Açık pembe renkte standard material tanımı
+const malzeme = new THREE.MeshStandardMaterial({ color: 0x18c915 });
+// Silindir geometrisi tanımı
+const geometry = new THREE.CylinderGeometry(YatayÇaprazÇap, YatayÇaprazÇap, yatayçaprazuzunluk, 32);
+
+// Silindirin malzemesi atanıyor
+const yatayÇaprazSilindir = new THREE.Mesh(geometry, malzeme);
+yatayÇaprazSilindir.rotation.z = 0 
+yatayÇaprazSilindir.rotation.y = 0
+yatayÇaprazSilindir.rotation.x = 0
+
+
+return { mesh: yatayÇaprazSilindir, YatayÇaprazÇap }; // Geometri (mesh) ve çap değerini döndürür
+
+}
+//#endregion
+
+

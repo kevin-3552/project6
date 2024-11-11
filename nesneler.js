@@ -1010,8 +1010,6 @@ export function SolÇatıKaplama(H, B) {
 //#region Vinç Kirişi
 // Vinç Kirişi Fonksiyonu
 
-
-
 export function VinçKirişi(H, B) {
   const VinçKirişGenişliği = YATAYHOLGENİŞLİĞİ - KOLONEBAT;
   const VinçKirişYükseklik = 0.7;
@@ -1124,7 +1122,7 @@ context.fillText(text, x, y);
 
   // birholvinçyolu'nun aynasını oluşturma ve gruba ekleme
   const mirrorVinçYolu = birvinçyolukiriş.clone();
-  mirrorVinçYolu.position.x = YATAYHOLGENİŞLİĞİ-(KOLONEBAT / 2) - 0.15 - (box_en / 2);
+  mirrorVinçYolu.position.x = YATAYHOLGENİŞLİĞİ-(KOLONEBAT / 2) - 0.05 - (box_en / 2);
   birholvinçyolu.add(mirrorVinçYolu);
 
   // Vinç yollarını çoğaltmak için vinçyollarıtam grubunu oluşturma

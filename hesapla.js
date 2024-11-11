@@ -1,1 +1,241 @@
-(function(_0x406d1f,_0x3d56cd){const _0x5b419f=_0x2f55,_0x59062a=_0x406d1f();while(!![]){try{const _0x54c699=parseInt(_0x5b419f(0x1b1))/0x1*(-parseInt(_0x5b419f(0x19e))/0x2)+-parseInt(_0x5b419f(0x1a5))/0x3*(-parseInt(_0x5b419f(0x1b0))/0x4)+parseInt(_0x5b419f(0x19f))/0x5+-parseInt(_0x5b419f(0x19d))/0x6*(parseInt(_0x5b419f(0x1ac))/0x7)+parseInt(_0x5b419f(0x1a4))/0x8*(parseInt(_0x5b419f(0x1aa))/0x9)+-parseInt(_0x5b419f(0x1a7))/0xa*(-parseInt(_0x5b419f(0x19c))/0xb)+-parseInt(_0x5b419f(0x1ad))/0xc;if(_0x54c699===_0x3d56cd)break;else _0x59062a['push'](_0x59062a['shift']());}catch(_0x1f65e1){_0x59062a['push'](_0x59062a['shift']());}}}(_0x596a,0xc0358),window['MKSHG']=0x23);export let YATAYHOLGENİŞLİĞİ;export let MALTBÇAP=0.11;export let MÜÜSTBÇAP=0.18;export let MKAÇI=0x5;export let MDDİYGÇAP;export let MYÜKS;export let YATAYHOLSAYISI;export let YATAYAKSSAYISI;export let MAKASBOYU;export let DÜŞEYHOLGENİŞLİĞİ;export let DÜŞEYAKSSAYISI;export let ÇATIEĞİMHETKİSİ;export let esaszeminA;export let esaszeminB;let DİKMEARALIK_VİRGÜLLÜ,DİKMEARALIK_ALTAYUVARLA,DİKMEARASIONDALIK,HOLGENİŞLİĞİTAM;export let DİKMESAYISI;export let İKİDİKMEARASI;export let DİKME_Y_ARTIŞ;export let DİKMEYAKLAŞIKARA;let ÇAPRAZ_Y_ARTIŞ;export let DÜŞEYHOLSAYISI;export let ALTMAKASYÜKS2;let MAKASBÜYKATSAYISI=1.02;export let YANBAĞKİRİŞİMAKS=0x4;export let YanBağKirişAraAdet;export let YanKirişArası;export let YanBağKirişAdet;export let ÇatıBağKirişAra_Yekseni;export let ÇatıBağKirişSayısı;export let ÇatıBağKirişAra_Yatay;export let ÇatıBağKirişMaks=0x6;export let YanÇaprazAra;export let YanÇaprazAksadet;export let ÇaprazYükseklik;export let YanÇaprazDüşeyAdet;export let ÇatıÇaprazZekseniAra;export let ÇatıÇaprazZekseniAdet;function _0x2f55(_0x1dc45e,_0x5f2c12){const _0x596a68=_0x596a();return _0x2f55=function(_0x2f55ce,_0x27f9f1){_0x2f55ce=_0x2f55ce-0x19c;let _0x58a2aa=_0x596a68[_0x2f55ce];return _0x58a2aa;},_0x2f55(_0x1dc45e,_0x5f2c12);}export let BinaYükseklik;export let ArkaKaplamaSınır;import{KOLONEBAT,KOLON_BOX1,MK_EN}from'./geometriler.js';export function MAKAS_YÜKSEKL_HESAPLA(_0x2e6bfe,_0x3a9740){const _0x4a3e5c=_0x2f55;if(_0x2e6bfe>0x0&&_0x2e6bfe<=0xa){if(_0x3a9740<=0x6)MYÜKS=0.5;else{if(_0x3a9740>0x6&&_0x3a9740<=0xa)MYÜKS=0.8;else _0x3a9740>0xa&&_0x3a9740<=0xf?MYÜKS=0x1:MYÜKS=1.2;}}else{if(_0x2e6bfe>0xa&&_0x2e6bfe<=0x14){if(_0x3a9740<0x6)MYÜKS=0.5;else{if(_0x3a9740>=0x6&&_0x3a9740<=0xa)MYÜKS=0.9;else _0x3a9740>0xa&&_0x3a9740<=0xf?MYÜKS=1.1:MYÜKS=1.2;}}else{if(_0x2e6bfe>0x14&&_0x2e6bfe<=0x1c){if(_0x3a9740<0x6)MYÜKS=0.5;else{if(_0x3a9740>=0x6&&_0x3a9740<=0xa)MYÜKS=0.9;else _0x3a9740>0xa&&_0x3a9740<=0xf?MYÜKS=1.1:MYÜKS=1.2;}}else{if(_0x2e6bfe>0x1c){if(_0x3a9740<0x6)MYÜKS=0.6;else{if(_0x3a9740>=0x6&&_0x3a9740<=0xa)MYÜKS=0x1;else _0x3a9740>0xa&&_0x3a9740<=0xf?MYÜKS=1.5:MYÜKS=1.8;}}else console[_0x4a3e5c(0x1a8)](_0x4a3e5c(0x1b2)),MYÜKS=null;}}}return MYÜKS;}export function DİKMEHESAPLA(_0x5ca3c8){const _0x22976d=_0x2f55;if(YATAYHOLGENİŞLİĞİ>0x0&&YATAYHOLGENİŞLİĞİ<=0xa)MALTBÇAP=0.1,MÜÜSTBÇAP=0.1,MDDİYGÇAP=0.06,DİKMEYAKLAŞIKARA=1.5;else{if(YATAYHOLGENİŞLİĞİ>0xa&&YATAYHOLGENİŞLİĞİ<=0x14)MALTBÇAP=0.135,MÜÜSTBÇAP=0.135,MDDİYGÇAP=0.08,DİKMEYAKLAŞIKARA=1.5;else{if(YATAYHOLGENİŞLİĞİ>0x14&&YATAYHOLGENİŞLİĞİ<=0x1c)MALTBÇAP=0.18,MÜÜSTBÇAP=0.18,MDDİYGÇAP=0.1,DİKMEYAKLAŞIKARA=1.8;else{if(YATAYHOLGENİŞLİĞİ>0x1c)MALTBÇAP=0.2,MÜÜSTBÇAP=0.18,MDDİYGÇAP=0.12,DİKMEYAKLAŞIKARA=2.8;else{}}}}DİKMEARALIK_VİRGÜLLÜ=YATAYHOLGENİŞLİĞİ/0x2/DİKMEYAKLAŞIKARA,DİKMEARALIK_ALTAYUVARLA=Math[_0x22976d(0x1a9)](DİKMEARALIK_VİRGÜLLÜ),İKİDİKMEARASI=YATAYHOLGENİŞLİĞİ/0x2/DİKMEARALIK_ALTAYUVARLA,DİKMEARASIONDALIK=YATAYHOLGENİŞLİĞİ/0x3-HOLGENİŞLİĞİTAM,DİKMESAYISI=YATAYHOLGENİŞLİĞİ/(İKİDİKMEARASI*0x2),DİKME_Y_ARTIŞ=İKİDİKMEARASI*Math[_0x22976d(0x1af)](MKAÇI*Math['PI']/0xb4),ÇAPRAZ_Y_ARTIŞ=DİKME_Y_ARTIŞ+MYÜKS,BinaYükseklik=_0x5ca3c8+MYÜKS+DİKME_Y_ARTIŞ*DİKMESAYISI,console['log'](_0x22976d(0x1a6),BinaYükseklik);}function _0x596a(){const _0x39b320=['1470564NOlJNp','BinaYükseklik','15609710SGiswf','error','floor','16020elufDx','YanKirişArası\x20hesapla\x20içi','7TzOTrQ','44642100NFtckE','MK_EN','tan','12LXdWXy','93557rrmwMM','Geçersiz\x20YATAYHOLGENİŞLİĞİ\x20veya\x20H\x20değeri.','11IcqGLZ','6911556ucNcdl','8WnFZUH','7676810bYwlHu','log','KOLONEBAT','ÇatıBağKirişSayısı','ceil','6592zcMcyU'];_0x596a=function(){return _0x39b320;};return _0x596a();}export function hesaplaYatayKolon(_0x424614){const _0x445bb7=_0x2f55;_0x424614<MKSHG?(YATAYHOLGENİŞLİĞİ=_0x424614,YATAYHOLSAYISI=0x1,YATAYAKSSAYISI=0x2):(YATAYHOLSAYISI=Math[_0x445bb7(0x1a3)](_0x424614/MKSHG),YATAYHOLGENİŞLİĞİ=_0x424614/YATAYHOLSAYISI,YATAYAKSSAYISI=YATAYHOLSAYISI+0x1);}export function ÇATIEĞİMHETKİSİHESAP(_0x5b8101){const _0x57ebf5=_0x2f55;ÇATIEĞİMHETKİSİ=YATAYHOLGENİŞLİĞİ*Math[_0x57ebf5(0x1af)](Math['PI']/0xb4*MKAÇI)/0x4,ALTMAKASYÜKS2=_0x5b8101+ÇATIEĞİMHETKİSİ;}export function MAKASBOYUHESAP(){MAKASBOYU=YATAYHOLGENİŞLİĞİ/0x2*MAKASBÜYKATSAYISI;}export function hesaplaDüşeyAks(_0x4b776c,_0x5ebc9f){const _0x406575=_0x2f55;DÜŞEYHOLSAYISI=Math[_0x406575(0x1a9)](_0x4b776c/_0x5ebc9f),DÜŞEYHOLGENİŞLİĞİ=_0x4b776c/DÜŞEYHOLSAYISI,DÜŞEYAKSSAYISI=DÜŞEYHOLSAYISI+0x1;}export function ZEMİNESASEBATHESAP(_0x254ba1,_0x58fe8c){esaszeminA=_0x254ba1+0xa,esaszeminB=_0x58fe8c+0xa;}export function YanBağKirişHesap(_0x4c8f99){const _0x3fd30d=_0x2f55;if(_0x4c8f99>0x0&&_0x4c8f99<=0xc)YanBağKirişAraAdet=0x2;else{if(_0x4c8f99>0xc&&_0x4c8f99<=0x12)YanBağKirişAraAdet=0x3;else _0x4c8f99>0x12&&(YanBağKirişAraAdet=Math[_0x3fd30d(0x1a9)](_0x4c8f99/YANBAĞKİRİŞİMAKS));}YanKirişArası=_0x4c8f99/YanBağKirişAraAdet,YanBağKirişAdet=YanBağKirişAraAdet-0x1,console[_0x3fd30d(0x1a0)](_0x3fd30d(0x1ab),YanKirişArası),ÇatıBağKirişSayısı=Math[_0x3fd30d(0x1a3)](YATAYHOLGENİŞLİĞİ/0x2/ÇatıBağKirişMaks),console[_0x3fd30d(0x1a0)](_0x3fd30d(0x1a2),ÇatıBağKirişSayısı),ÇatıBağKirişAra_Yatay=YATAYHOLGENİŞLİĞİ/0x2/ÇatıBağKirişSayısı,ÇatıBağKirişAra_Yekseni=Math[_0x3fd30d(0x1af)](MKAÇI*(Math['PI']/0xb4))*ÇatıBağKirişAra_Yatay;}export function ÇaprazYanHesap(){const _0xbb2181=_0x2f55;YanÇaprazAksadet=Math[_0xbb2181(0x1a3)](DÜŞEYHOLSAYISI/0x2),YanÇaprazAra=0x2*DÜŞEYHOLGENİŞLİĞİ,ÇaprazYükseklik=YanKirişArası,YanÇaprazDüşeyAdet=YanBağKirişAraAdet+0x1,ÇatıÇaprazZekseniAra=YanÇaprazAra,ÇatıÇaprazZekseniAdet=YanÇaprazAksadet;}export function KaplamaSınırHesap(){const _0x377ef4=_0x2f55;console[_0x377ef4(0x1a0)](_0x377ef4(0x1a1),KOLONEBAT),console[_0x377ef4(0x1a0)](_0x377ef4(0x1ae),MK_EN),KOLONEBAT>=MK_EN?ArkaKaplamaSınır=KOLONEBAT:ArkaKaplamaSınır=MK_EN;}
+//#region DEĞİŞKENLER ATAMA
+window.MKSHG=35 // MAKSİMUM HOL GENİŞLİĞİ
+export let YATAYHOLGENİŞLİĞİ
+export let MALTBÇAP = 0.11;     // Makas alt başlık çapı
+export let MÜÜSTBÇAP = 0.18;    // Makas üst başlık çapı
+export let MKAÇI = 5;         // Makas açısı
+export let MDDİYGÇAP;   // Makas diyagonel çapı
+export let MYÜKS      // Makas yüksekliği
+export let YATAYHOLSAYISI
+export let YATAYAKSSAYISI
+export let MAKASBOYU
+export let DÜŞEYHOLGENİŞLİĞİ
+export let DÜŞEYAKSSAYISI
+export let ÇATIEĞİMHETKİSİ
+export let esaszeminA // BETON ZEMİN X ÖLÇÜSÜ
+export let esaszeminB // BETON ZEMİN Z ÖLÇÜSÜ
+let DİKMEARALIK_VİRGÜLLÜ
+let DİKMEARALIK_ALTAYUVARLA
+let DİKMEARASIONDALIK
+let HOLGENİŞLİĞİTAM
+export let DİKMESAYISI
+export let İKİDİKMEARASI
+export let DİKME_Y_ARTIŞ
+export let DİKMEYAKLAŞIKARA
+let ÇAPRAZ_Y_ARTIŞ 
+export let DÜŞEYHOLSAYISI
+export let ALTMAKASYÜKS2; // Global değişken
+let MAKASBÜYKATSAYISI = 1.02 // MAKAS BÜYÜTME KATSAYISI
+export let YANBAĞKİRİŞİMAKS = 4
+export let YanBağKirişAraAdet 
+export let YanKirişArası
+export let YanBağKirişAdet
+export let ÇatıBağKirişAra_Yekseni
+export let ÇatıBağKirişSayısı
+export let ÇatıBağKirişAra_Yatay
+export let ÇatıBağKirişMaks = 6
+export let YanÇaprazAra
+export let YanÇaprazAksadet
+export let ÇaprazYükseklik
+export let YanÇaprazDüşeyAdet
+export let ÇatıÇaprazZekseniAra
+export let ÇatıÇaprazZekseniAdet
+export let BinaYükseklik
+export let ArkaKaplamaSınır
+
+import { KOLONEBAT, KOLON_BOX1, MK_EN} from './geometriler.js';
+
+//#endregion 
+
+//#region Makas Yüksekliği Hespalama
+export function MAKAS_YÜKSEKL_HESAPLA(YATAYHOLGENİŞLİĞİ, H) {
+  
+    if (YATAYHOLGENİŞLİĞİ > 0 && YATAYHOLGENİŞLİĞİ <= 10) {
+      if (H <= 6) {
+        MYÜKS = 0.5;
+      } else if (H > 6 && H <= 10) {
+        MYÜKS = 0.8;
+      } else if (H > 10 && H <= 15) {
+        MYÜKS = 1;
+      } else {
+        MYÜKS = 1.2;
+      }
+    } else if (YATAYHOLGENİŞLİĞİ > 10 && YATAYHOLGENİŞLİĞİ <= 20) {
+      if (H < 6) {
+        MYÜKS = 0.5;
+      } else if (H >= 6 && H <= 10) {
+        MYÜKS = 0.9;
+      } else if (H > 10 && H <= 15) {
+        MYÜKS = 1.1;
+      } else {
+        MYÜKS = 1.2;
+      }
+    } else if (YATAYHOLGENİŞLİĞİ > 20 && YATAYHOLGENİŞLİĞİ <= 28) {
+      if (H < 6) {
+        MYÜKS = 0.5;
+      } else if (H >= 6 && H <= 10) {
+        MYÜKS = 0.9;
+      } else if (H > 10 && H <= 15) {
+        MYÜKS = 1.1;
+      } else {
+        MYÜKS = 1.2;
+      }
+    } else if (YATAYHOLGENİŞLİĞİ > 28) {
+      if (H < 6) {
+        MYÜKS = 0.6;
+      } else if (H >= 6 && H <= 10) {
+        MYÜKS = 1;
+      } else if (H > 10 && H <= 15) {
+        MYÜKS = 1.5;
+      } else {
+        MYÜKS = 1.8;
+      }
+    } else {
+      console.error("Geçersiz YATAYHOLGENİŞLİĞİ veya H değeri.");
+      MYÜKS = null;
+    }
+  
+    return MYÜKS;
+  }
+  //#endregion 
+
+//#region DİKMEHESAP
+export function DİKMEHESAPLA(H) {
+    if (YATAYHOLGENİŞLİĞİ > 0 && YATAYHOLGENİŞLİĞİ <= 10) 
+      { MALTBÇAP = 0.1;
+         MÜÜSTBÇAP = 0.1; 
+         MDDİYGÇAP = 0.06; 
+         DİKMEYAKLAŞIKARA = 1.5
+    } 
+    else if   (YATAYHOLGENİŞLİĞİ > 10 && YATAYHOLGENİŞLİĞİ <= 20){ 
+      MALTBÇAP = 0.135;   
+      MÜÜSTBÇAP = 0.135;   
+      MDDİYGÇAP = 0.08; 
+      DİKMEYAKLAŞIKARA = 1.5
+    }
+   else if   (YATAYHOLGENİŞLİĞİ > 20 && YATAYHOLGENİŞLİĞİ <= 28){ 
+    MALTBÇAP = 0.18; 
+      MÜÜSTBÇAP = 0.18; 
+      MDDİYGÇAP = 0.1; 
+      DİKMEYAKLAŞIKARA = 1.8
+      } 
+    else if (YATAYHOLGENİŞLİĞİ > 28) {  
+      MALTBÇAP = 0.20; 
+      MÜÜSTBÇAP = 0.18; 
+      MDDİYGÇAP = 0.12; 
+      DİKMEYAKLAŞIKARA = 2.8
+    } 
+      else { }
+    
+    DİKMEARALIK_VİRGÜLLÜ = (YATAYHOLGENİŞLİĞİ / 2) / DİKMEYAKLAŞIKARA
+    DİKMEARALIK_ALTAYUVARLA = Math.floor(DİKMEARALIK_VİRGÜLLÜ);
+    İKİDİKMEARASI = (YATAYHOLGENİŞLİĞİ / 2) / DİKMEARALIK_ALTAYUVARLA
+    DİKMEARASIONDALIK = (YATAYHOLGENİŞLİĞİ / 3) - HOLGENİŞLİĞİTAM
+    DİKMESAYISI = YATAYHOLGENİŞLİĞİ /(İKİDİKMEARASI*2)
+    DİKME_Y_ARTIŞ = İKİDİKMEARASI * Math.tan(MKAÇI * Math.PI / 180);
+    ÇAPRAZ_Y_ARTIŞ = DİKME_Y_ARTIŞ + MYÜKS
+    BinaYükseklik= H+ MYÜKS+DİKME_Y_ARTIŞ*DİKMESAYISI
+console.log("BinaYükseklik",BinaYükseklik)
+
+
+    }
+//#endregion
+
+//#region YATAY KOLON HESAP
+export function hesaplaYatayKolon(A) {
+    if (A < MKSHG) {
+      YATAYHOLGENİŞLİĞİ = A;
+      YATAYHOLSAYISI = 1;
+      YATAYAKSSAYISI = 2;
+    } else {
+      YATAYHOLSAYISI = Math.ceil(A / MKSHG);  // Üste yuvarla
+      YATAYHOLGENİŞLİĞİ = A / YATAYHOLSAYISI;
+      YATAYAKSSAYISI = YATAYHOLSAYISI + 1;
+    }
+  }
+//#endregion
+
+//#region Çatı Eğim Etkisi Hesap
+  export function ÇATIEĞİMHETKİSİHESAP(H) {
+    ÇATIEĞİMHETKİSİ = ((YATAYHOLGENİŞLİĞİ * Math.tan(Math.PI / 180 * MKAÇI)) / 4);
+    ALTMAKASYÜKS2 = H + ÇATIEĞİMHETKİSİ;
+}
+//#endregion
+
+//#region Makas Boyu Hesap
+export function MAKASBOYUHESAP() {
+    MAKASBOYU = (YATAYHOLGENİŞLİĞİ/2)*MAKASBÜYKATSAYISI
+  }
+//#endregion
+  
+//#region Düşey aks hesaplama fonksiyonu
+export function hesaplaDüşeyAks(B, K) {
+    DÜŞEYHOLSAYISI = Math.floor(B / K);  // Düşey aks ara sayısı (alta yuvarlanır)
+    DÜŞEYHOLGENİŞLİĞİ = B / DÜŞEYHOLSAYISI;  // Düşey aks hol genişliği
+    DÜŞEYAKSSAYISI = DÜŞEYHOLSAYISI + 1;  // Düşey aks sayısı
+    
+  }
+//#endregion
+  
+//#region Zemin Esas Ebat Hesap
+export function ZEMİNESASEBATHESAP(A, B) {
+    esaszeminA = A+10
+    esaszeminB = B+10
+    }
+//#endregion
+
+//#region yan bağ kirişi geometriler hesaap
+export function YanBağKirişHesap(H) {
+
+    // H değerine göre YanBağKirişAraAdet değerini belirleyin
+    if (H > 0 && H <= 12) {
+      YanBağKirişAraAdet = 2;
+  } else if (H > 12 && H <= 18) {
+      YanBağKirişAraAdet = 3;
+  } else if (H > 18) {
+      YanBağKirişAraAdet = Math.floor(H / YANBAĞKİRİŞİMAKS);
+  }
+
+YanKirişArası = H/YanBağKirişAraAdet
+YanBağKirişAdet=YanBağKirişAraAdet-1
+console.log("YanKirişArası hesapla içi", YanKirişArası)
+
+ÇatıBağKirişSayısı = Math.ceil((YATAYHOLGENİŞLİĞİ/2)/ÇatıBağKirişMaks)
+console.log("ÇatıBağKirişSayısı", ÇatıBağKirişSayısı)
+ÇatıBağKirişAra_Yatay = (YATAYHOLGENİŞLİĞİ/2)/ÇatıBağKirişSayısı
+ÇatıBağKirişAra_Yekseni = Math.tan(MKAÇI * (Math.PI / 180))*ÇatıBağKirişAra_Yatay
+
+}
+//#endregion
+
+//#region Çapraz Yan Hesap ve Çatı Çapraz Değişkenler
+
+export function ÇaprazYanHesap() {
+YanÇaprazAksadet = Math.ceil(DÜŞEYHOLSAYISI/2)
+YanÇaprazAra =2*DÜŞEYHOLGENİŞLİĞİ
+ÇaprazYükseklik = YanKirişArası
+YanÇaprazDüşeyAdet=YanBağKirişAraAdet+1
+
+ÇatıÇaprazZekseniAra = YanÇaprazAra
+ÇatıÇaprazZekseniAdet = YanÇaprazAksadet
+}
+
+//#endregion
+
+//#region Kaplama için sınırlar hesap
+// ArkaKaplamaSınır değerini hesaplayan fonksiyon
+export function KaplamaSınırHesap ( ) {
+  console.log("KOLONEBAT",KOLONEBAT)
+  console.log("MK_EN",MK_EN)
+  
+  if (KOLONEBAT >= MK_EN) {
+      ArkaKaplamaSınır = KOLONEBAT;
+  } else {
+      ArkaKaplamaSınır = MK_EN;
+  }
+}
+
+//#endregion
+
+
+

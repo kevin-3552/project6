@@ -27,8 +27,8 @@ export function İLKFORM() {
    table.style.width = '100%';
  
    // Bir satır ve hücreler oluşturan yardımcı işlev
-   function createRow(labelText, inputId, defaultValue) {
-     const row = document.createElement('tr');
+   function createRow(labelText, inputId, defaultValue, inputType = 'number') {
+    const row = document.createElement('tr');
      const labelCell = document.createElement('td');
      labelCell.style.padding = '5px';
      labelCell.style.textAlign = 'right';
@@ -38,7 +38,7 @@ export function İLKFORM() {
      inputCell.style.padding = '6px';
  
      const input = document.createElement('input');
-     input.type = 'number';
+     input.type = inputType; // Dinamik olarak tipi ayarlanacak
      input.id = inputId;
      input.value = defaultValue;
      input.style.width = '100%';
@@ -54,6 +54,7 @@ export function İLKFORM() {
    }
  
    // Tabloya satırları ekleme
+   table.appendChild(createRow('Proje Adı:', 'projectName', 'Yeni Proje', 'text')); // Proje adı için metin alanı
    table.appendChild(createRow('En (A):', 'A', '60'));
    table.appendChild(createRow('Boy (B):', 'B', '50'));
    table.appendChild(createRow('Yükseklik (H):', 'H', '6'));
@@ -117,6 +118,13 @@ export function İLKFORM() {
    hideButton.style.cursor = 'pointer';
    hideButton.style.zIndex = '15';
    document.body.appendChild(hideButton);
+
+   // Kaydetme butonu
+const saveButton = document.createElement('button');
+saveButton.id = 'saveProjectButton';
+saveButton.textContent = 'Projeyi Kaydet';
+İlkkutu.appendChild(saveButton);
+
  }
   
 //#endregion 
@@ -143,42 +151,21 @@ export function maliyetgösterfonk(A, B, H) {
       const formattedMaliyetTL = new Intl.NumberFormat('tr-TR').format(MlytToplamÇlkTL);
       const formattedDolarKuru = dolarKuru.toFixed(2);
 
-// Maliyet container oluştur
-const maliyetContainer = document.createElement('div');
-maliyetContainer.id = 'maliyetContainer';
-maliyetContainer.style.position = 'absolute';
-maliyetContainer.style.right = '10px';
-maliyetContainer.style.bottom = '10px';
-maliyetContainer.style.zIndex = '10';
-maliyetContainer.style.backgroundColor = 'rgba(240, 240, 240, 0.9)';
-maliyetContainer.style.padding = '10px';
-maliyetContainer.style.border = '1px solid #000';
-maliyetContainer.style.borderRadius = '8px';
-const maliyetcontgenişlik = '220px';
-maliyetContainer.style.width = maliyetcontgenişlik;
-maliyetContainer.style.transition = 'height 0.3s ease, opacity 0.3s ease';
-maliyetContainer.style.overflow = 'hidden';
-
-// WhatsApp logosu ekle
-const whatsappLogo = document.createElement('img');
-whatsappLogo.src = 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg'; // Şeffaf arka planlı WhatsApp ikonu
-whatsappLogo.alt = 'WhatsApp';
-whatsappLogo.style.position = 'absolute';
-whatsappLogo.style.right = '10px';
-whatsappLogo.style.bottom = '70px'; // Maliyet container'in hemen üstü
-whatsappLogo.style.width = '40px';
-whatsappLogo.style.height = '40px';
-whatsappLogo.style.cursor = 'pointer';
-whatsappLogo.style.zIndex = '11'; // Üstte görünmesi için
-
-// WhatsApp linkine yönlendirme
-whatsappLogo.addEventListener('click', () => {
-  window.open('https://wa.me/905077908002', '_blank');
-});
-
-// Sayfaya ekleme
-document.body.appendChild(maliyetContainer);
-document.body.appendChild(whatsappLogo);
+      // Maliyet container oluştur
+      const maliyetContainer = document.createElement('div');
+      maliyetContainer.id = 'maliyetContainer';
+      maliyetContainer.style.position = 'absolute';
+      maliyetContainer.style.right = '10px';
+      maliyetContainer.style.bottom = '10px';
+      maliyetContainer.style.zIndex = '10';
+      maliyetContainer.style.backgroundColor = 'rgba(240, 240, 240, 0.9)';
+      maliyetContainer.style.padding = '10px';
+      maliyetContainer.style.border = '1px solid #000';
+      maliyetContainer.style.borderRadius = '8px';
+      const maliyetcontgenişlik = '220px'
+      maliyetContainer.style.width = maliyetcontgenişlik ;
+      maliyetContainer.style.transition = 'height 0.3s ease, opacity 0.3s ease';
+      maliyetContainer.style.overflow = 'hidden';
 
       // İçerik container (contentContainer) oluştur
       const contentContainer = document.createElement('div');
