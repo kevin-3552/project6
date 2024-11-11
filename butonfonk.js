@@ -27,7 +27,7 @@ import { vinçcheckbox, maliyetgösterfonk } from './container.js'
 // Nesneler
 import { YATAYKOLONGRUBU, SOLDİYAGONELGRUBU, SAĞDİYAGONELGRUBU, MakasGrupÇoğalt, YanKiriş_1, MakasİçiAltTamBracing, 
     Bracing_MakasİçiTam, ÇaprazYanKomple, ÇatıÇapraz1MakasGrup, ÇatıÇaprazTam, Totem1,CepheKaplamaSağSol, SolÇatıKaplama,
-MK_UZUNLUK, ZEMİNESAS, VinçKirişi, VincKancasi, loadedFont} from './nesneler.js';  // 
+MK_UZUNLUK, ZEMİNESAS, VinçKirişi, VincKancasi, loadedFont, DKG} from './nesneler.js';  // 
   
 // Hesaplar
 import { DİKMEHESAPLA, hesaplaDüşeyAks, hesaplaYatayKolon, ÇATIEĞİMHETKİSİHESAP, MAKASBOYUHESAP, 
@@ -76,6 +76,7 @@ export function üçdbutonabas (A, B, K,H) {
           MAKASBOYUHESAP()
           ZEMİNESASEBATHESAP(A, B)
           DİKMEHESAPLA(H)
+          DKG(H)
           YanBağKirişHesap(H)
           ÇaprazYanHesap() 
           YATAY_MK_GEO_1(YATAYHOLGENİŞLİĞİ, MK_UZUNLUK)
@@ -246,10 +247,25 @@ export function üçgenOpaklıkAyarlama() {
 
   // **Mobilde Farklı Stil Uygula**
   if (window.innerWidth <= 768) { // 768px altındaki ekranları mobil olarak kabul ediyoruz
-      triangleWrapper.style.top = "7px"; // Mobil için yukarı taşı
-      triangleWrapper.style.left = "237px"; // Mobil için sola kaydır
-      opacityLabel.style.fontSize = "12px"; // Yazıyı küçült
+      triangleWrapper.style.top = "9px"; // Mobil için yukarı taşı
+      triangleWrapper.style.left = "232px"; // Mobil için sola kaydır
+      opacityLabel.style.fontSize = "14px"; // Yazıyı küçült
+      opacityTriangle.style.marginTop = "4px"; // Üçgeni aşağı çekmek için
+      sliderHandle.style.marginTop = "7px"; // İşaretçiyi daha aşağı taşımak için top değerini artırdık
+      opacityLabel.style.marginBottom = "8px";
   }
+
+  
 }
 //#endregion
 
+export function applyMobileStyles() {
+  if (window.innerWidth <= 768) { // Mobil ekran kontrolü
+      triangleWrapper.style.top = "9px"; 
+      triangleWrapper.style.left = "232px";
+      opacityLabel.style.fontSize = "14px";
+      opacityTriangle.style.marginTop = "4px";
+      sliderHandle.style.marginTop = "7px";
+      opacityLabel.style.marginBottom = "8px";
+  }
+}
