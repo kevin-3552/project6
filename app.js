@@ -51,6 +51,8 @@ import { ÇelikTonajı , ÇelikTonaj,  MlytToplamÇlk, MlytToplamÇlkTL, dolarKu
 hideButton.addEventListener('click', () => {
   formVisible = !formVisible;
   İlkkutu.style.display = formVisible ? 'block' : 'none';
+  triangleWrapper.style.display = formVisible ? 'block' : 'none';
+
 });
 
 vinçkirişkaldir();
