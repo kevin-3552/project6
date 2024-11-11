@@ -13,6 +13,7 @@ export let totemcons
 export let CepheKaplamaCons
 export let SolÇatıKaplamacons
 export let vinçkirişicons
+export let triangleWrapper
 
 //#endregion
 
@@ -144,104 +145,111 @@ export function vinçkirişkaldir() {
   
 //#region Üçgen drag opaklık ayarlama fonksiyonu
 export function üçgenOpaklıkAyarlama() {
-    // Ana wrapper oluşturma
-    const triangleWrapper = document.createElement("div");
-    triangleWrapper.style.position = "absolute";
-    triangleWrapper.style.top = "20px";
-    triangleWrapper.style.left = "250px";
-    triangleWrapper.style.display = "flex";
-    triangleWrapper.style.flexDirection = "column";
-    triangleWrapper.style.alignItems = "center";
-  
-    // Opaklık yazısı ekleme
-    const opacityLabel = document.createElement("span");
-    opacityLabel.textContent = "Opaklık";
-    opacityLabel.style.fontSize = "14px";
-    opacityLabel.style.color = "black";
-    opacityLabel.style.marginBottom = "5px";
-    triangleWrapper.appendChild(opacityLabel);
-  
-    // Üçgen şekli oluşturma
-    const opacityTriangle = document.createElement("div");
-    opacityTriangle.style.width = "0";
-    opacityTriangle.style.height = "0";
-    opacityTriangle.style.borderTop = "7px solid transparent";
-    opacityTriangle.style.borderBottom = "7px solid transparent";
-    opacityTriangle.style.borderLeft = "80px solid rgba(0, 0, 0, 0.5)";
-    triangleWrapper.appendChild(opacityTriangle);
-  
-    // İşaretçi olarak hareket edecek dikdörtgen oluşturma
-    const sliderHandle = document.createElement("div");
-    sliderHandle.style.position = "absolute";
-    sliderHandle.style.width = "10px";
-    sliderHandle.style.height = "20px";
-    sliderHandle.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
-    sliderHandle.style.cursor = "pointer";
-    sliderHandle.style.top = "18px";
-    sliderHandle.style.left = "10px";
-    triangleWrapper.appendChild(sliderHandle);
-  
-    // Elemanları DOM'a ekleme
-    document.body.appendChild(triangleWrapper);
-  
-    let isDragging = false;
-  
-    // Masaüstü için sürükleme başlatma
-    sliderHandle.addEventListener("mousedown", function() {
-      isDragging = true;
-    });
-  
-    // Mobil için sürükleme başlatma
-    sliderHandle.addEventListener("touchstart", function() {
-      isDragging = true;
-    });
-  
-    // Sürükleme bitirme olayları
-    document.addEventListener("mouseup", function() {
-      isDragging = false;
-    });
-  
-    document.addEventListener("touchend", function() {
-      isDragging = false;
-    });
-  
-    // Sürükleme esnasında işaretçiyi hareket ettirme
-    function moveSlider(event) {
-      if (isDragging) {
-        const minLeft = 0;
-        const maxLeft = 70;
-  
-        const clientX = event.touches ? event.touches[0].clientX : event.clientX;
-        let newLeft = clientX - triangleWrapper.offsetLeft;
-        newLeft = Math.max(minLeft, Math.min(maxLeft, newLeft));
-  
-        sliderHandle.style.left = `${newLeft}px`;
-  
-        const opacityValue = 1 - ((newLeft - minLeft) / (maxLeft - minLeft)) * (1 - 0.1);
-  
-        if (typeof CepheKaplamaCons !== "undefined") {
-          CepheKaplamaCons.children.forEach(mesh => {
-            if (mesh.material) {
-              mesh.material.opacity = opacityValue;
-              mesh.material.needsUpdate = true;
-            }
-          });
-        }
-        
-        if (typeof SolÇatıKaplamacons !== "undefined") {
-          SolÇatıKaplamacons.children.forEach(mesh => {
-            if (mesh.material) {
-              mesh.material.opacity = opacityValue;
-              mesh.material.needsUpdate = true;
-            }
-          });
-        }
+  // Ana wrapper oluşturma
+  triangleWrapper = document.createElement("div");
+  triangleWrapper.style.position = "absolute";
+  triangleWrapper.style.top = "20px";
+  triangleWrapper.style.left = "250px";
+  triangleWrapper.style.display = "flex";
+  triangleWrapper.style.flexDirection = "column";
+  triangleWrapper.style.alignItems = "center";
+
+  // Opaklık yazısı ekleme
+  const opacityLabel = document.createElement("span");
+  opacityLabel.textContent = "Opaklık";
+  opacityLabel.style.fontSize = "14px";
+  opacityLabel.style.color = "black";
+  opacityLabel.style.marginBottom = "5px";
+  triangleWrapper.appendChild(opacityLabel);
+
+  // Üçgen şekli oluşturma
+  const opacityTriangle = document.createElement("div");
+  opacityTriangle.style.width = "0";
+  opacityTriangle.style.height = "0";
+  opacityTriangle.style.borderTop = "7px solid transparent";
+  opacityTriangle.style.borderBottom = "7px solid transparent";
+  opacityTriangle.style.borderLeft = "80px solid rgba(0, 0, 0, 0.5)";
+  triangleWrapper.appendChild(opacityTriangle);
+
+  // İşaretçi olarak hareket edecek dikdörtgen oluşturma
+  const sliderHandle = document.createElement("div");
+  sliderHandle.style.position = "absolute";
+  sliderHandle.style.width = "10px";
+  sliderHandle.style.height = "20px";
+  sliderHandle.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+  sliderHandle.style.cursor = "pointer";
+  sliderHandle.style.top = "18px";
+  sliderHandle.style.left = "10px";
+  triangleWrapper.appendChild(sliderHandle);
+
+  // Elemanları DOM'a ekleme
+  document.body.appendChild(triangleWrapper);
+
+  let isDragging = false;
+
+  // Masaüstü için sürükleme başlatma
+  sliderHandle.addEventListener("mousedown", function() {
+    isDragging = true;
+  });
+
+  // Mobil için sürükleme başlatma
+  sliderHandle.addEventListener("touchstart", function() {
+    isDragging = true;
+  });
+
+  // Sürükleme bitirme olayları
+  document.addEventListener("mouseup", function() {
+    isDragging = false;
+  });
+
+  document.addEventListener("touchend", function() {
+    isDragging = false;
+  });
+
+  // Sürükleme esnasında işaretçiyi hareket ettirme
+  function moveSlider(event) {
+    if (isDragging) {
+      const minLeft = 0;
+      const maxLeft = 70;
+
+      const clientX = event.touches ? event.touches[0].clientX : event.clientX;
+      let newLeft = clientX - triangleWrapper.offsetLeft;
+      newLeft = Math.max(minLeft, Math.min(maxLeft, newLeft));
+
+      sliderHandle.style.left = `${newLeft}px`;
+
+      const opacityValue = 1 - ((newLeft - minLeft) / (maxLeft - minLeft)) * (1 - 0.1);
+
+      if (typeof CepheKaplamaCons !== "undefined") {
+        CepheKaplamaCons.children.forEach(mesh => {
+          if (mesh.material) {
+            mesh.material.opacity = opacityValue;
+            mesh.material.needsUpdate = true;
+          }
+        });
+      }
+      
+      if (typeof SolÇatıKaplamacons !== "undefined") {
+        SolÇatıKaplamacons.children.forEach(mesh => {
+          if (mesh.material) {
+            mesh.material.opacity = opacityValue;
+            mesh.material.needsUpdate = true;
+          }
+        });
       }
     }
-  
-    // Masaüstü ve mobil için sürükleme hareketini algıla
-    document.addEventListener("mousemove", moveSlider);
-    document.addEventListener("touchmove", moveSlider);
   }
+
+  // Masaüstü ve mobil için sürükleme hareketini algıla
+  document.addEventListener("mousemove", moveSlider);
+  document.addEventListener("touchmove", moveSlider);
+
+  // **Mobilde Farklı Stil Uygula**
+  if (window.innerWidth <= 768) { // 768px altındaki ekranları mobil olarak kabul ediyoruz
+      triangleWrapper.style.top = "9px"; // Mobil için yukarı taşı
+      triangleWrapper.style.left = "235px"; // Mobil için sola kaydır
+      opacityLabel.style.fontSize = "12px"; // Yazıyı küçült
+  }
+}
 //#endregion
 
