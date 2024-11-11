@@ -246,8 +246,8 @@ export function üçgenOpaklıkAyarlama() {
 
   // **Mobilde Farklı Stil Uygula**
   if (window.innerWidth <= 768) { // 768px altındaki ekranları mobil olarak kabul ediyoruz
-      triangleWrapper.style.top = "9px"; // Mobil için yukarı taşı
-      triangleWrapper.style.left = "240px"; // Mobil için sola kaydır
+      triangleWrapper.style.top = "7px"; // Mobil için yukarı taşı
+      triangleWrapper.style.left = "237px"; // Mobil için sola kaydır
       opacityLabel.style.fontSize = "12px"; // Yazıyı küçült
   }
 }
