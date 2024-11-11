@@ -143,21 +143,42 @@ export function maliyetgösterfonk(A, B, H) {
       const formattedMaliyetTL = new Intl.NumberFormat('tr-TR').format(MlytToplamÇlkTL);
       const formattedDolarKuru = dolarKuru.toFixed(2);
 
-      // Maliyet container oluştur
-      const maliyetContainer = document.createElement('div');
-      maliyetContainer.id = 'maliyetContainer';
-      maliyetContainer.style.position = 'absolute';
-      maliyetContainer.style.right = '10px';
-      maliyetContainer.style.bottom = '10px';
-      maliyetContainer.style.zIndex = '10';
-      maliyetContainer.style.backgroundColor = 'rgba(240, 240, 240, 0.9)';
-      maliyetContainer.style.padding = '10px';
-      maliyetContainer.style.border = '1px solid #000';
-      maliyetContainer.style.borderRadius = '8px';
-      const maliyetcontgenişlik = '220px'
-      maliyetContainer.style.width = maliyetcontgenişlik ;
-      maliyetContainer.style.transition = 'height 0.3s ease, opacity 0.3s ease';
-      maliyetContainer.style.overflow = 'hidden';
+// Maliyet container oluştur
+const maliyetContainer = document.createElement('div');
+maliyetContainer.id = 'maliyetContainer';
+maliyetContainer.style.position = 'absolute';
+maliyetContainer.style.right = '10px';
+maliyetContainer.style.bottom = '10px';
+maliyetContainer.style.zIndex = '10';
+maliyetContainer.style.backgroundColor = 'rgba(240, 240, 240, 0.9)';
+maliyetContainer.style.padding = '10px';
+maliyetContainer.style.border = '1px solid #000';
+maliyetContainer.style.borderRadius = '8px';
+const maliyetcontgenişlik = '220px';
+maliyetContainer.style.width = maliyetcontgenişlik;
+maliyetContainer.style.transition = 'height 0.3s ease, opacity 0.3s ease';
+maliyetContainer.style.overflow = 'hidden';
+
+// WhatsApp logosu ekle
+const whatsappLogo = document.createElement('img');
+whatsappLogo.src = 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg'; // Şeffaf arka planlı WhatsApp ikonu
+whatsappLogo.alt = 'WhatsApp';
+whatsappLogo.style.position = 'absolute';
+whatsappLogo.style.right = '10px';
+whatsappLogo.style.bottom = '70px'; // Maliyet container'in hemen üstü
+whatsappLogo.style.width = '40px';
+whatsappLogo.style.height = '40px';
+whatsappLogo.style.cursor = 'pointer';
+whatsappLogo.style.zIndex = '11'; // Üstte görünmesi için
+
+// WhatsApp linkine yönlendirme
+whatsappLogo.addEventListener('click', () => {
+  window.open('https://wa.me/905077908002', '_blank');
+});
+
+// Sayfaya ekleme
+document.body.appendChild(maliyetContainer);
+document.body.appendChild(whatsappLogo);
 
       // İçerik container (contentContainer) oluştur
       const contentContainer = document.createElement('div');
