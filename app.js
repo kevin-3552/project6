@@ -163,6 +163,7 @@ document.addEventListener('keydown', function(event) { // Alt + M kısayolu
   if (event.altKey && (event.key === 'm' || event.key === 'M')) {
       document.getElementById('createCube').click();
   }
+
 });
 
 //#endregion
@@ -180,6 +181,10 @@ window.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('createCube')) {
       document.getElementById('createCube').click(); // Modelleme butonuna tıklayarak modeli otomatik oluşturuyoruz
   }
+          // Kamera pozisyonu
+          camera.position.set(-60, 35, 55);
+          // `controls` ile odak noktası belirleme
+          controls.target.set(A/3, H/3, -B/3);
 });
 //#endregion
 
