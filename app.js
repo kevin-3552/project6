@@ -226,11 +226,12 @@ window.addEventListener('orientationchange', updateRendererSize);
   
       const selectedLang = document.createElement('button');
       selectedLang.textContent = '🌐'; 
+      selectedLang.style.fontSize = '21px'; // Örneğin, 18 piksel
       selectedLang.style.width = '40px';
       selectedLang.style.height = '40px';
       selectedLang.style.borderRadius = '50%';
       selectedLang.style.border = 'none';
-      selectedLang.style.backgroundColor = 'white';
+      selectedLang.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'; // Beyaz arka plan, %80 opaklık
       selectedLang.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.1)';
       selectedLang.style.display = 'flex';
       selectedLang.style.alignItems = 'center';
@@ -242,7 +243,7 @@ window.addEventListener('orientationchange', updateRendererSize);
       dropdownMenu.style.right = '0px';
       dropdownMenu.style.display = 'flex'; // Görünür olması için
       dropdownMenu.style.flexDirection = 'column';
-      dropdownMenu.style.backgroundColor = 'white';
+      dropdownMenu.style.backgroundColor = 'rgba(255, 255, 255, 0.2)'; // Beyaz arka plan, %80 opaklık
       dropdownMenu.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.1)';
       dropdownMenu.style.borderRadius = '5px';
       dropdownMenu.style.padding = '5px';
@@ -264,7 +265,7 @@ window.addEventListener('orientationchange', updateRendererSize);
             langImg.alt = `${lang.code} icon`; // Erişilebilirlik için alt metin
             langImg.style.width = '24px'; // Boyutlandırma
             langImg.style.height = '24px';
-            langImg.style.borderRadius = '50%'; // Yuvarlak görünüm için
+            langImg.style.borderRadius = '80%'; // Yuvarlak görünüm için
             langImg.style.display = 'block';
             langImg.style.margin = 'auto'; // Ortalamak için
             langImg.style.cursor = 'pointer'; // El işareti için
@@ -274,7 +275,7 @@ window.addEventListener('orientationchange', updateRendererSize);
             langButton.style.height = '40px';
             langButton.style.borderRadius = '50%';
             langButton.style.border = 'none';
-            langButton.style.backgroundColor = 'white';
+            langButton.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
             langButton.style.marginBottom = '5px';
             langButton.style.cursor = 'pointer';
             langButton.style.display = 'flex'; // Merkezi hizalama
