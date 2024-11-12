@@ -1,3 +1,5 @@
+
+
 //#region Import'lar Değişkenler
 
 export let vinçcheckbox 
@@ -122,7 +124,6 @@ export function İLKFORM() {
 
     applyTranslations(currentLanguage);
 }
-  
 //#endregion 
 
 //#region Maliyet Ctr
@@ -252,6 +253,37 @@ contentContainer.appendChild(maliyetUsdDiv);
       }
   });
 }
+
+//#endregion
+
+//#region efc logosu
+export function efcicon() {
+    const iconContainer = document.createElement('div');
+    iconContainer.style.position = 'fixed';
+    iconContainer.style.top = '60px';
+    iconContainer.style.right = '0px'; // Dil seçim kutusunun yanına
+    iconContainer.style.cursor = 'pointer';
+    iconContainer.style.zIndex = '1000';
+
+    const iconImg = document.createElement('img');
+    iconImg.src = 'textures/efc.png'; // Yüklediğiniz texture dosyasının yolu
+    iconImg.alt = 'EFC Icon';
+    iconImg.style.width = '65px';
+    iconImg.style.height = '65px';
+    /*
+    iconImg.style.borderRadius = '50%';
+    iconImg.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.1)';
+*/
+    iconContainer.appendChild(iconImg);
+
+    // Tıklama olayı: URL'ye yönlendirme
+    iconContainer.addEventListener('click', () => {
+        window.open('https://www.efcstructures.com', '_blank');
+    });
+
+    document.body.appendChild(iconContainer);
+}
+
 
 //#endregion
 
