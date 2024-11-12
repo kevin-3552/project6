@@ -248,12 +248,13 @@ export function üçgenOpaklıkAyarlama() {
   // **Mobilde Farklı Stil Uygula**
   if (window.innerWidth <= 768) { // 768px altındaki ekranları mobil olarak kabul ediyoruz
       triangleWrapper.style.top = "9px"; // Mobil için yukarı taşı
-      triangleWrapper.style.left = "232px"; // Mobil için sola kaydır
+      triangleWrapper.style.left =`${mobilpikselkenar+50}px`;
       opacityLabel.style.fontSize = "14px"; // Yazıyı küçült
       opacityTriangle.style.marginTop = "4px"; // Üçgeni aşağı çekmek için
       sliderHandle.style.marginTop = "7px"; // İşaretçiyi daha aşağı taşımak için top değerini artırdık
       opacityLabel.style.marginBottom = "8px";
       
+
 
   }
 

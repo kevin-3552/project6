@@ -8,6 +8,8 @@ export let A, B, H, K;  // En, Boy, Yükseklik değişkenleri
 window.YATAYHOLGENİŞLİĞİ; 
 window.YATAYHOLSAYISI;
 window.YATAYAKSSAYISI; 
+window.mobilpikselkenar = 150
+
 
 //#endregion
 
@@ -55,19 +57,8 @@ export let currentLanguage = 'tr';  // Varsayılan dil Türkçe
 hideButton.addEventListener('click', () => {
   formVisible = !formVisible;
   İlkkutu.style.display = formVisible ? 'block' : 'none';
-  /* triangleWrapper.style.display = formVisible ? 'block' : 'none'; */
-// opaklık butonunu kapamayaı geçici olarak devredışı bıraktım
 
 });
-/*
-// Hide/Show işlevselliğini ekleme
-hideButton.addEventListener('click', () => {
-  formVisible = !formVisible;
-  triangleWrapper.style.display = formVisible ? 'block' : 'none';
-});
-*/
-
-
 
 vinçkirişkaldir();
 İlkkutuAdjustfonk();  // sayfa yüklendiğinde en boy ayarı
@@ -219,11 +210,10 @@ function updateRendererSize() {
 window.addEventListener('resize', updateRendererSize);
 window.addEventListener('orientationchange', updateRendererSize);
 
-  //#endregion
+//#endregion
 
-  // Dil değiştirici ikonlarını eklemek için fonksiyon
+//#region  // Dil değiştirici ikonlarını eklemek için fonksiyon
   let dropdownMenu; // Menüye global erişim için değişken tanımı
-
 
   function addLanguageSelector() {
       const languageSelector = document.createElement('div');
@@ -298,14 +288,13 @@ window.addEventListener('orientationchange', updateRendererSize);
       document.body.appendChild(languageSelector);
   }
   
-
-
-function onLanguageSelected(lang) {
-  applyTranslations(lang); // Seçilen dil için çevirileri uygula
-  dropdownMenu.style.display = 'none'; // Menü kapat
-}  
-  
-  
+  function onLanguageSelected(lang) {
+    currentLanguage = lang; // Mevcut dili güncelle
+    applyTranslations(lang); // Seçilen dil için çevirileri uygula
+    maliyetgösterfonk(A, B, H); // Maliyet container'ını yeni dile göre güncelle
+    dropdownMenu.style.display = 'none'; // Menü kapat
+}
+    
   // Dil değiştirme fonksiyonu
   function changeLanguage(lang) {
       const translations = {
@@ -339,3 +328,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+//#endregion

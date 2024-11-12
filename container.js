@@ -1,12 +1,14 @@
+//#region Import'lar Değişkenler
+
 export let vinçcheckbox 
 export let İlkkutu
 export let hideButton
-
 import {} from './app.js'
 import { ÇelikTonajı , dolarKuru, checkDolarKuruReady} from './maliyet.js';  // 
 import translations from './translations.js';
 import { currentLanguage } from './app.js'; // Mevcut dili içe aktar
 import { applyTranslations } from './translations.js'; // Mevcut dili içe aktar
+//#endregion 
 
 //#region 3D Model İlk Form container
 
@@ -23,7 +25,7 @@ export function İLKFORM() {
     İlkkutu.style.border = '1px solid #000';
     İlkkutu.style.borderRadius = '8px';
     if (window.innerWidth < 768) { // Mobil cihazlar için
-        İlkkutu.style.width = '170px';
+        İlkkutu.style.width = `${mobilpikselkenar}px`;
     } else { // PC veya daha geniş ekranlar için
         İlkkutu.style.width = '200px';
     }
@@ -109,7 +111,7 @@ export function İLKFORM() {
     hideButton.style.cursor = 'pointer';
 
     if (window.innerWidth < 768) { // Mobil cihazlar için
-        hideButton.style.left = '200px';
+        hideButton.style.left = `${mobilpikselkenar+25}px`;
     } else { // PC veya daha geniş ekranlar için
         hideButton.style.left = '220px';
     }
@@ -128,40 +130,34 @@ export function maliyetgösterfonk(A, B, H) {
     // Önceden var olan maliyetContainer ve toggleIcon öğelerini kaldır
     const existingContainer = document.getElementById('maliyetContainer');
     const existingToggleIcon = document.getElementById('toggleIcon');
-    if (existingContainer) {
-        existingContainer.remove();
-    }
-    if (existingToggleIcon) {
-        existingToggleIcon.remove();
-    }
+    if (existingContainer) existingContainer.remove();
+    if (existingToggleIcon) existingToggleIcon.remove();
 
-  checkDolarKuruReady(() => {
-    
-      const { ÇelikTonaj, MlytToplamÇlk, MlytToplamÇlkTL } = ÇelikTonajı(A, B, H);
+    checkDolarKuruReady(() => {
+        const { ÇelikTonaj, MlytToplamÇlk, MlytToplamÇlkTL } = ÇelikTonajı(A, B, H);
 
-      // Formatlanmış maliyet ve tonaj değerleri
-      const formattedTonaj = new Intl.NumberFormat('tr-TR', { minimumFractionDigits: 0 }).format(ÇelikTonaj);
-      const formattedMaliyet = new Intl.NumberFormat('tr-TR').format(MlytToplamÇlk);
-      const formattedMaliyetTL = new Intl.NumberFormat('tr-TR').format(MlytToplamÇlkTL);
-      const formattedDolarKuru = dolarKuru.toFixed(2);
+        // Formatlanmış maliyet ve tonaj değerleri
+        const formattedTonaj = new Intl.NumberFormat('tr-TR', { minimumFractionDigits: 0 }).format(ÇelikTonaj);
+        const formattedMaliyet = new Intl.NumberFormat('tr-TR').format(MlytToplamÇlk);
+        const formattedMaliyetTL = new Intl.NumberFormat('tr-TR').format(MlytToplamÇlkTL);
+        const formattedDolarKuru = dolarKuru.toFixed(2);
 
-// Maliyet container oluştur
-const maliyetContainer = document.createElement('div');
-maliyetContainer.id = 'maliyetContainer';
-maliyetContainer.style.position = 'fixed';
-maliyetContainer.style.right = '10px';
-maliyetContainer.style.bottom = '10px';
-maliyetContainer.style.zIndex = '10';
-maliyetContainer.style.backgroundColor = 'rgba(240, 240, 240, 0.9)';
-maliyetContainer.style.padding = '10px';
-maliyetContainer.style.border = '1px solid #000';
-maliyetContainer.style.borderRadius = '8px';
-const maliyetcontgenişlik = '220px';
-maliyetContainer.style.width = maliyetcontgenişlik;
-maliyetContainer.style.transition = 'height 0.3s ease, opacity 0.3s ease';
-maliyetContainer.style.overflow = 'hidden';
+        // Maliyet container oluştur
+        const maliyetContainer = document.createElement('div');
+        maliyetContainer.id = 'maliyetContainer';
+        maliyetContainer.style.position = 'fixed';
+        maliyetContainer.style.right = '10px';
+        maliyetContainer.style.bottom = '10px';
+        maliyetContainer.style.zIndex = '10';
+        maliyetContainer.style.backgroundColor = 'rgba(240, 240, 240, 0.9)';
+        maliyetContainer.style.padding = '10px';
+        maliyetContainer.style.border = '1px solid #000';
+        maliyetContainer.style.borderRadius = '8px';
+        maliyetContainer.style.width = '220px';
+        maliyetContainer.style.transition = 'height 0.3s ease, opacity 0.3s ease';
+        maliyetContainer.style.overflow = 'hidden';
 
-// WhatsApp logosu ekle
+        // WhatsApp logosu ekle
 const whatsappLogo = document.createElement('img');
 whatsappLogo.src = 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg'; // Şeffaf arka planlı WhatsApp ikonu
 whatsappLogo.alt = 'WhatsApp';
@@ -182,34 +178,44 @@ whatsappLogo.addEventListener('click', () => {
 document.body.appendChild(maliyetContainer);
 document.body.appendChild(whatsappLogo);
 
-      // İçerik container (contentContainer) oluştur
-      const contentContainer = document.createElement('div');
 
-      // Tonaj bilgisini ekle
-      const tonajDiv = document.createElement('div');
-      tonajDiv.style.marginBottom = '10px';
-      tonajDiv.textContent = `Metal Yapı: ${formattedTonaj} ton`;
-      contentContainer.appendChild(tonajDiv);
 
-      // TL maliyet bilgisini ekle
-      const maliyetTLDiv = document.createElement('div');
-      maliyetTLDiv.style.marginBottom = '5px';
-      maliyetTLDiv.textContent = `Maliyet: ${formattedMaliyetTL} ₺`;
-      contentContainer.appendChild(maliyetTLDiv);
+        // İçerik container (contentContainer) oluştur
+        const contentContainer = document.createElement('div');
 
-      // USD maliyet ve dolar kuru bilgisini ekle
-      const maliyetUsdDiv = document.createElement('div');
-      maliyetUsdDiv.textContent = `${formattedMaliyet} $ (1 $ = ${formattedDolarKuru} ₺)`;
-      contentContainer.appendChild(maliyetUsdDiv);
+        // Tonaj bilgisini ekle
+        const tonajDiv = document.createElement('div');
+        tonajDiv.style.marginBottom = '10px';
+        tonajDiv.textContent = `${translations[currentLanguage].metalYapi}: ${formattedTonaj} ton`;
+        contentContainer.appendChild(tonajDiv);
 
-      maliyetContainer.appendChild(contentContainer);
+        // TL maliyet bilgisini ekle
+        const maliyetTLDiv = document.createElement('div');
+        maliyetTLDiv.style.marginBottom = '5px';
+        maliyetTLDiv.textContent = `${translations[currentLanguage].maliyet}: ${formattedMaliyetTL} ₺`;
+        contentContainer.appendChild(maliyetTLDiv);
+
+        /*
+        // USD maliyet ve dolar kuru bilgisini ekle
+        const maliyetUsdDiv = document.createElement('div');
+        maliyetUsdDiv.textContent = `${translations[currentLanguage].maliyetUsd}: ${formattedMaliyet} $ (1 $ = ${formattedDolarKuru} ₺)`;
+        contentContainer.appendChild(maliyetUsdDiv);
+*/
+        // USD maliyet ve dolar kuru bilgisini ekle
+const maliyetUsdDiv = document.createElement('div');
+// Sadece rakamlar ve birimler
+maliyetUsdDiv.textContent = `${formattedMaliyet} $ (1 $ = ${formattedDolarKuru} ₺)`;
+contentContainer.appendChild(maliyetUsdDiv);
+
+
+        maliyetContainer.appendChild(contentContainer);
 
       // İkon oluştur ve `maliyetContainer` dışında ekle
       const toggleIcon = document.createElement('div');
       toggleIcon.id = 'toggleIcon'; // ID ekliyoruz
       toggleIcon.textContent = '▶'; // Katlanır simge olarak ok kullanıyoruz
       toggleIcon.style.cursor = 'pointer';
-      toggleIcon.style.position = 'fixed';
+      toggleIcon.style.position = 'absolute';
       toggleIcon.style.color= 'yellow';
       toggleIcon.style.bottom = '32px'; // `maliyetContainer`'in hemen üstünde konumlandır
       const gizlebutonkenar =  `250px`
@@ -246,6 +252,7 @@ document.body.appendChild(whatsappLogo);
       }
   });
 }
+
 //#endregion
 
 

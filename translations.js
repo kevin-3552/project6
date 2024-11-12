@@ -1,3 +1,4 @@
+//3d button diller
 const translations = {
     tr: {
         createCube: "3D Bina Modelle",
@@ -6,7 +7,12 @@ const translations = {
         boyLabel: 'Boy (B):',
         yukseklikLabel: 'Yükseklik:',
         aksArasiLabel: 'Aks-m:',
-        craneCheckboxLabel: 'vinç yolu'
+        craneCheckboxLabel: 'vinç yolu',
+        metalYapi: "Metal Yapı",
+        maliyet: "Maliyet",
+        maliyetUsd: "Maliyet (USD)",
+        whatsappLink: "WhatsApp'ta paylaş",
+
     },
     en: {
         createCube: "Create 3D Model",
@@ -15,7 +21,12 @@ const translations = {
         boyLabel: 'Length(B):',
         yukseklikLabel: 'Height(H):',
         aksArasiLabel: 'Axis:',
-        craneCheckboxLabel: 'Crane Rail'
+        craneCheckboxLabel: 'Crane Rail',
+        metalYapi: "Metal Structure",
+        maliyet: "Cost",
+        maliyetUsd: "Cost (USD)",
+        whatsappLink: "Share on WhatsApp",
+
     },
     ar: {
         createCube: "إنشاء ثلاثي الأبعاد",
@@ -24,7 +35,12 @@ const translations = {
         boyLabel: 'طول',  
         yukseklikLabel: 'ارتفاع:',
         aksArasiLabel: 'ديسمبر:',
-        craneCheckboxLabel: 'رافعة'
+        craneCheckboxLabel: 'رافعة',
+        metalYapi: "الهيكل المعدني",
+        maliyet: "التكلفة",
+        maliyetUsd: "التكلفة (بالدولار الأمريكي)",
+        whatsappLink: "شارك على الواتساب",
+
     }
 };
 
