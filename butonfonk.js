@@ -27,7 +27,7 @@ import { vinçcheckbox, maliyetgösterfonk } from './container.js'
 // Nesneler
 import { YATAYKOLONGRUBU, SOLDİYAGONELGRUBU, SAĞDİYAGONELGRUBU, MakasGrupÇoğalt, YanKiriş_1, MakasİçiAltTamBracing, 
     Bracing_MakasİçiTam, ÇaprazYanKomple, ÇatıÇapraz1MakasGrup, ÇatıÇaprazTam, Totem1,CepheKaplamaSağSol, SolÇatıKaplama,
-MK_UZUNLUK, ZEMİNESAS, VinçKirişi, VincKancasi, loadedFont} from './nesneler.js';  // 
+MK_UZUNLUK, ZEMİNESAS, VinçKirişi, VincKancasi, loadedFont, DKG} from './nesneler.js';  // 
   
 // Hesaplar
 import { DİKMEHESAPLA, hesaplaDüşeyAks, hesaplaYatayKolon, ÇATIEĞİMHETKİSİHESAP, MAKASBOYUHESAP, 
@@ -76,6 +76,7 @@ export function üçdbutonabas (A, B, K,H) {
           MAKASBOYUHESAP()
           ZEMİNESASEBATHESAP(A, B)
           DİKMEHESAPLA(H)
+          DKG(H)
           YanBağKirişHesap(H)
           ÇaprazYanHesap() 
           YATAY_MK_GEO_1(YATAYHOLGENİŞLİĞİ, MK_UZUNLUK)
@@ -148,7 +149,7 @@ export function üçgenOpaklıkAyarlama() {
   // Ana wrapper oluşturma
   triangleWrapper = document.createElement("div");
   triangleWrapper.style.position = "absolute";
-  triangleWrapper.style.top = "20px";
+  triangleWrapper.style.top = "15px";
   triangleWrapper.style.left = "250px";
   triangleWrapper.style.display = "flex";
   triangleWrapper.style.flexDirection = "column";
@@ -252,19 +253,10 @@ export function üçgenOpaklıkAyarlama() {
       opacityTriangle.style.marginTop = "4px"; // Üçgeni aşağı çekmek için
       sliderHandle.style.marginTop = "7px"; // İşaretçiyi daha aşağı taşımak için top değerini artırdık
       opacityLabel.style.marginBottom = "8px";
+      
+
   }
 
   
 }
 //#endregion
-
-export function applyMobileStyles() {
-  if (window.innerWidth <= 768) { // Mobil ekran kontrolü
-      triangleWrapper.style.top = "9px"; 
-      triangleWrapper.style.left = "232px";
-      opacityLabel.style.fontSize = "14px";
-      opacityTriangle.style.marginTop = "4px";
-      sliderHandle.style.marginTop = "7px";
-      opacityLabel.style.marginBottom = "8px";
-  }
-}

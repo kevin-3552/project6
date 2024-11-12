@@ -13,8 +13,10 @@ window.YATAYAKSSAYISI;
 
 //#region IMPORT'lar
 // conteiner.js ve buton fonkden al
+import { applyTranslations } from './translations.js'; // Çevirileri uygula fonksiyonunu içe aktar
+
 import { vinçcheckbox, İlkkutu, İLKFORM, hideButton, maliyetgösterfonk} from './container.js'; 
-import { üçdbutonabas, CepheKaplamaCons, SolÇatıKaplamacons,vinçkirişicons, vinçkirişkaldir, üçgenOpaklıkAyarlama,
+import { üçdbutonabas, CepheKaplamaCons, SolÇatıKaplamacons,vinçkirişicons, vinçkirişkaldir, üçgenOpaklıkAyarlama, triangleWrapper
     } from './butonfonk.js';  // 
 
 // Nesneler
@@ -38,6 +40,8 @@ import { ÇimZeminMalzeme1  } from './malzemeler.js';  //
 
 // Maliyetler Import
 import { ÇelikTonajı , ÇelikTonaj,  MlytToplamÇlk, MlytToplamÇlkTL, dolarKuru} from './maliyet.js';  // 
+export let currentLanguage = 'tr';  // Varsayılan dil Türkçe 
+
 
 // BUTON Import
 
@@ -51,12 +55,23 @@ import { ÇelikTonajı , ÇelikTonaj,  MlytToplamÇlk, MlytToplamÇlkTL, dolarKu
 hideButton.addEventListener('click', () => {
   formVisible = !formVisible;
   İlkkutu.style.display = formVisible ? 'block' : 'none';
-  triangleWrapper.style.display = formVisible ? 'block' : 'none';
+  /* triangleWrapper.style.display = formVisible ? 'block' : 'none'; */
+// opaklık butonunu kapamayaı geçici olarak devredışı bıraktım
 
 });
+/*
+// Hide/Show işlevselliğini ekleme
+hideButton.addEventListener('click', () => {
+  formVisible = !formVisible;
+  triangleWrapper.style.display = formVisible ? 'block' : 'none';
+});
+*/
+
+
 
 vinçkirişkaldir();
 İlkkutuAdjustfonk();  // sayfa yüklendiğinde en boy ayarı
+
 
 // Form Hizalama Fonksion
 function İlkkutuAdjustfonk() {
@@ -189,16 +204,138 @@ function animate() {
 
 //#region Init Çağırma ve Resize
 init();
-// Resize olduğunda ekranın boyutlarını güncelle
-window.addEventListener('resize', () => {
-    const width = window.innerWidth;
-    const height = window.innerHeight;
+function updateRendererSize() {
+  const width = window.innerWidth;
+  const height = window.innerHeight;
 
-    // Kamera en-boy oranını güncelle
-    camera.aspect = width / height;
-    camera.updateProjectionMatrix();
+  // Kamera en-boy oranını güncelle
+  camera.aspect = width / height;
+  camera.updateProjectionMatrix();
 
-    // Renderer boyutlarını güncelle
-    renderer.setSize(width, height);
-  });
+  // Renderer boyutlarını güncelle
+  renderer.setSize(width, height);
+}
+
+window.addEventListener('resize', updateRendererSize);
+window.addEventListener('orientationchange', updateRendererSize);
+
   //#endregion
+
+  // Dil değiştirici ikonlarını eklemek için fonksiyon
+  let dropdownMenu; // Menüye global erişim için değişken tanımı
+
+
+  function addLanguageSelector() {
+      const languageSelector = document.createElement('div');
+      languageSelector.id = 'languageSelector';
+      languageSelector.style.position = 'fixed';
+      languageSelector.style.top = '10px';
+      languageSelector.style.right = '10px';
+      languageSelector.style.cursor = 'pointer';
+      languageSelector.style.zIndex = '1000';
+  
+      const selectedLang = document.createElement('button');
+      selectedLang.textContent = '🌐'; 
+      selectedLang.style.width = '40px';
+      selectedLang.style.height = '40px';
+      selectedLang.style.borderRadius = '50%';
+      selectedLang.style.border = 'none';
+      selectedLang.style.backgroundColor = 'white';
+      selectedLang.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.1)';
+      selectedLang.style.display = 'flex';
+      selectedLang.style.alignItems = 'center';
+      selectedLang.style.justifyContent = 'center';
+  
+      dropdownMenu = document.createElement('div'); // Global değişkene atandı
+      dropdownMenu.style.position = 'absolute';
+      dropdownMenu.style.top = '50px';
+      dropdownMenu.style.right = '0px';
+      dropdownMenu.style.display = 'none';
+      dropdownMenu.style.flexDirection = 'column';
+      dropdownMenu.style.backgroundColor = 'white';
+      dropdownMenu.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.1)';
+      dropdownMenu.style.borderRadius = '5px';
+      dropdownMenu.style.padding = '5px';
+  
+      const languages = [
+          { code: 'tr', icon: '🇹🇷' },
+          { code: 'en', icon: '🇬🇧' },
+          { code: 'ar', icon: '🇸🇦' },
+      ];
+  
+      languages.forEach(lang => {
+          const langButton = document.createElement('button');
+          langButton.textContent = lang.icon;
+          langButton.setAttribute('data-lang', lang.code);
+          langButton.style.width = '40px';
+          langButton.style.height = '40px';
+          langButton.style.borderRadius = '50%';
+          langButton.style.border = 'none';
+          langButton.style.backgroundColor = 'white';
+          langButton.style.marginBottom = '5px';
+          langButton.style.cursor = 'pointer';
+  
+          langButton.addEventListener('click', () => {
+              onLanguageSelected(lang.code);
+          });
+  
+          dropdownMenu.appendChild(langButton);
+      });
+  
+      selectedLang.addEventListener('click', (event) => {
+          event.stopPropagation(); 
+          dropdownMenu.style.display = dropdownMenu.style.display === 'none' ? 'flex' : 'none';
+      });
+  
+      document.addEventListener('click', (event) => {
+          if (!languageSelector.contains(event.target)) {
+              dropdownMenu.style.display = 'none';
+          }
+      });
+  
+      languageSelector.appendChild(selectedLang);
+      languageSelector.appendChild(dropdownMenu);
+      document.body.appendChild(languageSelector);
+  }
+  
+
+
+function onLanguageSelected(lang) {
+  applyTranslations(lang); // Seçilen dil için çevirileri uygula
+  dropdownMenu.style.display = 'none'; // Menü kapat
+}  
+  
+  
+  // Dil değiştirme fonksiyonu
+  function changeLanguage(lang) {
+      const translations = {
+          tr: { createCube: "3D Modelle", hideButton: "Gizle" },
+          en: { createCube: "Create 3D", hideButton: "Hide" },
+          ar: { createCube: "إنشاء ثلاثي الأبعاد", hideButton: "إخفاء" },
+      };
+  
+      document.getElementById('createCube').textContent = translations[lang].createCube;
+      document.getElementById('hideButton').textContent = translations[lang].hideButton;
+  }
+  
+  // Sayfa yüklendiğinde çağır
+  document.addEventListener('DOMContentLoaded', () => {
+      addLanguageSelector();
+  });
+
+  // Sayfa yüklendiğinde varsayılan dilde metinleri ayarla
+document.addEventListener('DOMContentLoaded', () => {
+  changeLanguage(currentLanguage); // Varsayılan dili kullanarak metinleri güncelle
+});
+
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const dropdownMenu = document.getElementById('languageSelector').querySelector('div'); // Dropdown menüyü seçin
+    
+    // Menü içindeki her bayrak için event listener ekleyin
+    dropdownMenu.addEventListener('click', (event) => {
+        if (event.target.tagName === 'BUTTON' && event.target.hasAttribute('data-lang')) {
+            dropdownMenu.style.display = 'none'; // Menü bayrak seçildikten sonra kapanır
+        }
+    });
+});
