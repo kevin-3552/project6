@@ -17,7 +17,7 @@ window.mobilpikselkenar = 150
 // conteiner.js ve buton fonkden al
 import { applyTranslations } from './translations.js'; // Çevirileri uygula fonksiyonunu içe aktar
 
-import { vinçcheckbox, İlkkutu, İLKFORM, hideButton, maliyetgösterfonk} from './container.js'; 
+import { vinçcheckbox, İlkkutu, İLKFORM, hideButton, maliyetgösterfonk, efcicon} from './container.js'; 
 import { üçdbutonabas, CepheKaplamaCons, SolÇatıKaplamacons,vinçkirişicons, vinçkirişkaldir, üçgenOpaklıkAyarlama, triangleWrapper
     } from './butonfonk.js';  // 
 
@@ -52,6 +52,11 @@ export let currentLanguage = 'tr';  // Varsayılan dil Türkçe
 //#region Buton Çağırmalar
 İLKFORM()
 üçgenOpaklıkAyarlama();
+
+// Sayfa yüklendiğinde çağır
+document.addEventListener('DOMContentLoaded', () => {
+  efcicon();
+});
 
 // Hide/Show işlevselliğini ekleme
 hideButton.addEventListener('click', () => {
@@ -163,7 +168,6 @@ document.addEventListener('keydown', function(event) { // Alt + M kısayolu
   if (event.altKey && (event.key === 'm' || event.key === 'M')) {
       document.getElementById('createCube').click();
   }
-
 });
 
 //#endregion
@@ -181,10 +185,11 @@ window.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('createCube')) {
       document.getElementById('createCube').click(); // Modelleme butonuna tıklayarak modeli otomatik oluşturuyoruz
   }
-          // Kamera pozisyonu
-          camera.position.set(-60, 35, 55);
-          // `controls` ile odak noktası belirleme
-          controls.target.set(A/3, H/3, -B/3);
+      // Kamera pozisyonu
+      camera.position.set(-60, 35, 55);
+      // `controls` ile odak noktası belirleme
+      controls.target.set(A/3, H/3, -B/3);
+
 });
 //#endregion
 
