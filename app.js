@@ -240,37 +240,57 @@ window.addEventListener('orientationchange', updateRendererSize);
       dropdownMenu.style.position = 'absolute';
       dropdownMenu.style.top = '50px';
       dropdownMenu.style.right = '0px';
-      dropdownMenu.style.display = 'none';
+      dropdownMenu.style.display = 'flex'; // Görünür olması için
       dropdownMenu.style.flexDirection = 'column';
       dropdownMenu.style.backgroundColor = 'white';
       dropdownMenu.style.boxShadow = '0px 4px 6px rgba(0, 0, 0, 0.1)';
       dropdownMenu.style.borderRadius = '5px';
       dropdownMenu.style.padding = '5px';
   
+
       const languages = [
-          { code: 'tr', icon: '🇹🇷' },
-          { code: 'en', icon: '🇬🇧' },
-          { code: 'ar', icon: '🇸🇦' },
-      ];
+        { code: 'tr', icon: 'textures/tr.png' },
+        { code: 'en', icon: 'textures/eng.png' },
+        { code: 'ar', icon: 'textures/arabic.png' },
+          ];
   
-      languages.forEach(lang => {
-          const langButton = document.createElement('button');
-          langButton.textContent = lang.icon;
-          langButton.setAttribute('data-lang', lang.code);
-          langButton.style.width = '40px';
-          langButton.style.height = '40px';
-          langButton.style.borderRadius = '50%';
-          langButton.style.border = 'none';
-          langButton.style.backgroundColor = 'white';
-          langButton.style.marginBottom = '5px';
-          langButton.style.cursor = 'pointer';
-  
-          langButton.addEventListener('click', () => {
-              onLanguageSelected(lang.code);
-          });
-  
-          dropdownMenu.appendChild(langButton);
-      });
+          languages.forEach(lang => {
+            const langButton = document.createElement('button');
+            langButton.setAttribute('data-lang', lang.code);
+            
+            // İkon için img öğesi oluşturma
+            const langImg = document.createElement('img');
+            langImg.src = lang.icon; // PNG dosya yolu
+            langImg.alt = `${lang.code} icon`; // Erişilebilirlik için alt metin
+            langImg.style.width = '24px'; // Boyutlandırma
+            langImg.style.height = '24px';
+            langImg.style.borderRadius = '50%'; // Yuvarlak görünüm için
+            langImg.style.display = 'block';
+            langImg.style.margin = 'auto'; // Ortalamak için
+            langImg.style.cursor = 'pointer'; // El işareti için
+
+        
+            langButton.style.width = '40px';
+            langButton.style.height = '40px';
+            langButton.style.borderRadius = '50%';
+            langButton.style.border = 'none';
+            langButton.style.backgroundColor = 'white';
+            langButton.style.marginBottom = '5px';
+            langButton.style.cursor = 'pointer';
+            langButton.style.display = 'flex'; // Merkezi hizalama
+            langButton.style.alignItems = 'center';
+            langButton.style.justifyContent = 'center';
+            
+            // PNG ekle
+            langButton.appendChild(langImg);
+            
+            langButton.addEventListener('click', () => {
+                onLanguageSelected(lang.code);
+            });
+            
+            dropdownMenu.appendChild(langButton);
+        });
+        
   
       selectedLang.addEventListener('click', (event) => {
           event.stopPropagation(); 
