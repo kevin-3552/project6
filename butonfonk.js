@@ -112,13 +112,15 @@ export function üçdbutonabas (A, B, K,H) {
           scene.add(totemcons)
           scene.add(CepheKaplamaCons)
           scene.add(SolÇatıKaplamacons)
-              if (vinçcheckbox.checked) {
-                  scene.add(vinçkirişicons);  // Vinç kirişini sahneye ekle
-              } else {
-              }
-        
-                
-      //#endregion buton iç fonksiyon detay bitiş  
+          scene.add(vinçkirişicons)
+      
+      //#endregion buton iç fonksiyon detay bitiş
+      
+      // Kamera pozisyonu
+        camera.position.set(-60, 35, 55);
+      // `controls` ile odak noktası belirleme
+      controls.target.set(A/3, H/3, -B/3);
+      
 
         };
 //#endregion
