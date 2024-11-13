@@ -26,11 +26,7 @@ export function İLKFORM() {
     İlkkutu.style.padding = '5px';
     İlkkutu.style.border = '1px solid #000';
     İlkkutu.style.borderRadius = '8px';
-    if (window.innerWidth < 768) { // Mobil cihazlar için
-        İlkkutu.style.width = `${mobilpikselkenar}px`;
-    } else { // PC veya daha geniş ekranlar için
-        İlkkutu.style.width = '200px';
-    }
+ 
     
     // Tablo elemanlarını oluşturma
     const table = document.createElement('table');
@@ -39,18 +35,25 @@ export function İLKFORM() {
     function createRow(labelKey, inputId, defaultValue) {
         const row = document.createElement('tr');
         const labelCell = document.createElement('td');
-        labelCell.style.padding = '5px';
+        
+        if (window.innerWidth <= 768) { // SATIRLAR ARASI MESAFE
+        labelCell.style.padding = '0px';
+        } else { labelCell.style.padding = '2px';}
+        
         labelCell.style.textAlign = 'right';
+        labelCell.style.fontSize = '14px'; /// Sol yazıların boyutu
+        
         labelCell.setAttribute('data-label', labelKey);
-
         const inputCell = document.createElement('td');
-        inputCell.style.padding = '6px';
+
+        if (window.innerWidth <= 768) { inputCell.style.padding = '0px';
+        } else {   inputCell.style.padding = '3px'; }
 
         const input = document.createElement('input');
         input.type = 'number';
         input.id = inputId;
         input.value = defaultValue;
-        input.style.width = '100%';
+        input.style.width = '90%';
         input.style.padding = '5px';
         input.style.borderRadius = '4px';
         input.style.border = '1px solid #ccc';
@@ -73,13 +76,14 @@ export function İLKFORM() {
     const vinçcheckboxkutu = document.createElement('div');
     vinçcheckboxkutu.style.display = 'flex';
     vinçcheckboxkutu.style.alignItems = 'center';
-    vinçcheckboxkutu.style.marginTop = '3px';
+    vinçcheckboxkutu.style.marginTop = '0px';
+    vinçcheckboxkutu.style.marginBottom = '0px';
 
     vinçcheckbox = document.createElement('input');
     vinçcheckbox.type = 'checkbox';
     vinçcheckbox.id = 'craneCheckbox';
     vinçcheckbox.checked = true;
-
+   
     const vinçcheckboxLabel = document.createElement('label');
     vinçcheckboxLabel.setAttribute('data-label', 'craneCheckboxLabel');
     vinçcheckboxkutu.appendChild(vinçcheckbox);
@@ -89,9 +93,12 @@ export function İLKFORM() {
     // 3D Bina Modelle Butonu
     const createButton = document.createElement('button');
     createButton.id = 'createCube';
-    createButton.style.marginTop = '10px';
+    createButton.style.marginTop = '2px';
     createButton.style.width = '100%';
     createButton.style.padding = '10px';
+    createButton.style.height = '32px'; // Butonun yüksekliğini sabitler
+    createButton.style.lineHeight = '12px'; // Metin yüksekliği için
+
     createButton.style.backgroundColor = '#007BFF';
     createButton.style.color = 'white';
     createButton.style.border = 'none';
@@ -114,8 +121,20 @@ export function İLKFORM() {
 
     if (window.innerWidth < 768) { // Mobil cihazlar için
         hideButton.style.left = `${mobilpikselkenar+25}px`;
+        vinçcheckbox.style.width = '15px'; // Checkbox genişliği
+        vinçcheckbox.style.height = '15px'; // Checkbox yüksekliği
+        İlkkutu.style.width = `${mobilpikselkenar}px`;
+        vinçcheckboxLabel.style.fontSize = '14px'; // Yazı font boyutunu ayarlayın
+
+    
     } else { // PC veya daha geniş ekranlar için
+        const vinçcheckboxsize = 12
         hideButton.style.left = '220px';
+        vinçcheckbox.style.width = `${vinçcheckboxsize}px`; // Checkbox genişliği
+        vinçcheckbox.style.height = `${vinçcheckboxsize}px`; // Checkbox yüksekliği
+        İlkkutu.style.width = '200px';
+        vinçcheckboxLabel.style.fontSize = '15px'; // Yazı font boyutunu ayarlayın
+
     }
 
     hideButton.addEventListener('mousedown', () => {
