@@ -114,7 +114,7 @@ function createGround() { // Çim Zemin ekleme
     const textureLoader = new THREE.TextureLoader();
     const skyTexture = textureLoader.load('textures/sky.png');
     
-    const skyGeometry = new THREE.SphereGeometry(1000, 60, 40); // Büyük bir küre, gökyüzü etkisi için
+    const skyGeometry = new THREE.SphereGeometry(300, 60, 40); // Büyük bir küre, gökyüzü etkisi için
     const skyMaterial = new THREE.MeshBasicMaterial({
         map: skyTexture,
         side: THREE.BackSide // Kürenin iç yüzeyi görünsün
