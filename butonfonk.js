@@ -116,12 +116,6 @@ export function üçdbutonabas (A, B, K,H) {
       
       //#endregion buton iç fonksiyon detay bitiş
       
-      // Kamera pozisyonu
-        camera.position.set(-60, 35, 55);
-      // `controls` ile odak noktası belirleme
-      controls.target.set(A/3, H/3, -B/3);
-      
-
         };
 //#endregion
 
