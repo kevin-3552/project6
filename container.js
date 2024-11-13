@@ -117,6 +117,23 @@ export function İLKFORM() {
     } else { // PC veya daha geniş ekranlar için
         hideButton.style.left = '220px';
     }
+
+    hideButton.addEventListener('mousedown', () => {
+        hideButton.style.filter = 'brightness(0.8)';
+        hideButton.style.transform = 'scale(0.95)';
+    });
+    
+    hideButton.addEventListener('mouseup', () => {
+        hideButton.style.filter = '';
+        hideButton.style.transform = '';
+    });
+    
+    hideButton.addEventListener('mouseleave', () => {
+        hideButton.style.filter = '';
+        hideButton.style.transform = '';
+    });
+    
+
     document.body.appendChild(hideButton);
 
 
@@ -179,6 +196,24 @@ whatsappLogo.addEventListener('click', () => {
 document.body.appendChild(maliyetContainer);
 document.body.appendChild(whatsappLogo);
 
+        // Mail ikonu ekle
+        const mailIcon = document.createElement('img');
+        mailIcon.id = 'mailIcon';
+        mailIcon.src = 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Email_Icon.png'; // Şeffaf mail ikonu
+        mailIcon.alt = 'Mail';
+        mailIcon.style.position = 'absolute';
+        mailIcon.style.top = '5px';
+        mailIcon.style.right = '5px';
+        mailIcon.style.width = '20px';
+        mailIcon.style.height = '20px';
+        mailIcon.style.cursor = 'pointer';
+        mailIcon.style.zIndex = '12';
+
+        mailIcon.addEventListener('click', () => {
+            window.location.href = 'mailto:firat@efcstructures.com';
+        });
+
+        maliyetContainer.appendChild(mailIcon);
 
 
         // İçerik container (contentContainer) oluştur
