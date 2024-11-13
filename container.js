@@ -117,6 +117,23 @@ export function İLKFORM() {
     } else { // PC veya daha geniş ekranlar için
         hideButton.style.left = '220px';
     }
+
+    hideButton.addEventListener('mousedown', () => {
+        hideButton.style.filter = 'brightness(0.8)';
+        hideButton.style.transform = 'scale(0.95)';
+    });
+    
+    hideButton.addEventListener('mouseup', () => {
+        hideButton.style.filter = '';
+        hideButton.style.transform = '';
+    });
+    
+    hideButton.addEventListener('mouseleave', () => {
+        hideButton.style.filter = '';
+        hideButton.style.transform = '';
+    });
+    
+
     document.body.appendChild(hideButton);
 
 
@@ -304,5 +321,3 @@ export function efcicon() {
 
 
 //#endregion
-
-
