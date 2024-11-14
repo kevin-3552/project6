@@ -101,7 +101,7 @@ bodrumCheckboxContainer.style.marginBottom = '0px';
 bodrumCheckbox = document.createElement('input');
 bodrumCheckbox.type = 'checkbox';
 bodrumCheckbox.id = 'bodrumCheckbox';
-bodrumCheckbox.checked = true;
+bodrumCheckbox.checked = false;
 
 
 const bodrumLabel = document.createElement('label');

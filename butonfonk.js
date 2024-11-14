@@ -35,8 +35,7 @@ import { YATAYKOLONGRUBU, SOLDİYAGONELGRUBU, SAĞDİYAGONELGRUBU, MakasGrupÇo�
 MK_UZUNLUK, VinçKirişi, VincKancasi, loadedFont, DKG, TEMELGRUP} from './nesneler.js';  // 
   
 // Hesaplar
-import { DİKMEHESAPLA, hesaplaDüşeyAks, hesaplaYatayKolon, ÇATIEĞİMHETKİSİHESAP, MAKASBOYUHESAP, 
-ZEMİNESASEBATHESAP, YanBağKirişHesap , ÇaprazYanHesap, KaplamaSınırHesap, ArkaKaplamaSınır, esaszeminA, esaszeminB } from './hesapla.js'; 
+import { DİKMEHESAPLA, hesaplaDüşeyAks, hesaplaYatayKolon, ÇATIEĞİMHETKİSİHESAP, MAKASBOYUHESAP, YanBağKirişHesap , ÇaprazYanHesap, KaplamaSınırHesap, ArkaKaplamaSınır } from './hesapla.js'; 
   
 // Hesapla Const
 import { MKAÇI, YanKirişArası, YanBağKirişAdet, YATAYHOLGENİŞLİĞİ, DÜŞEYHOLSAYISI, DÜŞEYHOLGENİŞLİĞİ ,
@@ -79,7 +78,6 @@ export function üçdbutonabas (A, B, K,H) {
           MAKAS_YÜKSEKL_HESAPLA(YATAYHOLGENİŞLİĞİ, H)
           ÇATIEĞİMHETKİSİHESAP(H, YATAYHOLGENİŞLİĞİ, MKAÇI);
           MAKASBOYUHESAP()
-          ZEMİNESASEBATHESAP(A, B)
           DİKMEHESAPLA(H)
           DKG(H)
           YanBağKirişHesap(H)
@@ -120,55 +118,11 @@ export function üçdbutonabas (A, B, K,H) {
               }
 
               çimekleçıkar(A, B);
-              ZEMİNESAS(A, B)
               TEMELGRUP(A,B)
 
-                
-      //#endregion buton iç fonksiyon detay bitiş  
-
+              //#endregion buton iç fonksiyon detay bitiş  
         };
 //#endregion
-
-
-//#region Zemin - Beton
-// ZEMİNESAS fonksiyonu
-export function ZEMİNESAS(A, B) {
-  const updateGround = () => {
-      const mevcutZemin = scene.getObjectByName('zeminEsas');
-      if (mevcutZemin) {
-          scene.remove(mevcutZemin); // Önceki zemin varsa kaldır
-      }
-
-      if (!bodrumCheckbox.checked) {
-          // Bodrum işaretli değilse zemin oluştur ve sahneye ekle
-          const ZEMİNESAS_TEXTURE = new THREE.TextureLoader().load('textures/zemin9.png');
-          ZEMİNESAS_TEXTURE.wrapS = THREE.RepeatWrapping;
-          ZEMİNESAS_TEXTURE.wrapT = THREE.RepeatWrapping;
-          ZEMİNESAS_TEXTURE.repeat.set(1, 1);  // Zemin dokusunun tekrarlanmasını sağlar
-
-          const groundGeometry = new THREE.PlaneGeometry(esaszeminA, esaszeminB);  // Zemin ebatları
-          const groundMaterial = new THREE.MeshBasicMaterial({
-              map: ZEMİNESAS_TEXTURE,
-              side: THREE.DoubleSide // Zeminin iki yüzüne de doku ekler
-          });
-
-          const groundMesh = new THREE.Mesh(groundGeometry, groundMaterial);
-          groundMesh.rotation.x = -Math.PI / 2;  // Yatay hale getiriyoruz
-          groundMesh.position.set(A / 2, -0.1, -B / 2);  // Pozisyon ayarlanıyor
-          groundMesh.name = 'zeminEsas'; // Benzersiz isim
-
-          scene.add(groundMesh); // Sahneye ekle
-      }
-  };
-
-  // Bodrum checkbox değişimini dinle
-  bodrumCheckbox.addEventListener('change', updateGround);
-
-  // İlk çağrıda zemin durumu güncelle
-  updateGround();
-}
-
-// #endregion 
 
 
 
@@ -324,20 +278,7 @@ export function çimekleçıkar(A, B) {
       const groundGroup = new THREE.Group();
       groundGroup.name = 'groundGroup';
 
-      if (!excludeSection) {
-          // Tek bir zemin oluştur (Tam alan)
-          const fullGround = new THREE.PlaneGeometry(A + taşmamesafeTam , B + taşmamesafeTam );
-          const fullMesh = new THREE.Mesh(fullGround, ÇimZeminMalzeme1);
-         
-          fullMesh.material.map.wrapS = THREE.RepeatWrapping; // X ekseninde tekrarlama
-          fullMesh.material.map.wrapT = THREE.RepeatWrapping; // Y ekseninde tekrarlama
-          fullMesh.material.map.repeat.set(A/10,B/10); // X ekseninde 2 kez, Y ekseninde 1 kez tekrar      
-          fullMesh.material.map.needsUpdate = true; // Güncellemeyi zorla
-
-          fullMesh.rotation.x = -Math.PI / 2;
-          fullMesh.position.set(A/2, Yderinlik, -B / 2);
-          groundGroup.add(fullMesh);
-      } else {
+      
           // 1. Plane (Sol Dar Alan)
           const plane1Geometry = new THREE.PlaneGeometry(taşmamesafe, B + taşmamesafe/2+altradyeçıkıntı*2);
           const plane1Mesh = new THREE.Mesh(plane1Geometry, ÇimZeminMalzeme1);
@@ -385,10 +326,7 @@ export function çimekleçıkar(A, B) {
         plane2Mesh.position.set(A/ 2, Yderinlik, -B - taşmamesafe/2-altradyeçıkıntı-bodrumperdekalınlık*2);
         groundGroup.add(plane2Mesh);
 
-
-      }
-
-      scene.add(groundGroup);
+        scene.add(groundGroup);
   };
 
   bodrumCheckbox.addEventListener('change', updateGround);
