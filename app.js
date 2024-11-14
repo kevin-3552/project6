@@ -28,7 +28,7 @@ import { YATAYKOLONGRUBU, SOLDİYAGONELGRUBU, SAĞDİYAGONELGRUBU, MakasGrupÇo�
 
 // Hesaplar
 import { DİKMEHESAPLA, hesaplaDüşeyAks, hesaplaYatayKolon, ÇATIEĞİMHETKİSİHESAP, MAKASBOYUHESAP, 
-  ZEMİNESASEBATHESAP, YanBağKirişHesap , ÇaprazYanHesap, KaplamaSınırHesap, ArkaKaplamaSınır } from './hesapla.js'; 
+   YanBağKirişHesap , ÇaprazYanHesap, KaplamaSınırHesap, ArkaKaplamaSınır } from './hesapla.js'; 
 
 // Hesapla Const
   import { MKAÇI, YanKirişArası, YanBağKirişAdet, YATAYHOLGENİŞLİĞİ, DÜŞEYHOLSAYISI, DÜŞEYHOLGENİŞLİĞİ ,
@@ -118,7 +118,7 @@ function addAmbientLight() { // Ambient light ekleme fonksiyonu
     skyMesh.position.x = 0; 
     skyMesh.position.z = 0; 
   
-    scene.add(skyMesh);     // Gökyüzü küresini sahneye ekleme
+    scene.add(skyMesh);  // Gökyüzü küresini sahneye ekleme
 
   }
 //#endregion
